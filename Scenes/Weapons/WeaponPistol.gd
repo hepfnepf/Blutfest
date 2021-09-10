@@ -6,8 +6,6 @@ export (int) var mag_size = 15
 
 
 
-onready var end_of_gun = $EndOfGun
-onready var gun_direction = $GunDirection
 onready var animation_player = $AnimationPlayer
 onready var ray : RayCast2D = $RayCast2D
 

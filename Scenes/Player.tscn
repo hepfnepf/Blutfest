@@ -85,7 +85,7 @@ func _on_Area2D_area_entered(area):
 "
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 12.5756
+radius = 72.486
 
 [sub_resource type="Animation" id=3]
 resource_name = "none"
@@ -1209,9 +1209,6 @@ script = ExtResource( 8 )
 weapon_none = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 50.0333, 3.36358 )
-scale = Vector2( 7.9333, -6.90788 )
 shape = SubResource( 2 )
 
 [node name="Sprites" type="Node2D" parent="."]
@@ -1299,6 +1296,7 @@ zoom = Vector2( 2, 2 )
 [node name="ItemInteractionZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemInteractionZone"]
+visible = false
 position = Vector2( 50.0333, 3.36358 )
 scale = Vector2( 7.9333, -6.90788 )
 shape = SubResource( 2 )

@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Helper/Movement.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Enemys/AI.tscn" type="PackedScene" id=6]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "halt"
 length = 0.2
 tracks/0/type = "value"
@@ -23,8 +23,7 @@ tracks/0/keys = {
 "values": [ 39, 30 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "walk"
+[sub_resource type="Animation" id=2]
 length = 0.75
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -40,7 +39,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 136.332
+radius = 116.115
 
 [sub_resource type="AnimationNodeAnimation" id=4]
 animation = "Walk"
@@ -62,8 +61,6 @@ transitions = [ "Walk", "halt", SubResource( 6 ) ]
 
 [node name="Zombie" type="KinematicBody2D"]
 scale = Vector2( 0.7, 0.7 )
-collision_layer = 4
-collision_mask = 2
 script = ExtResource( 3 )
 speed = 200
 max_health = 50
@@ -76,8 +73,8 @@ vframes = 4
 frame = 39
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/halt = SubResource( 2 )
-anims/walk = SubResource( 1 )
+anims/halt = SubResource( 1 )
+anims/walk = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 3 )

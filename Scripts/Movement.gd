@@ -24,7 +24,7 @@ func vector_to(location: Vector2):
 	return actor.global_position.direction_to(location)
 
 func move_to(location:Vector2):
-	movement_vector = vector_to(location)*speed
+	movement_vector = vector_to(location).normalized()*speed
 	lerp_location = location
 	
 	
@@ -43,5 +43,5 @@ func _physics_process(delta):
 	if movement_vector != Vector2.ZERO:
 		if animation_player.current_animation != "walk":
 			animation_player.play("walk")
-		actor.move_and_slide(movement_vector)
+		actor.move_and_collide(movement_vector*delta)
 		lerp_rotate_toward(lerp_location)
