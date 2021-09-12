@@ -1,9 +1,18 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
 
-[node name="HBoxContainer" type="HBoxContainer"]
+[ext_resource path="res://Scenes/UI/Healthbar.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.592157, 0.113725, 0.0666667, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.192157, 0.129412, 0.129412, 1 )
+
+[node name="HealthWidget" type="HBoxContainer"]
 margin_right = 225.0
 margin_bottom = 40.0
 mouse_filter = 2
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -15,6 +24,8 @@ margin_bottom = 35.0
 rect_min_size = Vector2( 300, 30 )
 mouse_filter = 2
 size_flags_vertical = 4
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
 percent_visible = false
 
 [node name="Label" type="Label" parent="."]

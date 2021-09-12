@@ -9,80 +9,7 @@
 [ext_resource path="res://Sprites/Player/forearm.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Weapon.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/Weapons/WeaponNone.tscn" type="PackedScene" id=9]
-
-[sub_resource type="GDScript" id=1]
-script/source = "extends KinematicBody2D
-
-var move_speed = 300
-onready var Sprite = $Sprites
-onready var AnimationPlayer = $AnimationPlayer
-onready var Weapon = $Weapon
-
-func animateWalk(move_vec):
-	#does not work
-	if move_vec != Vector2.ZERO:
-		if (move_vec.x < 0):
-			if(move_vec.y < 0):
-				AnimationPlayer.play(\"walk_forward_left\")
-			elif(move_vec.y > 0):
-				AnimationPlayer.play(\"walk_backwards_left\")
-			else:
-				AnimationPlayer.play(\"walk_left\")
-		elif(move_vec.x > 0):
-			if(move_vec.y < 0): 
-				AnimationPlayer.play(\"walk_forward_right\")
-			elif(move_vec.y > 0):
-				AnimationPlayer.play(\"walk_backwards_right\")
-			else:
-				AnimationPlayer.play(\"walk_right\")
-		else:
-			if (move_vec.y < 0):
-				AnimationPlayer.play(\"walk_forward\")
-			elif (move_vec.y > 0):
-				AnimationPlayer.play(\"walk_backwards\")
-			else:
-				AnimationPlayer.play(\"none\")
-			
-		AnimationPlayer.playback_speed = 2.0
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-func _physics_process(delta):
-	var move_vec = Vector2()
-	if Input.is_action_pressed(\"move_up\"):
-		move_vec.y -=1
-	if Input.is_action_pressed(\"move_down\"):
-		move_vec.y +=1
-	if Input.is_action_pressed(\"move_left\"):
-		move_vec.x -=1
-	if Input.is_action_pressed(\"move_right\"):
-		move_vec.x +=1
-	
-	move_vec = move_vec.normalized()
-	#animateWalk(move_vec)
-	
-	move_and_collide(move_vec * move_speed * delta)
-	
-	#self.look_at(get_global_mouse_position()-self.position)
-	look_at(get_global_mouse_position())
-
-
-
-
-func set_weapon(weapon):
-	Weapon.set_weapon(weapon)
-
-func _on_Area2D_area_entered(area):
-	print(area.name)
-	if area.is_in_group(\"Item\"):
-		if area.has_method(\"pick_up\"):
-			area.pick_up(self)
-		else:
-			print(\"Item without pickup function\")
-"
+[ext_resource path="res://Scenes/Player.gd" type="Script" id=10]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 72.486
@@ -1202,7 +1129,7 @@ tracks/7/keys = {
 }
 
 [node name="Player" type="KinematicBody2D"]
-script = SubResource( 1 )
+script = ExtResource( 10 )
 
 [node name="Weapon" type="Node2D" parent="."]
 script = ExtResource( 8 )
