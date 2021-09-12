@@ -1,0 +1,28 @@
+[gd_scene format=2]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+margin_right = 225.0
+margin_bottom = 40.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_top = 5.0
+margin_right = 300.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 300, 30 )
+mouse_filter = 2
+size_flags_vertical = 4
+percent_visible = false
+
+[node name="Label" type="Label" parent="."]
+margin_left = 304.0
+margin_top = 5.0
+margin_right = 375.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 70, 30 )
+text = "HP: 10/100"
+align = 1
+valign = 1

@@ -1291,7 +1291,7 @@ anims/walk_right = SubResource( 11 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 4, 4 )
 
 [node name="ItemInteractionZone" type="Area2D" parent="."]
 
