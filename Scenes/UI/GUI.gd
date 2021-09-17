@@ -28,6 +28,7 @@ func reset_weapon(weapon):
 	set_max_ammo(weapon.max_ammo)
 	weapon.connect("ammo_changed",self,"set_ammo")
 	weapon.connect("max_ammo_changed",self,"set_max_ammo")
+	weapon.connect("reload_percent_change", self, "set_reload_progress")
 
 func set_health(new_health):
 	health_widget.set_health(new_health)
@@ -37,6 +38,8 @@ func set_ammo(new_ammo):
 	ammo_widget.set_ammo(new_ammo)
 func set_max_ammo(new_max_ammo):
 	ammo_widget.set_max_ammo(new_max_ammo)
+func set_reload_progress(percent):
+	ammo_widget.set_reload_progress(percent)
 func set_exp(new_exp):
 	exp_widget.set_exp(new_exp)
 func set_max_exp(new_max_exp):
