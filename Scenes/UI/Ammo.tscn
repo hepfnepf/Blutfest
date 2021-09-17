@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/UI/Ammo.gd" type="Script" id=1]
+
+[node name="AmmoWidget" type="VBoxContainer"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -37.0
+margin_top = -16.0
+margin_bottom = 16.0
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 44.0
+margin_bottom = 14.0
+
+[node name="CurrentAmmo" type="Label" parent="HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 14.0
+text = "10"
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+margin_left = 20.0
+margin_right = 24.0
+margin_bottom = 14.0
+
+[node name="MaxAmmo" type="Label" parent="HBoxContainer"]
+margin_left = 28.0
+margin_right = 44.0
+margin_bottom = 14.0
+text = "20"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_top = 18.0
+margin_right = 44.0
+margin_bottom = 20.0
+mouse_filter = 2
+size_flags_vertical = 4
+percent_visible = false

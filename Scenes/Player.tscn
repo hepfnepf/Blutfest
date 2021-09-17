@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Sprites/Player/leg.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Player/hand_holding_gun.png" type="Texture" id=2]
@@ -8,86 +8,13 @@
 [ext_resource path="res://Sprites/Player/arm.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Player/forearm.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Weapon.gd" type="Script" id=8]
-[ext_resource path="res://Scenes/Weapons/WeaponNone.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Weapons/WeaponPistol.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Player.gd" type="Script" id=10]
 
-[sub_resource type="GDScript" id=1]
-script/source = "extends KinematicBody2D
+[sub_resource type="CircleShape2D" id=1]
+radius = 73.9803
 
-var move_speed = 300
-onready var Sprite = $Sprites
-onready var AnimationPlayer = $AnimationPlayer
-onready var Weapon = $Weapon
-
-func animateWalk(move_vec):
-	#does not work
-	if move_vec != Vector2.ZERO:
-		if (move_vec.x < 0):
-			if(move_vec.y < 0):
-				AnimationPlayer.play(\"walk_forward_left\")
-			elif(move_vec.y > 0):
-				AnimationPlayer.play(\"walk_backwards_left\")
-			else:
-				AnimationPlayer.play(\"walk_left\")
-		elif(move_vec.x > 0):
-			if(move_vec.y < 0): 
-				AnimationPlayer.play(\"walk_forward_right\")
-			elif(move_vec.y > 0):
-				AnimationPlayer.play(\"walk_backwards_right\")
-			else:
-				AnimationPlayer.play(\"walk_right\")
-		else:
-			if (move_vec.y < 0):
-				AnimationPlayer.play(\"walk_forward\")
-			elif (move_vec.y > 0):
-				AnimationPlayer.play(\"walk_backwards\")
-			else:
-				AnimationPlayer.play(\"none\")
-			
-		AnimationPlayer.playback_speed = 2.0
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-func _physics_process(delta):
-	var move_vec = Vector2()
-	if Input.is_action_pressed(\"move_up\"):
-		move_vec.y -=1
-	if Input.is_action_pressed(\"move_down\"):
-		move_vec.y +=1
-	if Input.is_action_pressed(\"move_left\"):
-		move_vec.x -=1
-	if Input.is_action_pressed(\"move_right\"):
-		move_vec.x +=1
-	
-	move_vec = move_vec.normalized()
-	#animateWalk(move_vec)
-	
-	move_and_collide(move_vec * move_speed * delta)
-	
-	#self.look_at(get_global_mouse_position()-self.position)
-	look_at(get_global_mouse_position())
-
-
-
-
-func set_weapon(weapon):
-	Weapon.set_weapon(weapon)
-
-func _on_Area2D_area_entered(area):
-	print(area.name)
-	if area.is_in_group(\"Item\"):
-		if area.has_method(\"pick_up\"):
-			area.pick_up(self)
-		else:
-			print(\"Item without pickup function\")
-"
-
-[sub_resource type="CircleShape2D" id=2]
-radius = 72.486
-
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "none"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprites:position")
@@ -402,7 +329,7 @@ tracks/25/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "walk_backwards"
 length = 4.0
 tracks/0/type = "value"
@@ -502,7 +429,7 @@ tracks/7/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "walk_backwards_left"
 length = 2.0
 tracks/0/type = "value"
@@ -602,7 +529,7 @@ tracks/7/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "walk_backwards_right"
 length = 2.0
 loop = true
@@ -703,7 +630,7 @@ tracks/7/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -803,7 +730,7 @@ tracks/7/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -903,7 +830,7 @@ tracks/7/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 resource_name = "walk_forward_right"
 length = 2.0
 tracks/0/type = "value"
@@ -1003,7 +930,7 @@ tracks/7/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprites/torso/legL:position")
@@ -1102,7 +1029,7 @@ tracks/7/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprites/torso/legL:position")
@@ -1201,15 +1128,19 @@ tracks/7/keys = {
 "values": [ 0.0, 0.0 ]
 }
 
+[sub_resource type="CircleShape2D" id=11]
+radius = 11.0105
+
 [node name="Player" type="KinematicBody2D"]
-script = SubResource( 1 )
+script = ExtResource( 10 )
 
 [node name="Weapon" type="Node2D" parent="."]
 script = ExtResource( 8 )
-weapon_none = ExtResource( 9 )
+
+[node name="WeaponPistol" parent="Weapon" instance=ExtResource( 9 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Sprites" type="Node2D" parent="."]
 
@@ -1279,26 +1210,25 @@ z_index = 1
 texture = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/none = SubResource( 3 )
-anims/walk_backwards = SubResource( 4 )
-anims/walk_backwards_left = SubResource( 5 )
-anims/walk_backwards_right = SubResource( 6 )
-anims/walk_forward = SubResource( 7 )
-anims/walk_forward_left = SubResource( 8 )
-anims/walk_forward_right = SubResource( 9 )
-anims/walk_left = SubResource( 10 )
-anims/walk_right = SubResource( 11 )
+anims/none = SubResource( 2 )
+anims/walk_backwards = SubResource( 3 )
+anims/walk_backwards_left = SubResource( 4 )
+anims/walk_backwards_right = SubResource( 5 )
+anims/walk_forward = SubResource( 6 )
+anims/walk_forward_left = SubResource( 7 )
+anims/walk_forward_right = SubResource( 8 )
+anims/walk_left = SubResource( 9 )
+anims/walk_right = SubResource( 10 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 4, 4 )
 
 [node name="ItemInteractionZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemInteractionZone"]
-visible = false
-position = Vector2( 50.0333, 3.36358 )
+position = Vector2( 18.604, 0 )
 scale = Vector2( 7.9333, -6.90788 )
-shape = SubResource( 2 )
+shape = SubResource( 11 )
 
 [connection signal="area_entered" from="ItemInteractionZone" to="." method="_on_Area2D_area_entered"]

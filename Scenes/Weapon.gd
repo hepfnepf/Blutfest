@@ -3,14 +3,16 @@ extends Node2D
 signal weapon_switch(new_weapon)
 
 
-export (PackedScene) var weapon_none
+#export (PackedScene) var weapon_pistol
 
-var current_weapon = null setget set_weapon
+onready var weapon_pistol = $WeaponPistol
 
-var weapon_dict = {"NONE":weapon_none}
+onready var current_weapon = weapon_pistol setget set_weapon
 
-func _ready():
-	set_weapon(weapon_none)
+#var weapon_dict = {"NONE":weapon_none}
+
+#func _ready():
+#	set_weapon(weapon_pistol)
 
 func set_weapon(weapon):
 	if current_weapon != null:
@@ -18,3 +20,4 @@ func set_weapon(weapon):
 	var new_weapon = weapon.instance()
 	add_child(new_weapon)
 	current_weapon = new_weapon
+	emit_signal("weapon_switch",current_weapon)

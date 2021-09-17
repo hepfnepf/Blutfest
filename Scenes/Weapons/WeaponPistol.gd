@@ -1,10 +1,12 @@
 extends Node2D
 
+signal ammo_changed
+signal max_ammo_changed
+
 export (int) var weapon_range= 1000 #length of the ray casted when shooting
+export (int) var max_ammo = 15
 
-export (int) var mag_size = 15
-
-
+var ammo:int = max_ammo
 
 onready var animation_player = $AnimationPlayer
 onready var ray : RayCast2D = $RayCast2D
