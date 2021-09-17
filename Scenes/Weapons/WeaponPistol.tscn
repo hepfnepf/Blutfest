@@ -93,3 +93,8 @@ offset = Vector2( 98.0151, 2.97409 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/MuzzleFlash = SubResource( 1 )
+
+[node name="ReloadTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_ReloadTimer_timeout"]

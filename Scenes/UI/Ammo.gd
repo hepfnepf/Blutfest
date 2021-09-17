@@ -10,3 +10,5 @@ func set_ammo(new_ammo):
 
 func set_max_ammo(new_max_ammo):
 	max_ammo.text = str(new_max_ammo)
+func set_reload_progress(percent):
+	reload_progress.value = percent

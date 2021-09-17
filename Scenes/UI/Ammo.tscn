@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/UI/Ammo.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.835294, 0.886275, 0.898039, 1 )
 
 [node name="AmmoWidget" type="VBoxContainer"]
 anchor_left = 1.0
@@ -17,12 +20,13 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 44.0
+margin_right = 45.0
 margin_bottom = 14.0
 
 [node name="CurrentAmmo" type="Label" parent="HBoxContainer"]
 margin_right = 16.0
 margin_bottom = 14.0
+size_flags_horizontal = 3
 text = "10"
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
@@ -32,8 +36,9 @@ margin_bottom = 14.0
 
 [node name="MaxAmmo" type="Label" parent="HBoxContainer"]
 margin_left = 28.0
-margin_right = 44.0
+margin_right = 45.0
 margin_bottom = 14.0
+size_flags_horizontal = 3
 text = "20"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -41,8 +46,10 @@ __meta__ = {
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 margin_top = 18.0
-margin_right = 44.0
-margin_bottom = 20.0
+margin_right = 45.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 45, 3 )
 mouse_filter = 2
 size_flags_vertical = 4
+custom_styles/fg = SubResource( 1 )
 percent_visible = false
