@@ -25,7 +25,7 @@ region_rect = Rect2( 0, 0, 10000, 10000 )
 max_health = 200
 
 [node name="ItemPistol" parent="." instance=ExtResource( 3 )]
-position = Vector2( 385.275, 66.3422 )
+position = Vector2( 1523.99, 189.203 )
 
 [node name="CollisionTester" type="KinematicBody2D" parent="."]
 position = Vector2( 745.29, 390.323 )

@@ -87,7 +87,7 @@ cast_to = Vector2( 1000, 0 )
 [node name="muzzle_flash_02" type="Sprite" parent="."]
 visible = false
 position = Vector2( 132.639, -0.297409 )
-scale = Vector2( 0.4, 0.2 )
+scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 6 )
 offset = Vector2( 98.0151, 2.97409 )
 
