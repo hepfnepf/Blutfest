@@ -10,6 +10,8 @@ onready var team_Node = $Team
 onready var movement = $Movement
 onready var animation_player = $AnimationPlayer
 onready var cooldown_timer:Timer = $AttackCooldown
+onready var player = get_node("/root/Game/Player")
+
 
 func handle_hit(damage:int, type:int = 1):
 	health_Node.health -= damage
@@ -21,6 +23,6 @@ func _ready():
 	health_Node.health = max_health
 	
 	movement.initialize(self, animation_player)
-	ai.initialize(movement,team_Node.team)
+	ai.initialize(movement,team_Node.team,player)
 	ai.cooldown_timer = cooldown_timer
 	
