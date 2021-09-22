@@ -14,9 +14,10 @@ var ready_to_attack = true
 #func _process(delta):
 #	movementNode.move_to(create_random_patrol_location())
 
-func initialize(movementNode:Movement, team : int):
+func initialize(movementNode:Movement, team : int,player):
 	self.movementNode = movementNode
 	set_team(team)
+	self.player = player
 	#self.player = player
 	#movementNode.move_to(create_random_patrol_location())
 
@@ -43,7 +44,6 @@ func create_random_patrol_location() -> Vector2:
 	
 
 func attack(player):
-	print("Attack!")
 	player.take_damage(damage)
 	ready_to_attack = false
 	cooldown_timer.start()
