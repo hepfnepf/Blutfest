@@ -74,13 +74,13 @@ func _physics_process(delta):
 #Health related, maybe should be outsourced to its own node
 func set_health(new_health:int):
 	health = new_health
-	emit_signal("health_changed")
+	emit_signal("health_changed",health)
 	if health <= 0:
 		die()
 
 func set_max_health(new_max_health:int):
 	max_health = new_max_health
-	emit_signal("max_health_changed")
+	emit_signal("max_health_changed",max_health)
 
 func die():
 	print("dead")
@@ -97,12 +97,12 @@ func receive_experience(base_xp:int):
 
 func level_up():
 	experience -= experience_limit
-	emit_signal("exp_changed")
+	emit_signal("exp_changed",experience)
 	next_exp_limit()
 
 func next_exp_limit():
 	experience_limit = experience_limit*2
-	emit_signal("exp_limit_changed")
+	emit_signal("exp_limit_changed",experience_limit)
 	pass
 
 

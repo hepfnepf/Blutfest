@@ -31,6 +31,7 @@ func reset_weapon(weapon):
 	weapon.connect("reload_percent_change", self, "set_reload_progress")
 
 func set_health(new_health):
+	print("hi")
 	health_widget.set_health(new_health)
 func set_max_health(new_max_health):
 	health_widget.set_max_health(new_max_health)

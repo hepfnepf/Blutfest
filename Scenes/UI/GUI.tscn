@@ -59,7 +59,7 @@ margin_right = 375.0
 margin_bottom = 84.0
 
 [node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 960.0
+margin_left = 959.0
 margin_right = 1004.0
 margin_bottom = 84.0
 mouse_filter = 2
@@ -71,7 +71,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 32.0
-margin_right = 44.0
+margin_top = 31.0
+margin_right = 45.0
 margin_bottom = 52.0
 alignment = 2

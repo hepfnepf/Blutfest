@@ -92,3 +92,8 @@ team = 1
 tree_root = SubResource( 7 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 8 )
+
+[node name="AttackCooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="AttackCooldown" to="AI" method="_on_AttackCooldown_timeout"]

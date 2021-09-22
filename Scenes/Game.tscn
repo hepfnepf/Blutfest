@@ -22,7 +22,9 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 10000, 10000 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+move_speed = 400
 max_health = 200
+health = 100
 
 [node name="ItemPistol" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1523.99, 189.203 )

@@ -9,6 +9,7 @@ onready var ai = $AI
 onready var team_Node = $Team
 onready var movement = $Movement
 onready var animation_player = $AnimationPlayer
+onready var cooldown_timer:Timer = $AttackCooldown
 
 func handle_hit(damage:int, type:int = 1):
 	health_Node.health -= damage
@@ -21,4 +22,5 @@ func _ready():
 	
 	movement.initialize(self, animation_player)
 	ai.initialize(movement,team_Node.team)
+	ai.cooldown_timer = cooldown_timer
 	
