@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/floor.png" type="Texture" id=2]
@@ -9,6 +9,12 @@
 [ext_resource path="res://Scenes/UI/GUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Spawner.tscn" type="PackedScene" id=8]
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5039.08, 22.7852 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 14.4102, 5204.93 )
+
 [sub_resource type="RectangleShape2D" id=1]
 
 [node name="Game" type="Node2D"]
@@ -16,11 +22,29 @@ position = Vector2( 0, 0.594604 )
 script = ExtResource( 6 )
 
 [node name="floor" type="Sprite" parent="."]
-position = Vector2( -120.836, -100.665 )
+position = Vector2( -120.836, -95.9082 )
 z_index = -4
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 10000, 10000 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="floor"]
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="floor/StaticBody2D"]
+position = Vector2( -0.000976563, 5025.94 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor/StaticBody2D"]
+position = Vector2( 0, -4996.16 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="floor/StaticBody2D"]
+position = Vector2( -4999.37, 151.191 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="floor/StaticBody2D"]
+position = Vector2( 4989.29, 0 )
+shape = SubResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 move_speed = 400
