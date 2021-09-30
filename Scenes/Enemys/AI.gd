@@ -11,6 +11,7 @@ var player:KinematicBody2D = null
 
 var cooldown_timer:Timer = null
 var ready_to_attack = true
+var alive=true
 #func _process(delta):
 #	movementNode.move_to(create_random_patrol_location())
 
@@ -23,6 +24,8 @@ func initialize(movementNode:Movement, team : int,player):
 
 
 func _process(delta):
+	if !alive:
+		return
 	if player.get_global_position().distance_to(self.get_global_position()) < attack_range:
 		#print("stop")
 		movementNode.stop_movement()
