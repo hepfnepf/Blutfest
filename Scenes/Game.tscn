@@ -1,10 +1,10 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/floor.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Items/ItemPistol.tscn" type="PackedScene" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Enemys/defaultEnemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/Enemys/Standard/zom2Full.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/UI/GUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Helper/Health.tscn" type="PackedScene" id=8]
@@ -12,7 +12,6 @@
 [ext_resource path="res://Scenes/Helper/Movement.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Enemys/AI.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scripts/Actor.gd" type="Script" id=12]
-[ext_resource path="res://Sprites/Enemys/Standard/zomFull_512_1_s15.png" type="Texture" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5039.08, 22.7852 )
@@ -22,7 +21,7 @@ extents = Vector2( 14.4102, 5204.93 )
 
 [sub_resource type="RectangleShape2D" id=3]
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=4]
 resource_name = "Attack"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -37,7 +36,7 @@ tracks/0/keys = {
 "values": [ 41, 72 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=5]
 resource_name = "Death"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -52,23 +51,11 @@ tracks/0/keys = {
 "values": [ 73, 94 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=6]
 resource_name = "halt"
 length = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("../Zombie/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 39, 30 ]
-}
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 length = 0.75
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -83,26 +70,26 @@ tracks/0/keys = {
 "values": [ 1, 39 ]
 }
 
-[sub_resource type="CircleShape2D" id=10]
+[sub_resource type="CircleShape2D" id=8]
 radius = 116.115
 
-[sub_resource type="AnimationNodeAnimation" id=4]
+[sub_resource type="AnimationNodeAnimation" id=9]
 animation = "Walk"
 
-[sub_resource type="AnimationNodeAnimation" id=5]
+[sub_resource type="AnimationNodeAnimation" id=10]
 animation = "halt"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id=7]
-states/Walk/node = SubResource( 4 )
+[sub_resource type="AnimationNodeStateMachine" id=12]
+states/Walk/node = SubResource( 9 )
 states/Walk/position = Vector2( 396, 107 )
-states/halt/node = SubResource( 5 )
+states/halt/node = SubResource( 10 )
 states/halt/position = Vector2( 418, 202 )
-transitions = [ "Walk", "halt", SubResource( 6 ) ]
+transitions = [ "Walk", "halt", SubResource( 11 ) ]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=11]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=13]
 
 [node name="Game" type="Node2D"]
 position = Vector2( 0, 0.594604 )
@@ -163,20 +150,20 @@ max_health = 50
 
 [node name="Sprite" type="Sprite" parent="Zombie2"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 13 )
+texture = ExtResource( 5 )
 flip_h = true
 hframes = 10
 vframes = 10
-frame = 94
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Zombie2"]
-anims/Attack = SubResource( 12 )
-anims/Death = SubResource( 13 )
-anims/halt = SubResource( 8 )
-anims/walk = SubResource( 9 )
+anims/Attack = SubResource( 4 )
+anims/Death = SubResource( 5 )
+anims/halt = SubResource( 6 )
+anims/walk = SubResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zombie2"]
-shape = SubResource( 10 )
+shape = SubResource( 8 )
 
 [node name="Health" parent="Zombie2" instance=ExtResource( 8 )]
 
@@ -188,15 +175,12 @@ team = 1
 [node name="Movement" parent="Zombie2" instance=ExtResource( 10 )]
 
 [node name="AnimationTree" type="AnimationTree" parent="Zombie2"]
-tree_root = SubResource( 7 )
+tree_root = SubResource( 12 )
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource( 11 )
+parameters/playback = SubResource( 13 )
 
 [node name="AttackCooldown" type="Timer" parent="Zombie2"]
 one_shot = true
-
-[node name="Zombie" parent="." instance=ExtResource( 5 )]
-position = Vector2( 768.302, 15.874 )
 
 [node name="GUI" parent="." instance=ExtResource( 7 )]
 

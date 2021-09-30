@@ -44,6 +44,7 @@ func create_random_patrol_location() -> Vector2:
 	
 
 func attack(player):
+	get_parent().animation_player.play("Attack")
 	player.take_damage(damage)
 	ready_to_attack = false
 	cooldown_timer.start()
