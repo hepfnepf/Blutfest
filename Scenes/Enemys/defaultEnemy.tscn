@@ -34,7 +34,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 73, 94 ]
+"values": [ 73, 93 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -92,7 +92,7 @@ texture = ExtResource( 6 )
 flip_h = true
 hframes = 10
 vframes = 10
-frame = 41
+frame = 73
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Attack = SubResource( 1 )
@@ -121,5 +121,8 @@ parameters/playback = SubResource( 10 )
 wait_time = 0.75
 one_shot = true
 
+[node name="TimeUntilFading" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="AttackCooldown" to="AI" method="_on_AttackCooldown_timeout"]
+[connection signal="timeout" from="TimeUntilFading" to="." method="_on_TimeUntilFading_timeout"]
