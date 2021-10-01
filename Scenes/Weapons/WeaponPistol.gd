@@ -6,6 +6,7 @@ signal reload_percent_change
 
 export (int) var weapon_range= 1000 #length of the ray casted when shooting
 export (int) var max_ammo = 15
+export (int) var damage = 20
 
 var ammo:int = max_ammo
 var is_reloading:bool = false 
@@ -41,7 +42,7 @@ func shoot():
 	if ray.is_colliding():
 		var obj = ray.get_collider()
 		if obj.has_method("handle_hit"):
-			obj.handle_hit(10, Globals.DamageType.PROJECTILE)
+			obj.handle_hit(damage, Globals.DamageType.PROJECTILE)
 	
 	#handle ammo
 	ammo -= 1
