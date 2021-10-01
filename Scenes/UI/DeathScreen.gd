@@ -19,3 +19,9 @@ func set_time(time):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func _process(delta):
+	if Input.is_action_pressed("Escape"):
+		 get_tree().quit()
+	if Input.is_action_pressed("Enter"):
+		get_tree().reload_current_scene()
