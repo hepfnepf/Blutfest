@@ -4,6 +4,8 @@ onready var prog_bar = $ProgressBar
 onready var label = $Label
 
 func set_health(new_health):
+	if new_health <= 0:
+		new_health = 0
 	prog_bar.value = new_health
 	#var format_string:String = %s / 
 	var max_health = label.text.split("/")[1]
