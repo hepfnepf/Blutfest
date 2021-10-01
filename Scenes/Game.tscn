@@ -48,7 +48,7 @@ position = Vector2( 4989.29, 0 )
 shape = SubResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1052, -4 )
+position = Vector2( -884, -8 )
 move_speed = 400
 health = 100
 

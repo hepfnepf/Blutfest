@@ -70,6 +70,7 @@ func set_score(new_score):
 	if !alive:
 			return
 	score=new_score
+	emit_signal("score_changed",new_score)
 
 func die():
 	emit_signal("dead")
@@ -123,4 +124,4 @@ func _on_ElapsedTime_timeout():
 	if !alive:
 		return
 	elapsed_time += 1
-	print(elapsed_time) 
+	emit_signal("time_changed",elapsed_time)

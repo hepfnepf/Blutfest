@@ -3,6 +3,7 @@ extends CanvasLayer
 onready var health_widget = $MarginContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/HealthbarWidget
 onready var exp_widget = $MarginContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/ExpbarWidget
 onready var ammo_widget = $MarginContainer/VBoxContainer/HBoxContainer/CenterContainer2/AmmoWidget
+onready var score = $MarginContainer/VBoxContainer/HBoxContainer2/Score
 
 var player:Player
 
@@ -11,8 +12,7 @@ func set_player(player):
 	
 	set_health(player.health)
 	set_max_health(player.max_health)
-	#set_ammo()
-	#set_max_ammo()
+	set_score(player.score)
 	reset_weapon(player.Weapon.current_weapon)
 	set_exp(player.experience)
 	set_max_exp(player.experience_limit)
@@ -22,6 +22,7 @@ func set_player(player):
 	player.connect("max_health_changed",self,"set_max_health")
 	player.connect("exp_changed",self,"set_exp")
 	player.connect("exp_limit_changed",self,"set_max_exp")
+	player.connect("score_changed",self,"set_score")
 
 func reset_weapon(weapon):
 	set_ammo(weapon.ammo)
@@ -44,3 +45,5 @@ func set_exp(new_exp):
 	exp_widget.set_exp(new_exp)
 func set_max_exp(new_max_exp):
 	exp_widget.set_max_exp(new_max_exp)
+func set_score(new_score):
+	score.text = str(new_score)

@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/UI/Expbar.gd" type="Script" id=1]
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.843137, 0.470588, 0.0313726, 1 )
+[ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.843137, 0.470588, 0.0313726, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.192157, 0.129412, 0.129412, 1 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 2 )
 
 [node name="ExpWidget" type="HBoxContainer"]
 margin_right = 40.0
@@ -23,16 +27,16 @@ margin_bottom = 35.0
 rect_min_size = Vector2( 300, 30 )
 mouse_filter = 2
 size_flags_vertical = 4
-custom_styles/fg = SubResource( 2 )
-custom_styles/bg = SubResource( 1 )
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
 percent_visible = false
 
 [node name="Label" type="Label" parent="."]
 margin_left = 304.0
 margin_top = 5.0
-margin_right = 374.0
+margin_right = 384.0
 margin_bottom = 35.0
 rect_min_size = Vector2( 70, 30 )
+custom_fonts/font = SubResource( 3 )
 text = "XP: 10/100"
-align = 1
 valign = 1

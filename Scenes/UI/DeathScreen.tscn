@@ -20,7 +20,7 @@ void fragment()
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
 shader_param/color = Color( 0, 0, 0, 1 )
-shader_param/multiplier = -3.0
+shader_param/multiplier = -5.182
 shader_param/softness = 5.0
 
 [node name="DeathScreen" type="CanvasLayer"]

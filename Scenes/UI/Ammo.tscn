@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/UI/Ammo.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.835294, 0.886275, 0.898039, 1 )
@@ -20,34 +24,36 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 45.0
-margin_bottom = 14.0
+margin_right = 48.0
+margin_bottom = 19.0
 
 [node name="CurrentAmmo" type="Label" parent="HBoxContainer"]
-margin_right = 16.0
-margin_bottom = 14.0
+margin_right = 18.0
+margin_bottom = 19.0
 size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
 text = "10"
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
-margin_left = 20.0
-margin_right = 24.0
-margin_bottom = 14.0
+margin_left = 22.0
+margin_right = 26.0
+margin_bottom = 19.0
 
 [node name="MaxAmmo" type="Label" parent="HBoxContainer"]
-margin_left = 28.0
-margin_right = 45.0
-margin_bottom = 14.0
+margin_left = 30.0
+margin_right = 48.0
+margin_bottom = 19.0
 size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
 text = "20"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-margin_top = 18.0
-margin_right = 45.0
-margin_bottom = 21.0
+margin_top = 23.0
+margin_right = 48.0
+margin_bottom = 26.0
 rect_min_size = Vector2( 45, 3 )
 mouse_filter = 2
 size_flags_vertical = 4
