@@ -1231,4 +1231,8 @@ position = Vector2( 18.604, 0 )
 scale = Vector2( 7.9333, -6.90788 )
 shape = SubResource( 11 )
 
+[node name="ElapsedTime" type="Timer" parent="."]
+autostart = true
+
 [connection signal="area_entered" from="ItemInteractionZone" to="." method="_on_Area2D_area_entered"]
+[connection signal="timeout" from="ElapsedTime" to="." method="_on_ElapsedTime_timeout"]

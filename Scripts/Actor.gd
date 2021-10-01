@@ -1,7 +1,10 @@
 extends KinematicBody2D
 
+signal enemy_dead(points)
+
 export (int) var speed = 100
 export (int) var max_health = 100
+export (int) var points = 50
 
 export (float)var time_before_fade=1#after the enemy is dead it takes time_before_fade seconds until the fading begins
 export (float)var time_to_fade=5#how long the fading takes
@@ -16,6 +19,7 @@ onready var until_fading_timer:Timer = $TimeUntilFading
 onready var collision_shape:CollisionShape2D = $CollisionShape2D
 
 onready var player = get_node("/root/Game/Player")
+onready var game = get_node("/root/Game")
 
 var alive :=true
 var fading :=false
@@ -33,6 +37,7 @@ func start_death_animation():
 	movement.stop_movement()
 	collision_shape.disabled = true
 	z_index = -4
+	emit_signal("enemy_dead",points)
 	
 	animation_player.stop()
 	animation_player.play("Death")
@@ -47,6 +52,8 @@ func _ready():
 	movement.initialize(self, animation_player)
 	ai.initialize(movement,team_Node.team,player)
 	ai.cooldown_timer = cooldown_timer
+	
+	connect("enemy_dead",game,"_on_enemy_killed")
 
 func _process(delta):
 	if fading:
