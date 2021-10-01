@@ -21,7 +21,7 @@ position = Vector2( 0, 0.594604 )
 script = ExtResource( 6 )
 
 [node name="floor" type="Sprite" parent="."]
-z_index = -4
+z_index = -10
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 10000, 10000 )

@@ -10,6 +10,7 @@ onready var team_Node = $Team
 onready var movement = $Movement
 onready var animation_player = $AnimationPlayer
 onready var cooldown_timer:Timer = $AttackCooldown
+onready var collision_shape:CollisionShape2D = $CollisionShape2D
 onready var player = get_node("/root/Game/Player")
 
 var alive :=true
@@ -24,10 +25,11 @@ func start_death_animation():
 	alive=false
 	ai.alive=false
 	movement.stop_movement()
+	collision_shape.disabled = true
+	z_index = -4
 	
 	animation_player.stop()
 	animation_player.play("Death")
-	print("here")
 
 func die():
 	queue_free()
