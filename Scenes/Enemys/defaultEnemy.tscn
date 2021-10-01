@@ -1,15 +1,14 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://Sprites/Enemys/Standard/zomFull_512_1_s15.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Helper/Health.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scripts/Actor.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/Helper/Team.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Helper/Movement.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Enemys/AI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/Actor.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Enemys/Standard/zom2Full.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Helper/Team.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Helper/Movement.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Enemys/AI.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Helper/Health.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
-resource_name = "halt"
-length = 0.2
+resource_name = "Attack"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -17,13 +16,32 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 39, 30 ]
+"values": [ 41, 72 ]
 }
 
 [sub_resource type="Animation" id=2]
+resource_name = "Death"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 73, 94 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "halt"
+length = 0.2
+
+[sub_resource type="Animation" id=4]
 length = 0.75
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -32,69 +50,75 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.75 ),
+"times": PoolRealArray( 0, 0.7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 1, 39 ]
 }
 
-[sub_resource type="CircleShape2D" id=10]
+[sub_resource type="CircleShape2D" id=5]
 radius = 116.115
 
-[sub_resource type="AnimationNodeAnimation" id=4]
+[sub_resource type="AnimationNodeAnimation" id=6]
 animation = "Walk"
 
-[sub_resource type="AnimationNodeAnimation" id=5]
+[sub_resource type="AnimationNodeAnimation" id=7]
 animation = "halt"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+[sub_resource type="AnimationNodeStateMachineTransition" id=8]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id=7]
-states/Walk/node = SubResource( 4 )
+[sub_resource type="AnimationNodeStateMachine" id=9]
+states/Walk/node = SubResource( 6 )
 states/Walk/position = Vector2( 396, 107 )
-states/halt/node = SubResource( 5 )
+states/halt/node = SubResource( 7 )
 states/halt/position = Vector2( 418, 202 )
-transitions = [ "Walk", "halt", SubResource( 6 ) ]
+transitions = [ "Walk", "halt", SubResource( 8 ) ]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=8]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=10]
 
 [node name="Zombie" type="KinematicBody2D"]
+position = Vector2( 1306.11, 26.9858 )
 scale = Vector2( 0.7, 0.7 )
-script = ExtResource( 3 )
+collision_layer = 4
+script = ExtResource( 1 )
 speed = 200
 max_health = 50
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 1 )
+texture = ExtResource( 6 )
 flip_h = true
 hframes = 10
 vframes = 10
-frame = 39
+frame = 41
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/halt = SubResource( 1 )
-anims/walk = SubResource( 2 )
+anims/Attack = SubResource( 1 )
+anims/Death = SubResource( 2 )
+anims/halt = SubResource( 3 )
+anims/walk = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 10 )
+shape = SubResource( 5 )
 
-[node name="Health" parent="." instance=ExtResource( 2 )]
+[node name="Health" parent="." instance=ExtResource( 10 )]
 
-[node name="AI" parent="." instance=ExtResource( 6 )]
+[node name="AI" parent="." instance=ExtResource( 9 )]
 
-[node name="Team" parent="." instance=ExtResource( 4 )]
+[node name="Team" parent="." instance=ExtResource( 7 )]
 team = 1
 
-[node name="Movement" parent="." instance=ExtResource( 5 )]
+[node name="Movement" parent="." instance=ExtResource( 8 )]
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 7 )
+tree_root = SubResource( 9 )
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource( 8 )
+parameters/playback = SubResource( 10 )
 
 [node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.75
 one_shot = true
 
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="AttackCooldown" to="AI" method="_on_AttackCooldown_timeout"]
