@@ -4,6 +4,7 @@ export (int) var map_size_x
 export (int) var map_size_y
 
 export (float)var spawn_rate= 1.0
+export (float) var spawn_rate_increase=0.2
 var spawn_value:float = 0
 
 export (PackedScene) var default_enemy
@@ -11,6 +12,10 @@ export (PackedScene) var default_enemy
 onready var game = get_node("/root/Game")
 
 func _process(delta):
+	#change spawn probability over time
+	spawn_rate += delta*spawn_rate_increase
+	
+	#decides how many enemys are supposed to spawn
 	spawn_value+= spawn_rate*delta
 	while (spawn_value >= 1):
 		spawn_value -= 1
