@@ -38,6 +38,7 @@ tracks/1/keys = {
 
 [node name="WeaponPistol" type="Node2D"]
 script = ExtResource( 5 )
+weapon_range = 10000
 
 [node name="armL" type="Sprite" parent="."]
 position = Vector2( 23.742, -50.0112 )
@@ -97,5 +98,11 @@ anims/MuzzleFlash = SubResource( 1 )
 
 [node name="ReloadTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="BulletSpawnPosition" type="Position2D" parent="."]
+position = Vector2( 90.7689, 0 )
+
+[node name="BulletDirection" type="Position2D" parent="."]
+position = Vector2( 130.147, 0 )
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_ReloadTimer_timeout"]
