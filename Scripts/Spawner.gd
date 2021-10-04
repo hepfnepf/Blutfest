@@ -1,5 +1,8 @@
 extends Node2D
 
+
+signal spawned_enemy
+
 export (int) var map_size_x
 export (int) var map_size_y
 
@@ -12,6 +15,10 @@ var game_alive :=true
 export (PackedScene) var default_enemy
 
 onready var game = get_node("/root/Game")
+onready var debug_gui =get_node("/root/Game/GUI/MarginContainer/VBoxContainer/HBoxContainer3/DebugLayout")
+
+func _ready():
+	connect("spawned_enemy",debug_gui,"_on_enemy_count_changed")
 
 func _process(delta):
 	if !game_alive:
@@ -24,6 +31,7 @@ func _process(delta):
 	while (spawn_value >= 1):
 		spawn_value -= 1
 		spawn_at(random_position())
+		emit_signal("spawned_enemy")
 
 func spawn_at(position):
 	var enemy = spawn()
