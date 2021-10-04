@@ -3,7 +3,8 @@ extends CanvasLayer
 onready var health_widget = $MarginContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/HealthbarWidget
 onready var exp_widget = $MarginContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/ExpbarWidget
 onready var ammo_widget = $MarginContainer/VBoxContainer/HBoxContainer/CenterContainer2/AmmoWidget
-onready var score = $MarginContainer/VBoxContainer/HBoxContainer2/Score
+onready var score = $MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer2/Score
+onready var debug_info = $MarginContainer/VBoxContainer/HBoxContainer3/DebugLayout
 
 var player:Player
 
@@ -47,3 +48,11 @@ func set_max_exp(new_max_exp):
 	exp_widget.set_max_exp(new_max_exp)
 func set_score(new_score):
 	score.text = str(new_score)
+
+#func _input(event):
+#	if event.is_action_just_pressed("show_debug_info"):
+#		debug_info.is_visible_in_tree(!debug_info.is_visible_in_tree())
+
+func _unhandled_input(event):
+	if Input.is_action_just_pressed("show_debug_info"):
+		debug_info.set_alive(!debug_info.alive)
