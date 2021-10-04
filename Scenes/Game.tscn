@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/floor.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/UI/GUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Spawner.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/UI/DeathScreen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Weapons/BulletManager.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5039.08, 22.7852 )
@@ -75,3 +76,5 @@ texture = ExtResource( 4 )
 [node name="Spawner" parent="." instance=ExtResource( 8 )]
 map_size_x = 5000
 map_size_y = 5000
+
+[node name="BulletManager" parent="." instance=ExtResource( 11 )]

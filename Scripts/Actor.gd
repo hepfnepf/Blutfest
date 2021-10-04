@@ -35,7 +35,8 @@ func start_death_animation():
 	alive=false
 	ai.alive=false
 	movement.stop_movement()
-	collision_shape.disabled = true
+	#collision_shape.disabled = true
+	collision_shape.queue_free()
 	z_index = -4
 	emit_signal("enemy_dead",points)
 	

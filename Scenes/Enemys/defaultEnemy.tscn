@@ -24,6 +24,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=2]
 resource_name = "Death"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -31,7 +32,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 73, 93 ]
@@ -88,11 +89,12 @@ max_health = 50
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 3, 3 )
+z_index = 1
 texture = ExtResource( 6 )
 flip_h = true
 hframes = 10
 vframes = 10
-frame = 73
+frame = 84
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Attack = SubResource( 1 )

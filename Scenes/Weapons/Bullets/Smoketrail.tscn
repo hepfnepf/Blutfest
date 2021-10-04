@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Weapons/Bullets/Smoketrail.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Weapons/trail.png" type="Texture" id=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0.954545 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.236364 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.621083, 0.85755, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 0.109804, 0.109804, 0.109804, 0.831373, 0, 0, 0, 0.894376, 1, 1, 1, 1 )
+
+[node name="Smoketrail" type="Line2D"]
+width = 100.0
+width_curve = SubResource( 1 )
+gradient = SubResource( 2 )
+texture = ExtResource( 2 )
+texture_mode = 2
+script = ExtResource( 1 )
+wildness = 15.0
+
+[node name="Decay" type="Tween" parent="."]
+
+[connection signal="tween_all_completed" from="Decay" to="." method="_on_Decay_tween_all_completed"]
