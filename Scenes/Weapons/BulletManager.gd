@@ -13,7 +13,7 @@ func shot_fired(ammotype,origin,dir_vector,p_range):
 	#var rotation_vec = bul.position.direction_to(dir_vector)
 	bul.rotate(dir_vector.angle())
 	#bul.origin = origin
-	#bul.p_range=p_range
+	#bul.set_range(p_range)
 	bul.direction = dir_vector.normalized()
 	#bul.speed = bullet_speed
 	add_child(bul)

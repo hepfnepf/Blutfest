@@ -7,6 +7,7 @@ var alive := true
 
 onready var smoketrail = $Smoketrail
 onready var sprite = $Sprite
+onready var timer = $Timer
 
 
 func _process(delta):
@@ -28,7 +29,6 @@ func _on_Bullet_body_entered(body):
 	
 	if body.has_method("handle_hit"):
 		body.handle_hit(damage, Globals.DamageType.PROJECTILE)
-
 
 func _on_Timer_timeout():
 	die()

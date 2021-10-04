@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://Scenes/Weapons/TestStage.gd" type="Script" id=1]
-
-[node name="TestStage" type="Node2D"]
-scale = Vector2( 1.00683, 1 )
-script = ExtResource( 1 )
