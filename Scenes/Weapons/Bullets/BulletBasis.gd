@@ -1,26 +1,34 @@
 extends Area2D
+class_name Bullet
+"""
+This is meant to inherit from. Not to be used directly.
+TODO:
+	Add a Smoketrail to your scene.
+"""
 
 var direction := Vector2.ZERO
-export (float) var speed =100.0
-export (int) var damage = 20
+var speed =100.0
+var p_range=500
+var damage = 20
 var alive := true
 
 onready var smoketrail = $Smoketrail
 onready var sprite = $Sprite
 onready var timer = $Timer
 
-
 func _process(delta):
 	if alive:
-		position += direction*speed*delta
-		smoketrail.add_point(global_position)
+		move(delta)
+
+func move(delta):
+	position += direction*speed*delta
+	smoketrail.add_point(global_position)
 
 func die():
 	alive = false
 	smoketrail.fade_out(1.0)
 	speed = 0.0
 	sprite.queue_free()
-
 
 func _on_Bullet_body_entered(body):
 	if !alive:
