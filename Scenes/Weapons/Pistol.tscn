@@ -1,44 +1,55 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Pistol.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Weapons/WeaponBasis.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Weapons/Bullets/BulletClean2.tscn" type="PackedScene" id=3]
-
-[sub_resource type="Animation" id=1]
-resource_name = "shot"
-length = 0.05
-step = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath("muzzle_flash_02:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("muzzle_flash_02:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.05 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0.4, 0.4 ), Vector2( 0.4, 0.2 ) ]
-}
+[ext_resource path="res://Sprites/Player/hand_holding_gun.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Player/forearm.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Player/arm.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Weapons/pistol.png" type="Texture" id=7]
 
 [node name="Pistol" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+max_range = 10000
+speed = 3000
 Bullet = ExtResource( 3 )
 
-[node name="muzzle_flash_02" parent="." index="0"]
-visible = true
+[node name="armL" type="Sprite" parent="." index="6"]
+position = Vector2( 23.742, -50.0112 )
+rotation = 0.610865
+texture = ExtResource( 6 )
 
-[node name="AnimationPlayer" parent="." index="1"]
-anims/shot = SubResource( 1 )
+[node name="forearmL" type="Sprite" parent="armL" index="0"]
+position = Vector2( 49.4389, 0.326096 )
+z_index = -1
+texture = ExtResource( 5 )
+
+[node name="handL" type="Sprite" parent="armL/forearmL" index="0"]
+position = Vector2( 32.3609, 4.96817 )
+scale = Vector2( 0.662, 0.862 )
+z_index = -1
+texture = ExtResource( 4 )
+
+[node name="armR" type="Sprite" parent="." index="7"]
+position = Vector2( 33.6814, 54.5416 )
+rotation = -0.610865
+texture = ExtResource( 6 )
+flip_v = true
+
+[node name="forearmR" type="Sprite" parent="armR" index="0"]
+position = Vector2( 41.4172, -2.13701 )
+z_index = -1
+texture = ExtResource( 5 )
+flip_v = true
+
+[node name="handR" type="Sprite" parent="armR/forearmR" index="0"]
+position = Vector2( 33.6595, -4.69916 )
+scale = Vector2( 0.662, 0.862 )
+z_index = -1
+texture = ExtResource( 4 )
+flip_v = true
+
+[node name="Pistol" type="Sprite" parent="armR/forearmR/handR" index="0"]
+position = Vector2( 22.3864, 2.29084 )
+rotation = 0.506145
+texture = ExtResource( 7 )

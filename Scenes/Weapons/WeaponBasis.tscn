@@ -36,6 +36,7 @@ tracks/1/keys = {
 script = ExtResource( 1 )
 
 [node name="muzzle_flash_02" type="Sprite" parent="."]
+visible = false
 position = Vector2( 132.639, -0.297409 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 2 )
@@ -55,4 +56,5 @@ position = Vector2( 130.147, 0 )
 
 [node name="Cooldown" type="Timer" parent="."]
 
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_ReloadTimer_timeout"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]

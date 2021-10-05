@@ -60,8 +60,9 @@ func shoot():
 
 func shoot_bullet():
 	var bullet = Bullet.instance()
-	bullet.position = bullet_spawn_position.position
-	var dir_vector = bullet_spawn_position.position.direction_to(bullet_spawn_direction.position).normalized()
+	bullet.global_position = bullet_spawn_position.global_position
+	var dir_vector = bullet_spawn_position.global_position.direction_to(bullet_spawn_direction.global_position).normalized()
+	bullet.rotation = dir_vector.angle()
 	bullet.direction = dir_vector
 	bullet.speed = speed
 	bullet.p_range = max_range

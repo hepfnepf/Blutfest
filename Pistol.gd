@@ -1,13 +1,17 @@
 extends Weapon
 
 
+func check_for_input():#the pistol shuld only not fire as long as butten is pressed but only on just pressed
+	pass
+
+func _unhandled_input(event):#alternetive way to get the input
+	if event.is_action_pressed("fire"):
+		if ammo > 0 && !is_reloading:
+			shoot()
+
 func shoot():	
 	#animation
 	animation_player.play("shot")
-	
-	#limit fire speed
-	#shot_timer.start(1/fire_rate)
-	#cooldown = true
 	
 	#initiate bullet
 	shoot_bullet()
