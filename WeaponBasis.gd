@@ -1,5 +1,5 @@
 extends Node2D
-class_name Weapon_basis
+class_name Weapon
 
 signal ammo_changed
 signal max_ammo_changed
@@ -49,7 +49,7 @@ func shoot():
 	cooldown = true
 	
 	#initiate bullet
-	init_bullet()
+	shoot_bullet()
 	
 	#handle ammo
 	ammo -= 1
@@ -58,8 +58,16 @@ func shoot():
 		reload()	
 	emit_signal("ammo_changed",ammo)
 
-func init_bullet():
-	pass
+func shoot_bullet():
+	var bullet = Bullet.instance()
+	bullet.position = bullet_spawn_position.position
+	var dir_vector = bullet_spawn_position.position.direction_to(bullet_spawn_direction.position).normalized()
+	bullet.direction = dir_vector
+	bullet.speed = speed
+	bullet.p_range = max_range
+	bullet.damage = damage
+	game.add_child(bullet)
+	#bullet.init()
 
 
 func reload():

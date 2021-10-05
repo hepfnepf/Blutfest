@@ -4,7 +4,7 @@
 [ext_resource path="res://Sprites/Weapons/muzzle_flash_02.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
-resource_name = "MuzzleFlash"
+resource_name = "shot"
 length = 0.05
 step = 0.01
 tracks/0/type = "value"
@@ -42,7 +42,7 @@ texture = ExtResource( 2 )
 offset = Vector2( 98.0151, 2.97409 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/MuzzleFlash = SubResource( 1 )
+anims/shot = SubResource( 1 )
 
 [node name="ReloadTimer" type="Timer" parent="."]
 one_shot = true

@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "Bullet",
+"language": "GDScript",
+"path": "res://Scenes/Weapons/Bullets/BulletBasis.gd"
+}, {
 "base": "Node2D",
 "class": "Movement",
 "language": "GDScript",
@@ -20,14 +25,15 @@ _global_script_classes=[ {
 "path": "res://Scenes/Player.gd"
 }, {
 "base": "Node2D",
-"class": "Weapon_basis",
+"class": "Weapon",
 "language": "GDScript",
 "path": "res://WeaponBasis.gd"
 } ]
 _global_script_class_icons={
+"Bullet": "",
 "Movement": "",
 "Player": "",
-"Weapon_basis": ""
+"Weapon": ""
 }
 
 [application]
