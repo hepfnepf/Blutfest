@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Weapons/Bullets/BulletBasis.gd"
 }, {
+"base": "Area2D",
+"class": "Item",
+"language": "GDScript",
+"path": "res://ItemBasis.gd"
+}, {
 "base": "Node2D",
 "class": "Movement",
 "language": "GDScript",
@@ -27,10 +32,11 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Weapon",
 "language": "GDScript",
-"path": "res://WeaponBasis.gd"
+"path": "res://Scenes/Weapons/Weapons/WeaponBasis.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
+"Item": "",
 "Movement": "",
 "Player": "",
 "Weapon": ""

@@ -7,8 +7,8 @@
 [ext_resource path="res://Sprites/Player/foot.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Player/arm.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Player/forearm.png" type="Texture" id=7]
-[ext_resource path="res://Scenes/Weapon.gd" type="Script" id=8]
-[ext_resource path="res://Scenes/Weapons/Pistol.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Weapons/Weapon.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/Weapons/Weapons/Pistol.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Player.gd" type="Script" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
