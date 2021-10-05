@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Pistol.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Weapons/WeaponBasis.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Weapons/Bullets/BulletClean2.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "shot"
+length = 0.05
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("muzzle_flash_02:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("muzzle_flash_02:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.4, 0.4 ), Vector2( 0.4, 0.2 ) ]
+}
+
+[node name="Pistol" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+Bullet = ExtResource( 3 )
+
+[node name="muzzle_flash_02" parent="." index="0"]
+visible = true
+
+[node name="AnimationPlayer" parent="." index="1"]
+anims/shot = SubResource( 1 )
