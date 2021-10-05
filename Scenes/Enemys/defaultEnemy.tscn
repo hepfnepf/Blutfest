@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Actor.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Enemys/Standard/zom2Full.png" type="Texture" id=6]
@@ -60,24 +60,6 @@ tracks/0/keys = {
 [sub_resource type="CircleShape2D" id=5]
 radius = 116.115
 
-[sub_resource type="AnimationNodeAnimation" id=6]
-animation = "Walk"
-
-[sub_resource type="AnimationNodeAnimation" id=7]
-animation = "halt"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=8]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id=9]
-states/Walk/node = SubResource( 6 )
-states/Walk/position = Vector2( 396, 107 )
-states/halt/node = SubResource( 7 )
-states/halt/position = Vector2( 418, 202 )
-transitions = [ "Walk", "halt", SubResource( 8 ) ]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id=10]
-
 [node name="Zombie" type="KinematicBody2D" groups=[
 "ENEMIES",
 ]]
@@ -96,7 +78,7 @@ texture = ExtResource( 6 )
 flip_h = true
 hframes = 10
 vframes = 10
-frame = 1
+frame = 41
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Attack = SubResource( 1 )
@@ -116,17 +98,13 @@ team = 1
 
 [node name="Movement" parent="." instance=ExtResource( 8 )]
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 9 )
-anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource( 10 )
-
-[node name="AttackCooldown" type="Timer" parent="."]
-wait_time = 0.75
+[node name="TimeUntilFading" type="Timer" parent="."]
 one_shot = true
 
-[node name="TimeUntilFading" type="Timer" parent="."]
+[node name="FadeOut" type="Tween" parent="."]
+
+[node name="StopMovement" type="Tween" parent="."]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="timeout" from="AttackCooldown" to="AI" method="_on_AttackCooldown_timeout"]
 [connection signal="timeout" from="TimeUntilFading" to="." method="_on_TimeUntilFading_timeout"]
+[connection signal="tween_completed" from="FadeOut" to="." method="_on_FadeOut_tween_completed"]
