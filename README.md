@@ -5,7 +5,7 @@ A WIP Crimsonland clone inspired by the unfished and no longer maintained FOSS-G
 - Code Refactor (Inheritance for weapons, bullets, enemys, power ups. Using tweens.)✔️
 - Documentation
 - Debug overlay ✔️
-- Save Score/Time
+- Save Score/Time ✔️
 - correct stop animation for enemy✔️
 
 # Road To 0.2.0
@@ -16,5 +16,9 @@ A WIP Crimsonland clone inspired by the unfished and no longer maintained FOSS-G
 - Many items
 - Death animation for player
 - Bullet spread
-- Crosshair
 - Possibly sounds
+
+# Road To 0.2.1
+- Crosshair
+- Aknowledgement in the gui when you break the highscore
+- Maybe which place in the highscore you achived
