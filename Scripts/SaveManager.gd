@@ -21,7 +21,6 @@ func save(save_dict):
 	savegame.open(save_path, File.WRITE)
 	savegame.store_var(save_dict)
 	savegame.close()
-	print("wrote:\n",save_dict)
 
 func read_savegame():
 	if not savegame.file_exists(save_path):
@@ -33,5 +32,4 @@ func read_savegame():
 		print("Error while retriving file. Coruppted File. Overwrite with new one. ")
 		create_save()
 	savegame.close() #close the file
-	print("read:\n",save_dict)
 	return save_dict #return the value

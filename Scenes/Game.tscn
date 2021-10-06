@@ -52,7 +52,7 @@ shape = SubResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -884, -8 )
-move_speed = 400
+move_speed = 500
 health = 100
 
 [node name="CollisionTester" type="KinematicBody2D" parent="."]
