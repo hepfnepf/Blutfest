@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/floor.png" type="Texture" id=2]
@@ -8,15 +8,16 @@
 [ext_resource path="res://Scenes/UI/GUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Spawner.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/UI/DeathScreen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sprites/Maps/None_Albedo_1001.png" type="Texture" id=12]
 [ext_resource path="res://Scenes/Items/PistolItem.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5039.08, 22.7852 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 14.4102, 5204.93 )
+extents = Vector2( 7270.57, 22.7852 )
 
 [sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 14.4102, 7317 )
 
 [node name="Game" type="Node2D"]
 position = Vector2( 0, 0.594604 )
@@ -32,24 +33,6 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 10000, 10000 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="floor"]
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="floor/StaticBody2D"]
-position = Vector2( -0.000976563, 5025.94 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="floor/StaticBody2D"]
-position = Vector2( 0, -4996.16 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="floor/StaticBody2D"]
-position = Vector2( -4999.37, 151.191 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="floor/StaticBody2D"]
-position = Vector2( 4989.29, 0 )
-shape = SubResource( 2 )
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -884, -8 )
 move_speed = 400
@@ -62,7 +45,7 @@ collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionTester"]
 scale = Vector2( 10.1608, 12.9561 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="CollisionTester"]
 scale = Vector2( 3.42622, 3.90039 )
@@ -75,3 +58,29 @@ texture = ExtResource( 4 )
 [node name="Spawner" parent="." instance=ExtResource( 8 )]
 map_size_x = 5000
 map_size_y = 5000
+
+[node name="Map" type="Sprite" parent="."]
+position = Vector2( -20.2589, -4.0589 )
+scale = Vector2( 3.55498, -3.88244 )
+z_index = -8
+texture = ExtResource( 12 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Map"]
+position = Vector2( 5.69875, -1.04545 )
+scale = Vector2( 0.281296, -0.25757 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Map/StaticBody2D"]
+position = Vector2( -0.000976563, 7125.12 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/StaticBody2D"]
+position = Vector2( 0, -7140.64 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Map/StaticBody2D"]
+position = Vector2( -7158.96, -14.9311 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Map/StaticBody2D"]
+position = Vector2( 7148.88, -15.1016 )
+shape = SubResource( 3 )
