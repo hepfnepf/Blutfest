@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/UI/Healthbar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/Expbar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/UI/Ammo.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/UI/GUI.gd" type="Script" id=4]
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Scenes/UI/DebugLayout.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -37,22 +38,31 @@ margin_right = 1516.0
 margin_bottom = 880.0
 mouse_filter = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 1516.0
+margin_bottom = 65.0
+size_flags_horizontal = 3
+
+[node name="DebugLayout" parent="MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource( 6 )]
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
 margin_left = 1335.0
 margin_right = 1516.0
-margin_bottom = 38.0
+margin_bottom = 65.0
 size_flags_horizontal = 8
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer2"]
+margin_top = 13.0
 margin_right = 105.0
-margin_bottom = 38.0
+margin_bottom = 51.0
 custom_fonts/font = SubResource( 1 )
 text = "Score: "
 
-[node name="Score" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Score" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer2"]
 margin_left = 109.0
+margin_top = 13.0
 margin_right = 181.0
-margin_bottom = 38.0
+margin_bottom = 51.0
 custom_fonts/font = SubResource( 2 )
 text = "1000"
 

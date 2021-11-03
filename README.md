@@ -1,13 +1,24 @@
 # TopDownShooter
-A WIP Crimsonland clone inspired by the unfished and no longer maintained OS-Game Bloodworks. The game is implemented in Godot.
-# Road To 0.1.0
-- Basic movement✔
-- Enemys which attack you✔
-- GUI✔
-- Death sceen✔
-- Spawning behaviour✔
-- a test map✔
+A WIP Crimsonland clone inspired by the unfished and no longer maintained FOSS-Game Bloodworks.It currently does not have a name but the most likely candidat is "Blutfest". The game is implemented in Godot.
+
 # Road To 0.1.1
-- Code Refractor
+- Code Refactor (Inheritance for weapons, bullets, enemys, power ups. Using tweens.)✔️
 - Documentation
-- Debug overlay
+- Debug overlay ✔️
+- Save Score/Time ✔️
+- correct stop animation for enemy✔️
+
+# Road To 0.2.0
+- A real map
+- New spawning method
+- Enemys get patrol state
+- New start weapon
+- Many items
+- Death animation for player
+- Bullet spread
+- Possibly sounds
+
+# Road To 0.2.1
+- Crosshair
+- Aknowledgement in the gui when you break the highscore
+- Maybe which place in the highscore you achived

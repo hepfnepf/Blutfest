@@ -13,10 +13,12 @@ onready var health_Node = $Health
 onready var ai = $AI
 onready var team_Node = $Team
 onready var movement = $Movement
+onready var sprite = $Sprite
 onready var animation_player = $AnimationPlayer
-onready var cooldown_timer:Timer = $AttackCooldown
 onready var until_fading_timer:Timer = $TimeUntilFading
 onready var collision_shape:CollisionShape2D = $CollisionShape2D
+onready var fade_out:Tween = $FadeOut
+onready var stop_movement:Tween = $StopMovement
 
 onready var player = get_node("/root/Game/Player")
 onready var game = get_node("/root/Game")
@@ -35,7 +37,6 @@ func start_death_animation():
 	alive=false
 	ai.alive=false
 	movement.stop_movement()
-	#collision_shape.disabled = true
 	collision_shape.queue_free()
 	z_index = -4
 	emit_signal("enemy_dead",points)
@@ -50,19 +51,11 @@ func _ready():
 	movement.speed = speed
 	health_Node.health = max_health
 	
-	movement.initialize(self, animation_player)
+	stop_movement.interpolate_property(sprite,"animation:frame",sprite.frame, 41, 0.5, Tween.TRANS_LINEAR)
+	movement.initialize(self, animation_player,stop_movement)
 	ai.initialize(movement,team_Node.team,player)
-	ai.cooldown_timer = cooldown_timer
 	
 	connect("enemy_dead",game,"_on_enemy_killed")
-
-func _process(delta):
-	if fading:
-		alpha -= delta/time_to_fade
-		if alpha <=0:
-			queue_free()
-		modulate = Color(1,1,1,alpha)
-
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Death":
@@ -70,4 +63,8 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 
 func _on_TimeUntilFading_timeout():
-	fading = true
+	fade_out.interpolate_property(self, "modulate:a", 1.0, 0.0,time_to_fade, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+	fade_out.start()
+
+func _on_FadeOut_tween_completed(object, key):
+	queue_free()
