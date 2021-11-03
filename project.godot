@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "Bullet",
+"language": "GDScript",
+"path": "res://Scenes/Weapons/Bullets/BulletBasis.gd"
+}, {
+"base": "Area2D",
+"class": "Item",
+"language": "GDScript",
+"path": "res://Scenes/Items/ItemBasis.gd"
+}, {
 "base": "Node2D",
 "class": "Movement",
 "language": "GDScript",
@@ -18,10 +28,18 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Scenes/Player.gd"
+}, {
+"base": "Node2D",
+"class": "Weapon",
+"language": "GDScript",
+"path": "res://Scenes/Weapons/Weapons/WeaponBasis.gd"
 } ]
 _global_script_class_icons={
+"Bullet": "",
+"Item": "",
 "Movement": "",
-"Player": ""
+"Player": "",
+"Weapon": ""
 }
 
 [application]
@@ -33,6 +51,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Globals="*res://Scripts/Globals.gd"
+SaveManager="*res://Scripts/SaveManager.gd"
 
 [display]
 
@@ -75,6 +94,11 @@ Escape={
 Enter={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"unicode":0,"echo":false,"script":null)
+ ]
+}
+show_debug_info={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777246,"unicode":0,"echo":false,"script":null)
  ]
 }
 

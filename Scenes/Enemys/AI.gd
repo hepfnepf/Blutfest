@@ -4,23 +4,23 @@ export var patrol_range:float = 50
 export var damage:int = 20
 export var attack_range = 200
 
+
 var movementNode:Movement = null
 var team:int = -1 setget set_team
 var player:KinematicBody2D = null
 
 
-var cooldown_timer:Timer = null
+
 var ready_to_attack = true
 var alive=true
-#func _process(delta):
-#	movementNode.move_to(create_random_patrol_location())
+
+onready var cooldown_timer:Timer = $AttackCooldown
 
 func initialize(movementNode:Movement, team : int,player):
 	self.movementNode = movementNode
 	set_team(team)
 	self.player = player
-	#self.player = player
-	#movementNode.move_to(create_random_patrol_location())
+
 
 
 func _process(delta):
