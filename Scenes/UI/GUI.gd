@@ -5,7 +5,9 @@ onready var exp_widget = $MarginContainer/VBoxContainer/HBoxContainer/CenterCont
 onready var ammo_widget = $MarginContainer/VBoxContainer/HBoxContainer/CenterContainer2/AmmoWidget
 onready var score = $MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer2/Score
 onready var debug_info = $MarginContainer/VBoxContainer/HBoxContainer3/DebugLayout
+onready var crosshair = $Crosshair
 
+#enum CURSOR_TYPE{DEFAULT,CUSTOM}
 var player:Player
 
 func set_player(player):
@@ -48,6 +50,14 @@ func set_max_exp(new_max_exp):
 	exp_widget.set_max_exp(new_max_exp)
 func set_score(new_score):
 	score.text = str(new_score)
+
+func set_cursor(cursor_type:int) -> void:
+	if cursor_type == Globals.CURSOR_TYPE.CUSTOM:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		crosshair.visible = true
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		crosshair.visible = false
 
 #func _input(event):
 #	if event.is_action_just_pressed("show_debug_info"):

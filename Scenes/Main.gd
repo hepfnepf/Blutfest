@@ -13,6 +13,7 @@ func _ready():
 	player.connect("dead",self,"_on_player_death")
 	connect("killed_enemy",debug_gui,"_on_enemy_count_changed")
 	gui.set_player(player)
+	gui.set_cursor(Globals.CURSOR_TYPE.CUSTOM)
 
 func _on_player_death():
 	var death_screen = death_screen_prefab.instance()
@@ -20,6 +21,7 @@ func _on_player_death():
 	death_screen.set_score(player.score)
 	death_screen.set_time(player.elapsed_time)
 	spawner.game_alive = false
+	gui.set_cursor(Globals.CURSOR_TYPE.DEFAULT)
 	var save_dict= SaveManager.read_savegame()
 	if save_dict["highscore"] < player.score:
 		save_dict["highscore"] = player.score
