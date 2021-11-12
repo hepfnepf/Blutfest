@@ -13,6 +13,7 @@ export (int) var max_range = 300
 export (int) var speed = 100
 export (int) var reload_time = 1
 export (int) var fire_rate = 10
+export (float) var spread = 0.03
 
 export (PackedScene) var Bullet
 
@@ -21,6 +22,7 @@ var ammo:int = max_ammo
 var is_reloading:bool = false 
 var cooldown:bool = false
 var reload_start_time:int # used for progress bar
+var rng = RandomNumberGenerator.new()
 
 onready var animation_player = $AnimationPlayer
 onready var reload_timer:Timer = $ReloadTimer
@@ -28,6 +30,9 @@ onready var bullet_spawn_position = $BulletSpawnPosition
 onready var bullet_spawn_direction = $BulletDirection
 onready var shot_timer:Timer = $Cooldown
 onready var game = get_node("/root/Game")
+
+func _ready():
+	rng.randomize()
 
 func _process(delta):
 	if is_reloading:
@@ -62,8 +67,8 @@ func shoot_bullet():
 	var bullet = Bullet.instance()
 	bullet.global_position = bullet_spawn_position.global_position
 	var dir_vector = bullet_spawn_position.global_position.direction_to(bullet_spawn_direction.global_position).normalized()
-	bullet.rotation = dir_vector.angle()
-	bullet.direction = dir_vector
+	bullet.rotation = dir_vector.angle()+ rng.randf_range(-spread,spread)
+	bullet.direction = Vector2.RIGHT.rotated(bullet.rotation)
 	bullet.speed = speed
 	bullet.p_range = max_range
 	bullet.damage = damage
