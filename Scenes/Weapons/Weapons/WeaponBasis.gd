@@ -13,18 +13,23 @@ export (int) var max_range = 300
 export (int) var speed = 100
 export (int) var reload_time = 1
 export (int) var fire_rate = 10
-export (float) var spread = 0.03
+export (float) var base_spread = 0.3
+export (float) var max_spread = 0.5
+export (float) var spread_inc = 0.05
+export (float) var spread_dec = 0.04#per second
+
 
 export (PackedScene) var Bullet
 
 
 var ammo:int = max_ammo
+var spread:float = base_spread 
 var is_reloading:bool = false 
 var cooldown:bool = false
 var reload_start_time:int # used for progress bar
 var rng = RandomNumberGenerator.new()
 
-onready var animation_player = $AnimationPlayer
+onready var animation_player:AnimationPlayer = $AnimationPlayer
 onready var reload_timer:Timer = $ReloadTimer
 onready var bullet_spawn_position = $BulletSpawnPosition
 onready var bullet_spawn_direction = $BulletDirection
@@ -38,6 +43,7 @@ func _process(delta):
 	if is_reloading:
 		var percent = reload_timer.time_left/reload_timer.wait_time * 100
 		emit_signal("reload_percent_change",percent)
+	decrease_spread(delta)
 	check_for_input()
 
 func check_for_input():
@@ -73,14 +79,25 @@ func shoot_bullet():
 	bullet.p_range = max_range
 	bullet.damage = damage
 	game.add_child(bullet)
-	#bullet.init()
+	increase_spread()
 
+func increase_spread():
+	spread += spread_inc
+	if spread > max_spread:
+		spread = max_spread
+	print(spread)
+
+func decrease_spread(delta:float):
+	spread -= spread_dec*delta
+	if spread < base_spread:
+		spread = base_spread
 
 func reload():
 	if !is_reloading:
 		is_reloading = true
 		reload_timer.start(reload_time)
 		reload_start_time = OS.get_ticks_msec()
+		spread = base_spread
 
 func _on_ReloadTimer_timeout():#after reload is done
 	ammo = max_ammo

@@ -12,7 +12,10 @@
 script = ExtResource( 3 )
 max_range = 10000
 speed = 3000
-spread = 0.01
+base_spread = 0.05
+max_spread = 0.1
+spread_inc = 0.01
+spread_dec = 0.015
 Bullet = ExtResource( 1 )
 
 [node name="armL" type="Sprite" parent="." index="6"]
