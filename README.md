@@ -11,7 +11,7 @@ A WIP Crimsonland clone inspired by the unfished and no longer maintained FOSS-G
 - Bullet spread
 - Possibly sounds
 - Crosshair
--
+- Credits
 # Road To 0.2.1
 - Death animation for player
 - Aknowledgement in the gui when you break the highscore
