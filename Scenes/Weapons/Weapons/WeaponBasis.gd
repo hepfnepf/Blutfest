@@ -13,9 +13,11 @@ export (int) var max_range = 300
 export (int) var speed = 100
 export (int) var reload_time = 1
 export (int) var fire_rate = 10
+
+
 export (float) var base_spread = 0.3
 export (float) var max_spread = 0.5
-export (float) var spread_inc = 0.05
+export (float) var spread_inc = 0.05#per shot
 export (float) var spread_dec = 0.04#per second
 
 
@@ -23,7 +25,7 @@ export (PackedScene) var Bullet
 
 
 var ammo:int = max_ammo
-var spread:float = base_spread 
+var spread:float = 0 #gets set in ready to base_spread, does somehow not work if done here
 var is_reloading:bool = false 
 var cooldown:bool = false
 var reload_start_time:int # used for progress bar
@@ -38,6 +40,7 @@ onready var game = get_node("/root/Game")
 
 func _ready():
 	rng.randomize()
+	spread = base_spread
 
 func _process(delta):
 	if is_reloading:
@@ -73,8 +76,9 @@ func shoot_bullet():
 	var bullet = Bullet.instance()
 	bullet.global_position = bullet_spawn_position.global_position
 	var dir_vector = bullet_spawn_position.global_position.direction_to(bullet_spawn_direction.global_position).normalized()
-	bullet.rotation = dir_vector.angle()+ rng.randf_range(-spread,spread)
-	bullet.direction = Vector2.RIGHT.rotated(bullet.rotation)
+	var rot = dir_vector.angle()+ rng.randf_range(-spread,spread)
+	bullet.rotation = rot
+	bullet.direction = Vector2.RIGHT.rotated(rot)
 	bullet.speed = speed
 	bullet.p_range = max_range
 	bullet.damage = damage
@@ -82,10 +86,9 @@ func shoot_bullet():
 	increase_spread()
 
 func increase_spread():
-	spread += spread_inc
+	spread *= 1+spread_inc
 	if spread > max_spread:
 		spread = max_spread
-	print(spread)
 
 func decrease_spread(delta:float):
 	spread -= spread_dec*delta

@@ -12,9 +12,9 @@
 script = ExtResource( 3 )
 max_range = 10000
 speed = 3000
-base_spread = 0.05
-max_spread = 0.1
-spread_inc = 0.01
+base_spread = 0.02
+max_spread = 0.055
+spread_inc = 0.15
 spread_dec = 0.015
 Bullet = ExtResource( 1 )
 
