@@ -33,6 +33,7 @@ func reset_weapon(weapon):
 	weapon.connect("ammo_changed",self,"set_ammo")
 	weapon.connect("max_ammo_changed",self,"set_max_ammo")
 	weapon.connect("reload_percent_change", self, "set_reload_progress")
+	weapon.connect("spread_changed",crosshair,"set_spread")
 
 func set_health(new_health):
 	health_widget.set_health(new_health)

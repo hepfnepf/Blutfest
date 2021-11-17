@@ -4,7 +4,8 @@ class_name Weapon
 signal ammo_changed
 signal max_ammo_changed
 signal reload_percent_change
-signal shot_fired(ammotype,origin,vector,p_range)
+#signal shot_fired(ammotype,origin,vector,p_range) #currently not used
+signal spread_changed(new_spread)
 
 
 export (int) var max_ammo = 15
@@ -41,6 +42,7 @@ onready var game = get_node("/root/Game")
 func _ready():
 	rng.randomize()
 	spread = base_spread
+	emit_signal("spread_changed", spread/base_spread)
 
 func _process(delta):
 	if is_reloading:
@@ -89,12 +91,13 @@ func increase_spread():
 	spread *= 1+spread_inc
 	if spread > max_spread:
 		spread = max_spread
+	emit_signal("spread_changed", spread/base_spread)
 
 func decrease_spread(delta:float):
 	spread -= spread_dec*delta
 	if spread < base_spread:
 		spread = base_spread
-
+	emit_signal("spread_changed", spread/base_spread)
 func reload():
 	if !is_reloading:
 		is_reloading = true
