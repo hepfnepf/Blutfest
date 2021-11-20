@@ -9,7 +9,7 @@ export (float) var spawn_rate_increase=0.02
 var spawn_value:float = 0
 var game_alive :=true
 
-var map_size_x:float=0#gets set in ready
+var map_size_x:float=0#gets set in the Game node
 var map_size_y:float=0
 
 export (PackedScene) var default_enemy
@@ -20,12 +20,6 @@ onready var map:Map = get_node("/root/Game/Map")
 
 func _ready():
 	connect("spawned_enemy",debug_gui,"_on_enemy_count_changed")
-	#Two different attemps to get the map size, each depent on ehich of the nodes spawner and map get loaded first
-	map.connect("set_size",self,"set_map_size")#if map gets loaded after spawner its going to send a signal to set the sizes
-	if map_size_x == 0:#if the map size has not been sen, map got loaded befor spawner so we can just get the parameter
-		map_size_x=map.x_size
-		map_size_y=map.y_size
-
 func _process(delta):
 	if !game_alive:
 		return
