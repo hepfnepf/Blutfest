@@ -1132,6 +1132,7 @@ tracks/7/keys = {
 radius = 11.0105
 
 [node name="Player" type="KinematicBody2D"]
+collision_mask = 3
 script = ExtResource( 10 )
 
 [node name="Weapon" type="Node2D" parent="."]

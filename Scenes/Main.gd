@@ -1,19 +1,22 @@
 extends Node2D
 signal killed_enemy
 
-
 export (PackedScene) var death_screen_prefab
 
 onready var gui = $GUI
+onready var map = $Map
 onready var player = $Player
 onready var spawner = $Spawner
 onready var debug_gui = $GUI/MarginContainer/VBoxContainer/HBoxContainer3/DebugLayout
 
 func _ready():
+	randomize()
 	player.connect("dead",self,"_on_player_death")
 	connect("killed_enemy",debug_gui,"_on_enemy_count_changed")
 	gui.set_player(player)
 	gui.set_cursor(Globals.CURSOR_TYPE.CUSTOM)
+	var map_size:Vector2 = map.get_map_size()
+	spawner.set_map_size(map_size[0],map_size[1])
 
 func _on_player_death():
 	var death_screen = death_screen_prefab.instance()

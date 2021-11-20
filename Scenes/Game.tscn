@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Sprites/floor.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Maps/GrassMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Enemys/defaultEnemy.tscn" type="PackedScene" id=5]
@@ -20,12 +19,6 @@ death_screen_prefab = ExtResource( 9 )
 
 [node name="PistolItem" parent="." instance=ExtResource( 10 )]
 position = Vector2( -641.447, 520.285 )
-
-[node name="floor" type="Sprite" parent="."]
-z_index = -10
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 10000, 10000 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -884, -8 )
@@ -50,7 +43,5 @@ texture = ExtResource( 4 )
 [node name="GUI" parent="." instance=ExtResource( 7 )]
 
 [node name="Spawner" parent="." instance=ExtResource( 8 )]
-map_size_x = 5000
-map_size_y = 5000
 
-[node name="Map2" parent="." instance=ExtResource( 3 )]
+[node name="Map" parent="." instance=ExtResource( 3 )]
