@@ -30,23 +30,39 @@ func _process(delta):
 	spawn_value+= spawn_rate*delta
 	while (spawn_value >= 1):
 		spawn_value -= 1
-		spawn_at(random_position())
+		spawn_at(default_enemy,random_position_out_map())
 		emit_signal("spawned_enemy")
 
-func spawn_at(position):
-	var enemy = spawn()
-	enemy.position = position
+func spawn_at(obj,position):
+	var _obj = spawn(obj)
+	_obj.position = position
 
-func random_position() -> Vector2:
-	var random_x= rand_range(-map_size_x/2,map_size_x/2)
-	var random_y= rand_range(-map_size_y/2,map_size_y/2)
+func random_position_in_map() -> Vector2:
+	var random_x= rand_range(-map_size_x,map_size_x)
+	var random_y= rand_range(-map_size_y,map_size_y)
 	return Vector2(random_x,random_y)
 
-func spawn():
-	var enemy = default_enemy.instance()
-	game.add_child(enemy)
-	return enemy
+func random_position_out_map()->Vector2:
+	var helper_bit:bool = randi()%2#Decides whether the x-coord shuld be bigger than the border or the y-coord
+	var random_x:float=0
+	var random_y:float=0
+	if helper_bit ==true:
+		var helper_int:int = randi()%2*2 -1 #generates eather -1 or 1
+		random_x = helper_int*map_size_x+helper_int*20 #time 20 to have some space between the border of the map and th espawn poistion
+		random_y = rand_range(-map_size_y,map_size_y)
+		
+	else:
+		var helper_int:int = randi()%2*2 -1 #generates eather -1 or 1
+		random_x =  rand_range(-map_size_x,map_size_x)
+		random_y= helper_int*map_size_y+helper_int*20
+	print_debug(random_x," ", random_y)
+	return Vector2(random_x,random_y)
+
+func spawn(scene):
+	var _obj = scene.instance()
+	game.add_child(_obj)
+	return _obj
 
 func set_map_size(x_size:float,y_size:float)->void:
-	map_size_x = x_size
-	map_size_y = y_size
+	map_size_x = x_size/2
+	map_size_y = y_size/2

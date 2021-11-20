@@ -10,6 +10,7 @@ onready var spawner = $Spawner
 onready var debug_gui = $GUI/MarginContainer/VBoxContainer/HBoxContainer3/DebugLayout
 
 func _ready():
+	randomize()
 	player.connect("dead",self,"_on_player_death")
 	connect("killed_enemy",debug_gui,"_on_enemy_count_changed")
 	gui.set_player(player)

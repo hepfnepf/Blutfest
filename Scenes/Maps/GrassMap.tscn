@@ -6,4 +6,4 @@
 
 [node name="Texture" parent="." index="0"]
 position = Vector2( 0, 0 )
-scale = Vector2( 3.555, -3.555 )
+scale = Vector2( 3.555, 3.555 )
