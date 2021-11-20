@@ -55,6 +55,8 @@ func check_for_input():
 	if Input.is_action_pressed("fire"):
 		if !cooldown && ammo > 0 && !is_reloading:
 			shoot()
+	if Input.is_action_just_released("reload"):# && ammo!= max_ammo:
+		reload()
 
 func shoot():	
 	#animation
