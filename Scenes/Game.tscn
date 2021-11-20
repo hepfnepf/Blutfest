@@ -43,7 +43,5 @@ texture = ExtResource( 4 )
 [node name="GUI" parent="." instance=ExtResource( 7 )]
 
 [node name="Spawner" parent="." instance=ExtResource( 8 )]
-map_size_x = 5000
-map_size_y = 5000
 
 [node name="Map" parent="." instance=ExtResource( 3 )]

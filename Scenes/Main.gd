@@ -1,7 +1,6 @@
 extends Node2D
 signal killed_enemy
 
-
 export (PackedScene) var death_screen_prefab
 
 onready var gui = $GUI
