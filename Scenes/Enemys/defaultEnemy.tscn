@@ -103,8 +103,6 @@ one_shot = true
 
 [node name="FadeOut" type="Tween" parent="."]
 
-[node name="StopMovement" type="Tween" parent="."]
-
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="TimeUntilFading" to="." method="_on_TimeUntilFading_timeout"]
 [connection signal="tween_completed" from="FadeOut" to="." method="_on_FadeOut_tween_completed"]

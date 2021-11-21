@@ -18,7 +18,6 @@ onready var animation_player = $AnimationPlayer
 onready var until_fading_timer:Timer = $TimeUntilFading
 onready var collision_shape:CollisionShape2D = $CollisionShape2D
 onready var fade_out:Tween = $FadeOut
-onready var stop_movement:Tween = $StopMovement
 
 onready var player = get_node("/root/Game/Player")
 onready var game = get_node("/root/Game")
@@ -51,8 +50,7 @@ func _ready():
 	movement.speed = speed
 	health_Node.health = max_health
 	
-	stop_movement.interpolate_property(sprite,"animation:frame",sprite.frame, 41, 0.5, Tween.TRANS_LINEAR)
-	movement.initialize(self, animation_player,stop_movement)
+	movement.initialize(self, animation_player)
 	ai.initialize(movement,team_Node.team,player)
 	
 	connect("enemy_dead",game,"_on_enemy_killed")

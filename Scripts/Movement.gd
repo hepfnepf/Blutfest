@@ -10,12 +10,10 @@ var actor:KinematicBody2D = null
 var animation_player:AnimationPlayer = null
 var movement_vector:Vector2 = Vector2.ZERO
 var lerp_location:Vector2 = Vector2.ZERO
-var stop_movement:Tween = null
 
-func initialize(actor:KinematicBody2D, animation_player: AnimationPlayer, stop_movement:Tween):
+func initialize(actor:KinematicBody2D, animation_player: AnimationPlayer):
 	self.actor = actor
 	self.animation_player = animation_player
-	self.stop_movement = stop_movement
 	#animation_player.play("Walk")
 
 func lerp_rotate_toward(location: Vector2):
@@ -33,7 +31,6 @@ func stop_movement():
 	if not is_moving():
 		return
 	animation_player.stop()
-	stop_movement.start()#whats being interpolated set in actor
 	movement_vector = Vector2.ZERO
 	#animation_player.queue("halt")
 
