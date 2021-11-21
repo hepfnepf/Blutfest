@@ -55,7 +55,6 @@ func random_position_out_map()->Vector2:
 		var helper_int:int = randi()%2*2 -1 #generates eather -1 or 1
 		random_x =  rand_range(-map_size_x,map_size_x)
 		random_y= helper_int*map_size_y+helper_int*20
-	print_debug(random_x," ", random_y)
 	return Vector2(random_x,random_y)
 
 func spawn(scene):

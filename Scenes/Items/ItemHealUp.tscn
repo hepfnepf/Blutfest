@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Items/ItemBasis.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Items/HealUp.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Items/ItemHealUp.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+extents = Vector2( 72.136, 72.6473 )
+
+[node name="ItemBasis" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( 0, 0 )
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." index="1"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )

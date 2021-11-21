@@ -55,7 +55,10 @@ func _physics_process(delta):
 func set_health(new_health:int):
 	if !alive:
 		return
-	health = new_health
+	if new_health > max_health:
+		health=max_health
+	else:
+		health = new_health
 	emit_signal("health_changed",health)
 	if health <= 0:
 		die()

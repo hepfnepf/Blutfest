@@ -5,7 +5,12 @@
 [ext_resource path="res://Scenes/Items/ItemBasisWeapon.tscn" type="PackedScene" id=3]
 
 [node name="PistolItem" instance=ExtResource( 3 )]
+health_gain = 50.0
 weapon = ExtResource( 1 )
 
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( 9.17268, 2.15223 )
+
 [node name="Sprite" parent="." index="1"]
+scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
