@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Spawner.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Enemys/defaultEnemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Items/ItemHealUp.tscn" type="PackedScene" id=3]
 
 [node name="Spawner" type="Node2D"]
 script = ExtResource( 1 )
 default_enemy = ExtResource( 2 )
+heal_up = ExtResource( 3 )

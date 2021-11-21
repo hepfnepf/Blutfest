@@ -3,16 +3,23 @@ extends Node2D
 
 signal spawned_enemy
 
-export (float)var spawn_rate= 1.0
-export (float) var spawn_rate_increase=0.02
+export (float)var enemy_spawn_rate= 1.0
+export (float)var enemy_spawn_rate_increase=0.02
+export (float)var item_spawn_rate=0.05 
 
-var spawn_value:float = 0
+var enemy_spawn_value:float = 0
+var item_spawn_value:float = 0
 var game_alive :=true
 
 var map_size_x:float=0#gets set in the Game node
 var map_size_y:float=0
 
+#Enemys
 export (PackedScene) var default_enemy
+
+#Items
+export (PackedScene) var heal_up
+#Weapon
 
 onready var game = get_node("/root/Game")
 onready var debug_gui =get_node("/root/Game/GUI/MarginContainer/VBoxContainer/HBoxContainer3/DebugLayout")
@@ -20,16 +27,29 @@ onready var map:Map = get_node("/root/Game/Map")
 
 func _ready():
 	connect("spawned_enemy",debug_gui,"_on_enemy_count_changed")
+
 func _process(delta):
 	if !game_alive:
 		return
+	handle_enemy_spawning(delta)
+	handle_item_spawning(delta)
+	
+func handle_item_spawning(delta)->void:
+	item_spawn_value += item_spawn_rate*delta
+	while (item_spawn_value >= 1):
+		item_spawn_value -=1
+		spawn_at(heal_up,random_position_in_map())
+		
+
+
+func handle_enemy_spawning(delta)->void:
 	#change spawn probability over time
-	spawn_rate += delta*spawn_rate_increase
+	enemy_spawn_rate += delta*enemy_spawn_rate_increase
 	
 	#decides how many enemys are supposed to spawn
-	spawn_value+= spawn_rate*delta
-	while (spawn_value >= 1):
-		spawn_value -= 1
+	enemy_spawn_value+= enemy_spawn_rate*delta
+	while (enemy_spawn_value >= 1):
+		enemy_spawn_value -= 1
 		spawn_at(default_enemy,random_position_out_map())
 		emit_signal("spawned_enemy")
 
