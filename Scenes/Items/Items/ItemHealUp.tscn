@@ -6,9 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 72.136, 72.6473 )
+extents = Vector2( 233.263, 234.355 )
 
-[node name="ItemBasis" instance=ExtResource( 1 )]
+[node name="ItemHealUp" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="0"]
@@ -16,5 +16,5 @@ position = Vector2( 0, 0 )
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="1"]
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 1.6, 1.6 )
 texture = ExtResource( 2 )

@@ -19,8 +19,10 @@ var score:int = 0 setget set_score
 var alive:bool = true
 var elapsed_time=0 #get increased by 1 sec every time the time counter returns
 
+var invincible:bool = false#for the invincibility item
 #How much of the current value is due to temporary effects
 var delta_move_speed = 0
+var invincible_count = 0
 
 
 onready var Weapon = $Weapon
@@ -67,7 +69,7 @@ func set_health(new_health:int):
 		die()
 
 func set_max_health(new_max_health:int):
-	if !alive:
+	if !alive or invincible:
 		return
 	max_health = new_max_health
 	emit_signal("max_health_changed",max_health)
@@ -83,7 +85,7 @@ func die():
 	alive = false
 
 func take_damage(damage:int):
-	if !alive:
+	if !alive or invincible:
 		return
 	set_health(health - damage)
 
@@ -109,7 +111,13 @@ func next_exp_limit():
 	emit_signal("exp_limit_changed",experience_limit)
 	pass
 
-
+func change_invincibility(change:int):#function to be used from effect to turn the player invinsible, it handles stacking of the effect
+	invincible_count += change
+	if invincible_count <= 0:
+		invincible = false
+		invincible_count = 0
+	else:
+		invincible = true
 
 func set_weapon(weapon):
 	if !alive:
