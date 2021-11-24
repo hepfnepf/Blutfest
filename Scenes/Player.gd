@@ -18,8 +18,11 @@ var experience_limit:int=100
 var score:int = 0 setget set_score
 var alive:bool = true
 var elapsed_time=0 #get increased by 1 sec every time the time counter returns
-#onready var Sprite:Sprite = $Sprites
-#onready var AnimationPlayer = $AnimationPlayer
+
+#How much of the current value is due to temporary effects
+var delta_move_speed = 0
+
+
 onready var Weapon = $Weapon
 
 

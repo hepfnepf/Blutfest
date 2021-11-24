@@ -14,6 +14,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Weapons/Bullets/BulletBasis.gd"
 }, {
+"base": "Timer",
+"class": "EffectBasis",
+"language": "GDScript",
+"path": "res://EffectBasis.gd"
+}, {
+"base": "Item",
+"class": "EffectItemBasis",
+"language": "GDScript",
+"path": "res://Scenes/Items/Helper/EffectItemBasis.gd"
+}, {
 "base": "Area2D",
 "class": "Item",
 "language": "GDScript",
@@ -46,6 +56,8 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Bullet": "",
+"EffectBasis": "",
+"EffectItemBasis": "",
 "Item": "",
 "ItemWeapon": "",
 "Map": "",
