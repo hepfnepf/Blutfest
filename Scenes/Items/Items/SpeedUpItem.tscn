@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Items/EffectNodes/SpeedUp.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Items/Helper/EffectItemBasis.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Items/SpeedUp.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+extents = Vector2( 256.466, 259.836 )
+
+[node name="SpeedUp" instance=ExtResource( 2 )]
+effect_node = ExtResource( 1 )
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource( 3 )

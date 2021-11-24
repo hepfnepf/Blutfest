@@ -1,4 +1,13 @@
 
+
+Sprites
+
+Other:
+Player - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player
+
+Wapons top-down:
+Pistol - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player
+
 Pick-Up items
 SpeedUp - Delapouite - https://game-icons.net/1x1/delapouite/running-shoe.html
 Shiled - Lorc - https://game-icons.net/1x1/lorc/checked-shield.html

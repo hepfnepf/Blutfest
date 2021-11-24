@@ -19,6 +19,7 @@ export (PackedScene) var default_enemy
 
 #Items
 export (PackedScene) var heal_up
+export (Array,PackedScene) var item_array
 #Weapon
 
 onready var game = get_node("/root/Game")
@@ -38,7 +39,7 @@ func handle_item_spawning(delta)->void:
 	item_spawn_value += item_spawn_rate*delta
 	while (item_spawn_value >= 1):
 		item_spawn_value -=1
-		spawn_at(heal_up,random_position_in_map())
+		spawn_at(item_array[randi()%len(item_array)],random_position_in_map())
 		
 
 

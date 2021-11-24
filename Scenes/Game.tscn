@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Items/ItemHealUp.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Items/Items/ItemHealUp.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Maps/GrassMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Enemys/defaultEnemy.tscn" type="PackedScene" id=5]
@@ -9,7 +9,9 @@
 [ext_resource path="res://Scenes/UI/GUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Spawner.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/UI/DeathScreen.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Items/PistolItem.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Items/Items/PistolItem.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Items/Items/SpeedUpItem.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Items/Items/ItemInvincibility.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -20,6 +22,7 @@ death_screen_prefab = ExtResource( 9 )
 
 [node name="PistolItem" parent="." instance=ExtResource( 10 )]
 position = Vector2( -641.447, 520.285 )
+scale = Vector2( 1, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -884, -8 )
@@ -44,7 +47,6 @@ texture = ExtResource( 4 )
 [node name="GUI" parent="." instance=ExtResource( 7 )]
 
 [node name="Spawner" parent="." instance=ExtResource( 8 )]
+item_array = [ ExtResource( 10 ), ExtResource( 2 ), ExtResource( 11 ), ExtResource( 12 ) ]
 
 [node name="Map" parent="." instance=ExtResource( 3 )]
-
-[node name="ItemBasis" parent="." instance=ExtResource( 2 )]
