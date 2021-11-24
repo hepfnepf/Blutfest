@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Timer",
 "class": "EffectBasis",
 "language": "GDScript",
-"path": "res://EffectBasis.gd"
+"path": "res://Scenes/Items/Helper/EffectBasis.gd"
 }, {
 "base": "Item",
 "class": "EffectItemBasis",
