@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Weapons/Weapons/Pistol.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Weapons/pistol.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Items/ItemBasisWeapon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Items/Helper/ItemBasisWeapon.tscn" type="PackedScene" id=3]
 
 [node name="PistolItem" instance=ExtResource( 3 )]
 health_gain = 50.0
