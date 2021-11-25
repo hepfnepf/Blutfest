@@ -7,11 +7,11 @@ A WIP Crimsonland clone inspired by the unfished and no longer maintained FOSS-G
 - New spawning method 🗸
 - Enemys get patrol state
 - New start weapon
-- A few items
+- A few items🗸
 - Bullet spread 🗸
 - Possibly sounds
 - Crosshair 🗸
-- Credits
+- Credits🗸
 # Road To 0.2.1
 - Death animation for player
 - Aknowledgement in the gui when you break the highscore
