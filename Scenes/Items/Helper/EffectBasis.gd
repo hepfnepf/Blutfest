@@ -1,10 +1,21 @@
 extends Timer
 class_name EffectBasis
 
-var player = null
+export (Texture)var icon_texture
+export (PackedScene)var image_container
+
+
+onready var player = get_parent()
+onready var game = get_node_or_null("/root/Game")
+
+var icon:TextureRect  = null
 
 func _ready():
-	player = get_parent()
+	if game != null:
+		icon= image_container.instance()
+		icon.texture = icon_texture
+		var container = game.gui.effect_container
+		container.add_child(icon)
 	add_effect()
 
 func add_effect():
@@ -15,5 +26,7 @@ func remove_effect():
 
 func _on_EffectBasis_timeout():
 	remove_effect()
+	if icon !=null:
+		icon.queue_free()
 	queue_free()
 

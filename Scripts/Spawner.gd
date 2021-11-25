@@ -18,7 +18,6 @@ var map_size_y:float=0
 export (PackedScene) var default_enemy
 
 #Items
-export (PackedScene) var heal_up
 export (Array,PackedScene) var item_array
 #Weapon
 

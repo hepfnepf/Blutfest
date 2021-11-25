@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://AmmoInfinity.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Items/Helper/EffectBasis.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Items/InfinteAmmo.png" type="Texture" id=3]
+
+[node name="EffectBasis" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+icon_texture = ExtResource( 3 )
