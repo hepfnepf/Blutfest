@@ -6,6 +6,7 @@ onready var ammo_widget = $MarginContainer/VBoxContainer/HBoxContainer/CenterCon
 onready var score = $MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer2/Score
 onready var debug_info = $MarginContainer/VBoxContainer/HBoxContainer3/DebugLayout
 onready var crosshair = $Crosshair
+onready var effect_container = $MarginContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/EffectContainer
 
 #enum CURSOR_TYPE{DEFAULT,CUSTOM}
 var player:Player

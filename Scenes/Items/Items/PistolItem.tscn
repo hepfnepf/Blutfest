@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/Items/Helper/ItemBasisWeapon.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 70.8273, 17.1522 )
+extents = Vector2( 197.494, 47.1522 )
 
 [node name="PistolItem" instance=ExtResource( 3 )]
 weapon = ExtResource( 1 )
@@ -15,5 +15,5 @@ position = Vector2( 9.17268, 2.15223 )
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="1"]
-scale = Vector2( 2, 2 )
+scale = Vector2( 7, 7 )
 texture = ExtResource( 2 )

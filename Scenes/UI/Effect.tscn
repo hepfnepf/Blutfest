@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="Effect" type="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 55, 55 )
+rect_scale = Vector2( 0.1, 0.1 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

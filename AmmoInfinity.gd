@@ -19,8 +19,6 @@ func add_effect():
 		fire_rate_delta = new_fire_rate - weapon.fire_rate
 		weapon.fire_rate_delta += fire_rate_delta
 		weapon.fire_rate = new_fire_rate
-	else:
-		return
 	
 
 func remove_effect():
