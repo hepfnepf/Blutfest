@@ -5,7 +5,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 74.1606, 18.8189 )
+extents = Vector2( 762.011, 776.766 )
 
 [node name="EffectItemBasis" instance=ExtResource( 1 )]
 script = ExtResource( 2 )

@@ -11,8 +11,8 @@ signal spread_changed(new_spread)
 export (int) var max_ammo = 15
 export (int) var damage = 20
 export (int) var max_range = 300
-export (int) var speed = 100
-export (int) var reload_time = 1
+export (int) var speed = 100#of bullet
+export (float) var reload_time = 1
 export (int) var fire_rate = 10
 
 
@@ -31,6 +31,10 @@ var is_reloading:bool = false
 var cooldown:bool = false
 var reload_start_time:int # used for progress bar
 var rng = RandomNumberGenerator.new()
+
+#For effects
+var reload_time_delta:float = 0
+var fire_rate_delta:int = 0
 
 onready var animation_player:AnimationPlayer = $AnimationPlayer
 onready var reload_timer:Timer = $ReloadTimer
@@ -101,12 +105,13 @@ func decrease_spread(delta:float):
 		spread = base_spread
 	emit_signal("spread_changed", spread/base_spread)
 func reload():
-	if !is_reloading:
+	if !is_reloading and reload_time != 0:
 		is_reloading = true
 		reload_timer.start(reload_time)
 		reload_start_time = OS.get_ticks_msec()
 		spread = base_spread
-
+	if reload_time == 0:#skip reloading
+		_on_ReloadTimer_timeout()
 func _on_ReloadTimer_timeout():#after reload is done
 	ammo = max_ammo
 	emit_signal("ammo_changed",ammo)
