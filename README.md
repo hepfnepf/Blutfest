@@ -6,7 +6,7 @@ A WIP Crimsonland clone inspired by the unfished and no longer maintained FOSS-G
 - A real map 🗸
 - New spawning method 🗸
 - Enemys get patrol state
-- New start weapon
+- New start weapon🗸
 - A few items🗸
 - Bullet spread 🗸
 - Possibly sounds
