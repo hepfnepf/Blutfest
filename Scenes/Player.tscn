@@ -8,14 +8,13 @@
 [ext_resource path="res://Sprites/Player/arm.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Player/forearm.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Weapons/Weapon.gd" type="Script" id=8]
-[ext_resource path="res://Scenes/Weapons/Weapons/Pistol.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Player.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/Weapons/Weapons/StandardRifle.tscn" type="PackedScene" id=11]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=2]
 radius = 73.9803
 
-[sub_resource type="Animation" id=2]
-resource_name = "none"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprites:position")
 tracks/0/interp = 1
@@ -329,8 +328,7 @@ tracks/25/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "walk_backwards"
+[sub_resource type="Animation" id=4]
 length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprites/torso/legL:position")
@@ -429,8 +427,7 @@ tracks/7/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "walk_backwards_left"
+[sub_resource type="Animation" id=5]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprites/torso/legL:position")
@@ -529,8 +526,7 @@ tracks/7/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "walk_backwards_right"
+[sub_resource type="Animation" id=6]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -630,7 +626,7 @@ tracks/7/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -730,7 +726,7 @@ tracks/7/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -830,8 +826,7 @@ tracks/7/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "walk_forward_right"
+[sub_resource type="Animation" id=9]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprites/torso/legL:position")
@@ -930,7 +925,7 @@ tracks/7/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprites/torso/legL:position")
@@ -1029,7 +1024,7 @@ tracks/7/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprites/torso/legL:position")
@@ -1128,7 +1123,7 @@ tracks/7/keys = {
 "values": [ 0.0, 0.0 ]
 }
 
-[sub_resource type="CircleShape2D" id=11]
+[sub_resource type="CircleShape2D" id=12]
 radius = 11.0105
 
 [node name="Player" type="KinematicBody2D"]
@@ -1138,10 +1133,10 @@ script = ExtResource( 10 )
 [node name="Weapon" type="Node2D" parent="."]
 script = ExtResource( 8 )
 
-[node name="Pistol" parent="Weapon" instance=ExtResource( 9 )]
+[node name="StandardRifle" parent="Weapon" instance=ExtResource( 11 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Sprites" type="Node2D" parent="."]
 
@@ -1211,15 +1206,15 @@ z_index = 1
 texture = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/none = SubResource( 2 )
-anims/walk_backwards = SubResource( 3 )
-anims/walk_backwards_left = SubResource( 4 )
-anims/walk_backwards_right = SubResource( 5 )
-anims/walk_forward = SubResource( 6 )
-anims/walk_forward_left = SubResource( 7 )
-anims/walk_forward_right = SubResource( 8 )
-anims/walk_left = SubResource( 9 )
-anims/walk_right = SubResource( 10 )
+anims/none = SubResource( 3 )
+anims/walk_backwards = SubResource( 4 )
+anims/walk_backwards_left = SubResource( 5 )
+anims/walk_backwards_right = SubResource( 6 )
+anims/walk_forward = SubResource( 7 )
+anims/walk_forward_left = SubResource( 8 )
+anims/walk_forward_right = SubResource( 9 )
+anims/walk_left = SubResource( 10 )
+anims/walk_right = SubResource( 11 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -1230,7 +1225,7 @@ zoom = Vector2( 4, 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemInteractionZone"]
 position = Vector2( 18.604, 0 )
 scale = Vector2( 7.9333, -6.90788 )
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 
 [node name="ElapsedTime" type="Timer" parent="."]
 autostart = true

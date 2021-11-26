@@ -1,0 +1,115 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Sprites/Weapons/muzzle_flash_02.png" type="Texture" id=1]
+[ext_resource path="res://StandardRifle.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Player/hand_holding_gun.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Player/arm.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Player/forearm.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Weapons/rifle.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Weapons/Bullets/BulletClean2.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "shot"
+length = 0.05
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("muzzle_flash_02:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("muzzle_flash_02:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.4, 0.4 ), Vector2( 0.4, 0.2 ) ]
+}
+
+[node name="StandardRifle" type="Node2D"]
+script = ExtResource( 2 )
+max_ammo = 20
+damage = 25
+speed = 3500
+fire_rate = 3
+base_spread = 0.02
+max_spread = 0.1
+spread_inc = 0.15
+spread_dec = 0.01
+Bullet = ExtResource( 7 )
+
+[node name="muzzle_flash_02" type="Sprite" parent="."]
+visible = false
+position = Vector2( 195.341, 29.8632 )
+scale = Vector2( 0.24484, 0.174748 )
+texture = ExtResource( 1 )
+offset = Vector2( 98.0151, 2.97409 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/shot = SubResource( 1 )
+
+[node name="ReloadTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BulletSpawnPosition" type="Position2D" parent="."]
+position = Vector2( 139.978, 30 )
+
+[node name="BulletDirection" type="Position2D" parent="."]
+position = Vector2( 191.262, 30 )
+
+[node name="Cooldown" type="Timer" parent="."]
+
+[node name="armL" type="Sprite" parent="."]
+position = Vector2( 42.4081, -42.8876 )
+rotation = 0.710979
+texture = ExtResource( 4 )
+
+[node name="forearmL" type="Sprite" parent="armL"]
+position = Vector2( 49.1193, 8.23508 )
+rotation = 0.280325
+texture = ExtResource( 5 )
+
+[node name="handL" type="Sprite" parent="armL/forearmL"]
+position = Vector2( 32.3609, 4.96817 )
+rotation = -0.0829921
+scale = Vector2( 0.662, 0.862 )
+texture = ExtResource( 3 )
+
+[node name="armR" type="Sprite" parent="."]
+position = Vector2( 14.0319, 54.6918 )
+rotation = -0.161639
+texture = ExtResource( 4 )
+flip_v = true
+
+[node name="forearmR" type="Sprite" parent="armR"]
+position = Vector2( 30.8579, -1.62223 )
+rotation = -0.169944
+texture = ExtResource( 5 )
+flip_v = true
+
+[node name="handR" type="Sprite" parent="armR/forearmR"]
+position = Vector2( 33.6595, -4.69916 )
+scale = Vector2( 0.662, 0.862 )
+texture = ExtResource( 3 )
+flip_v = true
+
+[node name="rifle" type="Sprite" parent="armR/forearmR/handR"]
+position = Vector2( 15.0017, 2.02521 )
+rotation = 0.258496
+scale = Vector2( 1.47738, 1.20209 )
+z_index = 1
+texture = ExtResource( 6 )
+
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_ReloadTimer_timeout"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]
