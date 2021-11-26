@@ -18,7 +18,7 @@ func add_effect():
 		var new_fire_rate = int(weapon.fire_rate*fire_rate_multiplyer)
 		fire_rate_delta = new_fire_rate - weapon.fire_rate
 		weapon.fire_rate_delta += fire_rate_delta
-		weapon.fire_rate = new_fire_rate
+		weapon.set_fire_rate(new_fire_rate)
 	
 
 func remove_effect():
@@ -27,5 +27,5 @@ func remove_effect():
 		weapon.reload_time = weapon.reload_time - reload_time_delta
 		
 		weapon.fire_rate_delta -= fire_rate_delta
-		weapon.fire_rate -= fire_rate_delta
+		weapon.set_fire_rate(weapon.fire_rate - fire_rate_delta)
 		

@@ -9,7 +9,11 @@ resource_local_to_scene = true
 _data = [ Vector2( 0.989529, 1 ), 0.0, 0.0, 0, 0 ]
 
 [node name="BulletClean2" instance=ExtResource( 2 )]
+z_index = 5
 script = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="1"]
+modulate = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
 
 [node name="Smoketrail" parent="." index="3" instance=ExtResource( 1 )]
 width_curve = SubResource( 1 )

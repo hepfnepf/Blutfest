@@ -7,6 +7,8 @@ Player - rileygombart - https://opengameart.org/content/animated-top-down-surviv
 
 Wapons top-down:
 Pistol - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player
+Pistol icon - rgs_dev - https://opengameart.org/content/gun-glock-26-gen5-9mm-vector
+Standard Rifle - knik1985 - https://opengameart.org/content/guns-wwii
 
 Pick-Up items
 SpeedUp - Delapouite - https://game-icons.net/1x1/delapouite/running-shoe.html

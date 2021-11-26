@@ -10,7 +10,6 @@ extents = Vector2( 16.119, 10 )
 [node name="Bullet" type="Area2D"]
 scale = Vector2( 0.1, 0.1 )
 script = ExtResource( 2 )
-speed = 3000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

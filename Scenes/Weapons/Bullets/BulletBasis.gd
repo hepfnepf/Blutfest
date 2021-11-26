@@ -16,6 +16,9 @@ onready var smoketrail = $Smoketrail
 onready var sprite = $Sprite
 onready var timer = $Timer
 
+func _ready():
+	pass
+
 func _process(delta):
 	if alive:
 		move(delta)

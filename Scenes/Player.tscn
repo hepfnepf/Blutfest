@@ -8,14 +8,13 @@
 [ext_resource path="res://Sprites/Player/arm.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Player/forearm.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Weapons/Weapon.gd" type="Script" id=8]
-[ext_resource path="res://Scenes/Weapons/Weapons/Pistol.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Weapons/Weapons/StandardRifle.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Player.gd" type="Script" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 73.9803
 
 [sub_resource type="Animation" id=2]
-resource_name = "none"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprites:position")
 tracks/0/interp = 1
@@ -330,7 +329,6 @@ tracks/25/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-resource_name = "walk_backwards"
 length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprites/torso/legL:position")
@@ -430,7 +428,6 @@ tracks/7/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-resource_name = "walk_backwards_left"
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprites/torso/legL:position")
@@ -530,7 +527,6 @@ tracks/7/keys = {
 }
 
 [sub_resource type="Animation" id=5]
-resource_name = "walk_backwards_right"
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -831,7 +827,6 @@ tracks/7/keys = {
 }
 
 [sub_resource type="Animation" id=8]
-resource_name = "walk_forward_right"
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprites/torso/legL:position")
@@ -1138,7 +1133,7 @@ script = ExtResource( 10 )
 [node name="Weapon" type="Node2D" parent="."]
 script = ExtResource( 8 )
 
-[node name="Pistol" parent="Weapon" instance=ExtResource( 9 )]
+[node name="StandardRifle" parent="Weapon" instance=ExtResource( 9 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

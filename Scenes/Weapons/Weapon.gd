@@ -5,9 +5,9 @@ signal weapon_switch(new_weapon)
 
 #export (PackedScene) var weapon_pistol
 
-onready var weapon_pistol = $Pistol
+#onready var weapon_pistol = $Pistol
 
-onready var current_weapon = weapon_pistol setget set_weapon
+onready var current_weapon = get_child(0) setget set_weapon
 
 #var weapon_dict = {"NONE":weapon_none}
 
