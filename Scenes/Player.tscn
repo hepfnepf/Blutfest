@@ -1134,6 +1134,7 @@ script = ExtResource( 10 )
 script = ExtResource( 8 )
 
 [node name="StandardRifle" parent="Weapon" instance=ExtResource( 11 )]
+fire_rate = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Items/Items/ItemHealUp.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Scenes/Items/Items/SpeedUpItem.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Items/Items/ItemInvincibility.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Items/Items/ItemAmmoFinity.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Items/Items/ItemStandardRifle.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -45,7 +46,7 @@ texture = ExtResource( 4 )
 
 [node name="Spawner" parent="." instance=ExtResource( 8 )]
 item_spawn_rate = 0.1
-item_array = [ ExtResource( 10 ), ExtResource( 2 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ]
+item_array = [ ExtResource( 10 ), ExtResource( 2 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ]
 
 [node name="Map" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, 2.24487 )
@@ -55,3 +56,5 @@ position = Vector2( -139.166, 284.464 )
 
 [node name="PistolItem" parent="." instance=ExtResource( 10 )]
 position = Vector2( -844.073, 803.042 )
+
+[node name="ItemStandardRifle" parent="." instance=ExtResource( 14 )]

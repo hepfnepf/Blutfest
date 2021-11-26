@@ -42,7 +42,6 @@ script = ExtResource( 2 )
 max_ammo = 20
 damage = 25
 speed = 3500
-fire_rate = 3
 base_spread = 0.02
 max_spread = 0.1
 spread_inc = 0.15
@@ -52,21 +51,22 @@ Bullet = ExtResource( 7 )
 [node name="muzzle_flash_02" type="Sprite" parent="."]
 visible = false
 position = Vector2( 195.341, 29.8632 )
-scale = Vector2( 0.24484, 0.174748 )
+scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 1 )
 offset = Vector2( 98.0151, 2.97409 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+method_call_mode = 1
 anims/shot = SubResource( 1 )
 
 [node name="ReloadTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="BulletSpawnPosition" type="Position2D" parent="."]
-position = Vector2( 139.978, 30 )
+position = Vector2( 168.246, 30 )
 
 [node name="BulletDirection" type="Position2D" parent="."]
-position = Vector2( 191.262, 30 )
+position = Vector2( 188.268, 30 )
 
 [node name="Cooldown" type="Timer" parent="."]
 

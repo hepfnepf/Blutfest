@@ -13,7 +13,7 @@ export (int) var damage = 20
 export (int) var max_range = 300
 export (int) var speed = 100#of bullet
 export (float) var reload_time = 1
-export (int) var fire_rate = 10
+export (float) var fire_rate = 10 setget set_fire_rate
 
 
 export (float) var base_spread = 0.3
@@ -25,7 +25,7 @@ export (float) var spread_dec = 0.04#per second
 export (PackedScene) var Bullet
 
 
-var ammo:int = max_ammo
+var ammo:int = 0
 var spread:float = 0 #gets set in ready to base_spread, does somehow not work if done here
 var is_reloading:bool = false 
 var cooldown:bool = false
@@ -46,6 +46,8 @@ onready var game = get_node("/root/Game")
 func _ready():
 	rng.randomize()
 	spread = base_spread
+	ammo = max_ammo
+	set_fire_rate(fire_rate)
 	emit_signal("spread_changed", spread/base_spread)
 
 func _process(delta):
@@ -67,7 +69,7 @@ func shoot():
 	animation_player.play("shot")
 	
 	#limit fire speed
-	shot_timer.start(1/fire_rate)
+	shot_timer.start()
 	cooldown = true
 	
 	#initiate bullet
@@ -91,6 +93,7 @@ func shoot_bullet():
 	bullet.p_range = max_range
 	bullet.damage = damage
 	game.add_child(bullet)
+	#add_child(bullet)
 	increase_spread()
 
 func increase_spread():
@@ -104,6 +107,7 @@ func decrease_spread(delta:float):
 	if spread < base_spread:
 		spread = base_spread
 	emit_signal("spread_changed", spread/base_spread)
+
 func reload():
 	if !is_reloading and reload_time != 0:
 		is_reloading = true
@@ -112,6 +116,12 @@ func reload():
 		spread = base_spread
 	if reload_time == 0:#skip reloading
 		_on_ReloadTimer_timeout()
+
+func set_fire_rate(new_fire_rate:float):
+	fire_rate = new_fire_rate
+	if shot_timer != null:
+		shot_timer.wait_time = 1/fire_rate
+
 func _on_ReloadTimer_timeout():#after reload is done
 	ammo = max_ammo
 	emit_signal("ammo_changed",ammo)
