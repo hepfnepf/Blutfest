@@ -57,5 +57,7 @@ position = Vector2( 130.147, 0 )
 [node name="Cooldown" type="Timer" parent="."]
 one_shot = true
 
+[node name="Tween" type="Tween" parent="."]
+
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_ReloadTimer_timeout"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]

@@ -58,3 +58,6 @@ position = Vector2( -139.166, 284.464 )
 position = Vector2( -844.073, 803.042 )
 
 [node name="ItemStandardRifle" parent="." instance=ExtResource( 14 )]
+
+[node name="EffectItemBasis" parent="." instance=ExtResource( 13 )]
+position = Vector2( -1452.08, 302.5 )

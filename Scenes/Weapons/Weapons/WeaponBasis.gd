@@ -42,6 +42,7 @@ onready var bullet_spawn_position = $BulletSpawnPosition
 onready var bullet_spawn_direction = $BulletDirection
 onready var shot_timer:Timer = $Cooldown
 onready var game = get_node("/root/Game")
+onready var tween = $Tween
 
 func _ready():
 	rng.randomize()
@@ -103,9 +104,10 @@ func increase_spread():
 	emit_signal("spread_changed", spread/base_spread)
 
 func decrease_spread(delta:float):
-	spread -= spread_dec*delta
-	if spread < base_spread:
-		spread = base_spread
+	if !is_reloading:
+		spread -= spread_dec*delta
+		if spread < base_spread:
+			spread = base_spread
 	emit_signal("spread_changed", spread/base_spread)
 
 func reload():
@@ -113,7 +115,8 @@ func reload():
 		is_reloading = true
 		reload_timer.start(reload_time)
 		reload_start_time = OS.get_ticks_msec()
-		spread = base_spread
+		tween.interpolate_property(self,"spread", spread, base_spread,reload_time )
+		tween.start()
 	if reload_time == 0:#skip reloading
 		_on_ReloadTimer_timeout()
 
@@ -126,6 +129,7 @@ func _on_ReloadTimer_timeout():#after reload is done
 	ammo = max_ammo
 	emit_signal("ammo_changed",ammo)
 	is_reloading = false
+	#spread = base_spread
 
 func _on_Cooldown_timeout():
 	cooldown = false
