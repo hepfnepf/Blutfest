@@ -32,16 +32,6 @@ func set_destination(location:Vector2):
 	destination = location
 	has_destination = true
 
-
-func move_to(location:Vector2):
-	pass
-"""
-func move_to(location:Vector2):
-	destination = location
-	movement_vector = vector_to(destination).normalized()*speed
-	lerp_location = destination
-"""
-	
 func stop_movement():
 	if not is_moving():
 		return

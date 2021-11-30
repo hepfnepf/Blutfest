@@ -12,9 +12,10 @@ script = ExtResource( 1 )
 wait_time = 0.75
 one_shot = true
 
-[node name="AttentionRedius" type="Area2D" parent="."]
+[node name="AttentionRadius" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttentionRedius"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttentionRadius"]
 shape = SubResource( 1 )
 
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_AttackCooldown_timeout"]
+[connection signal="body_entered" from="AttentionRadius" to="." method="_on_AttentionRadius_body_entered"]

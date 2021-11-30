@@ -51,7 +51,7 @@ func _ready():
 	health_Node.health = max_health
 	
 	movement.initialize(self, animation_player)
-	ai.initialize(movement,team_Node.team,player)
+	ai.initialize(movement,team_Node.team)
 	
 	connect("enemy_dead",game,"_on_enemy_killed")
 
