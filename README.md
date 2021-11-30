@@ -5,7 +5,7 @@ A WIP Crimsonland clone inspired by the unfished and no longer maintained FOSS-G
 # Road To 0.2.0
 - A real map 🗸
 - New spawning method 🗸
-- Enemys get patrol state
+- Enemys get patrol state 🗸
 - New start weapon🗸
 - A few items🗸
 - Bullet spread 🗸
@@ -13,6 +13,9 @@ A WIP Crimsonland clone inspired by the unfished and no longer maintained FOSS-G
 - Crosshair 🗸
 - Credits🗸
 # Road To 0.2.1
+- Sounds
+- Optimization
+- Documentation
 - Death animation for player
+- See remaining time on effects
 - Aknowledgement in the gui when you break the highscore
-- Maybe which place in the highscore you achived
