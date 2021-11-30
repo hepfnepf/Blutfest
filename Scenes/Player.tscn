@@ -1126,7 +1126,9 @@ tracks/7/keys = {
 [sub_resource type="CircleShape2D" id=11]
 radius = 11.0105
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"Players",
+]]
 collision_mask = 3
 script = ExtResource( 10 )
 

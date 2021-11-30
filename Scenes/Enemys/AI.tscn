@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Enemys/AI.gd" type="Script" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 730.094
 
 [node name="AI" type="Node2D"]
 script = ExtResource( 1 )
@@ -9,4 +12,10 @@ script = ExtResource( 1 )
 wait_time = 0.75
 one_shot = true
 
+[node name="AttentionRadius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttentionRadius"]
+shape = SubResource( 1 )
+
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_AttackCooldown_timeout"]
+[connection signal="body_entered" from="AttentionRadius" to="." method="_on_AttentionRadius_body_entered"]

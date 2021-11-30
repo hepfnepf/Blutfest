@@ -41,6 +41,7 @@ scale = Vector2( 3.42622, 3.90039 )
 texture = ExtResource( 4 )
 
 [node name="Zombie" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1002.11, -13.0142 )
 
 [node name="GUI" parent="." instance=ExtResource( 7 )]
 
