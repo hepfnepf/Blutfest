@@ -15,9 +15,11 @@ var ready_to_attack = true
 var alive=true
 
 enum STATE {PATROL,HUNT}
-var state:int = STATE.PATROL
+var state:int = STATE.HUNT
 var patrol_destination:Vector2 = Vector2()
 
+
+onready var game = get_node_or_null("/root/Game")
 onready var cooldown_timer:Timer = $AttackCooldown
 
 func initialize(movementNode:Movement, team : int,player):
@@ -49,11 +51,14 @@ func set_team(new_team:int) -> void:
 	team = new_team
 
 func create_random_patrol_location() -> Vector2:
-	var random_x=rand_range(-patrol_range, patrol_range)#allways returns same numbers, if seed isnt changed at each playtrough with randomize()
-	var random_y=rand_range(-patrol_range, patrol_range)
-	var origin = global_position
-	print(Vector2(random_x, random_y)+ origin)
-	return Vector2(random_x, random_y)+ origin
+	if game.spawner ==null:
+		var random_x=rand_range(-patrol_range, patrol_range)#allways returns same numbers, if seed isnt changed at each playtrough with randomize()
+		var random_y=rand_range(-patrol_range, patrol_range)
+		var origin = global_position
+		print(Vector2(random_x, random_y)+ origin)
+		return Vector2(random_x, random_y)+ origin
+	else:
+		return game.spawner.random_position_in_map()
 	
 
 func attack(player):
