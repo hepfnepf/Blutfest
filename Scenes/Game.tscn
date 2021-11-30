@@ -41,10 +41,13 @@ scale = Vector2( 3.42622, 3.90039 )
 texture = ExtResource( 4 )
 
 [node name="Zombie" parent="." instance=ExtResource( 5 )]
+position = Vector2( -637.89, -821.014 )
 
 [node name="GUI" parent="." instance=ExtResource( 7 )]
 
 [node name="Spawner" parent="." instance=ExtResource( 8 )]
+enemy_spawn_rate = 0.0
+enemy_spawn_rate_increase = 0.0
 item_spawn_rate = 0.1
 item_array = [ ExtResource( 10 ), ExtResource( 2 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ]
 
