@@ -51,8 +51,8 @@ func _process(delta):
 	else:#state patrol
 		if attention_radius == null:
 			return
-		var current_att_radius = attention_radius.shape.radius
-		attention_radius.shape.radius = clamp(current_att_radius+attention_radius_gain*delta,current_att_radius,max_attaention_radius)
+		#var current_att_radius = attention_radius.shape.radius
+		#attention_radius.shape.radius = clamp(current_att_radius+attention_radius_gain*delta,current_att_radius,max_attaention_radius)
 		movementNode.set_destination(patrol_destination)
 
 

@@ -19,10 +19,9 @@ func add_effect():
 		fire_rate_delta = new_fire_rate - weapon.fire_rate
 		weapon.fire_rate_delta += fire_rate_delta
 		weapon.set_fire_rate(new_fire_rate)
-	
 
 func remove_effect():
-	if weapon != null:
+	if is_instance_valid(weapon):
 		weapon.reload_time_delta -= reload_time_delta
 		weapon.reload_time = weapon.reload_time - reload_time_delta
 		
