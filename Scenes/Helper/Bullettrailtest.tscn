@@ -122,8 +122,5 @@ position = Vector2( 682.428, 459.704 )
 current = true
 zoom = Vector2( 4, 4 )
 
-[node name="Line2D" type="Line2D" parent="."]
-points = PoolVector2Array( -1460.08, 0, 0, 0 )
-
 [connection signal="timeout" from="StandardRifle/ReloadTimer" to="StandardRifle" method="_on_ReloadTimer_timeout"]
 [connection signal="timeout" from="StandardRifle/Cooldown" to="StandardRifle" method="_on_Cooldown_timeout"]
