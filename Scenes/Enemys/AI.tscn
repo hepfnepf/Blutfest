@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Enemys/AI.gd" type="Script" id=1]
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=1]
 radius = 2869.02
 
 [node name="AI" type="Node2D"]
@@ -16,7 +16,8 @@ one_shot = true
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttentionRadius"]
-shape = SubResource( 4 )
+shape = SubResource( 1 )
+disabled = true
 
 [node name="TargetReevaluation" type="Timer" parent="."]
 
