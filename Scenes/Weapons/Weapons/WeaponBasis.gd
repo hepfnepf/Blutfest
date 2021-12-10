@@ -27,6 +27,10 @@ export (AudioStream) var shoot_sfx
 export (AudioStream) var reload_sfx
 export (AudioStream) var empty_sfx
 
+export (float) var shoot_db
+export (float) var reload_db
+export (float) var empty_db
+
 var sound_queue:Queue = Queue.new()
 enum SOUNDS {SHOT,RELOAD,EMPTY}
 
@@ -113,10 +117,13 @@ func play_sound(sound:int):
 	
 	if sound == SOUNDS.SHOT:
 		_streamer.stream = shoot_sfx
+		_streamer.set_volume_db(linear2db(shoot_db))
 	elif sound==SOUNDS.RELOAD:
 		_streamer.stream = reload_sfx
+		_streamer.set_volume_db(linear2db(reload_db))
 	else:
 		_streamer.stream = empty_sfx
+		_streamer.set_volume_db(linear2db(empty_db))
 	_streamer.play()
 	
 	yield(_streamer, "finished")

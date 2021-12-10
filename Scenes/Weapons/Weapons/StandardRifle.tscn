@@ -19,6 +19,7 @@ spread_inc = 0.15
 spread_dec = 0.01
 Bullet = ExtResource( 6 )
 shoot_sfx = ExtResource( 7 )
+shoot_db = 0.1
 
 [node name="muzzle_flash_02" parent="." index="0"]
 position = Vector2( 196.265, 29.3107 )

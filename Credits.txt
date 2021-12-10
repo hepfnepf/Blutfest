@@ -21,8 +21,10 @@ Critical Bullet - Delapouite - https://game-icons.net/1x1/delapouite/silver-bull
 Explosion - Lorc - https://game-icons.net/1x1/lorc/grenade.html
 
 Sounds
-Standard Rifle Shot - KuraiWolf - https://opengameart.org/content/light-machine-gun - cc-by 4.0
+Standard Rifle Shot - KuraiWolf - https://opengameart.org/content/light-machine-gun -  CC BY 4.0
+Pistol Shot -Michel Baradari apollo-music.de - https://opengameart.org/content/chaingun-pistol-rifle-shotgun-shots -  CC BY 3.0
 
 
 
 CC-by 4.0 : https://creativecommons.org/licenses/by/4.0/legalcode
+CC BY 3.0 http://creativecommons.org/licenses/by/3.0/

@@ -18,6 +18,8 @@ func shoot():
 	#initiate bullet
 	shoot_bullet()
 	
+	play_sound(SOUNDS.SHOT)
+	
 	#handle ammo
 	ammo -= 1
 	if ammo <= 0:
