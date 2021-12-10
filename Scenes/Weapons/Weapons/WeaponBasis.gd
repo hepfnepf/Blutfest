@@ -23,7 +23,16 @@ export (float) var spread_dec = 0.04#per second
 
 
 export (PackedScene) var Bullet
+export (AudioStream) var shoot_sfx
+export (AudioStream) var reload_sfx
+export (AudioStream) var empty_sfx
 
+export (float) var shoot_db
+export (float) var reload_db
+export (float) var empty_db
+
+var sound_queue:Queue = Queue.new()
+enum SOUNDS {SHOT,RELOAD,EMPTY}
 
 var ammo:int = 0
 var spread:float = 0 #gets set in ready to base_spread, does somehow not work if done here
@@ -60,8 +69,11 @@ func _process(delta):
 
 func check_for_input():
 	if Input.is_action_pressed("fire"):
-		if !cooldown && ammo > 0 && !is_reloading:
-			shoot()
+		if !cooldown  && !is_reloading:
+			if ammo > 0:
+				shoot()
+			else:
+				play_sound(SOUNDS.EMPTY)
 	if Input.is_action_just_released("reload"):# && ammo!= max_ammo:
 		reload()
 
@@ -73,8 +85,10 @@ func shoot():
 	shot_timer.start()
 	cooldown = true
 	
-	#initiate bullet
+	#initialize bullet
 	shoot_bullet()
+	
+	play_sound(SOUNDS.SHOT)
 	
 	#handle ammo
 	ammo -= 1
@@ -97,6 +111,27 @@ func shoot_bullet():
 	#add_child(bullet)
 	increase_spread()
 
+func play_sound(sound:int):
+	var _streamer:AudioStreamPlayer = sound_queue.pop()
+	if _streamer == null:
+		_streamer = AudioStreamPlayer.new()
+		_streamer.bus = "SFX"
+		add_child(_streamer)
+	
+	if sound == SOUNDS.SHOT:
+		_streamer.stream = shoot_sfx
+		_streamer.set_volume_db(linear2db(shoot_db))
+	elif sound==SOUNDS.RELOAD:
+		_streamer.stream = reload_sfx
+		_streamer.set_volume_db(linear2db(reload_db))
+	else:
+		_streamer.stream = empty_sfx
+		_streamer.set_volume_db(linear2db(empty_db))
+	_streamer.play()
+	
+	yield(_streamer, "finished")
+	sound_queue.add(_streamer)
+
 func increase_spread():
 	spread *= 1+spread_inc
 	if spread > max_spread:
@@ -113,6 +148,7 @@ func decrease_spread(delta:float):
 func reload():
 	if !is_reloading and reload_time != 0:
 		is_reloading = true
+		play_sound(SOUNDS.RELOAD)
 		reload_timer.start(reload_time)
 		reload_start_time = OS.get_ticks_msec()
 		tween.interpolate_property(self,"spread", spread, base_spread,reload_time )

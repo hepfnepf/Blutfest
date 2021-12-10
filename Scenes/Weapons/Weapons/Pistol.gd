@@ -8,7 +8,7 @@ func _unhandled_input(event):#alternetive way to get the input
 	if event.is_action_pressed("fire"):
 		if ammo > 0 && !is_reloading:
 			shoot()
-	if event.is_action_released("reload") && ammo != max_ammo:
+	if event.is_action_released("reload"):# && ammo != max_ammo:
 		reload()
 
 func shoot():	
@@ -17,6 +17,8 @@ func shoot():
 	
 	#initiate bullet
 	shoot_bullet()
+	
+	play_sound(SOUNDS.SHOT)
 	
 	#handle ammo
 	ammo -= 1

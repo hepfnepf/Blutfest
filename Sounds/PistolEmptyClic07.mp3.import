@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/PistolEmptyClic07.mp3-1119aaae2d9e3d8e517bb252b7d80281.mp3str"
+
+[deps]
+
+source_file="res://Sounds/PistolEmptyClic07.mp3"
+dest_files=[ "res://.import/PistolEmptyClic07.mp3-1119aaae2d9e3d8e517bb252b7d80281.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

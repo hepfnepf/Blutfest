@@ -19,3 +19,17 @@ Infnity - Various artists - https://game-icons.net/1x1/various-artists/infinity.
 Penetrating Bullet - lorc - https://game-icons.net/1x1/lorc/supersonic-bullet.html
 Critical Bullet - Delapouite - https://game-icons.net/1x1/delapouite/silver-bullet.html
 Explosion - Lorc - https://game-icons.net/1x1/lorc/grenade.html
+
+Sounds
+Standard Rifle Shot - KuraiWolf - https://opengameart.org/content/light-machine-gun -  CC BY 4.0
+Standard Rifle Reload - zer0_sol - https://opengameart.org/content/handgun-reload-sound-effect
+Standard Rifle Empty - Independent.nu - https://opengameart.org/content/16-button-clicks
+Pistol Reload - SpringySpringo - https://opengameart.org/content/gun-reload-sounds
+Pistol Shot -Michel Baradari apollo-music.de - https://opengameart.org/content/chaingun-pistol-rifle-shotgun-shots -  CC BY 3.0
+Pistol Empty - Independent.nu - https://opengameart.org/content/16-button-clicks
+
+
+
+
+CC-by 4.0 : https://creativecommons.org/licenses/by/4.0/legalcode
+CC BY 3.0 http://creativecommons.org/licenses/by/3.0/
