@@ -55,7 +55,6 @@ spread_dec = 0.01
 Bullet = ExtResource( 7 )
 
 [node name="muzzle_flash_02" type="Sprite" parent="StandardRifle"]
-visible = false
 position = Vector2( 196.265, 29.3107 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 6 )
