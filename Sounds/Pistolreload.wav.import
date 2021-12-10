@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/gunreload1.wav-7a0ba260e5269139ab27c99f912ce8d3.sample"
+path="res://.import/Pistolreload.wav-cad91272e56d910c80100a177941fe3e.sample"
 
 [deps]
 
-source_file="res://Sounds/gunreload1.wav"
-dest_files=[ "res://.import/gunreload1.wav-7a0ba260e5269139ab27c99f912ce8d3.sample" ]
+source_file="res://Sounds/Pistolreload.wav"
+dest_files=[ "res://.import/Pistolreload.wav-cad91272e56d910c80100a177941fe3e.sample" ]
 
 [params]
 

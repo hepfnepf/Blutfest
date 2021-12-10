@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/cg1.wav-c51ddb4c48d0214ab760f7e29d5c9e3c.sample"
+path="res://.import/PistolShotcg1.wav-c777e0e43dc9bb1075b5c34924d692aa.sample"
 
 [deps]
 
-source_file="res://Sounds/cg1.wav"
-dest_files=[ "res://.import/cg1.wav-c51ddb4c48d0214ab760f7e29d5c9e3c.sample" ]
+source_file="res://Sounds/PistolShotcg1.wav"
+dest_files=[ "res://.import/PistolShotcg1.wav-c777e0e43dc9bb1075b5c34924d692aa.sample" ]
 
 [params]
 
