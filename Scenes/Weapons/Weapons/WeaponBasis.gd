@@ -69,8 +69,11 @@ func _process(delta):
 
 func check_for_input():
 	if Input.is_action_pressed("fire"):
-		if !cooldown && ammo > 0 && !is_reloading:
-			shoot()
+		if !cooldown  && !is_reloading:
+			if ammo > 0:
+				shoot()
+			else:
+				play_sound(SOUNDS.EMPTY)
 	if Input.is_action_just_released("reload"):# && ammo!= max_ammo:
 		reload()
 
@@ -145,6 +148,7 @@ func decrease_spread(delta:float):
 func reload():
 	if !is_reloading and reload_time != 0:
 		is_reloading = true
+		play_sound(SOUNDS.RELOAD)
 		reload_timer.start(reload_time)
 		reload_start_time = OS.get_ticks_msec()
 		tween.interpolate_property(self,"spread", spread, base_spread,reload_time )
