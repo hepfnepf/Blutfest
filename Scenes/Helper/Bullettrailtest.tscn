@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Weapons/Weapons/WeaponBasis.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Weapons/rifle.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Sprites/Player/forearm.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Weapons/muzzle_flash_02.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/Weapons/Bullets/BulletClean2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Helper/Bullettrailtest.gd" type="Script" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "shot"
@@ -38,6 +39,7 @@ tracks/1/keys = {
 }
 
 [node name="Game" type="Node2D"]
+script = ExtResource( 8 )
 
 [node name="StandardRifle" type="Node2D" parent="."]
 position = Vector2( -2159.38, -224.277 )
