@@ -9,7 +9,6 @@ radius = 2869.02
 script = ExtResource( 1 )
 
 [node name="AttackCooldown" type="Timer" parent="."]
-wait_time = 0.75
 one_shot = true
 
 [node name="AttentionRadius" type="Area2D" parent="."]

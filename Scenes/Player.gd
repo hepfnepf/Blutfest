@@ -26,6 +26,7 @@ var invincible_count = 0
 
 
 onready var Weapon = $Weapon
+onready var hurt = $Hurt
 
 
 # Called when the node enters the scene tree for the first time.
@@ -88,6 +89,7 @@ func take_damage(damage:int):
 	if !alive or invincible:
 		return
 	set_health(health - damage)
+	hurt.play()
 
 #Experience Management
 func receive_experience(base_xp:int):
