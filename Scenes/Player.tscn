@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Sprites/Player/leg.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Player/hand_holding_gun.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/Weapons/Weapon.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/Weapons/Weapons/StandardRifle.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Player.gd" type="Script" id=10]
+[ext_resource path="res://Sounds/163441__under7dude__man-getting-hit.wav" type="AudioStream" id=11]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 73.9803
@@ -1231,6 +1232,10 @@ shape = SubResource( 11 )
 
 [node name="ElapsedTime" type="Timer" parent="."]
 autostart = true
+
+[node name="Hurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+bus = "SFX"
 
 [connection signal="area_entered" from="ItemInteractionZone" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="ElapsedTime" to="." method="_on_ElapsedTime_timeout"]
