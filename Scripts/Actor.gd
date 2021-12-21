@@ -18,6 +18,7 @@ onready var animation_player = $AnimationPlayer
 onready var until_fading_timer:Timer = $TimeUntilFading
 onready var collision_shape:CollisionShape2D = $CollisionShape2D
 onready var fade_out:Tween = $FadeOut
+onready var sound_player:AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 onready var player = get_node("/root/Game/Player")
 onready var game = get_node("/root/Game")
@@ -26,9 +27,13 @@ var alive :=true
 var fading :=false
 var alpha:float = 1
 
+var sound_prob:float = 0.3
+
 func handle_hit(damage:int, type:int = 1):
 	if alive:
 		health_Node.health -= damage
+		if (randf()<sound_prob):
+			sound_player.play()
 		if health_Node.health <= 0:
 			start_death_animation()
 
