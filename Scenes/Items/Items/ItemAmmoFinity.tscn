@@ -12,6 +12,7 @@ extents = Vector2( 259.405, 241.403 )
 effect_node = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="0"]
+visible = false
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="1"]
