@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Sprites/Items/ExtraAmmo.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Items/InfinteAmmo.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Items/Helper/EffectItemBasis.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Items/EffectNodes/AmmoInfinity.tscn" type="PackedScene" id=3]
 
