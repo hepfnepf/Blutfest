@@ -1,10 +1,29 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Items/Helper/ItemBasis.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
 extents = Vector2( 260.92, 255.384 )
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+uniform bool is_blinking = false;
+uniform float blink_speed = 1.5;
+
+void fragment(){
+	COLOR = texture(TEXTURE, UV);
+	//creates blinking
+	COLOR.a = COLOR.a*(1.0- float(is_blinking)* abs(sin(TIME*blink_speed)));
+	
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = SubResource( 2 )
+shader_param/is_blinking = false
+shader_param/blink_speed = 1.5
 
 [node name="ItemBasis" type="Area2D" groups=[
 "Item",
@@ -17,3 +36,13 @@ position = Vector2( 3.9286, 1.40308 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 3 )
+
+[node name="Despawn" type="Timer" parent="."]
+
+[node name="FadeIn" type="Tween" parent="."]
+
+[node name="FadeOut" type="Tween" parent="."]
+
+[connection signal="timeout" from="Despawn" to="." method="_on_Despawn_timeout"]
+[connection signal="tween_completed" from="FadeOut" to="." method="_on_FadeOut_tween_completed"]
