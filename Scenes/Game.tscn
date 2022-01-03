@@ -51,6 +51,3 @@ item_array = [ ExtResource( 10 ), ExtResource( 2 ), ExtResource( 11 ), ExtResour
 
 [node name="Map" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, 2.24487 )
-
-[node name="EffectItemBasis" parent="." instance=ExtResource( 13 )]
-position = Vector2( -155.978, 216.127 )
