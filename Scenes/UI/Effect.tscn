@@ -1,6 +1,25 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/UI/Effect.gd" type="Script" id=1]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float scroller: hint_range(0, 1);
+void fragment(){
+	COLOR = texture(TEXTURE,UV);
+	if (UV.y >= scroller) {
+		float avg = (COLOR.r+COLOR.g+COLOR.b)/3.0;
+		COLOR.rgb = vec3(avg,avg,avg);
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/scroller = null
 
 [node name="Effect" type="TextureRect"]
+material = SubResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 55, 55 )
@@ -8,6 +27,7 @@ rect_scale = Vector2( 0.1, 0.1 )
 size_flags_horizontal = 2
 size_flags_vertical = 2
 expand = true
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
