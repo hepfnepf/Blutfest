@@ -9,7 +9,9 @@ onready var player = $Player
 onready var spawner = $Spawner
 onready var debug_gui = $GUI/MarginContainer/VBoxContainer/HBoxContainer3/DebugLayout
 
-func _ready():
+var enemys_alive:int = 0
+
+func _ready()-> void:
 	randomize()
 	player.connect("dead",self,"_on_player_death")
 	connect("killed_enemy",debug_gui,"_on_enemy_count_changed")
@@ -18,7 +20,7 @@ func _ready():
 	var map_size:Vector2 = map.get_map_size()
 	spawner.set_map_size(map_size[0],map_size[1])
 
-func _on_player_death():
+func _on_player_death()->void:
 	var death_screen = death_screen_prefab.instance()
 	add_child(death_screen)
 	death_screen.set_score(player.score)
@@ -33,5 +35,9 @@ func _on_player_death():
 	SaveManager.save(save_dict)
 	
 func _on_enemy_killed(points):
+	enemys_alive -=1
 	player.set_score(player.score + points)
 	emit_signal("killed_enemy")
+
+func _on_enemy_spawned():
+	enemys_alive +=1

@@ -6,6 +6,7 @@ signal spawned_enemy
 export (float)var enemy_spawn_rate= 1.0
 export (float)var enemy_spawn_rate_increase=0.02
 export (float)var item_spawn_rate=0.05 
+export (float)var max_enemys = 200
 
 var enemy_spawn_value:float = 0
 var item_spawn_value:float = 0
@@ -27,6 +28,7 @@ onready var map:Map = get_node("/root/Game/Map")
 
 func _ready():
 	connect("spawned_enemy",debug_gui,"_on_enemy_count_changed")
+	connect("spawned_enemy",game,"_on_enemy_spawned")
 
 func _process(delta):
 	if !game_alive:
@@ -48,10 +50,14 @@ func handle_enemy_spawning(delta)->void:
 	
 	#decides how many enemys are supposed to spawn
 	enemy_spawn_value+= enemy_spawn_rate*delta
+	if game.enemys_alive >= max_enemys:
+		return
 	while (enemy_spawn_value >= 1):
 		enemy_spawn_value -= 1
 		spawn_at(default_enemy,random_position_out_map())
 		emit_signal("spawned_enemy")
+		if game.enemys_alive >= max_enemys:
+			return
 
 func spawn_at(obj,position):
 	var _obj = spawn(obj)

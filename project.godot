@@ -76,8 +76,7 @@ _global_script_class_icons={
 
 config/name="TopDownExperiment"
 run/main_scene="res://Scenes/Game.tscn"
-config/icon="res://icon2.png"
-config/windows_native_icon="res://Icon.ico"
+config/icon="res://icon.png"
 
 [autoload]
 
