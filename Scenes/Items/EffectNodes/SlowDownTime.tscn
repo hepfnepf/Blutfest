@@ -9,3 +9,5 @@ wait_time = 7.5
 script = ExtResource( 1 )
 icon_texture = ExtResource( 3 )
 time_scale = 0.5
+
+[node name="Tween" type="Tween" parent="." index="0"]
