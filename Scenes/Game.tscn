@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Items/Items/ItemHealUp.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Scenes/Items/Items/ItemInvincibility.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Items/Items/ItemAmmoFinity.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Items/Items/ItemStandardRifle.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Items/Items/ItemSlowDownTime.tscn" type="PackedScene" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -51,3 +52,9 @@ item_array = [ ExtResource( 10 ), ExtResource( 2 ), ExtResource( 11 ), ExtResour
 
 [node name="Map" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, 2.24487 )
+
+[node name="EffectItemBasis" parent="." instance=ExtResource( 16 )]
+position = Vector2( -336.293, -12.9659 )
+
+[node name="ItemInvincibility" parent="." instance=ExtResource( 12 )]
+position = Vector2( -199.353, -468.685 )
