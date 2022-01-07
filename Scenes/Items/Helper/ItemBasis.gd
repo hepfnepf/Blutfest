@@ -6,6 +6,7 @@ export (float) var time_to_despawn = 30
 
 var time_of_blink:float = 10
 var is_blinking:bool = false
+var blink_to_zero:bool=false
 
 onready var timer:Timer = $Despawn
 onready var tween_in:Tween=$FadeIn
@@ -23,11 +24,14 @@ func pick_up(player:Player):
 
 func blink() -> void:
 	is_blinking = true
-	$Sprite.material.set_shader_param("is_blinking",is_blinking)
+	tween_in.interpolate_property(self,"modulate:a",null,0.0,1.0)
+	blink_to_zero=true
+	tween_in.start()
+	#$Sprite.material.set_shader_param("is_blinking",is_blinking)
 
 func _on_Despawn_timeout():
 	if is_blinking:
-		tween_out.interpolate_property(self,"modulate:a",1,0,0.3)
+		tween_out.interpolate_property(self,"scale",null,Vector2(0,0),0.3)
 		tween_out.start()
 	else:
 		blink()
@@ -38,3 +42,16 @@ func _on_Despawn_timeout():
 
 func _on_FadeOut_tween_completed(object, key):
 	queue_free()
+
+
+func _on_FadeIn_tween_completed(object, key):
+	if key == ":modulate:a":
+		if blink_to_zero:
+			blink_to_zero=false
+			tween_in.interpolate_property(self,"modulate:a",null,1.0,1.0)
+			tween_in.start()
+		else:
+			blink_to_zero=true
+			tween_in.interpolate_property(self,"modulate:a",null,0.0,1.0)
+			tween_in.start()
+			
