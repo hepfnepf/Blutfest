@@ -7,10 +7,15 @@ A WIP Crimsonland clone inspired by the unfished and no longer maintained FOSS-G
 - Documentation
 - See remaining time on effects✔
 - fixing the icon of infinite ammo✔
-- Aknowledgement in the gui when you break the highscore
+- Aknowledgement in the gui when you break the highscore✔
 
-# Road T0 0.3
+# Road To 0.3
  - new Enemys
  - pause menue
  - background music
  - content
+
+# Road To 0.3.1
+- weighted posebilitys
+- lerped movement
+- walking sound 
