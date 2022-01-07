@@ -16,15 +16,15 @@ uniform float softness = 3.0;
 
 void fragment()
 {
-	float value = distance(UV,vec2(0.5));
-	COLOR = vec4(color.rgb, smoothstep(multiplier,softness,value));
+	float value = (0.1+distance(UV,vec2(0.5)))*multiplier;
+	COLOR = vec4(color.rgb, value);// smoothstep(multiplier,softness,value));
 }"
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
 shader_param/color = Color( 0, 0, 0, 1 )
-shader_param/multiplier = -5.182
-shader_param/softness = 5.0
+shader_param/multiplier = 4.455
+shader_param/softness = 3.0
 
 [node name="DeathScreen" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -142,7 +142,7 @@ margin_right = 343.0
 margin_bottom = 76.0
 custom_fonts/font = ExtResource( 3 )
 text = "1000"
-align = 1
+align = 2
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/GridContainer/ScoreContainer"]
 margin_top = 76.0
@@ -159,7 +159,7 @@ margin_right = 343.0
 margin_bottom = 152.0
 custom_fonts/font = ExtResource( 3 )
 text = "3:04"
-align = 1
+align = 2
 
 [node name="BeforeCont" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer"]
 visible = false
