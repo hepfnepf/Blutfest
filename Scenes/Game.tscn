@@ -43,7 +43,7 @@ texture = ExtResource( 4 )
 
 [node name="Zombie" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1002.11, -13.0142 )
-points = 8000
+points = 8400
 
 [node name="GUI" parent="." instance=ExtResource( 7 )]
 

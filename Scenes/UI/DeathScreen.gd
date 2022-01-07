@@ -4,8 +4,8 @@ extends CanvasLayer
 onready var scoreLabel = $MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/GridContainer/ScoreContainer/Score
 onready var timeLabel = $MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/GridContainer/ScoreContainer/Time
 
-onready var akn_score = $MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/GridContainer/AcknowledgementContainer/acknowledge_score
-onready var akn_time = $MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/GridContainer/AcknowledgementContainer/acknowledge_time
+onready var akn_score = $MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/AcknowledgementContainer/acknowledge_score
+onready var akn_time = $MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/AcknowledgementContainer/acknowledge_time
 
 onready var before_cont = $MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/BeforeCont
 
