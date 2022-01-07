@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Fonts/smallUI.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/UI/DeathScreen/ReplayMassage.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Blink"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="ReplayMassage" type="VBoxContainer"]
+margin_left = 658.0
+margin_right = 857.0
+margin_bottom = 42.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 199.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 1 )
+text = "Press 'Enter' to try again"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="."]
+margin_top = 23.0
+margin_right = 199.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 1 )
+text = "Press 'ESC' to quit the Game"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Blink = SubResource( 1 )

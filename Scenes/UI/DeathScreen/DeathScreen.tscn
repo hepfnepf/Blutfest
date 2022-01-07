@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Scenes/UI/DeathScreen.gd" type="Script" id=1]
-[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scenes/UI/DeathScreen/BeforeContainer.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/UI/DeathScreen/DeathScreen.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/standardUI.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Fonts/acknowledge_font.tres" type="DynamicFont" id=4]
-[ext_resource path="res://Fonts/smallUI.tres" type="DynamicFont" id=5]
-[ext_resource path="res://Scenes/UI/BeforeContainer.gd" type="Script" id=6]
+[ext_resource path="res://Fonts/smallUI.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Fonts/acknowledge_font.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Scenes/UI/DeathScreen/ReplayMassage.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -27,7 +28,7 @@ shader_param/multiplier = 4.455
 shader_param/softness = 3.0
 
 [node name="DeathScreen" type="CanvasLayer"]
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource( 2 )
@@ -61,7 +62,7 @@ size_flags_horizontal = 3
 margin_left = 415.0
 margin_right = 1101.0
 margin_bottom = 163.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.494118, 0.0901961, 0.0901961, 1 )
 custom_colors/font_color_shadow = Color( 0.12549, 0.121569, 0.121569, 1 )
 text = "You Died"
@@ -72,15 +73,15 @@ uppercase = true
 [node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 167.0
 margin_right = 1516.0
-margin_bottom = 844.0
+margin_bottom = 834.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/CenterContainer2"]
 margin_left = 586.0
-margin_top = 260.0
+margin_top = 255.0
 margin_right = 929.0
-margin_bottom = 416.0
+margin_bottom = 411.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -98,7 +99,7 @@ size_flags_horizontal = 4
 visible = false
 margin_right = 601.0
 margin_bottom = 82.0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.494118, 0.0901961, 0.0901961, 1 )
 text = "new Highscore"
 align = 1
@@ -108,7 +109,7 @@ uppercase = true
 visible = false
 margin_right = 547.0
 margin_bottom = 82.0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0.494118, 0.0901961, 0.0901961, 1 )
 text = "NEW BEST TIME"
 align = 1
@@ -166,7 +167,7 @@ visible = false
 margin_top = 242.0
 margin_right = 601.0
 margin_bottom = 261.0
-script = ExtResource( 6 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -177,7 +178,7 @@ margin_right = 325.0
 margin_bottom = 19.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 4 )
 text = "Before:"
 
 [node name="ScoreCont" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/BeforeCont"]
@@ -191,14 +192,14 @@ size_flags_horizontal = 4
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/BeforeCont/ScoreCont"]
 margin_right = 44.0
 margin_bottom = 19.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 4 )
 text = "Score:"
 
 [node name="Score" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/BeforeCont/ScoreCont"]
 margin_left = 48.0
 margin_right = 84.0
 margin_bottom = 19.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 4 )
 text = "1000"
 
 [node name="TimeCont" type="HBoxContainer" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/BeforeCont"]
@@ -212,37 +213,19 @@ size_flags_horizontal = 4
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/BeforeCont/TimeCont"]
 margin_right = 40.0
 margin_bottom = 19.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 4 )
 text = "Time:"
 
 [node name="Time" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/BeforeCont/TimeCont"]
 margin_left = 44.0
 margin_right = 75.0
 margin_bottom = 19.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 4 )
 text = "3:04"
 
 [node name="CenterContainer3" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 848.0
+margin_top = 838.0
 margin_right = 1516.0
 margin_bottom = 880.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CenterContainer3"]
-margin_left = 668.0
-margin_right = 848.0
-margin_bottom = 32.0
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer3/VBoxContainer"]
-margin_right = 180.0
-margin_bottom = 14.0
-text = "Press 'Enter' to try again"
-align = 1
-valign = 1
-
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer3/VBoxContainer"]
-margin_top = 18.0
-margin_right = 180.0
-margin_bottom = 32.0
-text = "Press 'ESC' to quit the Game"
-align = 1
-valign = 1
+[node name="ReplayMassage" parent="MarginContainer/VBoxContainer/CenterContainer3" instance=ExtResource( 7 )]

@@ -6,9 +6,9 @@
 [ext_resource path="res://icon.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Enemys/defaultEnemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=6]
-[ext_resource path="res://Scenes/UI/GUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/UI/GUI/GUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Spawner.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/UI/DeathScreen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/UI/DeathScreen/DeathScreen.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Items/Items/PistolItem.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Items/Items/SpeedUpItem.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Items/Items/ItemInvincibility.tscn" type="PackedScene" id=12]
@@ -46,11 +46,8 @@ position = Vector2( 1002.11, -13.0142 )
 [node name="GUI" parent="." instance=ExtResource( 7 )]
 
 [node name="Spawner" parent="." instance=ExtResource( 8 )]
-item_spawn_rate = 0.1
+item_spawn_rate = 0.22
 item_array = [ ExtResource( 10 ), ExtResource( 2 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ]
 
 [node name="Map" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, 2.24487 )
-
-[node name="EffectItemBasis" parent="." instance=ExtResource( 13 )]
-position = Vector2( -431.102, 7.99133 )
