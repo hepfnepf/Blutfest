@@ -4,7 +4,7 @@ A WIP Crimsonland clone inspired by the unfished and no longer maintained FOSS-G
 
 # Road To 0.2.1
 - max amount of enemys✔
-- Documentation
+- Documentation✔
 - See remaining time on effects✔
 - fixing the icon of infinite ammo✔
 - Aknowledgement in the gui when you break the highscore✔
