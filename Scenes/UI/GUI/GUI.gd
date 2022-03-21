@@ -54,12 +54,8 @@ func set_score(new_score):
 	score.text = str(new_score)
 
 func set_cursor(cursor_type:int) -> void:
-	if cursor_type == Globals.CURSOR_TYPE.CUSTOM:
-		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-		crosshair.visible = true
-	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		crosshair.visible = false
+	Globals.cursor_manager.set_crosshair(crosshair)
+	Globals.cursor_manager.set_cursor(cursor_type)
 
 #func _input(event):
 #	if event.is_action_just_pressed("show_debug_info"):

@@ -16,7 +16,7 @@ func _ready()-> void:
 	player.connect("dead",self,"_on_player_death")
 	connect("killed_enemy",debug_gui,"_on_enemy_count_changed")
 	gui.set_player(player)
-	gui.set_cursor(Globals.CURSOR_TYPE.CUSTOM)
+	gui.set_cursor(Cursor.CURSOR_TYPE.CROSSHAIR)
 	var map_size:Vector2 = map.get_map_size()
 	spawner.set_map_size(map_size[0],map_size[1])
 
@@ -24,7 +24,7 @@ func _on_player_death()->void:
 	var death_screen = death_screen_prefab.instance()
 	add_child(death_screen)
 	spawner.game_alive = false
-	gui.set_cursor(Globals.CURSOR_TYPE.DEFAULT)
+	Globals.cursor_manager.set_cursor(Cursor.CURSOR_TYPE.DEFAULT)
 	var save_dict= SaveManager.read_savegame()
 	death_screen.handle_score_display(save_dict["highscore"],player.score,save_dict["best_time"],player.elapsed_time)
 	if save_dict["highscore"] < player.score:

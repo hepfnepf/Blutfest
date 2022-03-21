@@ -14,7 +14,7 @@ margin_right = 1536.0
 margin_bottom = 900.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.333333, 0.333333, 1 )
+color = Color( 0.352941, 0.333333, 0.333333, 0 )
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 margin_right = 1536.0
@@ -76,3 +76,8 @@ margin_bottom = 340.0
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
 text = "Exit"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer2/VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer2/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer2/VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer2/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
