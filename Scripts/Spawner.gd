@@ -23,7 +23,7 @@ export (Array,PackedScene) var item_array
 #Weapon
 
 onready var game = get_node("/root/Game")
-onready var debug_gui =get_node("/root/Game/GUI/MarginContainer/VBoxContainer/HBoxContainer3/DebugLayout")
+onready var debug_gui =get_node("/root/Game/GUI/HUD/VBoxContainer/HBoxContainer3/DebugLayout")
 onready var map:Map = get_node("/root/Game/Map")
 
 func _ready():

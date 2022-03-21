@@ -118,13 +118,9 @@ alignment = 2
 [node name="Crosshair" parent="." instance=ExtResource( 7 )]
 scale = Vector2( 0.3, 0.3 )
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="PauseMenu" parent="." instance=ExtResource( 8 )]
+pause_mode = 2
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 1
-
-[node name="PauseMenu" parent="MarginContainer" instance=ExtResource( 8 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1536.0

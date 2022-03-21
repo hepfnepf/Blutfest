@@ -4,21 +4,21 @@
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scenes/UI/PauseMenue/PauseMenu.gd" type="Script" id=3]
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
 
 [node name="Background" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_right = 1536.0
+margin_bottom = 900.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.352941, 0.333333, 0.333333, 1 )
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+margin_right = 1536.0
+margin_bottom = 900.0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 437.0

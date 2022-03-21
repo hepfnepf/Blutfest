@@ -1,12 +1,12 @@
 extends CanvasLayer
 
-onready var health_widget = $MarginContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/HealthbarWidget
-onready var exp_widget = $MarginContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/ExpbarWidget
-onready var ammo_widget = $MarginContainer/VBoxContainer/HBoxContainer/CenterContainer2/AmmoWidget
-onready var score = $MarginContainer/VBoxContainer/HBoxContainer3/HBoxContainer2/Score
-onready var debug_info = $MarginContainer/VBoxContainer/HBoxContainer3/DebugLayout
+onready var health_widget = $HUD/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/HealthbarWidget
+onready var exp_widget = $HUD/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/ExpbarWidget
+onready var ammo_widget = $HUD/VBoxContainer/HBoxContainer/CenterContainer2/AmmoWidget
+onready var score = $HUD/VBoxContainer/HBoxContainer3/HBoxContainer2/Score
+onready var debug_info = $HUD/VBoxContainer/HBoxContainer3/DebugLayout
 onready var crosshair = $Crosshair
-onready var effect_container = $MarginContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/EffectContainer
+onready var effect_container = $HUD/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/EffectContainer
 
 #enum CURSOR_TYPE{DEFAULT,CUSTOM}
 var player:Player
