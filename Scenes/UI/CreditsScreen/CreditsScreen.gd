@@ -18,3 +18,8 @@ func load_file(file) -> String:
 		txt += line + '\n'
 	f.close()
 	return txt
+
+
+
+func _on_ExitButton_pressed():
+	visible = false

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Fonts/standardUI.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scenes/UI/PauseMenue/PauseMenu.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/UI/CreditsScreen/CreditsScreen.tscn" type="PackedScene" id=4]
 
 [node name="PauseMenu" type="MarginContainer"]
 anchor_right = 1.0
@@ -76,6 +77,13 @@ margin_bottom = 340.0
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
 text = "Exit"
+
+[node name="CreditsScreen" parent="." instance=ExtResource( 4 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1536.0
+margin_bottom = 900.0
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer2/VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer2/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]

@@ -43,7 +43,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.745098, 0.741176, 0.741176, 1 )
 
-[node name="Button" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
 margin_left = 706.0
 margin_top = 804.0
 margin_right = 790.0
@@ -51,3 +51,5 @@ margin_bottom = 860.0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 1 )
 text = "Exit"
+
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]

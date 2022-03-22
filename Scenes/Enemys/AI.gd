@@ -47,7 +47,7 @@ func initialize(movementNode:Movement, team : int):
 func _process(delta):
 	if !alive:
 		return
-	
+
 	if state == STATE.HUNT:
 		if target_player != null and target_player.get_global_position().distance_to(self.get_global_position()) < attack_range:
 			#print("stop")
@@ -77,7 +77,7 @@ func create_random_patrol_location() -> Vector2:
 		return Vector2(random_x, random_y)+ origin
 	else:
 		return game.spawner.random_position_in_map()
-	
+
 
 func attack(player):
 	get_parent().animation_player.play("Attack")

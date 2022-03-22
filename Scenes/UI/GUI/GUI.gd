@@ -7,26 +7,28 @@ onready var score = $HUD/VBoxContainer/HBoxContainer3/HBoxContainer2/Score
 onready var debug_info = $HUD/VBoxContainer/HBoxContainer3/DebugLayout
 onready var crosshair = $Crosshair
 onready var effect_container = $HUD/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/EffectContainer
-
+onready var credits = $PauseMenu/CreditsScreen
+onready var pause_menu =$PauseMenu
 #enum CURSOR_TYPE{DEFAULT,CUSTOM}
 var player:Player
 
 func set_player(player):
 	self.player = player
-	
+
 	set_health(player.health)
 	set_max_health(player.max_health)
 	set_score(player.score)
 	reset_weapon(player.Weapon.current_weapon)
 	set_exp(player.experience)
 	set_max_exp(player.experience_limit)
-	
+
 	player.Weapon.connect("weapon_switch",self,"reset_weapon")
 	player.connect("health_changed",self,"set_health")
 	player.connect("max_health_changed",self,"set_max_health")
 	player.connect("exp_changed",self,"set_exp")
 	player.connect("exp_limit_changed",self,"set_max_exp")
 	player.connect("score_changed",self,"set_score")
+	player.connect("dead",pause_menu,"_on_Player_Death")
 
 func reset_weapon(weapon):
 	set_ammo(weapon.ammo)
