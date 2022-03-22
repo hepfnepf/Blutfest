@@ -22,9 +22,9 @@ func _on_enemy_count_changed():
 func set_alive(new_alive):
 	if new_alive == alive:
 		return
-		
+
 	for child in get_children():
 		child.visible = new_alive
-	
+
 	alive = new_alive
-	
+

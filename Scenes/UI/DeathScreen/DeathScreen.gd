@@ -16,11 +16,11 @@ func _ready():
 
 func set_score(score:int) -> void:
 	scoreLabel.text = str(score)
-	
+
 
 func set_time(time:int):
 	timeLabel.text = time_to_str(time)
-	
+
 
 func time_to_str(time:int) -> String:
 	var minutes = time / 60

@@ -1,8 +1,6 @@
 
 
 Sprites
-
-Other:
 Player - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player
 
 Wapons top-down:
