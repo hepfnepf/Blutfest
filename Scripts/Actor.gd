@@ -44,7 +44,7 @@ func start_death_animation():
 	collision_shape.queue_free()
 	z_index = -4
 	emit_signal("enemy_dead",points)
-	
+
 	animation_player.stop()
 	animation_player.play("Death")
 
@@ -54,10 +54,10 @@ func die():
 func _ready():
 	movement.speed = speed
 	health_Node.health = max_health
-	
+
 	movement.initialize(self, animation_player)
 	ai.initialize(movement,team_Node.team)
-	
+
 	connect("enemy_dead",game,"_on_enemy_killed")
 
 func _on_AnimationPlayer_animation_finished(anim_name):

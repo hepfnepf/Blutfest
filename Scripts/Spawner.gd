@@ -5,7 +5,7 @@ signal spawned_enemy
 
 export (float)var enemy_spawn_rate= 1.0
 export (float)var enemy_spawn_rate_increase=0.02
-export (float)var item_spawn_rate=0.05 
+export (float)var item_spawn_rate=0.05
 export (float)var max_enemys = 200
 
 var enemy_spawn_value:float = 0
@@ -35,19 +35,19 @@ func _process(delta):
 		return
 	handle_enemy_spawning(delta)
 	handle_item_spawning(delta)
-	
+
 func handle_item_spawning(delta)->void:
 	item_spawn_value += item_spawn_rate*delta
 	while (item_spawn_value >= 1):
 		item_spawn_value -=1
 		spawn_at(item_array[randi()%len(item_array)],random_position_in_map())
-		
+
 
 
 func handle_enemy_spawning(delta)->void:
 	#change spawn probability over time
 	enemy_spawn_rate += delta*enemy_spawn_rate_increase
-	
+
 	#decides how many enemys are supposed to spawn
 	enemy_spawn_value+= enemy_spawn_rate*delta
 	if game.enemys_alive >= max_enemys:
@@ -76,7 +76,7 @@ func random_position_out_map()->Vector2:
 		var helper_int:int = randi()%2*2 -1 #generates eather -1 or 1
 		random_x = helper_int*map_size_x+helper_int*20 #time 20 to have some space between the border of the map and th espawn poistion
 		random_y = rand_range(-map_size_y,map_size_y)
-		
+
 	else:
 		var helper_int:int = randi()%2*2 -1 #generates eather -1 or 1
 		random_x =  rand_range(-map_size_x,map_size_x)

@@ -11,18 +11,18 @@ func _unhandled_input(event):#alternetive way to get the input
 	if event.is_action_released("reload"):# && ammo != max_ammo:
 		reload()
 
-func shoot():	
+func shoot():
 	#animation
 	animation_player.play("shot")
-	
+
 	#initiate bullet
 	shoot_bullet()
-	
+
 	play_sound(SOUNDS.SHOT)
-	
+
 	#handle ammo
 	ammo -= 1
 	if ammo <= 0:
 		ammo = 0
-		reload()	
+		reload()
 	emit_signal("ammo_changed",ammo)

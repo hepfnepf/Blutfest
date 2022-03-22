@@ -28,12 +28,12 @@ func _on_player_death()->void:
 	var save_dict= SaveManager.read_savegame()
 	death_screen.handle_score_display(save_dict["highscore"],player.score,save_dict["best_time"],player.elapsed_time)
 	if save_dict["highscore"] < player.score:
-		save_dict["highscore"] = player.score		
+		save_dict["highscore"] = player.score
 	if save_dict["best_time"] < player.elapsed_time:
 		save_dict["best_time"] = player.elapsed_time
-		
+
 	SaveManager.save(save_dict)
-	
+
 func _on_enemy_killed(points):
 	enemys_alive -=1
 	player.set_score(player.score + points)

@@ -9,7 +9,7 @@ func add_effect():
 	speed_delta = extra_speed
 	player.delta_move_speed += extra_speed
 	player.move_speed += extra_speed
-	
+
 func remove_effect():
 	player.move_speed -= speed_delta
 	player.delta_move_speed -= speed_delta

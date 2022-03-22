@@ -16,9 +16,9 @@ func _ready():
 	var current_scale:Vector2 = transform.get_scale()
 	tween_in.interpolate_property(self,"scale",Vector2(0,0),current_scale,pop_up_time)
 	tween_in.start()
-	
+
 	timer.start(time_to_despawn-time_of_blink)
-	
+
 func pick_up(player:Player):
 	queue_free()
 
@@ -36,8 +36,8 @@ func _on_Despawn_timeout():
 	else:
 		blink()
 		timer.start(time_of_blink)
-	
-	
+
+
 
 
 func _on_FadeOut_tween_completed(object, key):
@@ -54,4 +54,4 @@ func _on_FadeIn_tween_completed(object, key):
 			blink_to_zero=true
 			tween_in.interpolate_property(self,"modulate:a",null,0.0,1.0)
 			tween_in.start()
-			
+

@@ -51,7 +51,7 @@ func _physics_process(delta):
 	if has_destination:
 		if animation_player.current_animation != "walk":
 			animation_player.play("walk")
-		
+
 		movement_vector = vector_to(destination).normalized()*speed
 		if speed*speed > actor.position.distance_squared_to(destination):#prevents stepping over target at high speed
 			actor.move_and_collide(vector_to(destination))

@@ -36,7 +36,7 @@ enum SOUNDS {SHOT,RELOAD,EMPTY}
 
 var ammo:int = 0
 var spread:float = 0 #gets set in ready to base_spread, does somehow not work if done here
-var is_reloading:bool = false 
+var is_reloading:bool = false
 var cooldown:bool = false
 var reload_start_time:int # used for progress bar
 var rng = RandomNumberGenerator.new()
@@ -77,24 +77,24 @@ func check_for_input():
 	if Input.is_action_just_released("reload"):# && ammo!= max_ammo:
 		reload()
 
-func shoot():	
+func shoot():
 	#animation
 	animation_player.play("shot")
-	
+
 	#limit fire speed
 	shot_timer.start()
 	cooldown = true
-	
+
 	#initialize bullet
 	shoot_bullet()
-	
+
 	play_sound(SOUNDS.SHOT)
-	
+
 	#handle ammo
 	ammo -= 1
 	if ammo <= 0:
 		ammo = 0
-		reload()	
+		reload()
 	emit_signal("ammo_changed",ammo)
 
 func shoot_bullet():
@@ -117,7 +117,7 @@ func play_sound(sound:int):
 		_streamer = AudioStreamPlayer.new()
 		_streamer.bus = "SFX"
 		add_child(_streamer)
-	
+
 	if sound == SOUNDS.SHOT:
 		_streamer.stream = shoot_sfx
 		_streamer.set_volume_db(linear2db(shoot_db))
@@ -128,7 +128,7 @@ func play_sound(sound:int):
 		_streamer.stream = empty_sfx
 		_streamer.set_volume_db(linear2db(empty_db))
 	_streamer.play()
-	
+
 	yield(_streamer, "finished")
 	sound_queue.add(_streamer)
 
