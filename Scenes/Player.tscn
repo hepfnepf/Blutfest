@@ -10,7 +10,7 @@
 [ext_resource path="res://Scenes/Weapons/Weapon.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/Weapons/Weapons/StandardRifle.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Player.gd" type="Script" id=10]
-[ext_resource path="res://Sounds/PlayerHurt163441__under7dude__man-getting-hit.wav" type="AudioStream" id=11]
+[ext_resource path="res://Sounds/SFX/PlayerHurt163441__under7dude__man-getting-hit.wav" type="AudioStream" id=11]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 73.9803
@@ -1127,9 +1127,7 @@ tracks/7/keys = {
 [sub_resource type="CircleShape2D" id=11]
 radius = 11.0105
 
-[node name="Player" type="KinematicBody2D" groups=[
-"Players",
-]]
+[node name="Player" type="KinematicBody2D" groups=["Players"]]
 scale = Vector2( 0.9, 0.9 )
 collision_mask = 3
 script = ExtResource( 10 )

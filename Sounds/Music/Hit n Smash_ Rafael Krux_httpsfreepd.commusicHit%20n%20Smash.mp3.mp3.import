@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Hit n Smash_ Rafael Krux_httpsfreepd.commusicHit%20n%20Smash.mp3.mp3-adcfb931283d1bf72fe9a19627e08ddd.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Music/Hit n Smash_ Rafael Krux_httpsfreepd.commusicHit%20n%20Smash.mp3.mp3"
+dest_files=[ "res://.import/Hit n Smash_ Rafael Krux_httpsfreepd.commusicHit%20n%20Smash.mp3.mp3-adcfb931283d1bf72fe9a19627e08ddd.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

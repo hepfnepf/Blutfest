@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Construction_Alexander Nakarada_httpsfreepd.commusicConstruction.mp3.mp3-8edef8e86972466e5e19b324b43c5bd1.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Music/Construction_Alexander Nakarada_httpsfreepd.commusicConstruction.mp3.mp3"
+dest_files=[ "res://.import/Construction_Alexander Nakarada_httpsfreepd.commusicConstruction.mp3.mp3-8edef8e86972466e5e19b324b43c5bd1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

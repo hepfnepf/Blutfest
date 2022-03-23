@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/StandardRifleShotlmg_fire01.mp3-50c942f882795aec4f6dbf89d0947a86.mp3str"
+
+[deps]
+
+source_file="res://Sounds/SFX/StandardRifleShotlmg_fire01.mp3"
+dest_files=[ "res://.import/StandardRifleShotlmg_fire01.mp3-50c942f882795aec4f6dbf89d0947a86.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

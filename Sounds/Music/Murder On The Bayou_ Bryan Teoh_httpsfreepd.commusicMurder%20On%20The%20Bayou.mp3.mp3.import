@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Murder On The Bayou_ Bryan Teoh_httpsfreepd.commusicMurder%20On%20The%20Bayou.mp3.mp3-5553ae0433bde0bfc05bb2554ff3c8ca.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Music/Murder On The Bayou_ Bryan Teoh_httpsfreepd.commusicMurder%20On%20The%20Bayou.mp3.mp3"
+dest_files=[ "res://.import/Murder On The Bayou_ Bryan Teoh_httpsfreepd.commusicMurder%20On%20The%20Bayou.mp3.mp3-5553ae0433bde0bfc05bb2554ff3c8ca.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

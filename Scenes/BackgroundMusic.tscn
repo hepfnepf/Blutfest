@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sounds/Music/Beyond - part 2_alexander nakarada _httpsfreepd.commusicBeyond%20-%20part%202.mp3.mp3" type="AudioStream" id=1]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+volume_db = -15.0
+autoplay = true

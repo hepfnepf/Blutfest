@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Deck the Halls_alexander nakarada_httpsfreepd.commusicDeck%20the%20Halls.mp3.mp3-7eb4ff27fb3a7dc9ad14aa2e69e89542.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Music/Deck the Halls_alexander nakarada_httpsfreepd.commusicDeck%20the%20Halls.mp3.mp3"
+dest_files=[ "res://.import/Deck the Halls_alexander nakarada_httpsfreepd.commusicDeck%20the%20Halls.mp3.mp3-7eb4ff27fb3a7dc9ad14aa2e69e89542.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

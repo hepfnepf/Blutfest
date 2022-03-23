@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/One Destination - Two Journeys_Alexander Nakarada_httpsfreepd.commusicOne%20Destination%20-%20Two%20Journeys.mp3.mp3-7b9d6cb006394531be5da887ba5c5644.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Music/One Destination - Two Journeys_Alexander Nakarada_httpsfreepd.commusicOne%20Destination%20-%20Two%20Journeys.mp3.mp3"
+dest_files=[ "res://.import/One Destination - Two Journeys_Alexander Nakarada_httpsfreepd.commusicOne%20Destination%20-%20Two%20Journeys.mp3.mp3-7b9d6cb006394531be5da887ba5c5644.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

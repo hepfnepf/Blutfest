@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/PistolEmptyClic07.mp3-488e1d6b08dd3e214b200a34cf60e82b.mp3str"
+
+[deps]
+
+source_file="res://Sounds/SFX/PistolEmptyClic07.mp3"
+dest_files=[ "res://.import/PistolEmptyClic07.mp3-488e1d6b08dd3e214b200a34cf60e82b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

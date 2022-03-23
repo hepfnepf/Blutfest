@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Beyond - part 2_alexander nakarada _httpsfreepd.commusicBeyond%20-%20part%202.mp3.mp3-1cd60830ebdf4dad46c1b82213b625e8.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Music/Beyond - part 2_alexander nakarada _httpsfreepd.commusicBeyond%20-%20part%202.mp3.mp3"
+dest_files=[ "res://.import/Beyond - part 2_alexander nakarada _httpsfreepd.commusicBeyond%20-%20part%202.mp3.mp3-1cd60830ebdf4dad46c1b82213b625e8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

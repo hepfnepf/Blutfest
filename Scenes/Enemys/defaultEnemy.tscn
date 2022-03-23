@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Actor.gd" type="Script" id=1]
-[ext_resource path="res://Sounds/EnemyHurt76965__michel88__painb.wav" type="AudioStream" id=2]
+[ext_resource path="res://Sounds/SFX/EnemyHurt76965__michel88__painb.wav" type="AudioStream" id=2]
 [ext_resource path="res://Sprites/Enemys/Standard/zom2Full.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/Helper/Team.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Helper/Movement.tscn" type="PackedScene" id=8]
