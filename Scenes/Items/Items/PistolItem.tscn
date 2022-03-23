@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Weapons/Weapons/Pistol.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Weapons/pistol_item.png" type="Texture" id=2]
@@ -6,6 +6,27 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 278.507, 182.651 )
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+uniform bool is_blinking = false;
+uniform float blink_speed = 1.5;
+uniform float starded_blinking = 0.0;
+
+void fragment(){
+	COLOR = texture(TEXTURE, UV);
+	//creates blinking
+	COLOR.a = COLOR.a*(1.0- float(is_blinking)* mod(TIME,1.0/blink_speed));//abs(sin(TIME*blink_speed)));
+	
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = SubResource( 2 )
+shader_param/is_blinking = false
+shader_param/blink_speed = 1.5
+shader_param/starded_blinking = 0.0
 
 [node name="PistolItem" instance=ExtResource( 3 )]
 weapon = ExtResource( 1 )
@@ -15,5 +36,6 @@ position = Vector2( 9.17268, 4.7979 )
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="1"]
+material = SubResource( 3 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )

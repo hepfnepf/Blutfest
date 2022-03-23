@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Items/Items/ItemHealUp.tscn" type="PackedScene" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Sounds/Music/Deck the Halls_alexander nakarada_httpsfreepd.commusicDeck%20the%20Halls.mp3.mp3" type="AudioStream" id=20]
 [ext_resource path="res://Sounds/Music/Murder On The Bayou_ Bryan Teoh_httpsfreepd.commusicMurder%20On%20The%20Bayou.mp3.mp3" type="AudioStream" id=21]
 [ext_resource path="res://Sounds/Music/One Destination - Two Journeys_Alexander Nakarada_httpsfreepd.commusicOne%20Destination%20-%20Two%20Journeys.mp3.mp3" type="AudioStream" id=22]
+[ext_resource path="res://Scenes/Items/Items/AkItem.tscn" type="PackedScene" id=23]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -55,7 +56,7 @@ position = Vector2( 1002.11, -13.0142 )
 
 [node name="Spawner" parent="." instance=ExtResource( 8 )]
 item_spawn_rate = 0.22
-item_array = [ ExtResource( 10 ), ExtResource( 2 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ]
+item_array = [ ExtResource( 10 ), ExtResource( 2 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 23 ) ]
 
 [node name="Map" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, 2.24487 )
