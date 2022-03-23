@@ -4,10 +4,10 @@ A WIP Crimsonland clone inspired by the unfished and no longer maintained FOSS-G
 # Road To 0.3
  - [x] pause menue
  - [x] background music
- - [] content
- - [] increase of difficulty over time
+- [ ] content
+ - [ ] increase of difficulty over time
 
 # Road To 0.3.1
-- [] weighted posebilitys
-- [] lerped movement
-- [] walking sound 
+- [ ] weighted posebilitys
+- [ ] lerped movement
+- [ ] walking sound 
