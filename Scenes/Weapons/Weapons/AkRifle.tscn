@@ -13,13 +13,14 @@
 
 [node name="AkRifle" instance=ExtResource( 1 )]
 script = ExtResource( 10 )
+damage = 15
 speed = 3500
 reload_time = 1.5
 fire_rate = 8.0
-base_spread = 0.174
-max_spread = 0.139
-spread_inc = 0.719
-spread_dec = 0.01
+base_spread = 0.01
+max_spread = 0.121
+spread_inc = 1.148
+spread_dec = 0.078
 Bullet = ExtResource( 6 )
 shoot_sfx = ExtResource( 9 )
 reload_sfx = ExtResource( 7 )
@@ -27,6 +28,9 @@ empty_sfx = ExtResource( 8 )
 shoot_db = 0.1
 reload_db = 0.1
 empty_db = 0.1
+standing_spread_decrease_multiplyer = 1.169
+walking_spread_increase_multiplyer = 1.73
+standing_walking_differ = 0.23
 
 [node name="muzzle_flash_02" parent="." index="0"]
 position = Vector2( 201.684, 25.9841 )

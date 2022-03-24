@@ -12,6 +12,7 @@
 
 [node name="StandardRifle" instance=ExtResource( 1 )]
 max_ammo = 20
+damage = 40
 speed = 3500
 reload_time = 1.5
 fire_rate = 1.7
