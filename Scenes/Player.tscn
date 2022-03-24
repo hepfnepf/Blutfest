@@ -8,7 +8,7 @@
 [ext_resource path="res://Sprites/Player/arm.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Player/forearm.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Weapons/Weapon.gd" type="Script" id=8]
-[ext_resource path="res://Scenes/Weapons/Weapons/AkRifle.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Weapons/Weapons/StandardRifle.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Player.gd" type="Script" id=10]
 [ext_resource path="res://Sounds/SFX/PlayerHurt163441__under7dude__man-getting-hit.wav" type="AudioStream" id=11]
 
@@ -1135,7 +1135,7 @@ script = ExtResource( 10 )
 [node name="Weapon" type="Node2D" parent="."]
 script = ExtResource( 8 )
 
-[node name="AkRifle" parent="Weapon" instance=ExtResource( 9 )]
+[node name="StandardRifle" parent="Weapon" instance=ExtResource( 9 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
