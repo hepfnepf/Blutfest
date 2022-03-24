@@ -52,6 +52,7 @@ onready var bullet_spawn_direction = $BulletDirection
 onready var shot_timer:Timer = $Cooldown
 onready var game = get_node("/root/Game")
 onready var tween = $Tween
+onready var player = get_parent().get_parent()
 
 func _ready():
 	rng.randomize()

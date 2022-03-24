@@ -13,6 +13,7 @@
 
 [node name="Pistol" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
+damage = 40
 max_range = 10000
 speed = 3000
 base_spread = 0.02
