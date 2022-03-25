@@ -2,8 +2,6 @@ extends Area2D
 class_name Bullet
 """
 This is meant to inherit from. Not to be used directly.
-TODO:
-	Add a Smoketrail to your scene.
 """
 
 var direction := Vector2.ZERO
@@ -34,7 +32,7 @@ func die():
 	sprite.queue_free()
 
 func _on_Bullet_body_entered(body):
-	if !alive:
+	if !alive or body.is_in_group("Projectile"):
 		return
 	die()
 

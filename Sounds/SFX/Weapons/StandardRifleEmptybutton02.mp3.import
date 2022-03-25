@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/StandardRifleEmptybutton02.mp3-30048fc118e8913623d7a6b24208d921.mp3str"
+
+[deps]
+
+source_file="res://Sounds/SFX/Weapons/StandardRifleEmptybutton02.mp3"
+dest_files=[ "res://.import/StandardRifleEmptybutton02.mp3-30048fc118e8913623d7a6b24208d921.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

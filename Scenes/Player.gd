@@ -12,6 +12,7 @@ signal score_changed(new_score)
 export (int) var move_speed = 300
 export (int) var max_health = 100 setget set_max_health
 export (int) var health = max_health setget set_health
+export (PackedScene) var start_weapon = null
 
 var experience:int = 0
 var experience_limit:int=100
@@ -25,7 +26,7 @@ var delta_move_speed = 0
 var invincible_count = 0
 
 
-onready var Weapon = $Weapon
+onready var weapon = $Weapon
 onready var hurt = $Hurt
 
 var velocity:float = 0 #needed for movement inaccuracy of player
@@ -33,7 +34,9 @@ var velocity:float = 0 #needed for movement inaccuracy of player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	if start_weapon != null:
+		weapon.set_weapon(start_weapon)
+		#weapon.
 
 func _physics_process(delta):
 	if !alive:
@@ -123,10 +126,10 @@ func change_invincibility(change:int):#function to be used from effect to turn t
 	else:
 		invincible = true
 
-func set_weapon(weapon):
+func set_weapon(_weapon):
 	if !alive:
 		return
-	Weapon.set_weapon(weapon)
+	weapon.set_weapon(_weapon)
 
 func _on_Area2D_area_entered(area):
 	if !alive:

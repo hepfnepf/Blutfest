@@ -61,6 +61,13 @@ func _ready():
 	set_fire_rate(fire_rate)
 	emit_signal("spread_changed", spread/base_spread)
 
+func add_to_player():
+	pass
+
+func remove_from_player():
+	pass
+
+
 func _process(delta):
 	if is_reloading:
 		var percent = reload_timer.time_left/reload_timer.wait_time * 100
@@ -112,6 +119,9 @@ func shoot_bullet():
 	#add_child(bullet)
 	increase_spread()
 
+"""
+Plays one of the gun sounds, determined by the SOUNDS enum. If the sound variable is not assigned, sound does not get played.
+"""
 func play_sound(sound:int):
 	var _streamer:AudioStreamPlayer = sound_queue.pop()
 	if _streamer == null:
@@ -119,13 +129,13 @@ func play_sound(sound:int):
 		_streamer.bus = "SFX"
 		add_child(_streamer)
 
-	if sound == SOUNDS.SHOT:
+	if sound == SOUNDS.SHOT && shoot_sfx != null:
 		_streamer.stream = shoot_sfx
 		_streamer.set_volume_db(linear2db(shoot_db))
-	elif sound==SOUNDS.RELOAD:
+	elif sound==SOUNDS.RELOAD&& reload_sfx != null:
 		_streamer.stream = reload_sfx
 		_streamer.set_volume_db(linear2db(reload_db))
-	else:
+	elif empty_sfx != null:
 		_streamer.stream = empty_sfx
 		_streamer.set_volume_db(linear2db(empty_db))
 	_streamer.play()

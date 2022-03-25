@@ -18,11 +18,11 @@ func set_player(player):
 	set_health(player.health)
 	set_max_health(player.max_health)
 	set_score(player.score)
-	reset_weapon(player.Weapon.current_weapon)
+	reset_weapon(player.weapon.current_weapon)
 	set_exp(player.experience)
 	set_max_exp(player.experience_limit)
 
-	player.Weapon.connect("weapon_switch",self,"reset_weapon")
+	player.weapon.connect("weapon_switch",self,"reset_weapon")
 	player.connect("health_changed",self,"set_health")
 	player.connect("max_health_changed",self,"set_max_health")
 	player.connect("exp_changed",self,"set_exp")

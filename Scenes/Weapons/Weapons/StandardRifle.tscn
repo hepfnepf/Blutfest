@@ -6,9 +6,9 @@
 [ext_resource path="res://Sprites/Player/forearm.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Weapons/rifle.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Weapons/Bullets/BulletClean2.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sounds/SFX/StandardRifleShotlmg_fire01.mp3" type="AudioStream" id=7]
-[ext_resource path="res://Sounds/SFX/StandardRiflegunreload1.wav" type="AudioStream" id=8]
-[ext_resource path="res://Sounds/SFX/StandardRifleEmptybutton02.mp3" type="AudioStream" id=9]
+[ext_resource path="res://Sounds/SFX/Weapons/StandardRifleShotlmg_fire01.mp3" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/SFX/Weapons/StandardRiflegunreload1.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/SFX/Weapons/StandardRifleEmptybutton02.mp3" type="AudioStream" id=9]
 
 [node name="StandardRifle" instance=ExtResource( 1 )]
 max_ammo = 20
