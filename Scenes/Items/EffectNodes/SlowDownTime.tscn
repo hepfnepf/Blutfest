@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Items/EffectNodes/EffectSlowDownTime.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Items/Helper/EffectBasis.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/Items/SlowDown.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Items/Effects/SlowDown.png" type="Texture" id=3]
 
 [node name="SlowDownTime" instance=ExtResource( 2 )]
 wait_time = 7.5

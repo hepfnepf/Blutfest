@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Items/Helper/ItemBasisWeapon.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Sprites/Weapons/G43.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Items/Weapons/standard_rifle_item.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Weapons/Weapons/StandardRifle.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]

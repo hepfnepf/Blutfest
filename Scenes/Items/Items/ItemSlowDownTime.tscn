@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Sprites/Items/SlowDown.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Items/Effects/SlowDown.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Items/Helper/EffectItemBasis.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Items/EffectNodes/SlowDownTime.tscn" type="PackedScene" id=3]
 

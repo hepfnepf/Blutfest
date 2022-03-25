@@ -8,6 +8,7 @@ Pistol - rileygombart - https://opengameart.org/content/animated-top-down-surviv
 Pistol icon - rgs_dev - https://opengameart.org/content/gun-glock-26-gen5-9mm-vector
 Standard Rifle - knik1985 - https://opengameart.org/content/guns-wwii
 Ak Rifle - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player
+Short Shotgun based on - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player
 
 Pick-Up items
 SpeedUp - Delapouite - https://game-icons.net/1x1/delapouite/running-shoe.html
@@ -19,6 +20,8 @@ Penetrating Bullet - lorc - https://game-icons.net/1x1/lorc/supersonic-bullet.ht
 Critical Bullet - Delapouite - https://game-icons.net/1x1/delapouite/silver-bullet.html
 Explosion - Lorc - https://game-icons.net/1x1/lorc/grenade.html
 Ak Rifle - Game Developer Studio - https://opengameart.org/content/ak-47-icon - CC BY 3.0
+Short Shotgun - clayster2012 - https://opengameart.org/content/weapon-set-0 - CC BY 3.0
+
 
 Sounds
 Standard Rifle/Ak Shot - KuraiWolf - https://opengameart.org/content/light-machine-gun -  CC BY 4.0
@@ -27,6 +30,11 @@ Standard Rifle/Ak Empty - Independent.nu - https://opengameart.org/content/16-bu
 Pistol Reload - SpringySpringo - https://opengameart.org/content/gun-reload-sounds
 Pistol Shot -Michel Baradari apollo-music.de - https://opengameart.org/content/chaingun-pistol-rifle-shotgun-shots -  CC BY 3.0
 Pistol Empty - Independent.nu - https://opengameart.org/content/16-button-clicks
+Shotgun shot - Michel Baradari - https://opengameart.org/content/chaingun-pistol-rifle-shotgun-shots
+Shotgun reload - Mike Koenig (Soundbible) - https://opengameart.org/content/shotgun-shoot-reload - CC BY 3.0
+Shotgun empty- Mike Koenig (Soundbible) - https://opengameart.org/content/shotgun-shoot-reload - CC BY 3.0
+
+
 
 Music
 Beyond - part 2 -Alexander Nakarada - https://freepd.commusicBeyond%20-%20part%202.mp3
