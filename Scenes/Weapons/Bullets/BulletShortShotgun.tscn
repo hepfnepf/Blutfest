@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Weapons/Bullets/BulletShortShotgun.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Weapons/Bullets/BulletBasis.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Weapons/Bullets/SmoketrailFlat.tscn" type="PackedScene" id=4]
+
+[node name="BulletShortShotgun" instance=ExtResource( 2 )]
+z_index = 5
+script = ExtResource( 1 )
+penalty_free_distance = 860.0
+fallof_per_dis = 0.01
+
+[node name="Sprite" parent="." index="1"]
+modulate = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+
+[node name="Smoketrail" parent="." index="3" instance=ExtResource( 4 )]
+length = 900.0

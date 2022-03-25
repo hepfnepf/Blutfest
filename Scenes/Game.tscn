@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Items/Items/ItemHealUp.tscn" type="PackedScene" id=2]
@@ -23,7 +23,6 @@
 [ext_resource path="res://Sounds/Music/Murder On The Bayou_ Bryan Teoh_httpsfreepd.commusicMurder%20On%20The%20Bayou.mp3.mp3" type="AudioStream" id=21]
 [ext_resource path="res://Sounds/Music/One Destination - Two Journeys_Alexander Nakarada_httpsfreepd.commusicOne%20Destination%20-%20Two%20Journeys.mp3.mp3" type="AudioStream" id=22]
 [ext_resource path="res://Scenes/Items/Items/AkItem.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Scenes/Weapons/Weapons/ShortShotgun.tscn" type="PackedScene" id=24]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -36,7 +35,6 @@ death_screen_prefab = ExtResource( 9 )
 position = Vector2( -884, -8 )
 move_speed = 600
 health = 100
-start_weapon = ExtResource( 24 )
 
 [node name="CollisionTester" type="KinematicBody2D" parent="."]
 position = Vector2( 745.29, 390.323 )
