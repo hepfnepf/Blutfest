@@ -5,11 +5,11 @@ A WIP Crimsonland clone inspired by the unfished and no longer maintained FOSS-G
  - [x] pause menue
  - [x] background music
 - [x] content
- - [ ] increase of difficulty over time
+- [ ] lerped movement
+
 
 # Road To 0.3.1
 - [ ] weighted possibilities
-- [ ] lerped movement
-- [ ] walking sound 
+- [ ] increase of difficulty over time
 - [ ] wiki entrys
 - [ ] more power ups
