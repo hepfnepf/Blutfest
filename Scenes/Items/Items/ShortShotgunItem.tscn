@@ -29,7 +29,7 @@ shader_param/is_blinking = false
 shader_param/blink_speed = 1.5
 shader_param/starded_blinking = 0.0
 
-[node name="ShortSHotgunItem" instance=ExtResource( 2 )]
+[node name="ShortShotgunItem" instance=ExtResource( 2 )]
 weapon = ExtResource( 1 )
 
 [node name="CollisionShape2D" parent="." index="0"]
