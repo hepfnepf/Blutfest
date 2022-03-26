@@ -14,7 +14,7 @@ export (float) var standing_walking_differ = 0.2
 
 func decrease_spread(delta:float):
 	if !is_reloading:
-		if player.velocity  < standing_walking_differ:
+		if player.velocity.length()  < standing_walking_differ:
 			spread -= spread_dec*delta * standing_spread_decrease_multiplyer
 		else:
 			spread -= spread_dec*delta
@@ -23,7 +23,7 @@ func decrease_spread(delta:float):
 	emit_signal("spread_changed", spread/base_spread)
 
 func increase_spread():
-	if player.velocity  < standing_walking_differ:
+	if player.velocity.length()  < standing_walking_differ:
 		spread *= 1+spread_inc
 	else:
 		spread *= 1+spread_inc*walking_spread_increase_multiplyer

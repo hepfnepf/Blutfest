@@ -29,8 +29,9 @@ var invincible_count = 0
 onready var weapon = $Weapon
 onready var hurt = $Hurt
 
-var velocity:float = 0 #needed for movement inaccuracy of player
-
+var velocity:Vector2 = Vector2.ZERO #needed for movement inaccuracy of player
+export (float) var friction = 0.01
+export (float) var acceleration = 0.1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -54,8 +55,13 @@ func _physics_process(delta):
 
 	move_vec = move_vec.normalized()
 	#animateWalk(move_vec)
-	velocity = move_vec.length() * move_speed
-	move_and_collide(move_vec * move_speed * delta)
+	#velocity = move_vec.length() * move_speed
+	if move_vec.length() > 0:
+		velocity = lerp(velocity, move_vec * move_speed,acceleration)
+	else:
+		velocity = lerp(velocity, Vector2.ZERO,friction)
+
+	move_and_collide(velocity * delta)
 
 	#self.look_at(get_global_mouse_position()-self.position)
 	look_at(get_global_mouse_position())
