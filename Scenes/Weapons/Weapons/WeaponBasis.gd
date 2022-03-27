@@ -23,6 +23,8 @@ export (float) var spread_dec = 0.04#per second
 
 
 export (PackedScene) var Bullet
+
+#Sound effects
 export (AudioStream) var shoot_sfx
 export (AudioStream) var reload_sfx
 export (AudioStream) var empty_sfx
@@ -31,17 +33,19 @@ export (float) var shoot_db
 export (float) var reload_db
 export (float) var empty_db
 
-var sound_queue:Queue = Queue.new()
 enum SOUNDS {SHOT,RELOAD,EMPTY}
 
-var ammo:int = 0
+var ammo:int = 0#ammount of shots in a magazine
 var spread:float = 0 #gets set in ready to base_spread, does somehow not work if done here
 var is_reloading:bool = false
 var cooldown:bool = false
 var reload_start_time:int # used for progress bar
+
+
 var rng = RandomNumberGenerator.new()
 
 #For effects
+var ammo_infinity_stack:int = 0 #ammount of ammo ininity applied
 var reload_time_delta:float = 0
 var fire_rate_delta:int = 0
 
@@ -101,7 +105,8 @@ func shoot():
 	play_sound(SOUNDS.SHOT)
 
 	#handle ammo
-	ammo -= 1
+	if ammo_infinity_stack == 0:
+		ammo -= 1
 	if ammo <= 0:
 		ammo = 0
 		reload()
