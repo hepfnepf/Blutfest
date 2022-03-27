@@ -96,6 +96,7 @@ config/windows_native_icon="res://Icon.ico"
 Globals="*res://Scripts/Globals.gd"
 SaveManager="*res://Scripts/SaveManager.gd"
 TimeManager="*res://Scenes/Helper/TimeManager.tscn"
+NonDirectionalSoundPool="*res://Sounds/NonDirectionalSoundPool.tscn"
 
 [display]
 

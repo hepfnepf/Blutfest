@@ -123,6 +123,23 @@ func shoot_bullet():
 Plays one of the gun sounds, determined by the SOUNDS enum. If the sound variable is not assigned, sound does not get played.
 """
 func play_sound(sound:int):
+	if sound == SOUNDS.SHOT && shoot_sfx != null:
+		#_streamer.stream = shoot_sfx
+		#_streamer.set_volume_db(linear2db(shoot_db))
+		NonDirectionalSoundPool.play_sound(shoot_sfx, shoot_db)
+	elif sound==SOUNDS.RELOAD&& reload_sfx != null:
+		#_streamer.stream = reload_sfx
+		#_streamer.set_volume_db(linear2db(reload_db))
+		NonDirectionalSoundPool.play_sound(reload_sfx, reload_db)
+	elif empty_sfx != null:
+		#_streamer.stream = empty_sfx
+		#_streamer.set_volume_db(linear2db(empty_db))
+		NonDirectionalSoundPool.play_sound(empty_sfx, empty_db)
+
+
+
+	#Old implementation
+	"""
 	var _streamer:AudioStreamPlayer = sound_queue.pop()
 	if _streamer == null:
 		_streamer = AudioStreamPlayer.new()
@@ -142,6 +159,7 @@ func play_sound(sound:int):
 
 	yield(_streamer, "finished")
 	sound_queue.add(_streamer)
+	"""
 
 func increase_spread():
 	spread *= 1+spread_inc
