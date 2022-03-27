@@ -11,5 +11,5 @@ dest_files=[ "res://.import/One Destination - Two Journeys_Alexander Nakarada_ht
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

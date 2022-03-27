@@ -3,7 +3,7 @@ extends AudioStreamPlayer
 export (Array, AudioStream) var tracks
 
 
-var currentIndex:int = 0
+var currentIndex:int = 1
 
 func _ready():
 	_on_BackgroundMusic_finished()
