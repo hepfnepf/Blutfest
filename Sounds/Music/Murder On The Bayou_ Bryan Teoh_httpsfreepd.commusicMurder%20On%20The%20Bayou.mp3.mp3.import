@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Murder On The Bayou_ Bryan Teoh_httpsfreepd.commusic
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

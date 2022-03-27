@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Beyond - part 2_alexander nakarada _httpsfreepd.comm
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

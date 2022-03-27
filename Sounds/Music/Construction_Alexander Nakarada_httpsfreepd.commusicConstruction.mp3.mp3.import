@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Construction_Alexander Nakarada_httpsfreepd.commusic
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

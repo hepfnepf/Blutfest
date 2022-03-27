@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Deck the Halls_alexander nakarada_httpsfreepd.commus
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Hit n Smash_ Rafael Krux_httpsfreepd.commusicHit%20n
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
