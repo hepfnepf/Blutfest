@@ -15,9 +15,9 @@
 [ext_resource path="res://Scenes/Items/Items/ItemAmmoFinity.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Items/Items/ItemStandardRifle.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/BackgroundMusic.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Sounds/Music/Hit n Smash_ Rafael Krux_httpsfreepd.commusicHit%20n%20Smash.mp3.mp3" type="AudioStream" id=17]
 [ext_resource path="res://Sounds/Music/Construction_Alexander Nakarada_httpsfreepd.commusicConstruction.mp3.mp3" type="AudioStream" id=18]
 [ext_resource path="res://Sounds/Music/Beyond - part 2_alexander nakarada _httpsfreepd.commusicBeyond%20-%20part%202.mp3.mp3" type="AudioStream" id=19]
+[ext_resource path="res://Sounds/Music/Deck the Halls_alexander nakarada_httpsfreepd.commusicDeck%20the%20Halls.mp3.mp3" type="AudioStream" id=20]
 [ext_resource path="res://Sounds/Music/Murder On The Bayou_ Bryan Teoh_httpsfreepd.commusicMurder%20On%20The%20Bayou.mp3.mp3" type="AudioStream" id=21]
 [ext_resource path="res://Sounds/Music/One Destination - Two Journeys_Alexander Nakarada_httpsfreepd.commusicOne%20Destination%20-%20Two%20Journeys.mp3.mp3" type="AudioStream" id=22]
 [ext_resource path="res://Scenes/Items/Items/AkItem.tscn" type="PackedScene" id=23]
@@ -63,4 +63,4 @@ position = Vector2( 0, 2.24487 )
 pause_mode = 2
 autoplay = false
 bus = "Music"
-tracks = [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 21 ), ExtResource( 22 ) ]
+tracks = [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 20 ) ]
