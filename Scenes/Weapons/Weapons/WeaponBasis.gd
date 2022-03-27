@@ -52,7 +52,7 @@ onready var bullet_spawn_direction = $BulletDirection
 onready var shot_timer:Timer = $Cooldown
 onready var game = get_node("/root/Game")
 onready var tween = $Tween
-onready var player = get_parent().get_parent()
+onready var player:Player = get_parent().get_parent()
 
 func _ready():
 	rng.randomize()
@@ -69,6 +69,8 @@ func remove_from_player():
 
 
 func _process(delta):
+	if !player.alive:
+		return
 	if is_reloading:
 		var percent = reload_timer.time_left/reload_timer.wait_time * 100
 		emit_signal("reload_percent_change",percent)
@@ -124,42 +126,12 @@ Plays one of the gun sounds, determined by the SOUNDS enum. If the sound variabl
 """
 func play_sound(sound:int):
 	if sound == SOUNDS.SHOT && shoot_sfx != null:
-		#_streamer.stream = shoot_sfx
-		#_streamer.set_volume_db(linear2db(shoot_db))
 		NonDirectionalSoundPool.play_sound(shoot_sfx, shoot_db)
 	elif sound==SOUNDS.RELOAD&& reload_sfx != null:
-		#_streamer.stream = reload_sfx
-		#_streamer.set_volume_db(linear2db(reload_db))
 		NonDirectionalSoundPool.play_sound(reload_sfx, reload_db)
 	elif empty_sfx != null:
-		#_streamer.stream = empty_sfx
-		#_streamer.set_volume_db(linear2db(empty_db))
 		NonDirectionalSoundPool.play_sound(empty_sfx, empty_db)
 
-
-
-	#Old implementation
-	"""
-	var _streamer:AudioStreamPlayer = sound_queue.pop()
-	if _streamer == null:
-		_streamer = AudioStreamPlayer.new()
-		_streamer.bus = "SFX"
-		add_child(_streamer)
-
-	if sound == SOUNDS.SHOT && shoot_sfx != null:
-		_streamer.stream = shoot_sfx
-		_streamer.set_volume_db(linear2db(shoot_db))
-	elif sound==SOUNDS.RELOAD&& reload_sfx != null:
-		_streamer.stream = reload_sfx
-		_streamer.set_volume_db(linear2db(reload_db))
-	elif empty_sfx != null:
-		_streamer.stream = empty_sfx
-		_streamer.set_volume_db(linear2db(empty_db))
-	_streamer.play()
-
-	yield(_streamer, "finished")
-	sound_queue.add(_streamer)
-	"""
 
 func increase_spread():
 	spread *= 1+spread_inc
