@@ -28,7 +28,6 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 [node name="Game" type="Node2D"]
-position = Vector2( 10, -3.4054 )
 script = ExtResource( 6 )
 death_screen_prefab = ExtResource( 9 )
 

@@ -29,7 +29,5 @@ func _on_Bullet_body_entered(body):
 
 	_damage = clamp(_damage,3,damage)
 
-	print(distance)
-	print(_damage)
 	if body.has_method("handle_hit"):
 		body.handle_hit(_damage, Globals.DamageType.PROJECTILE)
