@@ -2,6 +2,7 @@ extends Control
 class_name PauseMenu
 
 onready var credits = $CreditsScreen
+onready var op = $CenterContainer/VBoxContainer2/VBoxContainer/WarningNoMenu
 
 var blocked := false
 
@@ -18,6 +19,9 @@ func switch_state():
 	if credits.visible:
 		credits.visible = false
 
+	if op.text != "":
+		op.text = ""
+
 	#Change Cursor
 	if Globals.cursor_manager.cursor == Cursor.CURSOR_TYPE.CROSSHAIR:
 		Globals.cursor_manager.set_cursor(Cursor.CURSOR_TYPE.DEFAULT)
@@ -30,7 +34,8 @@ func _on_ReturnButton_pressed():
 
 
 func _on_OptionsButton_pressed():
-	pass # Replace with function body.
+	op.text = "Not yet implemented"
+	#pass # Replace with function body.
 
 
 func _on_CreditsButton_pressed():
@@ -44,3 +49,8 @@ func _on_ExitButton_pressed():
 func _on_Player_Death(): # gets connected in GUI
 	blocked = true
 	print("dddddddddd")
+
+
+func _on_Restart_pressed():
+	switch_state()
+	get_tree().reload_current_scene()
