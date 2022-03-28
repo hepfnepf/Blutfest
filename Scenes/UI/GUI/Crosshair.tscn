@@ -58,8 +58,10 @@ shader_param/harshness = 1.233
 shader_param/center = Vector2( 0.5, 0.5 )
 shader_param/color = Color( 0.25098, 0.541176, 0.819608, 0.956863 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Crosshair" type="Node2D"]
 script = ExtResource( 1 )
+max_size = 10.0
+min_size = 0.7
 
 [node name="OuterCrosshair" type="Sprite" parent="."]
 material = SubResource( 2 )

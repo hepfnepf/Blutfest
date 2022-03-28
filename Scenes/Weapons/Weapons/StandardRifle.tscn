@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Weapons/Weapons/WeaponBasis.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Player/hand_holding_gun.png" type="Texture" id=2]
@@ -9,24 +9,25 @@
 [ext_resource path="res://Sounds/SFX/Weapons/StandardRifleShotlmg_fire01.mp3" type="AudioStream" id=7]
 [ext_resource path="res://Sounds/SFX/Weapons/StandardRiflegunreload1.wav" type="AudioStream" id=8]
 [ext_resource path="res://Sounds/SFX/Weapons/StandardRifleEmptybutton02.mp3" type="AudioStream" id=9]
+[ext_resource path="res://Scenes/Weapons/Weapons/StandardRifle.gd" type="Script" id=10]
 
 [node name="StandardRifle" instance=ExtResource( 1 )]
+script = ExtResource( 10 )
 max_ammo = 20
 damage = 40
 speed = 3500
-reload_time = 1.5
-fire_rate = 1.7
-base_spread = 0.02
-max_spread = 0.1
-spread_inc = 0.15
-spread_dec = 0.01
+reload_time = 1.58
+fire_rate = 1.0
+base_spread = 0.01
+spread_inc = 0.515
+spread_dec = 0.021
 Bullet = ExtResource( 6 )
 shoot_sfx = ExtResource( 7 )
 reload_sfx = ExtResource( 8 )
 empty_sfx = ExtResource( 9 )
 shoot_db = 0.1
 reload_db = 0.1
-empty_db = 0.1
+empty_db = 0.2
 
 [node name="muzzle_flash_02" parent="." index="0"]
 position = Vector2( 196.265, 29.3107 )

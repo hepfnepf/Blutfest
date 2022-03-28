@@ -24,3 +24,18 @@ func _shoot_bullet() -> void:
 	bullet.p_range = max_range
 	bullet.damage = damage
 	game.add_child(bullet)
+
+
+#The spread function gets overwritten, because the crosshair would get to big else
+func increase_spread():
+	spread *= 1+spread_inc
+	if spread > max_spread:
+		spread = max_spread
+	emit_signal("spread_changed", spread/10)
+
+func decrease_spread(delta:float):
+	if !is_reloading:
+		spread -= spread_dec*delta
+		if spread < base_spread:
+			spread = base_spread
+	emit_signal("spread_changed", spread/10)
