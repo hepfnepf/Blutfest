@@ -44,3 +44,8 @@ func _on_ExitButton_pressed():
 func _on_Player_Death(): # gets connected in GUI
 	blocked = true
 	print("dddddddddd")
+
+
+func _on_Restart_pressed():
+	switch_state()
+	get_tree().reload_current_scene()
