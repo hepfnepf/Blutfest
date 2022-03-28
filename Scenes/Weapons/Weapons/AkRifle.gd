@@ -1,9 +1,6 @@
 extends Weapon
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
 #Change how the spread changes are influenced by the players movement
 export (float) var standing_spread_decrease_multiplyer = 1.0
@@ -20,7 +17,7 @@ func decrease_spread(delta:float):
 			spread -= spread_dec*delta
 		if spread < base_spread:
 			spread = base_spread
-	emit_signal("spread_changed", spread/base_spread)
+	emit_signal("spread_changed", spread)
 
 func increase_spread():
 	if player.velocity.length()  < standing_walking_differ:
@@ -29,4 +26,4 @@ func increase_spread():
 		spread *= 1+spread_inc*walking_spread_increase_multiplyer
 	if spread > max_spread:
 		spread = max_spread
-	emit_signal("spread_changed", spread/base_spread)
+	emit_signal("spread_changed", spread)

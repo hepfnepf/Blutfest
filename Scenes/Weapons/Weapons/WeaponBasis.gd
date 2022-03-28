@@ -4,7 +4,7 @@ class_name Weapon
 signal ammo_changed
 signal max_ammo_changed
 signal reload_percent_change
-#signal shot_fired(ammotype,origin,vector,p_range) #currently not used
+
 signal spread_changed(new_spread)
 
 
@@ -63,7 +63,7 @@ func _ready():
 	spread = base_spread
 	ammo = max_ammo
 	set_fire_rate(fire_rate)
-	emit_signal("spread_changed", spread/base_spread)
+	emit_signal("spread_changed", spread)
 
 func add_to_player():
 	pass
@@ -142,14 +142,14 @@ func increase_spread():
 	spread *= 1+spread_inc
 	if spread > max_spread:
 		spread = max_spread
-	emit_signal("spread_changed", spread/base_spread)
+	emit_signal("spread_changed", spread)
 
 func decrease_spread(delta:float):
 	if !is_reloading:
 		spread -= spread_dec*delta
 		if spread < base_spread:
 			spread = base_spread
-	emit_signal("spread_changed", spread/base_spread)
+	emit_signal("spread_changed", spread)
 
 func reload():
 	if !is_reloading and reload_time != 0:
