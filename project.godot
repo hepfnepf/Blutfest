@@ -89,7 +89,7 @@ _global_script_class_icons={
 config/name="TopDownExperiment"
 run/main_scene="res://Scenes/Game.tscn"
 config/icon="res://icon.png"
-config/windows_native_icon="res://Icon.ico"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
@@ -108,6 +108,7 @@ window/stretch/mode="2d"
 
 v-sync=false
 layer=false
+scene=false
 
 [input]
 
