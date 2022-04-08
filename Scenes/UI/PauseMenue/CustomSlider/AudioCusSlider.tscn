@@ -8,7 +8,7 @@ script = ExtResource( 3 )
 button_texture = null
 
 [node name="VSlider" parent="." index="0"]
-step = 0.05
+step = 0.0
 value = 1.0
 
 [node name="Button" parent="." index="1"]

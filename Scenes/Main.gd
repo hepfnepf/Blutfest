@@ -20,6 +20,14 @@ func _ready()-> void:
 	var map_size:Vector2 = map.get_map_size()
 	spawner.set_map_size(map_size[0],map_size[1])
 
+	#Retrieve volume settings
+	var sg = SaveManager.read_savegame()
+	var sfx_index= AudioServer.get_bus_index("SFX")
+	AudioServer.set_bus_volume_db(sfx_index, linear2db(sg["sfx_volume"]))
+	var music_index = AudioServer.get_bus_index("Music")
+	AudioServer.set_bus_volume_db(music_index, linear2db(sg["music_volume"]))
+
+
 func _on_player_death()->void:
 	var death_screen = death_screen_prefab.instance()
 	add_child(death_screen)
