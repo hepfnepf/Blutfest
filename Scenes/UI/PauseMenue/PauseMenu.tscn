@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Fonts/standardUI.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Scenes/UI/PauseMenue/CustomSlider/AudioCusSlider.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/UI/double-quaver.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/UI/speaker.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/UI/double-quaver_disabled.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/UI/speaker_disabled.png" type="Texture" id=9]
 
 [node name="PauseMenu" type="MarginContainer"]
 anchor_right = 1.0
@@ -53,6 +55,7 @@ margin_left = 166.0
 margin_right = 206.0
 button_texture = ExtResource( 7 )
 audio_channel = "SFX"
+button_texture_disabled = ExtResource( 9 )
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 margin_left = 210.0
@@ -110,6 +113,7 @@ margin_left = 454.0
 margin_right = 494.0
 button_texture = ExtResource( 6 )
 audio_channel = "Music"
+button_texture_disabled = ExtResource( 8 )
 
 [node name="WarningNoMenu" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_top = 611.0
