@@ -2,7 +2,7 @@ extends Control
 class_name PauseMenu
 
 onready var credits = $CreditsScreen
-onready var op = $CenterContainer/VBoxContainer2/VBoxContainer/WarningNoMenu
+onready var op = $CenterContainer/VBoxContainer/WarningNoMenu #label to tell the user, that here currently is no options menu
 
 var blocked := false
 

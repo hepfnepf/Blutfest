@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/UI/PauseMenue/CustomSlider/CusSlider.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/UI/PauseMenue/CustomSlider/AudioSlider.gd" type="Script" id=3]
+
+[node name="VBoxContainer3" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+button_texture = null
+
+[node name="VSlider" parent="." index="0"]
+step = 0.05
+value = 1.0
+
+[node name="Button" parent="." index="1"]
+icon = null

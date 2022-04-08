@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Fonts/standardUI.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scenes/UI/PauseMenue/PauseMenu.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/UI/CreditsScreen/CreditsScreen.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/UI/GUI/CusSlider.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/UI/PauseMenue/CustomSlider/AudioCusSlider.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/UI/double-quaver.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/UI/speaker.png" type="Texture" id=7]
 
 [node name="PauseMenu" type="MarginContainer"]
@@ -51,6 +52,7 @@ alignment = 1
 margin_left = 166.0
 margin_right = 206.0
 button_texture = ExtResource( 7 )
+audio_channel = "SFX"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 margin_left = 210.0
@@ -106,6 +108,8 @@ text = "Exit"
 [node name="MusicSlider" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
 margin_left = 454.0
 margin_right = 494.0
+button_texture = ExtResource( 6 )
+audio_channel = "Music"
 
 [node name="WarningNoMenu" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_top = 611.0
