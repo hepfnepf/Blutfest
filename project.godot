@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "AudioStreamPlayer",
+"class": "BackgroundMusic",
+"language": "GDScript",
+"path": "res://Scenes/BackgroundMusic.gd"
+}, {
 "base": "Area2D",
 "class": "Bullet",
 "language": "GDScript",
@@ -70,6 +75,7 @@ _global_script_classes=[ {
 "path": "res://Scenes/Weapons/Weapons/WeaponBasis.gd"
 } ]
 _global_script_class_icons={
+"BackgroundMusic": "",
 "Bullet": "",
 "Cursor": "",
 "EffectBasis": "",

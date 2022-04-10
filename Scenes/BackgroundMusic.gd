@@ -1,5 +1,5 @@
 extends AudioStreamPlayer
-
+class_name BackgroundMusic
 export (Array, AudioStream) var tracks
 
 
