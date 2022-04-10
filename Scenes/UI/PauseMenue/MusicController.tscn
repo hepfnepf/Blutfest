@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/UI/next-button.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/UI/infinity.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/UI/PauseMenue/MusicController.gd" type="Script" id=3]
+
+[node name="MusicController" type="HBoxContainer"]
+margin_top = 430.0
+margin_right = 240.0
+margin_bottom = 450.0
+script = ExtResource( 3 )
+
+[node name="TrackInfoLabel" type="Label" parent="."]
+margin_top = 3.0
+margin_right = 192.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "Artist XYZ - Track XYZ"
+clip_text = true
+percent_visible = -0.0555556
+
+[node name="LoopButton" type="Button" parent="."]
+margin_left = 196.0
+margin_right = 216.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+size_flags_horizontal = 5
+toggle_mode = true
+icon = ExtResource( 2 )
+expand_icon = true
+
+[node name="SkipButton" type="Button" parent="."]
+margin_left = 220.0
+margin_right = 240.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+icon = ExtResource( 1 )
+expand_icon = true
+
+[connection signal="toggled" from="LoopButton" to="." method="_on_LoopButton_toggled"]
+[connection signal="pressed" from="SkipButton" to="." method="_on_SkipButton_pressed"]

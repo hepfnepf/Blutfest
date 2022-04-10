@@ -9,8 +9,8 @@
 [ext_resource path="res://Sprites/UI/speaker.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/UI/double-quaver_disabled.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/UI/speaker_disabled.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/UI/next-button.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/UI/infinity.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/UI/PauseMenue/MusicController.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/UI/PauseMenue/MusicController.gd" type="Script" id=11]
 
 [node name="PauseMenu" type="MarginContainer"]
 anchor_right = 1.0
@@ -105,34 +105,8 @@ size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
 text = "Exit"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 430.0
-margin_right = 240.0
-margin_bottom = 450.0
-
-[node name="TrackInfoLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-margin_top = 3.0
-margin_right = 192.0
-margin_bottom = 17.0
-size_flags_horizontal = 3
-text = "Artist XYZ - Track XYZ"
-
-[node name="LoopButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-margin_left = 196.0
-margin_right = 216.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 20 )
-size_flags_horizontal = 5
-icon = ExtResource( 11 )
-expand_icon = true
-
-[node name="SkipButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-margin_left = 220.0
-margin_right = 240.0
-margin_bottom = 20.0
-rect_min_size = Vector2( 20, 20 )
-icon = ExtResource( 10 )
-expand_icon = true
+[node name="MusicController" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 10 )]
+script = ExtResource( 11 )
 
 [node name="MusicSlider" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
 margin_left = 454.0
