@@ -21,7 +21,8 @@ func shoot():
 	play_sound(SOUNDS.SHOT)
 
 	#handle ammo
-	ammo -= 1
+	if ammo_infinity_stack == 0:
+		ammo -= 1
 	if ammo <= 0:
 		ammo = 0
 		reload()
