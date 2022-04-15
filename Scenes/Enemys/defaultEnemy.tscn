@@ -61,9 +61,7 @@ tracks/0/keys = {
 [sub_resource type="CircleShape2D" id=5]
 radius = 116.115
 
-[node name="Zombie" type="KinematicBody2D" groups=[
-"ENEMIES",
-]]
+[node name="Zombie" type="KinematicBody2D" groups=["ENEMIES"]]
 position = Vector2( 1306.11, 26.9858 )
 scale = Vector2( 0.6, 0.6 )
 z_index = 2
@@ -71,6 +69,7 @@ collision_layer = 4
 script = ExtResource( 1 )
 speed = 200
 max_health = 50
+drop_rate = 0.07
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 3, 3 )

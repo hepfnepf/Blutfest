@@ -1,8 +1,20 @@
 extends Node2D
-
+##
+## This Script handles all spawning of items and enemys.
+##
+## @desc:
+##     This script manages automatic and manual spawning.
+##     Automatic: The contiunues spawning of items/enemys over time on the map. This script includes parameters,
+##     to allow you to manipulate the rate and type of spawned objets
+##     Active: Called from other scripts to spawn thigs. E.g. items on the according positions after an enemy died.
+##
+## @tutorial:***
+##
+##
 
 signal spawned_enemy
 
+#Modify automatic spawning
 export (float)var enemy_spawn_rate= 1.0
 export (float)var enemy_spawn_rate_increase=0.02
 export (float)var item_spawn_rate=0.05
@@ -36,13 +48,21 @@ func _process(delta):
 	handle_enemy_spawning(delta)
 	handle_item_spawning(delta)
 
+##Handles the automatic spawning of items on the map
 func handle_item_spawning(delta)->void:
 	item_spawn_value += item_spawn_rate*delta
 	while (item_spawn_value >= 1):
 		item_spawn_value -=1
-		spawn_at(item_array[randi()%len(item_array)],random_position_in_map())
+		spawn_rand_item_at(random_position_in_map())
 
+##Spawns a random item at a given global position
+func spawn_rand_item_at(pos)->void:
+	spawn_at(item_array[randi()%len(item_array)],pos)
 
+##Spawns a random item at a given position with a certain propability
+func spawn_rand_item_at_prob(prob,pos)->void:
+	if randf() <= prob:
+		spawn_rand_item_at(pos)
 
 func handle_enemy_spawning(delta)->void:
 	#change spawn probability over time
@@ -59,9 +79,9 @@ func handle_enemy_spawning(delta)->void:
 		if game.enemys_alive >= max_enemys:
 			return
 
-func spawn_at(obj,position):
+func spawn_at(obj,pos):
 	var _obj = spawn(obj)
-	_obj.position = position
+	_obj.global_position = pos
 
 func random_position_in_map() -> Vector2:
 	var random_x= rand_range(-map_size_x,map_size_x)

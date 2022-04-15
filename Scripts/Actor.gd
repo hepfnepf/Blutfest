@@ -5,6 +5,7 @@ signal enemy_dead(points)
 export (int) var speed = 100
 export (int) var max_health = 100
 export (int) var points = 50
+export (float) var drop_rate = 0.04 #Propability to spawn an item on death
 
 export (float)var time_before_fade=1#after the enemy is dead it takes time_before_fade seconds until the fading begins
 export (float)var time_to_fade=5#how long the fading takes
@@ -44,6 +45,7 @@ func start_death_animation():
 	collision_shape.queue_free()
 	z_index = -4
 	emit_signal("enemy_dead",points)
+	game.spawner.spawn_rand_item_at_prob(drop_rate,global_position)
 
 	animation_player.stop()
 	animation_player.play("Death")
