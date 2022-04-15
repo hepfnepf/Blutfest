@@ -39,34 +39,52 @@ mouse_filter = 2
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="HUD/VBoxContainer"]
 margin_right = 1516.0
-margin_bottom = 65.0
+margin_bottom = 38.0
 size_flags_horizontal = 3
 
-[node name="DebugLayout" parent="HUD/VBoxContainer/HBoxContainer3" instance=ExtResource( 6 )]
+[node name="TimeWidget" type="HBoxContainer" parent="HUD/VBoxContainer/HBoxContainer3"]
+margin_right = 172.0
+margin_bottom = 38.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="HUD/VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="HUD/VBoxContainer/HBoxContainer3/TimeWidget"]
+margin_right = 84.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 1 )
+text = "Time:"
+
+[node name="Time" type="Label" parent="HUD/VBoxContainer/HBoxContainer3/TimeWidget"]
+margin_left = 88.0
+margin_right = 172.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 1 )
+text = "00:00"
+
+[node name="ScoreWidget" type="HBoxContainer" parent="HUD/VBoxContainer/HBoxContainer3"]
 margin_left = 1335.0
 margin_right = 1516.0
-margin_bottom = 65.0
-size_flags_horizontal = 8
+margin_bottom = 38.0
+size_flags_horizontal = 10
 
-[node name="Label" type="Label" parent="HUD/VBoxContainer/HBoxContainer3/HBoxContainer2"]
-margin_top = 13.0
+[node name="Label" type="Label" parent="HUD/VBoxContainer/HBoxContainer3/ScoreWidget"]
 margin_right = 105.0
-margin_bottom = 51.0
+margin_bottom = 38.0
 custom_fonts/font = SubResource( 1 )
 text = "Score: "
 
-[node name="Score" type="Label" parent="HUD/VBoxContainer/HBoxContainer3/HBoxContainer2"]
+[node name="Score" type="Label" parent="HUD/VBoxContainer/HBoxContainer3/ScoreWidget"]
 margin_left = 109.0
-margin_top = 13.0
 margin_right = 181.0
-margin_bottom = 51.0
+margin_bottom = 38.0
 custom_fonts/font = SubResource( 2 )
 text = "1000"
 
+[node name="DebugLayout" parent="HUD/VBoxContainer" instance=ExtResource( 6 )]
+margin_top = 42.0
+margin_right = 1516.0
+margin_bottom = 107.0
+
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer"]
-margin_top = 792.0
+margin_top = 826.0
 margin_right = 1516.0
 margin_bottom = 880.0
 mouse_filter = 2
@@ -74,12 +92,12 @@ size_flags_vertical = 10
 
 [node name="CenterContainer" type="CenterContainer" parent="HUD/VBoxContainer/HBoxContainer"]
 margin_right = 385.0
-margin_bottom = 88.0
+margin_bottom = 54.0
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/VBoxContainer/HBoxContainer/CenterContainer"]
 margin_right = 385.0
-margin_bottom = 88.0
+margin_bottom = 54.0
 size_flags_horizontal = 5
 size_flags_vertical = 9
 
@@ -93,6 +111,7 @@ margin_bottom = 54.0
 rect_min_size = Vector2( 0, 50 )
 
 [node name="ExpbarWidget" parent="HUD/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
+visible = false
 margin_top = 58.0
 margin_right = 385.0
 margin_bottom = 88.0
@@ -100,7 +119,7 @@ margin_bottom = 88.0
 [node name="CenterContainer2" type="CenterContainer" parent="HUD/VBoxContainer/HBoxContainer"]
 margin_left = 1468.0
 margin_right = 1516.0
-margin_bottom = 88.0
+margin_bottom = 54.0
 mouse_filter = 2
 size_flags_horizontal = 10
 
@@ -110,9 +129,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 31.0
+margin_top = 14.0
 margin_right = 48.0
-margin_bottom = 57.0
+margin_bottom = 40.0
 alignment = 2
 
 [node name="Crosshair" parent="." instance=ExtResource( 7 )]

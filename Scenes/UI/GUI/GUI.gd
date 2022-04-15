@@ -3,8 +3,9 @@ extends CanvasLayer
 onready var health_widget = $HUD/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/HealthbarWidget
 onready var exp_widget = $HUD/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/ExpbarWidget
 onready var ammo_widget = $HUD/VBoxContainer/HBoxContainer/CenterContainer2/AmmoWidget
-onready var score = $HUD/VBoxContainer/HBoxContainer3/HBoxContainer2/Score
-onready var debug_info = $HUD/VBoxContainer/HBoxContainer3/DebugLayout
+onready var score = $HUD/VBoxContainer/HBoxContainer3/ScoreWidget/Score
+onready var time = $HUD/VBoxContainer/HBoxContainer3/TimeWidget/Time
+onready var debug_info = $HUD/VBoxContainer/DebugLayout
 onready var crosshair = $Crosshair
 onready var effect_container = $HUD/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/EffectContainer
 onready var credits = $PauseMenu/CreditsScreen
@@ -12,7 +13,7 @@ onready var pause_menu =$PauseMenu
 #enum CURSOR_TYPE{DEFAULT,CUSTOM}
 var player:Player
 
-func set_player(player):
+func set_player(player:Player):
 	self.player = player
 
 	set_health(player.health)
@@ -29,6 +30,7 @@ func set_player(player):
 	player.connect("exp_limit_changed",self,"set_max_exp")
 	player.connect("score_changed",self,"set_score")
 	player.connect("dead",pause_menu,"_on_Player_Death")
+	player.connect("time_changed",self,"set_time")
 
 func reset_weapon(weapon):
 	set_ammo(weapon.ammo)
@@ -38,22 +40,30 @@ func reset_weapon(weapon):
 	weapon.connect("reload_percent_change", self, "set_reload_progress")
 	weapon.connect("spread_changed",crosshair,"set_spread")
 
-func set_health(new_health):
+func set_health(new_health:int):
 	health_widget.set_health(new_health)
-func set_max_health(new_max_health):
+func set_max_health(new_max_health:int):
 	health_widget.set_max_health(new_max_health)
-func set_ammo(new_ammo):
+func set_ammo(new_ammo:int):
 	ammo_widget.set_ammo(new_ammo)
-func set_max_ammo(new_max_ammo):
+func set_max_ammo(new_max_ammo:int):
 	ammo_widget.set_max_ammo(new_max_ammo)
-func set_reload_progress(percent):
+func set_reload_progress(percent:float):
 	ammo_widget.set_reload_progress(percent)
-func set_exp(new_exp):
+func set_exp(new_exp:int):
 	exp_widget.set_exp(new_exp)
-func set_max_exp(new_max_exp):
+func set_max_exp(new_max_exp:int):
 	exp_widget.set_max_exp(new_max_exp)
-func set_score(new_score):
+func set_score(new_score:int):
 	score.text = str(new_score)
+func set_time(new_time:int):
+	time.text = time_to_str(new_time)
+
+func time_to_str(time:int) -> String:
+	var minutes = time / 60
+	var seconds = time % 60
+	var str_time = "%02d:%02d" % [minutes, seconds]
+	return str_time
 
 func set_cursor(cursor_type:int) -> void:
 	Globals.cursor_manager.set_crosshair(crosshair)
