@@ -9,7 +9,7 @@ func remove_from_player() -> void:
 	player.get_node("Sprites/torso").visible = true
 
 func shoot_bullet() -> void:
-	for i in range(projectile_nmbr):
+	for _i in range(projectile_nmbr):
 		_shoot_bullet()
 	increase_spread()
 
