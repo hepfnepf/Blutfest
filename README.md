@@ -9,7 +9,7 @@ Fight of hordes of zombiez using power-ups and weapons. Try to survive as long a
 - [ ] wiki entrys
 - [ ] more power ups
 - [x] background music controlls
-- [ ] make enemys drop items
+- [x] make enemys drop items
 
 ## Screenshots:
 ![Screenshot (38)_c](https://user-images.githubusercontent.com/69308038/160944172-cfbc0da0-ccfb-4435-848e-45bffd92cb68.png)
