@@ -57,6 +57,8 @@ position = Vector2( 0, 2.24487 )
 
 [node name="BackgroundMusic" parent="." instance=ExtResource( 15 )]
 pause_mode = 2
+volume_db = 0.0
 autoplay = false
 bus = "Music"
 tracks = [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 20 ) ]
+volumes = [ 0.0, 6.0, -6.0, 0.0, 0.0 ]
