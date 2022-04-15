@@ -4,7 +4,9 @@ class_name BackgroundMusic
 signal track_changed(path_to_track)
 
 export (Array, AudioStream) var tracks
-export (Array, float) var volumes #used to normalize the tracks, volumes given in db
+
+## Key = track object, value = volume_db float
+export (Dictionary) var volumes
 
 var currentIndex:int = 0
 var loop:bool = false
@@ -16,26 +18,32 @@ func _ready()->void:
 	_on_BackgroundMusic_finished()
 
 
+
 func _on_BackgroundMusic_finished()->void:
 	if loop:#If looping is active, replay this track
-		volume_db = volumes[currentIndex]
-		play()
-		emit_signal("track_changed",stream.resource_path)
+		play_track(currentIndex)
 		return
 
 	if currentIndex+1 >= len(tracks) or currentIndex+1 >= len(volumes):
 		tracks.shuffle()
-		stream = tracks[0]
-		currentIndex = 0
-		volume_db = volumes[0]
-		play()
-		emit_signal("track_changed",stream.resource_path)
+		currentIndex=0
+		play_track(currentIndex)
 	else:
 		currentIndex += 1
-		stream = tracks[currentIndex]
-		volume_db = volumes[currentIndex]
-		play()
-		emit_signal("track_changed",stream.resource_path)
+		play_track(currentIndex)
+
+func play_track(index:int)->void:
+	if index < len(tracks):
+		if volumes.has(tracks[index]):
+			volume_db = volumes[tracks[index]]
+		else:
+			volume_db = 0
+			print_debug("Track %d does not have a volume." % index)
+		stream = tracks[index]
+	else:
+		print_debug("Track %d does not exist." % index)
+	play()
+	emit_signal("track_changed",stream.resource_path)
 
 func skip_track()->void:
 	_on_BackgroundMusic_finished()
