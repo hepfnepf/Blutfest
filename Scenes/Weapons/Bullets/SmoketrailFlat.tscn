@@ -13,4 +13,6 @@ texture = ExtResource( 2 )
 texture_mode = 2
 script = ExtResource( 1 )
 
-[node name="Tween" type="Tween" parent="."]
+[node name="Decay" type="Tween" parent="."]
+
+[connection signal="tween_all_completed" from="Decay" to="." method="_on_Decay_tween_all_completed"]

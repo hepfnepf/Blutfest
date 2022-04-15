@@ -69,10 +69,6 @@ func set_cursor(cursor_type:int) -> void:
 	Globals.cursor_manager.set_crosshair(crosshair)
 	Globals.cursor_manager.set_cursor(cursor_type)
 
-#func _input(event):
-#	if event.is_action_just_pressed("show_debug_info"):
-#		debug_info.is_visible_in_tree(!debug_info.is_visible_in_tree())
-
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("show_debug_info"):
 		debug_info.set_alive(!debug_info.alive)

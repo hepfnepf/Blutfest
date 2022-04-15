@@ -4,7 +4,7 @@ signal dead
 
 export var length:float = 500
 
-onready var tween:Tween = $Tween
+onready var tween:Tween = $Decay
 
 func _ready():
 	#clear_points()

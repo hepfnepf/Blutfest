@@ -9,9 +9,6 @@ margin_bottom = 65.0
 size_flags_horizontal = 3
 columns = 2
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label" type="Label" parent="."]
 margin_right = 64.0

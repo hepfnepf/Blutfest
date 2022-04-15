@@ -35,7 +35,7 @@ export (Array,PackedScene) var item_array
 #Weapon
 
 onready var game = get_node("/root/Game")
-onready var debug_gui =get_node("/root/Game/GUI/HUD/VBoxContainer/HBoxContainer3/DebugLayout")
+onready var debug_gui =get_node("/root/Game/GUI/HUD/VBoxContainer/DebugLayout")
 onready var map:Map = get_node("/root/Game/Map")
 
 func _ready():
@@ -79,8 +79,12 @@ func handle_enemy_spawning(delta)->void:
 		if game.enemys_alive >= max_enemys:
 			return
 
-func spawn_at(obj,pos):
-	var _obj = spawn(obj)
+func spawn_at(scene,pos):
+	call_deferred("_deferred_spawn_at",scene,pos)
+
+func _deferred_spawn_at(scene,pos):
+	var _obj = scene.instance()
+	game.add_child(_obj)
 	_obj.global_position = pos
 
 func random_position_in_map() -> Vector2:
@@ -104,6 +108,9 @@ func random_position_out_map()->Vector2:
 	return Vector2(random_x,random_y)
 
 func spawn(scene):
+	call_deferred("_deferred_spawn",scene)
+
+func _deferred_spawn(scene):
 	var _obj = scene.instance()
 	game.add_child(_obj)
 	return _obj

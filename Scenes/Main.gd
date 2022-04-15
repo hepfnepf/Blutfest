@@ -7,7 +7,7 @@ onready var gui = $GUI
 onready var map = $Map
 onready var player = $Player
 onready var spawner = $Spawner
-onready var debug_gui = $GUI/HUD/VBoxContainer/HBoxContainer3/DebugLayout
+onready var debug_gui = $GUI/HUD/VBoxContainer/DebugLayout
 
 var enemys_alive:int = 0
 

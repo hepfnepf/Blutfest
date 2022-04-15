@@ -13,5 +13,8 @@ fallof_per_dis = 0.01
 [node name="Sprite" parent="." index="1"]
 modulate = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
 
+[node name="Timer" parent="." index="2"]
+wait_time = 6.0
+
 [node name="Smoketrail" parent="." index="3" instance=ExtResource( 4 )]
 length = 900.0
