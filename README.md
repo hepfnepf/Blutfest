@@ -5,7 +5,7 @@ Fight of hordes of zombiez using power-ups and weapons. Try to survive as long a
 
 ## Road To 0.3.1 - Upcomming
 - [ ] weighted possibilities
-- [ ] increase of difficulty over time
+- [x] increase of difficulty over time
 - [ ] wiki entrys
 - [ ] more power ups
 - [x] background music controlls
