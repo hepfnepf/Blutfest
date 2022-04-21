@@ -33,18 +33,23 @@ health = 100
 
 [node name="Zombie" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1002.11, -13.0142 )
+speed = 500
 
 [node name="Zombie2" parent="." instance=ExtResource( 5 )]
 position = Vector2( -857.535, -1217.5 )
+speed = 500
 
 [node name="Zombie3" parent="." instance=ExtResource( 5 )]
 position = Vector2( -3780.55, 2597.54 )
+speed = 500
 
 [node name="Zombie4" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3300.21, -1837.38 )
+speed = 500
 
 [node name="Zombie5" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3431.24, 2370.76 )
+speed = 500
 
 [node name="GUI" parent="." instance=ExtResource( 7 )]
 
@@ -62,9 +67,9 @@ autoplay = false
 bus = "Music"
 tracks = [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 20 ) ]
 volumes = {
-ExtResource( 20 ): 0.0,
-ExtResource( 19 ): 6.0,
-ExtResource( 18 ): 0.0,
 ExtResource( 21 ): -6.0,
-ExtResource( 22 ): 0.0
+ExtResource( 18 ): 0.0,
+ExtResource( 22 ): 0.0,
+ExtResource( 19 ): 6.0,
+ExtResource( 20 ): 0.0
 }
