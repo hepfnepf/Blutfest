@@ -20,6 +20,20 @@ export (float)var enemy_spawn_rate_increase=0.02
 export (float)var item_spawn_rate=0.05
 export (float)var max_enemys = 200
 
+#Modify difficulty
+#Currently effects the multiplayer on all enemys base values
+#All enemys get the same boost
+export (float)var enemy_speed_increase=0.02
+export (float)var enemy_health_increase=0.02
+export (float)var enemy_damage_increase=0.02
+export (float)var enemy_view_range_increase=0.01#not implemented yet
+
+var enemy_speed_mult:float = 1.0
+var enemy_health_mult:float= 1.0
+var enemy_damage_mult:float= 1.0
+var enemy_view_range_mult:float = 1.0#not implemented yet
+
+
 var enemy_spawn_value:float = 0
 var item_spawn_value:float = 0
 var game_alive :=true
@@ -67,6 +81,9 @@ func spawn_rand_item_at_prob(prob,pos)->void:
 func handle_enemy_spawning(delta)->void:
 	#change spawn probability over time
 	enemy_spawn_rate += delta*enemy_spawn_rate_increase
+	enemy_damage_mult += delta*enemy_damage_increase
+	enemy_health_mult += delta*enemy_health_increase
+	enemy_speed_mult += delta*enemy_speed_increase
 
 	#decides how many enemys are supposed to spawn
 	enemy_spawn_value+= enemy_spawn_rate*delta
@@ -74,18 +91,10 @@ func handle_enemy_spawning(delta)->void:
 		return
 	while (enemy_spawn_value >= 1):
 		enemy_spawn_value -= 1
-		spawn_at(default_enemy,random_position_out_map())
+		spawn_at(default_enemy,random_position_out_map(),true)
 		emit_signal("spawned_enemy")
 		if game.enemys_alive >= max_enemys:
 			return
-
-func spawn_at(scene,pos):
-	call_deferred("_deferred_spawn_at",scene,pos)
-
-func _deferred_spawn_at(scene,pos):
-	var _obj = scene.instance()
-	game.add_child(_obj)
-	_obj.global_position = pos
 
 func random_position_in_map() -> Vector2:
 	var random_x= rand_range(-map_size_x,map_size_x)
@@ -107,10 +116,17 @@ func random_position_out_map()->Vector2:
 		random_y= helper_int*map_size_y+helper_int*20
 	return Vector2(random_x,random_y)
 
-func spawn(scene):
-	call_deferred("_deferred_spawn",scene)
+func spawn_at(scene,pos,apply_difficulty=false):
+	var _obj = scene.instance()
+	game.add_child(_obj)
+	_obj.global_position = pos
+	if apply_difficulty and _obj.is_in_group("ENEMIES"):
+		_obj.set_damage(_obj.damage * enemy_damage_mult)
+		_obj.set_speed(_obj.speed * enemy_speed_mult)
+		_obj.set_max_health(_obj.max_health * enemy_speed_mult)
+		pass
 
-func _deferred_spawn(scene):
+func spawn(scene):
 	var _obj = scene.instance()
 	game.add_child(_obj)
 	return _obj
