@@ -25,8 +25,11 @@ func initialize(actor:KinematicBody2D, animation_player: AnimationPlayer):
 func lerp_rotate_toward(location: Vector2):
 	actor.rotation = lerp_angle(actor.rotation, actor.global_position.direction_to(location).angle(),0.1)
 
-func vector_to(location: Vector2):
+func direc_to(location: Vector2):
 	return actor.global_position.direction_to(location)
+
+func vector_to(location: Vector2):
+	return location - actor.global_position
 
 func set_destination(location:Vector2):
 	destination = location
@@ -48,13 +51,13 @@ func is_moving():
 	return (movement_vector != Vector2.ZERO)
 
 func _physics_process(delta):
-	if has_destination:
+	if has_destination && animation_player.current_animation != "Attack":
 		if animation_player.current_animation != "walk":
 			animation_player.play("walk")
 
-		movement_vector = vector_to(destination).normalized()*speed
-		if speed*speed > actor.position.distance_squared_to(destination):#prevents stepping over target at high speed
-			actor.move_and_collide(vector_to(destination))
+		movement_vector = direc_to(destination).normalized()*speed
+		if (speed*speed)*delta > actor.position.distance_squared_to(destination):#prevents stepping over target at high speed
+			actor.move_and_collide(vector_to(destination)*delta)
 			reached_destination()
 		else:
 			actor.move_and_collide(movement_vector*delta)
