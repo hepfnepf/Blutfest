@@ -50,6 +50,9 @@ position = Vector2( 3431.24, 2370.76 )
 
 [node name="Spawner" parent="." instance=ExtResource( 8 )]
 item_spawn_rate = 0.11
+enemy_speed_increase = 0.01
+enemy_health_increase = 0.012
+enemy_damage_increase = 0.01
 item_array = [ ExtResource( 10 ), ExtResource( 2 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 23 ), ExtResource( 25 ) ]
 
 [node name="Map" parent="." instance=ExtResource( 3 )]
@@ -62,9 +65,9 @@ autoplay = false
 bus = "Music"
 tracks = [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 20 ) ]
 volumes = {
-ExtResource( 20 ): 0.0,
 ExtResource( 19 ): 6.0,
 ExtResource( 18 ): 0.0,
 ExtResource( 21 ): -6.0,
+ExtResource( 20 ): 0.0,
 ExtResource( 22 ): 0.0
 }

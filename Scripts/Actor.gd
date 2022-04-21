@@ -5,6 +5,7 @@ signal enemy_dead(points)
 export (int) var speed = 100
 export (int) var max_health = 100
 export (int) var points = 50
+export (int) var damage = 20
 export (float) var drop_rate = 0.04 #Propability to spawn an item on death
 
 export (float)var time_before_fade=1#after the enemy is dead it takes time_before_fade seconds until the fading begins
@@ -15,7 +16,7 @@ onready var ai = $AI
 onready var team_Node = $Team
 onready var movement = $Movement
 onready var sprite = $Sprite
-onready var animation_player = $AnimationPlayer
+onready var animation_player:AnimationPlayer = $AnimationPlayer
 onready var until_fading_timer:Timer = $TimeUntilFading
 onready var collision_shape:CollisionShape2D = $CollisionShape2D
 onready var fade_out:Tween = $FadeOut
@@ -30,6 +31,16 @@ var alpha:float = 1
 
 var sound_prob:float = 0.3
 
+func _ready():
+	movement.speed = speed
+	health_Node.health = max_health
+
+	movement.initialize(self, animation_player)
+	ai.initialize(movement,team_Node.team)
+	ai.damage = damage
+
+	connect("enemy_dead",game,"_on_enemy_killed")
+
 func handle_hit(damage:int, type:int = 1):
 	if alive:
 		health_Node.health -= damage
@@ -37,6 +48,18 @@ func handle_hit(damage:int, type:int = 1):
 			sound_player.play()
 		if health_Node.health <= 0:
 			start_death_animation()
+
+func set_damage(new_dmg):
+	damage = new_dmg
+	ai.damage = damage
+
+func set_max_health(new_health):
+	max_health = new_health
+	health_Node.health = max_health
+
+func set_speed(new_speed):
+	speed=new_speed
+	movement.speed = speed
 
 func start_death_animation():
 	alive=false
@@ -53,14 +76,6 @@ func start_death_animation():
 func die():
 	until_fading_timer.start(time_before_fade)
 
-func _ready():
-	movement.speed = speed
-	health_Node.health = max_health
-
-	movement.initialize(self, animation_player)
-	ai.initialize(movement,team_Node.team)
-
-	connect("enemy_dead",game,"_on_enemy_killed")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Death":
