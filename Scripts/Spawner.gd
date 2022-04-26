@@ -46,7 +46,8 @@ export (PackedScene) var default_enemy
 
 #Items
 export (Array,PackedScene) var item_array
-#Weapon
+export (Array, int)var item_likelihood setget changed_likelihood##likelihood for an item to be spawned relative to eachtother.(10 = 2x as likely as 5)
+var item_probs:Array = [] #Gets calculated from item_likelihood. Actual probability.
 
 onready var game = get_node("/root/Game")
 onready var debug_gui =get_node("/root/Game/GUI/HUD/VBoxContainer/DebugLayout")
@@ -134,3 +135,38 @@ func spawn(scene):
 func set_map_size(x_size:float,y_size:float)->void:
 	map_size_x = x_size/2
 	map_size_y = y_size/2
+
+func get_random_item():
+	pass
+
+##Uses the array of likelihoods to create item_probs wich is used to retrieve a random item
+func calc_item_probs():
+	var start:float = 0
+	if len(item_array) != len (item_likelihood):
+		print_debug("ERROR: AMOUNT OF LIKELIHOODS DOES NOT EQUAL AMOUNT OF ITEMS IN SPAWNER")
+		return
+	
+	#if len(item_probs) != len(item_array):
+	#	item_probs.resize(len(item_array))
+	var new_item_probs:Array=[]
+	var total:float = float(sum(item_likelihood))
+	print_debug(total)
+	#var i:int = 0
+	for item_like in item_likelihood:
+		var prob:float =float(item_like)/total
+		print_debug(prob)
+		new_item_probs.append(start + prob)
+		start +=prob
+		#i+=1
+	item_probs = new_item_probs
+	print_debug(item_probs)
+
+func changed_likelihood(new_likelihoods) -> void:
+	item_likelihood = new_likelihoods
+	calc_item_probs()
+
+func sum(int_array:Array)-> int:
+	var res:int = 0
+	for el in int_array:
+		res += el
+	return res
