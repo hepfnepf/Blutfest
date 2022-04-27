@@ -63,6 +63,8 @@ func _process(delta):
 	handle_enemy_spawning(delta)
 	handle_item_spawning(delta)
 
+
+#-----------Spawning Routine-------------
 ##Handles the automatic spawning of items on the map
 func handle_item_spawning(delta)->void:
 	item_spawn_value += item_spawn_rate*delta
@@ -98,6 +100,22 @@ func handle_enemy_spawning(delta)->void:
 		if game.enemys_alive >= max_enemys:
 			return
 
+func spawn_at(scene,pos,apply_difficulty=false):
+	var _obj = scene.instance()
+	game.add_child(_obj)
+	_obj.global_position = pos
+	if apply_difficulty and _obj.is_in_group("ENEMIES"):
+		_obj.set_damage(_obj.damage * enemy_damage_mult)
+		_obj.set_speed(_obj.speed * enemy_speed_mult)
+		_obj.set_max_health(_obj.max_health * enemy_speed_mult)
+		pass
+
+func spawn(scene):
+	var _obj = scene.instance()
+	game.add_child(_obj)
+	return _obj
+
+#-----------Helpers for Spawning routine -------------
 func random_position_in_map() -> Vector2:
 	var random_x= rand_range(-map_size_x,map_size_x)
 	var random_y= rand_range(-map_size_y,map_size_y)
@@ -118,24 +136,13 @@ func random_position_out_map()->Vector2:
 		random_y= helper_int*map_size_y+helper_int*20
 	return Vector2(random_x,random_y)
 
-func spawn_at(scene,pos,apply_difficulty=false):
-	var _obj = scene.instance()
-	game.add_child(_obj)
-	_obj.global_position = pos
-	if apply_difficulty and _obj.is_in_group("ENEMIES"):
-		_obj.set_damage(_obj.damage * enemy_damage_mult)
-		_obj.set_speed(_obj.speed * enemy_speed_mult)
-		_obj.set_max_health(_obj.max_health * enemy_speed_mult)
-		pass
-
-func spawn(scene):
-	var _obj = scene.instance()
-	game.add_child(_obj)
-	return _obj
 
 func set_map_size(x_size:float,y_size:float)->void:
 	map_size_x = x_size/2
 	map_size_y = y_size/2
+
+
+#-----------Needed for random item-------------
 
 func get_random_item():
 	if item_probs == []:
@@ -152,8 +159,7 @@ func calc_item_probs() -> void:
 	
 	var new_item_probs:Array=[]
 	var total:float = float(sum(item_likelihood))
-	print_debug(total)
-	#var i:int = 0
+
 	for item_like in item_likelihood:
 		var prob:float =float(item_like)/total
 		print_debug(prob)
@@ -162,9 +168,8 @@ func calc_item_probs() -> void:
 		
 	item_probs = new_item_probs
 	print_debug(item_probs)
-	#print_debug(item_probs.bsearch(0.95,true))
 
-func changed_likelihood(new_likelihoods) -> void:
+func changed_likelihood(new_likelihoods) -> void:##Recalculates the item_probs after chenge in item_likeliehoods
 	item_likelihood = new_likelihoods
 	calc_item_probs()
 
