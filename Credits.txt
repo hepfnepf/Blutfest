@@ -22,6 +22,8 @@ Explosion - Lorc - https://game-icons.net/1x1/lorc/grenade.html
 Ak Rifle - Game Developer Studio - https://opengameart.org/content/ak-47-icon - CC BY 3.0
 Short Shotgun - clayster2012 - https://opengameart.org/content/weapon-set-0 - CC BY 3.0
 
+Effects
+Ice - digit1024 - https://opengameart.org/content/ice-block - CC BY 3.0
 
 Sounds
 Standard Rifle/Ak Shot - KuraiWolf - https://opengameart.org/content/light-machine-gun -  CC BY 4.0

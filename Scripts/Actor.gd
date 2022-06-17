@@ -31,6 +31,9 @@ var alpha:float = 1
 
 var sound_prob:float = 0.3
 
+#Effects
+var freeze_amount:int=0 #How many frozen effects are stacked on to each other
+
 func _ready():
 	movement.speed = speed
 	health_Node.health = max_health
@@ -64,6 +67,7 @@ func set_speed(new_speed):
 func start_death_animation():
 	alive=false
 	ai.alive=false
+	unfreeze()
 	movement.stop_movement()
 	collision_shape.queue_free()
 	z_index = -4
@@ -73,18 +77,34 @@ func start_death_animation():
 	animation_player.stop()
 	animation_player.play("Death")
 
-func die():
+func freeze()->void:
+	if !alive:
+		return
+	if freeze_amount ==0:
+		$Ice.show()
+		pass
+		#Ai checks in its process funtion if enemy is frozen. It skips process then.
+		#movement.freeze()#TODO: Implement
+	freeze_amount+=1
+
+func unfreeze()-> void:
+	freeze_amount=0
+	$Ice.hide()
+	pass
+
+
+func die()->void:
 	until_fading_timer.start(time_before_fade)
 
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished(anim_name)->void:
 	if anim_name == "Death":
 		die()
 
 
-func _on_TimeUntilFading_timeout():
+func _on_TimeUntilFading_timeout()->void:
 	fade_out.interpolate_property(self, "modulate:a", 1.0, 0.0,time_to_fade, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	fade_out.start()
 
-func _on_FadeOut_tween_completed(object, key):
+func _on_FadeOut_tween_completed(object, key)->void:
 	queue_free()

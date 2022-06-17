@@ -45,7 +45,7 @@ func initialize(movementNode:Movement, team : int):
 
 
 func _process(delta):
-	if !alive:
+	if !alive or get_parent().freeze_amount >= 1:
 		return
 
 	if state == STATE.HUNT:
