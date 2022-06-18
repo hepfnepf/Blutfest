@@ -3,7 +3,6 @@
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Items/Items/ItemHealUp.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Maps/GrassMap.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Items/EffectNodes/EnemyIce.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Enemys/defaultEnemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/UI/GUI/GUI.tscn" type="PackedScene" id=7]
@@ -15,6 +14,7 @@
 [ext_resource path="res://Scenes/Items/Items/ItemAmmoFinity.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Items/Items/ItemStandardRifle.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/BackgroundMusic.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Items/Items/IceItem.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Sounds/Music/Construction_Alexander Nakarada_httpsfreepd.commusicConstruction.mp3.mp3" type="AudioStream" id=18]
 [ext_resource path="res://Sounds/Music/Beyond - part 2_alexander nakarada _httpsfreepd.commusicBeyond%20-%20part%202.mp3.mp3" type="AudioStream" id=19]
 [ext_resource path="res://Sounds/Music/Deck the Halls_alexander nakarada_httpsfreepd.commusicDeck%20the%20Halls.mp3.mp3" type="AudioStream" id=20]
@@ -35,10 +35,8 @@ health = 100
 [node name="Zombie" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1002.11, -13.0142 )
 
-[node name="EffectBasis" parent="Zombie" instance=ExtResource( 4 )]
-
 [node name="Zombie2" parent="." instance=ExtResource( 5 )]
-position = Vector2( -857.535, -1217.5 )
+position = Vector2( -290.923, -5.87769 )
 
 [node name="Zombie3" parent="." instance=ExtResource( 5 )]
 position = Vector2( -3780.55, 2597.54 )
@@ -52,12 +50,12 @@ position = Vector2( 3431.24, 2370.76 )
 [node name="GUI" parent="." instance=ExtResource( 7 )]
 
 [node name="Spawner" parent="." instance=ExtResource( 8 )]
-item_spawn_rate = 0.11
+item_spawn_rate = 1.5
 enemy_speed_increase = 0.01
 enemy_health_increase = 0.012
 enemy_damage_increase = 0.01
-item_array = [ ExtResource( 10 ), ExtResource( 2 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 23 ), ExtResource( 25 ) ]
-item_likelihood = [ 10, 10, 15, 10, 15, 3, 5, 5 ]
+item_array = [ ExtResource( 10 ), ExtResource( 2 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 16 ) ]
+item_likelihood = [ 7, 15, 20, 10, 15, 5, 5, 6, 40 ]
 
 [node name="Map" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, 2.24487 )

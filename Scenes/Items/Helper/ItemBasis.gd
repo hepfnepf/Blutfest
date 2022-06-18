@@ -13,11 +13,14 @@ onready var tween_in:Tween=$FadeIn
 onready var tween_out:Tween=$FadeOut
 
 func _ready():
-	var current_scale:Vector2 = transform.get_scale()
-	tween_in.interpolate_property(self,"scale",Vector2(0,0),current_scale,pop_up_time)
-	tween_in.start()
+	if not Engine.editor_hint:
+		#Else the a item would pop up and disappear if placed via editor in the game, if the item uses "tool", to be able to execute code in the editor
 
-	timer.start(time_to_despawn-time_of_blink)
+		var current_scale:Vector2 = transform.get_scale()
+		tween_in.interpolate_property(self,"scale",Vector2(0,0),current_scale,pop_up_time)
+		tween_in.start()
+
+		timer.start(time_to_despawn-time_of_blink)
 
 func pick_up(player:Player):
 	queue_free()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Items/Helper/ItemBasis.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Items/Effects/ice-cube.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Items/Items/IceItem.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Items/EffectNodes/EnemyEffectIce.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/Items/Effects/circle.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=3]
 resource_local_to_scene = true
@@ -31,10 +32,12 @@ shader_param/blink_speed = 1.5
 shader_param/starded_blinking = 0.0
 
 [sub_resource type="CircleShape2D" id=5]
-radius = 2075.56
+resource_local_to_scene = true
+radius = 4000.0
 
 [node name="IceItem" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
+radius = 4000.0
 effect_node = ExtResource( 4 )
 
 [node name="CollisionShape2D" parent="." index="0"]
@@ -44,7 +47,15 @@ shape = SubResource( 3 )
 material = SubResource( 4 )
 texture = ExtResource( 2 )
 
-[node name="EffectArea" type="Area2D" parent="." index="5"]
+[node name="Blast" type="Tween" parent="." index="5"]
+
+[node name="BlastRadius" type="Sprite" parent="." index="6"]
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 5 )
+
+[node name="EffectArea" type="Area2D" parent="." index="7"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EffectArea" index="0"]
 shape = SubResource( 5 )
+
+[connection signal="tween_completed" from="Blast" to="." method="_on_Blast_tween_completed"]
