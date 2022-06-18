@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Items/Helper/EffectItemBasis.gd"
 }, {
+"base": "Item",
+"class": "EnemyAreaEffectItemBasis",
+"language": "GDScript",
+"path": "res://EnemyEffectItemBasis.gd"
+}, {
 "base": "Timer",
 "class": "EnemyEffectBasis",
 "language": "GDScript",
@@ -85,6 +90,7 @@ _global_script_class_icons={
 "Cursor": "",
 "EffectBasis": "",
 "EffectItemBasis": "",
+"EnemyAreaEffectItemBasis": "",
 "EnemyEffectBasis": "",
 "Item": "",
 "ItemWeapon": "",

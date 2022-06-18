@@ -1,8 +1,10 @@
 extends EnemyEffectBasis
 
 func add_effect():
-	enemy.freeze()
+	if enemy.has_method("freeze"):
+		enemy.freeze()
 
 func remove_effect():
-	enemy.unfreeze()
+	if enemy.has_method("unfreeze"):
+		enemy.unfreeze()
 
