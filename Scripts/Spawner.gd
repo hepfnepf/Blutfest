@@ -156,7 +156,7 @@ func calc_item_probs() -> void:
 	if len(item_array) != len (item_likelihood):
 		print_debug("ERROR: AMOUNT OF LIKELIHOODS DOES NOT EQUAL AMOUNT OF ITEMS IN SPAWNER")
 		return
-	
+
 	var new_item_probs:Array=[]
 	var total:float = float(sum(item_likelihood))
 
@@ -165,7 +165,7 @@ func calc_item_probs() -> void:
 		print_debug(prob)
 		new_item_probs.append(start + prob)
 		start +=prob
-		
+
 	item_probs = new_item_probs
 	print_debug(item_probs)
 

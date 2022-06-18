@@ -27,9 +27,7 @@ shader_param/is_blinking = false
 shader_param/blink_speed = 1.5
 shader_param/starded_blinking = 0.0
 
-[node name="ItemBasis" type="Area2D" groups=[
-"Item",
-]]
+[node name="ItemBasis" type="Area2D" groups=["Item"]]
 scale = Vector2( 0.3, 0.3 )
 script = ExtResource( 1 )
 

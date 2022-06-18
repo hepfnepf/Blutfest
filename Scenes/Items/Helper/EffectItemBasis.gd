@@ -1,6 +1,7 @@
 extends Item
 class_name EffectItemBasis
 
+
 export (PackedScene) var effect_node
 
 func pick_up(player:Player):

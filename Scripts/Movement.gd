@@ -51,6 +51,11 @@ func is_moving():
 	return (movement_vector != Vector2.ZERO)
 
 func _physics_process(delta):
+	if get_parent().freeze_amount >= 1:
+		animation_player.stop(false)#freezes frame instead of resetting
+		return
+
+	#animation_player.play()
 	if has_destination && animation_player.current_animation != "Attack":
 		if animation_player.current_animation != "walk":
 			animation_player.play("walk")

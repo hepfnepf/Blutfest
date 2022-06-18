@@ -1,12 +1,26 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Actor.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/SFX/EnemyHurt76965__michel88__painb.wav" type="AudioStream" id=2]
+[ext_resource path="res://Sprites/Items/Effects/icleblock.jpg" type="Texture" id=3]
 [ext_resource path="res://Sprites/Enemys/Standard/zom2Full.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/Helper/Team.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Helper/Movement.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Enemys/AI.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Helper/Health.tscn" type="PackedScene" id=10]
+
+[sub_resource type="Shader" id=6]
+code = "shader_type canvas_item;
+
+void fragment(){
+	vec4 color = texture(TEXTURE, UV);
+	color.a = 0.5;
+	color.b += 0.5;
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "Attack"
@@ -70,6 +84,14 @@ script = ExtResource( 1 )
 speed = 200
 max_health = 50
 drop_rate = 0.07
+
+[node name="Ice" type="Sprite" parent="."]
+visible = false
+material = SubResource( 7 )
+position = Vector2( 28.2847, -1.90735e-05 )
+scale = Vector2( 4.65339, 5.18372 )
+z_index = 2
+texture = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 3, 3 )
