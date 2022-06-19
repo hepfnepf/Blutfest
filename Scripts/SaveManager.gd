@@ -18,10 +18,6 @@ func create_save():
 	savegame.close()
 
 func save(_save_dict):
-	#self.save_dict = save_dict
-	#save_dict["highscore"] = highscore
-	#save_dict["best_time"] = best_time
-
 	if not savegame.file_exists(save_path):
 		create_save()
 		return

@@ -65,7 +65,7 @@ func _on_ExitButton_pressed():
 
 func _on_Player_Death(): # gets connected in GUI
 	blocked = true
-	print("dddddddddd")
+	print_debug("died")
 
 
 func _on_Restart_pressed():

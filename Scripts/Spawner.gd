@@ -162,12 +162,10 @@ func calc_item_probs() -> void:
 
 	for item_like in item_likelihood:
 		var prob:float =float(item_like)/total
-		print_debug(prob)
 		new_item_probs.append(start + prob)
 		start +=prob
 
 	item_probs = new_item_probs
-	print_debug(item_probs)
 
 func changed_likelihood(new_likelihoods) -> void:##Recalculates the item_probs after chenge in item_likeliehoods
 	item_likelihood = new_likelihoods

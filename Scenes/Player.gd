@@ -37,7 +37,6 @@ export (float) var acceleration = 0.1
 func _ready():
 	if start_weapon != null:
 		weapon.set_weapon(start_weapon)
-		#weapon.
 
 func _physics_process(delta):
 	if !alive:
