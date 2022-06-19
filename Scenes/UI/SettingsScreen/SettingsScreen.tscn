@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Fonts/smallUI.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scenes/UI/SettingsScreen/SettingsScreen.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+size = 90
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_top = -10
+extra_spacing_bottom = -10
+extra_spacing_char = 1
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 42
+extra_spacing_char = 1
+font_data = ExtResource( 1 )
+
+[node name="SettingsScreen" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1536.0
+margin_bottom = 900.0
+color = Color( 0.447059, 0.447059, 0.447059, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+margin_right = 1496.0
+margin_bottom = 860.0
+
+[node name="Title" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+margin_right = 1496.0
+margin_bottom = 95.0
+size_flags_vertical = 5
+custom_fonts/font = SubResource( 2 )
+text = "Options"
+align = 1
+
+[node name="TabContainer" type="TabContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+margin_top = 99.0
+margin_right = 1496.0
+margin_bottom = 800.0
+size_flags_vertical = 3
+tab_align = 0
+
+[node name="Game" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+tab_align = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer"]
+margin_right = 126.0
+margin_bottom = 40.0
+
+[node name="ResetHighscore" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
+margin_right = 126.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Reset Highscore"
+
+[node name="HighscoreResetAnnouncement" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
+visible = false
+margin_top = 29.0
+margin_right = 167.0
+margin_bottom = 43.0
+text = "Highscore has been reset!"
+
+[node name="Timer" type="Timer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HighscoreResetAnnouncement"]
+one_shot = true
+
+[node name="ExitButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
+margin_left = 706.0
+margin_top = 804.0
+margin_right = 790.0
+margin_bottom = 860.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 1 )
+text = "Exit"
+
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetHighscore" to="." method="_on_ResetHighscore_pressed"]
+[connection signal="timeout" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HighscoreResetAnnouncement/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]

@@ -10,7 +10,7 @@
 [ext_resource path="res://Sprites/UI/double-quaver_disabled.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/UI/speaker_disabled.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/UI/PauseMenue/MusicController.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/UI/PauseMenue/MusicController.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/UI/SettingsScreen/SettingsScreen.tscn" type="PackedScene" id=11]
 
 [node name="PauseMenu" type="MarginContainer"]
 anchor_right = 1.0
@@ -106,7 +106,6 @@ custom_fonts/font = ExtResource( 1 )
 text = "Exit"
 
 [node name="MusicController" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 10 )]
-script = ExtResource( 11 )
 
 [node name="MusicSlider" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
 margin_left = 454.0
@@ -123,6 +122,13 @@ margin_bottom = 649.0
 align = 1
 
 [node name="CreditsScreen" parent="." instance=ExtResource( 4 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1536.0
+margin_bottom = 900.0
+
+[node name="SettingsScreen" parent="." instance=ExtResource( 11 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
