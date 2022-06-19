@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Scenes/UI/CreditsScreen/CreditsScreen.gd" type="Script" id=2]
-[ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Fonts/smallUI.tres" type="DynamicFont" id=3]
 
 [sub_resource type="DynamicFont" id=2]
 size = 90
@@ -12,17 +12,16 @@ use_filter = true
 extra_spacing_top = -10
 extra_spacing_bottom = -10
 extra_spacing_char = 1
-font_data = ExtResource( 3 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 42
 extra_spacing_char = 1
 font_data = ExtResource( 1 )
 
-[node name="CreditsScreen" type="MarginContainer"]
+[node name="SettingsScreen" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 1536.0
@@ -46,22 +45,32 @@ margin_right = 1496.0
 margin_bottom = 95.0
 size_flags_vertical = 5
 custom_fonts/font = SubResource( 2 )
-text = "Credits"
+text = "Options"
 align = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/MarginContainer/VBoxContainer"]
+[node name="TabContainer" type="TabContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
 margin_top = 99.0
 margin_right = 1496.0
 margin_bottom = 800.0
-size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "loooo"
+tab_align = 0
 
-[node name="ColorRect" type="ColorRect" parent="ColorRect/MarginContainer/VBoxContainer/RichTextLabel"]
-show_behind_parent = true
+[node name="Game" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.745098, 0.741176, 0.741176, 1 )
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+tab_align = 0
+
+[node name="Button" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game"]
+margin_right = 12.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Reset Highscore"
 
 [node name="ExitButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
 margin_left = 706.0
