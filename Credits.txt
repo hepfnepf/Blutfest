@@ -26,6 +26,9 @@ Ice - https://game-icons.net/1x1/lorc/ice-cube.html#download
 Effects
 Ice - digit1024 - https://opengameart.org/content/ice-block - CC BY 3.0
 
+GUI
+Padlock - https://game-icons.net/1x1/lorc/padlock.html#download
+
 Sounds
 Standard Rifle/Ak Shot - KuraiWolf - https://opengameart.org/content/light-machine-gun -  CC BY 4.0
 Standard Rifle/AK Reload - zer0_sol - https://opengameart.org/content/handgun-reload-sound-effect
