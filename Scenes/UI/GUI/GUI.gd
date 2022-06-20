@@ -1,13 +1,14 @@
 extends CanvasLayer
 
-onready var health_widget = $HUD/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/HealthbarWidget
-onready var exp_widget = $HUD/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/ExpbarWidget
-onready var ammo_widget = $HUD/VBoxContainer/HBoxContainer/CenterContainer2/AmmoWidget
+onready var health_widget = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/HealthbarWidget
+onready var exp_widget = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/ExpbarWidget
+onready var ammo_widget = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2/AmmoWidget
 onready var score = $HUD/VBoxContainer/HBoxContainer3/ScoreWidget/Score
 onready var time = $HUD/VBoxContainer/HBoxContainer3/TimeWidget/Time
 onready var debug_info = $HUD/VBoxContainer/DebugLayout
+onready var lock_texture = $HUD/VBoxContainer/HBoxContainer/LockSymbol
 onready var crosshair = $Crosshair
-onready var effect_container = $HUD/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/EffectContainer
+onready var effect_container = $HUD/VBoxContainer/HBoxContainer/EffectContainer
 onready var credits = $PauseMenu/CreditsScreen
 onready var pause_menu =$PauseMenu
 #enum CURSOR_TYPE{DEFAULT,CUSTOM}
@@ -31,6 +32,7 @@ func set_player(player:Player):
 	player.connect("score_changed",self,"set_score")
 	player.connect("dead",pause_menu,"_on_Player_Death")
 	player.connect("time_changed",self,"set_time")
+	player.connect("lock_changed",self,"set_lock")
 
 func reset_weapon(weapon):
 	set_ammo(weapon.ammo)
@@ -58,6 +60,8 @@ func set_score(new_score:int):
 	score.text = str(new_score)
 func set_time(new_time:int):
 	time.text = time_to_str(new_time)
+func set_lock(new_lock:bool):
+	lock_texture.visible = new_lock
 
 func time_to_str(time:int) -> String:
 	var minutes = time / 60

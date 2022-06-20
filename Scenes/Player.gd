@@ -8,6 +8,7 @@ signal exp_changed(new_exp)
 signal exp_limit_changed(new_exp_limit)
 signal time_changed(new_time)
 signal score_changed(new_score)
+signal lock_changed(new_lock_state)
 
 export (int) var move_speed = 300
 export (int) var max_health = 100 setget set_max_health
@@ -19,6 +20,7 @@ var experience_limit:int=100
 var score:int = 0 setget set_score
 var alive:bool = true
 var elapsed_time=0 #get increased by 1 sec every time the time counter returns
+var locked = false #can the player pick up new guns
 
 var invincible:bool = false#for the invincibility item
 #How much of the current value is due to temporary effects
@@ -42,6 +44,12 @@ func _physics_process(delta):
 	if !alive:
 		return
 
+	#Check if the lock-state has to be changed
+	if Input.is_action_just_pressed("lock_weapon"):
+		locked = !locked
+		emit_signal("lock_changed",locked)
+
+	#Movement
 	var move_vec = Vector2()
 	if Input.is_action_pressed("move_up"):
 		move_vec.y -=1
@@ -64,8 +72,6 @@ func _physics_process(delta):
 
 	#self.look_at(get_global_mouse_position()-self.position)
 	look_at(get_global_mouse_position())
-
-
 
 #Health related, maybe should be outsourced to its own node
 func set_health(new_health:int):
@@ -139,9 +145,11 @@ func set_weapon(_weapon):
 func _on_Area2D_area_entered(area):
 	if !alive:
 		return
+
 	if area.is_in_group("Item"):
 		if area.has_method("pick_up"):
-			area.pick_up(self)
+			if !locked or !area.is_in_group("WeaponItem"):
+				area.pick_up(self)
 		else:
 			print("Item without pickup function")
 
