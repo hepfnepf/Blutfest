@@ -69,7 +69,7 @@ tracks = [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource(
 volumes = {
 ExtResource( 19 ): 6.0,
 ExtResource( 18 ): 0.0,
-ExtResource( 21 ): -6.0,
 ExtResource( 20 ): 0.0,
+ExtResource( 21 ): -6.0,
 ExtResource( 22 ): 0.0
 }
