@@ -85,6 +85,10 @@ func freeze()->void:
 		#Ai checks in its process funtion if enemy is frozen. It skips process then.
 	freeze_amount+=1
 
+func defreeze()-> void:
+	freeze_amount -= 1
+	if freeze_amount <= 0:
+		unfreeze()
 func unfreeze()-> void:
 	freeze_amount=0
 	$Ice.hide()
