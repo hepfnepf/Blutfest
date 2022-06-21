@@ -6,5 +6,5 @@ func add_effect():
 
 func remove_effect():
 	if enemy.has_method("unfreeze"):
-		enemy.unfreeze()
+		enemy.defreeze()
 
