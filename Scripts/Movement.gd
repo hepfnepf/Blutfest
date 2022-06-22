@@ -7,6 +7,7 @@ signal reached_destination
 export var rotation_speed:float = 0.1
 
 var speed: float = 75
+var alive = true
 
 var actor:KinematicBody2D = null
 var animation_player:AnimationPlayer = null
@@ -51,6 +52,9 @@ func is_moving():
 	return (movement_vector != Vector2.ZERO)
 
 func _physics_process(delta):
+	if !alive:
+		return
+
 	if get_parent().freeze_amount >= 1:
 		animation_player.stop(false)#freezes frame instead of resetting
 		return

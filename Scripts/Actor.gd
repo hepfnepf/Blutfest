@@ -69,6 +69,7 @@ func start_death_animation():
 	ai.alive=false
 	unfreeze()
 	movement.stop_movement()
+	movement.alive=false
 	collision_shape.queue_free()
 	z_index = -4
 	emit_signal("enemy_dead",points)
@@ -76,6 +77,8 @@ func start_death_animation():
 
 	animation_player.stop()
 	animation_player.play("Death")
+
+
 
 func freeze()->void:
 	if !alive:
