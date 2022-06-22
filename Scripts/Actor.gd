@@ -68,7 +68,9 @@ func start_death_animation():
 	alive=false
 	ai.alive=false
 	unfreeze()
+	print_debug("Attempt to die" + name)
 	movement.stop_movement()
+	movement.alive=false
 	collision_shape.queue_free()
 	z_index = -4
 	emit_signal("enemy_dead",points)
@@ -76,6 +78,8 @@ func start_death_animation():
 
 	animation_player.stop()
 	animation_player.play("Death")
+
+
 
 func freeze()->void:
 	if !alive:
@@ -101,6 +105,7 @@ func die()->void:
 
 func _on_AnimationPlayer_animation_finished(anim_name)->void:
 	if anim_name == "Death":
+		print_debug("dieing" + name)
 		die()
 
 
