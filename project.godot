@@ -37,7 +37,7 @@ _global_script_classes=[ {
 "base": "Item",
 "class": "EnemyAreaEffectItemBasis",
 "language": "GDScript",
-"path": "res://EnemyEffectItemBasis.gd"
+"path": "res://Scenes/Items/Helper/EnemyEffectItemBasis.gd"
 }, {
 "base": "Timer",
 "class": "EnemyEffectBasis",
@@ -120,7 +120,6 @@ NonDirectionalSoundPool="*res://Sounds/NonDirectionalSoundPool.tscn"
 
 window/size/width=1536
 window/size/height=900
-window/vsync/use_vsync=false
 window/stretch/mode="2d"
 
 [global]

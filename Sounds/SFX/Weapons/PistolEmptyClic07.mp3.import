@@ -11,5 +11,5 @@ dest_files=[ "res://.import/PistolEmptyClic07.mp3-36dc1dec7bf03278793c7756ae9412
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
