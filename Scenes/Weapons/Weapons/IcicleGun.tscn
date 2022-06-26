@@ -4,40 +4,35 @@
 [ext_resource path="res://Sprites/Player/hand_holding_gun.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Player/arm.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Player/forearm.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Weapons/rifle.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/Weapons/Bullets/BulletClean2.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sounds/SFX/Weapons/StandardRifleShotlmg_fire01.mp3" type="AudioStream" id=7]
-[ext_resource path="res://Sounds/SFX/Weapons/StandardRiflegunreload1.wav" type="AudioStream" id=8]
-[ext_resource path="res://Sounds/SFX/Weapons/StandardRifleEmptybutton02.mp3" type="AudioStream" id=9]
-[ext_resource path="res://Scenes/Weapons/Weapons/StandardRifle.gd" type="Script" id=10]
+[ext_resource path="res://Sprites/Weapons/ice_gun_up2.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Weapons/Weapons/IcicleGun.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Weapons/Bullets/IcicleBullet.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sounds/SFX/Weapons/swoosh_04_Fire_explosion_04_medium.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/SFX/Weapons/Icicle_reload_LedasLuzta5.ogg" type="AudioStream" id=9]
 
-[node name="StandardRifle" instance=ExtResource( 1 )]
-script = ExtResource( 10 )
-max_ammo = 20
-damage = 40
-speed = 3500
-reload_time = 1.58
-fire_rate = 1.0
-base_spread = 0.01
-spread_inc = 0.515
-spread_dec = 0.021
-Bullet = ExtResource( 6 )
-shoot_sfx = ExtResource( 7 )
-reload_sfx = ExtResource( 8 )
-empty_sfx = ExtResource( 9 )
-shoot_db = 0.1
+[sub_resource type="Animation" id=1]
+resource_name = "shot"
+
+[node name="IcicleGun" instance=ExtResource( 1 )]
+script = ExtResource( 6 )
+damage = 50
+speed = 2750
+fire_rate = 2.0
+base_spread = 0.025
+max_spread = 0.103
+spread_inc = 0.0
+Bullet = ExtResource( 7 )
+shoot_sfx = ExtResource( 8 )
+reload_sfx = ExtResource( 9 )
+shoot_db = 0.3
 reload_db = 0.1
-empty_db = 0.2
-
-[node name="muzzle_flash_02" parent="." index="0"]
-visible = true
-position = Vector2( 196.265, 29.3107 )
+empty_db = 0.1
 
 [node name="BulletSpawnPosition" parent="." index="3"]
-position = Vector2( 165, 30 )
+position = Vector2( 101.269, 30.5 )
 
 [node name="BulletDirection" parent="." index="4"]
-position = Vector2( 175, 30 )
+position = Vector2( 208.647, 28.5 )
 
 [node name="armL" type="Sprite" parent="." index="7"]
 position = Vector2( 42.4081, -42.8876 )
@@ -73,9 +68,11 @@ scale = Vector2( 0.662, 0.862 )
 texture = ExtResource( 2 )
 flip_v = true
 
-[node name="rifle" type="Sprite" parent="armR/forearmR/handR" index="0"]
-position = Vector2( 15.0017, 2.02521 )
-rotation = 0.258496
-scale = Vector2( 1.47738, 1.20209 )
-z_index = 1
+[node name="Sprite" type="Sprite" parent="armR/forearmR/handR" index="0"]
+position = Vector2( 49.311, 2.66655 )
+rotation = 0.251327
+scale = Vector2( 0.353809, 0.35 )
 texture = ExtResource( 5 )
+
+[node name="LocalAnimationPlayer" type="AnimationPlayer" parent="." index="9"]
+anims/shot = SubResource( 1 )

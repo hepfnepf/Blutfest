@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Icicle_reload_LedasLuzta5.ogg-2bf0d485aa524ed332999c87048a57f8.oggstr"
+
+[deps]
+
+source_file="res://Sounds/SFX/Weapons/Icicle_reload_LedasLuzta5.ogg"
+dest_files=[ "res://.import/Icicle_reload_LedasLuzta5.ogg-2bf0d485aa524ed332999c87048a57f8.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -9,6 +9,10 @@ Pistol icon - rgs_dev - https://opengameart.org/content/gun-glock-26-gen5-9mm-ve
 Standard Rifle - knik1985 - https://opengameart.org/content/guns-wwii
 Ak Rifle - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player
 Short Shotgun based on - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player
+Icicle Gun based on Xavier4321 - https://opengameart.org/content/gun-mine - CC BY 3.0
+
+Ammo:
+Icicle - ? - https://proofmart.com/product/icicles-png-images-transparent-background-free-download/ - CC BY 4.0
 
 Pick-Up items
 SpeedUp - Delapouite - https://game-icons.net/1x1/delapouite/running-shoe.html
@@ -39,6 +43,8 @@ Pistol Empty - Independent.nu - https://opengameart.org/content/16-button-clicks
 Shotgun shot - Michel Baradari - https://opengameart.org/content/chaingun-pistol-rifle-shotgun-shots
 Shotgun reload - Mike Koenig (Soundbible) - https://opengameart.org/content/shotgun-shoot-reload - CC BY 3.0
 Shotgun empty- Mike Koenig (Soundbible) - https://opengameart.org/content/shotgun-shoot-reload - CC BY 3.0
+Icicle Gun shot - leohpaz - https://opengameart.org/content/8-magic-attacks -  CC BY 4.0
+Icicle Gun reload - IgnasD - https://opengameart.org/content/ice-breakingshattering - CC0
 
 
 
@@ -51,4 +57,5 @@ Murder On The Bayou - Bryan Teoh - https://freepd.commusicMurder%20On%20The%20Ba
 One Destination - Two Journeys - Alexander Nakarada - https://freepd.commusicOne%20Destination%20-%20Two%20Journeys.mp3
 
 CC-by 4.0 : https://creativecommons.org/licenses/by/4.0/legalcode
-CC BY 3.0 http://creativecommons.org/licenses/by/3.0/
+CC BY 3.0: http://creativecommons.org/licenses/by/3.0/
+CC0: https://creativecommons.org/publicdomain/zero/1.0/

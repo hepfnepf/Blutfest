@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Weapons/Bullets/BulletClean2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Weapons/545-1_zapfen_2.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Items/EffectNodes/EnemyEffectIce.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Weapons/Bullets/IcicleBullet.gd" type="Script" id=4]
+
+[node name="IcicleBullet" instance=ExtResource( 1 )]
+position = Vector2( 0.264862, 0 )
+script = ExtResource( 4 )
+freeze_prob = 1.0
+ice_effect = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( -2.31064, 1.60395 )
+
+[node name="Sprite" parent="." index="1"]
+modulate = Color( 0.407843, 0.768627, 0.796078, 1 )
+rotation = -1.5708
+texture = ExtResource( 2 )
