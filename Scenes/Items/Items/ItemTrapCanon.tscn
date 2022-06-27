@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Items/Helper/ItemBasisWeapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Weapons/Weapons/TrapCanon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Weapons/canon.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=3]
+resource_local_to_scene = true
+extents = Vector2( 310.35, 186.878 )
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+uniform bool is_blinking = false;
+uniform float blink_speed = 1.5;
+uniform float starded_blinking = 0.0;
+
+void fragment(){
+	COLOR = texture(TEXTURE, UV);
+	//creates blinking
+	COLOR.a = COLOR.a*(1.0- float(is_blinking)* mod(TIME,1.0/blink_speed));//abs(sin(TIME*blink_speed)));
+	
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+resource_local_to_scene = true
+shader = SubResource( 2 )
+shader_param/is_blinking = false
+shader_param/blink_speed = 1.5
+shader_param/starded_blinking = 0.0
+
+[node name="ItemTrapCanon" instance=ExtResource( 1 )]
+weapon = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( -131.614, 7.139 )
+shape = SubResource( 3 )
+
+[node name="Sprite" parent="." index="1"]
+material = SubResource( 4 )
+rotation = 1.5708
+scale = Vector2( 10, 10 )
+texture = ExtResource( 3 )
