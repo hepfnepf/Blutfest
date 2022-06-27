@@ -10,6 +10,7 @@ Standard Rifle - knik1985 - https://opengameart.org/content/guns-wwii
 Ak Rifle - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player
 Short Shotgun based on - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player
 Icicle Gun based on Xavier4321 - https://opengameart.org/content/gun-mine - CC BY 3.0
+Longrange Shotgun based on - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player
 
 Ammo:
 Icicle - ? - https://proofmart.com/product/icicles-png-images-transparent-background-free-download/ - CC BY 4.0
@@ -26,6 +27,8 @@ Explosion - Lorc - https://game-icons.net/1x1/lorc/grenade.html
 Ak Rifle - Game Developer Studio - https://opengameart.org/content/ak-47-icon - CC BY 3.0
 Short Shotgun - clayster2012 - https://opengameart.org/content/weapon-set-0 - CC BY 3.0
 Ice - https://game-icons.net/1x1/lorc/ice-cube.html#download
+Icicle Gun based on Xavier4321 - https://opengameart.org/content/gun-mine - CC BY 3.0
+Longrange Shotgun based on - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player
 
 Effects
 Ice - digit1024 - https://opengameart.org/content/ice-block - CC BY 3.0
