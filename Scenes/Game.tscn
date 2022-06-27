@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Items/Items/ItemHealUp.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Scenes/Items/Items/ItemStandardRifle.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/BackgroundMusic.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Items/Items/IceItem.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Weapons/Weapons/TrapCanon.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Sounds/Music/Construction_Alexander Nakarada_httpsfreepd.commusicConstruction.mp3.mp3" type="AudioStream" id=18]
 [ext_resource path="res://Sounds/Music/Beyond - part 2_alexander nakarada _httpsfreepd.commusicBeyond%20-%20part%202.mp3.mp3" type="AudioStream" id=19]
 [ext_resource path="res://Sounds/Music/Deck the Halls_alexander nakarada_httpsfreepd.commusicDeck%20the%20Halls.mp3.mp3" type="AudioStream" id=20]
@@ -33,6 +34,7 @@ death_screen_prefab = ExtResource( 9 )
 position = Vector2( -884, -8 )
 move_speed = 600
 health = 100
+start_weapon = ExtResource( 17 )
 
 [node name="Zombie" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1002.11, -13.0142 )
@@ -69,9 +71,9 @@ autoplay = false
 bus = "Music"
 tracks = [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 20 ) ]
 volumes = {
-ExtResource( 22 ): 0.0,
-ExtResource( 21 ): -6.0,
 ExtResource( 19 ): 6.0,
+ExtResource( 18 ): 0.0,
 ExtResource( 20 ): 0.0,
-ExtResource( 18 ): 0.0
+ExtResource( 21 ): -6.0,
+ExtResource( 22 ): 0.0
 }
