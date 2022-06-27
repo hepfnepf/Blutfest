@@ -1,22 +1,41 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Weapons/Weapons/WeaponBasis.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Player/hand_holding_gun.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Player/arm.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Player/forearm.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Weapons/canon.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/Weapons/Bullets/BulletClean2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Weapons/Bullets/SpikedBall.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Weapons/Weapons/TrapCanon.gd" type="Script" id=7]
+[ext_resource path="res://Sounds/SFX/Weapons/swoosh_04_Fire_explosion_04_medium.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/SFX/Weapons/doorOpen_1.ogg" type="AudioStream" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "shot"
 
 [node name="TrapCanon" instance=ExtResource( 1 )]
 script = ExtResource( 7 )
+max_ammo = 17
+damage = 45
+max_range = 1150
+speed = 300
+reload_time = 0.4
+fire_rate = 7.0
+base_spread = 0.103
 Bullet = ExtResource( 6 )
+shoot_sfx = ExtResource( 8 )
+reload_sfx = ExtResource( 9 )
+shoot_db = 0.3
+reload_db = 0.2
 
 [node name="muzzle_flash_02" parent="." index="0"]
 scale = Vector2( 0.4, 0.873 )
+
+[node name="BulletSpawnPosition" parent="." index="3"]
+position = Vector2( 129.66, 0 )
+
+[node name="BulletDirection" parent="." index="4"]
+position = Vector2( 143.64, 0 )
 
 [node name="armL" type="Sprite" parent="." index="7"]
 position = Vector2( 42.4081, -42.8876 )
