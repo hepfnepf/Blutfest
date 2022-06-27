@@ -30,7 +30,6 @@ reload_db = 0.1
 empty_db = 0.2
 
 [node name="muzzle_flash_02" parent="." index="0"]
-visible = true
 position = Vector2( 196.265, 29.3107 )
 
 [node name="BulletSpawnPosition" parent="." index="3"]
