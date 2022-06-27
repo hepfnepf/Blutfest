@@ -1,13 +1,12 @@
 # Blutfest
-A WIP Crimsonland clone inspired by the unfished and no longer maintained FOSS-Game Bloodworks. It currently does not have a name but the most likely candidat is "Blutfest". The game is implemented in Godot.
+A WIP Crimsonland clone inspired by the unfished and no longer maintained FOSS-Game Bloodworks. The game is implemented in Godot.
 Fight of hordes of zombiez using power-ups and weapons. Try to survive as long as possible.
 
-
-## Road To 0.3.1 - Upcomming
+## Just finished: 0.3.1
 - [x] weighted possibilities
 - [x] increase of difficulty over time
-- [ ] wiki entrys
-- [ ] more power ups
+- [x] more power ups
+- [x] new weapons
 - [x] background music controlls
 - [x] make enemys drop items
 
@@ -18,7 +17,7 @@ Fight of hordes of zombiez using power-ups and weapons. Try to survive as long a
 
 
 
-## Road To 0.3.2
+## Road To 0.3.2  - Upcomming
 - [ ] UI theming
 - [ ] documentation
 - [ ] localisation
