@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Items/Helper/ItemBasis.tscn" type="PackedScene" id=1]
-[ext_resource path="res://ItemBulletSpiral.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Items/Items/ItemBulletSpiral.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/Items/Effects/bullets_spiral.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Weapons/Bullets/BulletClean2.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sounds/SFX/Weapons/StandardRifleShotlmg_fire01.mp3" type="AudioStream" id=5]
