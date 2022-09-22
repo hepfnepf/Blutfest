@@ -26,7 +26,7 @@
 [ext_resource path="res://Scenes/Items/Items/ItemLongShotgun.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Items/Items/ShortShotgunItem.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Scenes/Items/Items/ItemBulletSpiral.tscn" type="PackedScene" id=26]
-[ext_resource path="res://Scenes/Items/EffectNodes/SlowDownTime.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Scenes/Items/Items/ItemSlowDownTime.tscn" type="PackedScene" id=27]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 6 )
@@ -72,9 +72,9 @@ autoplay = false
 bus = "Music"
 tracks = [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 20 ) ]
 volumes = {
-ExtResource( 20 ): 0.0,
-ExtResource( 22 ): 0.0,
-ExtResource( 21 ): -6.0,
 ExtResource( 19 ): 6.0,
-ExtResource( 18 ): 0.0
+ExtResource( 18 ): 0.0,
+ExtResource( 21 ): -6.0,
+ExtResource( 22 ): 0.0,
+ExtResource( 20 ): 0.0
 }

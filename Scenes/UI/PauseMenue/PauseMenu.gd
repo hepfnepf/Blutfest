@@ -37,8 +37,8 @@ func switch_state():
 
 func save_volume() -> void:
 	var sg = SaveManager.read_savegame()
-	sg["sfx_volume"] = sfx_slider.slider.value
-	sg["music_volume"] = music_slider.slider.value
+	sg["sfx_volume"] = db2linear( AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))#sfx_slider.slider.value
+	sg["music_volume"] = db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
 	SaveManager.save(sg)
 
 func _on_ReturnButton_pressed():

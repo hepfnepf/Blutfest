@@ -1,4 +1,4 @@
-tool
+#tool
 extends VBoxContainer
 
 onready var button:Button = $Button

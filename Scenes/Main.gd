@@ -23,9 +23,8 @@ func _ready()-> void:
 	#Retrieve volume settings
 	var sg = SaveManager.read_savegame()
 	var sfx_index= AudioServer.get_bus_index("SFX")
-	AudioServer.set_bus_volume_db(sfx_index, linear2db(sg["sfx_volume"]))
-	var music_index = AudioServer.get_bus_index("Music")
-	AudioServer.set_bus_volume_db(music_index, linear2db(sg["music_volume"]))
+	gui.pause_menu.sfx_slider.value_change_code(sg["sfx_volume"])
+	gui.pause_menu.music_slider.value_change_code(sg["music_volume"])
 
 
 func _on_player_death()->void:
