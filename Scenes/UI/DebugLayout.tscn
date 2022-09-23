@@ -10,44 +10,44 @@ size_flags_horizontal = 3
 columns = 2
 script = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="."]
-margin_right = 64.0
+[node name="LabelFPS" type="Label" parent="."]
+margin_right = 53.0
 margin_bottom = 19.0
 custom_fonts/font = ExtResource( 1 )
 text = "FPS:"
 
 [node name="FPS" type="Label" parent="."]
-margin_left = 68.0
-margin_right = 95.0
+margin_left = 57.0
+margin_right = 84.0
 margin_bottom = 19.0
 custom_fonts/font = ExtResource( 1 )
 text = "144"
 
-[node name="Label2" type="Label" parent="."]
+[node name="LabelEnemy" type="Label" parent="."]
 margin_top = 23.0
-margin_right = 64.0
+margin_right = 53.0
 margin_bottom = 42.0
 custom_fonts/font = ExtResource( 1 )
-text = "Enemys: "
+text = "ENEMY"
 
 [node name="Enemys" type="Label" parent="."]
-margin_left = 68.0
+margin_left = 57.0
 margin_top = 23.0
-margin_right = 95.0
+margin_right = 84.0
 margin_bottom = 42.0
 custom_fonts/font = ExtResource( 1 )
 text = "10"
 
-[node name="Label3" type="Label" parent="."]
+[node name="LabelNodes" type="Label" parent="."]
 margin_top = 46.0
-margin_right = 64.0
+margin_right = 53.0
 margin_bottom = 65.0
 custom_fonts/font = ExtResource( 1 )
 text = "Nodes:"
 
 [node name="Nodes" type="Label" parent="."]
-margin_left = 68.0
+margin_left = 57.0
 margin_top = 46.0
-margin_right = 95.0
+margin_right = 84.0
 margin_bottom = 65.0
 custom_fonts/font = ExtResource( 1 )

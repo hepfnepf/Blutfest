@@ -25,15 +25,12 @@ margin_left = 658.0
 margin_right = 857.0
 margin_bottom = 42.0
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label" type="Label" parent="."]
 margin_right = 199.0
 margin_bottom = 19.0
 custom_fonts/font = ExtResource( 1 )
-text = "Press 'Enter' to try again"
+text = "DEATH_RESTART"
 align = 1
 valign = 1
 
@@ -42,7 +39,7 @@ margin_top = 23.0
 margin_right = 199.0
 margin_bottom = 42.0
 custom_fonts/font = ExtResource( 1 )
-text = "Press 'ESC' to quit the Game"
+text = "DEATH_QUIT"
 align = 1
 valign = 1
 
