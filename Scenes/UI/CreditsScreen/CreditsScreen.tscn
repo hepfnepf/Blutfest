@@ -66,7 +66,7 @@ margin_right = 1496.0
 margin_bottom = 95.0
 size_flags_vertical = 5
 custom_fonts/font = SubResource( 2 )
-text = "Credits"
+text = "CREDITS"
 align = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/MarginContainer/VBoxContainer"]

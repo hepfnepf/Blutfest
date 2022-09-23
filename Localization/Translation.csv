@@ -1,0 +1,20 @@
+﻿,en,de
+TIME,Time:,Zeit:
+SCORE,Score:,Punkte:
+ENEMY,Enemy:,Gegner:
+YOU_DIED,You Died,Du bist gestorben
+DEATH_RESTART,Press 'Enter' to try again,Drücke 'Enter' für einen neuen Versuch
+DEATH_QUIT,Press 'ESC' to quit the Game,Drücke 'ESC' um das Spiel zu beenden
+PAUSE_MENU,Pause Menu,Menü
+RETURN,Return,Zurück
+OPTIONS,Options,Optionen
+RESTART,Restart,Neustart
+EXIT,Exit,Beenden
+OPTIONS,Options,Optionen
+RESET_HIGHSCORE,Reset Highscore,Highscore zurücksetzen
+GAME,Game,Spiel
+HISCORE_GOT_RESET,Highscore has been reset!,Der Highscore wurde zurückgesetzt!
+CREDITS,Credits,Credits
+BEFORE,Before:,Vorher:
+NEW_HIGHSCORE,New highscoe,Neuer Highscore
+NEW_BEST_TIME,New best time,Neue Bestzeit

@@ -115,7 +115,7 @@ margin_right = 1496.0
 margin_bottom = 95.0
 size_flags_vertical = 5
 custom_fonts/font = SubResource( 2 )
-text = "Options"
+text = "OPTIONS"
 align = 1
 
 [node name="TabContainer" type="TabContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
@@ -144,39 +144,37 @@ margin_right = -5.0
 margin_bottom = -5.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer"]
-margin_left = 681.0
-margin_top = 327.0
-margin_right = 803.0
-margin_bottom = 346.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
+margin_right = 150.0
+margin_bottom = 19.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="ResetHighscore" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
-margin_right = 122.0
+margin_right = 150.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 3 )
-text = "Reset Highscore"
+text = "RESET_HIGHSCORE"
 
 [node name="HighscoreResetAnnouncement" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
 visible = false
 margin_top = 29.0
 margin_right = 167.0
 margin_bottom = 43.0
-text = "Highscore has been reset!"
+text = "HISCORE_GOT_RESET"
 
 [node name="Timer" type="Timer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HighscoreResetAnnouncement"]
 one_shot = true
 
 [node name="ExitButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
-margin_left = 706.0
+margin_left = 660.0
 margin_top = 804.0
-margin_right = 790.0
+margin_right = 835.0
 margin_bottom = 860.0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 10 )
-text = "Exit"
+text = "RETURN"
 
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetHighscore" to="." method="_on_ResetHighscore_pressed"]
 [connection signal="timeout" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HighscoreResetAnnouncement/Timer" to="." method="_on_Timer_timeout"]

@@ -188,6 +188,11 @@ lock_weapon={
 2d_physics/layer_3="Enemys"
 2d_physics/layer_4="Projectiles"
 
+[locale]
+
+translations=PoolStringArray( "res://Localization/Translation.de.translation", "res://Localization/Translation.en.translation" )
+locale_filter=[ 0, [  ] ]
+
 [physics]
 
 common/enable_pause_aware_picking=true
