@@ -101,6 +101,9 @@ func handle_enemy_spawning(delta)->void:
 			return
 
 func spawn_at(scene,pos,apply_difficulty=false):
+	call_deferred("_spawn_at",scene,pos,apply_difficulty)
+
+func _spawn_at(scene,pos,apply_difficulty=false):
 	var _obj = scene.instance()
 	game.add_child(_obj)
 	_obj.global_position = pos
@@ -108,7 +111,6 @@ func spawn_at(scene,pos,apply_difficulty=false):
 		_obj.set_damage(_obj.damage * enemy_damage_mult)
 		_obj.set_speed(_obj.speed * enemy_speed_mult)
 		_obj.set_max_health(_obj.max_health * enemy_speed_mult)
-		pass
 
 func spawn(scene):
 	var _obj = scene.instance()

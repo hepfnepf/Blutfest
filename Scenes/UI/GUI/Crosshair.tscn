@@ -14,7 +14,7 @@ uniform vec2 center = vec2(0.5);
 uniform vec4 color : hint_color;
 void fragment(){
         //Default to transparent
-        COLOR.a = 0f;
+        COLOR.a = 0.0f;
 
         //Wanna calculate like Position(0,0) is in the middle not the upper left corner
         float uv_x=UV.x-0.5;
@@ -28,8 +28,8 @@ void fragment(){
         float curr_coord = uv_x*uv_x+uv_y*uv_y;
         float dist = distance(center,UV);
         float amplitude = abs(dist-radius)-start_fading;
-        if (amplitude < 0f){
-                amplitude = 0f;
+        if (amplitude < 0.0f){
+                amplitude = 0.0f;
         }
         //COLOR.a = 1.0-dist;
         if (amplitude <= width){
