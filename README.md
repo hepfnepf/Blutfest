@@ -18,7 +18,7 @@ Fight of hordes of zombiez using power-ups and weapons. Try to survive as long a
 
 
 ## Road To 0.3.2  - Upcomming
-- [ ] UI theming
+- [x] UI theming
 - [ ] documentation
-- [ ] localisation
+- [x] localisation
 - [ ] extended background music controll
