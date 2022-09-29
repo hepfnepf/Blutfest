@@ -120,9 +120,9 @@ margin_bottom = 900.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 312.0
-margin_top = 140.0
+margin_top = 149.0
 margin_right = 1224.0
-margin_bottom = 759.0
+margin_bottom = 750.0
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_right = 912.0
@@ -156,7 +156,8 @@ button_texture_disabled = ExtResource( 9 )
 margin_left = 314.0
 margin_right = 598.0
 margin_bottom = 420.0
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 5
 
 [node name="ReturnButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_right = 284.0
@@ -198,9 +199,12 @@ custom_fonts/font = ExtResource( 1 )
 text = "EXIT"
 
 [node name="MusicController" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 400.0
 margin_right = 284.0
 margin_bottom = 420.0
+size_flags_vertical = 3
 theme = SubResource( 14 )
 
 [node name="MusicSlider" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
@@ -211,12 +215,6 @@ theme = SubResource( 12 )
 button_texture = ExtResource( 6 )
 audio_channel = "Music"
 button_texture_disabled = ExtResource( 8 )
-
-[node name="WarningNoMenu" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_top = 605.0
-margin_right = 912.0
-margin_bottom = 619.0
-align = 1
 
 [node name="CreditsScreen" parent="." instance=ExtResource( 4 )]
 visible = false

@@ -6,6 +6,8 @@
 [node name="VBoxContainer3" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
 button_texture = null
+audio_channel = "Master"
+button_texture_disabled = null
 
 [node name="VSlider" parent="." index="0"]
 step = 0.0

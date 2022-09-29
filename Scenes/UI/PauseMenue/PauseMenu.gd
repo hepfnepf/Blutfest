@@ -3,7 +3,6 @@ class_name PauseMenu
 
 onready var credits = $CreditsScreen
 onready var options = $SettingsScreen
-onready var op = $CenterContainer/VBoxContainer/WarningNoMenu #label to tell the user, that here currently is no options menu
 onready var sfx_slider = $CenterContainer/VBoxContainer/HBoxContainer/SFXSlider
 onready var music_slider = $CenterContainer/VBoxContainer/HBoxContainer/MusicSlider
 
@@ -21,9 +20,6 @@ func switch_state():
 	visible = !visible
 	if credits.visible:
 		credits.visible = false
-
-	if op.text != "":
-		op.text = ""
 
 	#Change Cursor
 	if Globals.cursor_manager.cursor == Cursor.CURSOR_TYPE.CROSSHAIR:
@@ -48,7 +44,6 @@ func _on_ReturnButton_pressed():
 func _on_OptionsButton_pressed():
 	if is_instance_valid(options):
 		options.show()
-	op.text = "Not yet implemented"
 	#pass # Replace with function body.
 
 
