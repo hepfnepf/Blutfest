@@ -14,7 +14,7 @@ func _on_ResetHighscore_pressed():
 	var save_dict = SaveManager.read_savegame()
 	save_dict["highscore"] = 0
 	save_dict["best_time"] = 0
-	SaveManager.save(save_dict)
+	SaveManager.save_game(save_dict)
 
 	hs_reset_announcement.show()
 	hs_reset_announcement_time.start()
