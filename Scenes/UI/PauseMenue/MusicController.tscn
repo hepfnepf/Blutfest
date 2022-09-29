@@ -5,36 +5,38 @@
 [ext_resource path="res://Scenes/UI/PauseMenue/MusicController.gd" type="Script" id=3]
 
 [node name="MusicController" type="HBoxContainer"]
-margin_top = 430.0
-margin_right = 240.0
-margin_bottom = 450.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 3 )
 
 [node name="TrackInfoLabel" type="Label" parent="."]
-margin_top = 3.0
-margin_right = 192.0
-margin_bottom = 17.0
+unique_name_in_owner = true
+margin_right = 1488.0
+margin_bottom = 900.0
+rect_clip_content = true
 size_flags_horizontal = 3
+size_flags_vertical = 1
 text = "Artist XYZ - Track XYZ"
 clip_text = true
-percent_visible = -0.0555556
 
 [node name="LoopButton" type="Button" parent="."]
-margin_left = 196.0
-margin_right = 216.0
-margin_bottom = 20.0
+margin_left = 1492.0
+margin_right = 1512.0
+margin_bottom = 900.0
 rect_min_size = Vector2( 20, 20 )
 size_flags_horizontal = 5
 toggle_mode = true
 icon = ExtResource( 2 )
+align = 2
 expand_icon = true
 
 [node name="SkipButton" type="Button" parent="."]
-margin_left = 220.0
-margin_right = 240.0
-margin_bottom = 20.0
+margin_left = 1516.0
+margin_right = 1536.0
+margin_bottom = 900.0
 rect_min_size = Vector2( 20, 20 )
 icon = ExtResource( 1 )
+align = 2
 expand_icon = true
 
 [connection signal="toggled" from="LoopButton" to="." method="_on_LoopButton_toggled"]

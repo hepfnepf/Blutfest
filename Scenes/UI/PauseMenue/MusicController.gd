@@ -1,10 +1,12 @@
 extends HBoxContainer
 
-onready var info_label = $TrackInfoLabel
+onready var info_label = get_node('%TrackInfoLabel')
 
 var music_player:BackgroundMusic = null#is gotten from globals after it was set there
 
-func _ready()->void:
+
+
+func _ready():
 	Globals.connect("music_player_set",self,"set_music_player")#Tells us that the music player was set in globals
 
 func set_music_player()->void:

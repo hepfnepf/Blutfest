@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/Weapons/Bullets/SmoketrailFlat.tscn" type="PackedScene" id=4]
 
 [node name="BulletClean2" instance=ExtResource( 2 )]
-z_index = 5
+z_index = 1
 script = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="1"]
