@@ -21,7 +21,7 @@ func _ready()-> void:
 	spawner.set_map_size(map_size[0],map_size[1])
 
 	#Retrieve volume settings
-	var sg = SaveManager.read_savegame()
+	var sg = SaveManager.read_saveOptions()
 	var sfx_index= AudioServer.get_bus_index("SFX")
 	gui.pause_menu.sfx_slider.value_change_code(sg["sfx_volume"])
 	gui.pause_menu.music_slider.value_change_code(sg["music_volume"])
@@ -39,7 +39,7 @@ func _on_player_death()->void:
 	if save_dict["best_time"] < player.elapsed_time:
 		save_dict["best_time"] = player.elapsed_time
 
-	SaveManager.save(save_dict)
+	SaveManager.save_game(save_dict)
 
 func _on_enemy_killed(points):
 	enemys_alive -=1
