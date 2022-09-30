@@ -7,3 +7,4 @@
 [node name="EffectBasis" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 icon_texture = ExtResource( 3 )
+fire_rate_multiplyer = 3.0

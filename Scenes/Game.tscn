@@ -72,9 +72,27 @@ autoplay = false
 bus = "Music"
 tracks = [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 20 ) ]
 volumes = {
-ExtResource( 19 ): 6.0,
-ExtResource( 21 ): -6.0,
 ExtResource( 18 ): 0.0,
+ExtResource( 21 ): -6.0,
+ExtResource( 22 ): 0.0,
 ExtResource( 20 ): 0.0,
-ExtResource( 22 ): 0.0
+ExtResource( 19 ): 6.0
 }
+
+[node name="EffectItemBasis" parent="." instance=ExtResource( 13 )]
+position = Vector2( -1569.48, 297.31 )
+
+[node name="EffectItemBasis2" parent="." instance=ExtResource( 13 )]
+position = Vector2( -1754.48, 815.302 )
+
+[node name="EffectItemBasis3" parent="." instance=ExtResource( 13 )]
+position = Vector2( -1902.48, 1249.2 )
+
+[node name="ItemIcicleGun" parent="." instance=ExtResource( 4 )]
+position = Vector2( -1434.94, -594.04 )
+
+[node name="ItemIcicleGun2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -560.406, 1286.2 )
+
+[node name="ItemIcicleGun3" parent="." instance=ExtResource( 4 )]
+position = Vector2( -567.133, 774.939 )
