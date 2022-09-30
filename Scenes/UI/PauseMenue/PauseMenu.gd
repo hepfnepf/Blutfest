@@ -6,6 +6,8 @@ onready var options = $SettingsScreen
 onready var sfx_slider = $CenterContainer/VBoxContainer/HBoxContainer/SFXSlider
 onready var music_slider = $CenterContainer/VBoxContainer/HBoxContainer/MusicSlider
 
+var debug_info = null
+
 var blocked := false
 
 
@@ -13,8 +15,11 @@ func _unhandled_input(event):
 	if Input.is_action_just_pressed("Escape") and !blocked:
 		switch_state()
 	if Input.is_action_just_pressed("show_debug_info") and visible:
-		get_parent().debug_info.set_alive(!get_parent().debug_info.alive)
+		if is_instance_valid(debug_info):
+			debug_info.set_alive(!debug_info.alive)
 
+func set_debug_info(_debug_info)->void:
+	debug_info = _debug_info
 
 func switch_state():
 	get_tree().paused = !get_tree().paused
