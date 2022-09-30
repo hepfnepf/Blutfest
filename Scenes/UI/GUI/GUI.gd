@@ -14,6 +14,10 @@ onready var pause_menu =$PauseMenu
 #enum CURSOR_TYPE{DEFAULT,CUSTOM}
 var player:Player
 
+
+func _ready() -> void:
+	pause_menu.set_debug_info(debug_info)
+
 func set_player(player:Player):
 	self.player = player
 
