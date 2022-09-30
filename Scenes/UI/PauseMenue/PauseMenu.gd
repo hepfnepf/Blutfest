@@ -9,10 +9,11 @@ onready var music_slider = $CenterContainer/VBoxContainer/HBoxContainer/MusicSli
 var blocked := false
 
 
-func _input(event):
+func _unhandled_input(event):
 	if Input.is_action_just_pressed("Escape") and !blocked:
 		switch_state()
-		# Pause game
+	if Input.is_action_just_pressed("show_debug_info") and visible:
+		get_parent().debug_info.set_alive(!get_parent().debug_info.alive)
 
 
 func switch_state():
