@@ -5,23 +5,31 @@ export (float) var fire_rate_multiplyer = 3.0
 var reload_time_delta = 0
 var fire_rate_delta = 0
 
-var _weapon:Weapon=null
+var weapon:Weapon=null
+
+func _ready() -> void:
+	if is_instance_valid(player.weapon):
+		player.weapon.connect("weapon_switch",self,"_on_weapon_switch")
 
 func add_effect():
 	if player.weapon.current_weapon is Weapon:
 
-		_weapon = player.weapon.current_weapon
-		_weapon.ammo_infinity_stack += 1
+		weapon = player.weapon.current_weapon
+		weapon.ammo_infinity_stack += 1
 
 		#Increase fire rate
-		var new_fire_rate = int(_weapon.fire_rate*fire_rate_multiplyer)
-		fire_rate_delta = new_fire_rate - _weapon.fire_rate
-		_weapon.fire_rate_delta += fire_rate_delta
-		_weapon.set_fire_rate(new_fire_rate)
+		var new_fire_rate = int(weapon.fire_rate*fire_rate_multiplyer)
+		fire_rate_delta = new_fire_rate - weapon.fire_rate
+		weapon.fire_rate_delta += fire_rate_delta
+		weapon.set_fire_rate(new_fire_rate)
 
 func remove_effect():
-	if is_instance_valid(_weapon):
-		_weapon.ammo_infinity_stack -= 1
-		_weapon.fire_rate_delta -= fire_rate_delta
-		_weapon.set_fire_rate(_weapon.fire_rate - fire_rate_delta)
+	if is_instance_valid(weapon):
+		weapon.ammo_infinity_stack -= 1
+		weapon.fire_rate_delta -= fire_rate_delta
+		weapon.set_fire_rate(weapon.fire_rate - fire_rate_delta)
+
+func _on_weapon_switch(_weapon)->void:
+	if is_instance_valid(player.weapon):
+		add_effect()
 
