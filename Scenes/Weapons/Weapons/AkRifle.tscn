@@ -13,12 +13,12 @@
 
 [node name="AkRifle" instance=ExtResource( 1 )]
 script = ExtResource( 10 )
-damage = 15
+damage = 18
 speed = 3500
 reload_time = 1.5
 fire_rate = 8.0
 base_spread = 0.01
-max_spread = 0.121
+max_spread = 0.15
 spread_inc = 1.148
 spread_dec = 0.078
 Bullet = ExtResource( 6 )

@@ -17,7 +17,7 @@
 position = Vector2( -1.12369, 1.52588e-05 )
 script = ExtResource( 6 )
 max_ammo = 7
-damage = 16
+damage = 17
 speed = 3500
 reload_time = 3.0
 fire_rate = 0.9

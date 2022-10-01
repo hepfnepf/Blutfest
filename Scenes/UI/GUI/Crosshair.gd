@@ -10,5 +10,7 @@ func _process(delta) -> void:
 	global_position = get_viewport().get_mouse_position()
 
 func set_spread(new_spread) -> void:
-	var _spread = clamp(new_spread*spread_scaler,min_size,max_size)
+	var _spread =new_spread*spread_scaler
+	_spread = sqrt(_spread)+(1/pow((_spread+1),2))*1/8
+	_spread = clamp(_spread*1.1,min_size,max_size)
 	outer_crosshair.scale = Vector2(_spread,_spread)
