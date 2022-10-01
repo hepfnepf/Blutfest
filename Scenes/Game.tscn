@@ -78,18 +78,3 @@ ExtResource( 19 ): 6.0,
 ExtResource( 21 ): -6.0,
 ExtResource( 22 ): 0.0
 }
-
-[node name="AkItem" parent="." instance=ExtResource( 23 )]
-position = Vector2( -1075.13, 495.935 )
-
-[node name="EffectItemBasis" parent="." instance=ExtResource( 13 )]
-position = Vector2( -1125.85, 955.12 )
-
-[node name="EffectItemBasis2" parent="." instance=ExtResource( 13 )]
-position = Vector2( -714.721, 1109.96 )
-
-[node name="EffectItemBasis3" parent="." instance=ExtResource( 13 )]
-position = Vector2( -1518.29, 1262.13 )
-
-[node name="EffectItemBasis4" parent="." instance=ExtResource( 13 )]
-position = Vector2( -1502.28, 1011.18 )
