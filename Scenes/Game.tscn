@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Items/Items/ItemHealUp.tscn" type="PackedScene" id=2]
@@ -27,6 +27,17 @@
 [ext_resource path="res://Scenes/Items/Items/ShortShotgunItem.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Scenes/Items/Items/ItemBulletSpiral.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Scenes/Items/Items/ItemSlowDownTime.tscn" type="PackedScene" id=27]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+void fragment(){
+  //this shader will result in an all white rectangle
+  COLOR.b = 1.0;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 6 )
@@ -63,6 +74,7 @@ item_array = [ ExtResource( 10 ), ExtResource( 2 ), ExtResource( 11 ), ExtResour
 item_likelihood = [ 7, 15, 20, 10, 15, 5, 5, 6, 30, 6, 4, 4, 20, 3 ]
 
 [node name="Map" parent="." instance=ExtResource( 3 )]
+material = SubResource( 2 )
 position = Vector2( 0, 2.24487 )
 
 [node name="BackgroundMusic" parent="." instance=ExtResource( 15 )]

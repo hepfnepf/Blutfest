@@ -7,3 +7,7 @@
 [node name="Texture" parent="." index="0"]
 position = Vector2( 0, 0 )
 scale = Vector2( 3.555, 3.555 )
+
+[node name="VoidOverlay" parent="." index="1"]
+position = Vector2( 0, 0 )
+scale = Vector2( 73, 73 )
