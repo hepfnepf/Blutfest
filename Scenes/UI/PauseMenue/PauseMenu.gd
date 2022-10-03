@@ -10,6 +10,9 @@ var debug_info = null
 
 var blocked := false
 
+func _ready() -> void:
+	options.connect("changed_sound",self,"_on_reset_sound")
+
 
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("Escape") and !blocked:
@@ -71,6 +74,11 @@ func _on_Player_Death(): # gets connected in GUI
 	blocked = true
 	print_debug("died")
 
+func _on_reset_sound():
+	var sg = SaveManager.read_saveOptions()
+
+	sfx_slider.value_change_code(sg["sfx_volume"])
+	music_slider.value_change_code(sg["music_volume"])
 
 func _on_Restart_pressed():
 	#Save new volume setting if changed in linear between 0 and 1

@@ -1,8 +1,12 @@
 extends MarginContainer
 
+signal changed_sound
+
 onready var but_resset_highscore = $ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetHighscore
-onready var hs_reset_announcement = $ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HighscoreResetAnnouncement
+onready var hs_reset_announcement = $"%HighscoreResetAnnouncement"
 onready var hs_reset_announcement_time = $ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HighscoreResetAnnouncement/Timer
+onready var op_reset_announcement = $"%OptionsResetAnnouncement"
+onready var op_reset_announcement_timer = $ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/OptionsResetAnnouncement/Timer
 
 
 
@@ -19,7 +23,19 @@ func _on_ResetHighscore_pressed():
 	hs_reset_announcement.show()
 	hs_reset_announcement_time.start()
 
+func _on_ResetOptions_pressed() -> void:
+	SaveManager.create_save_options()
+
+
+	op_reset_announcement.show()
+	op_reset_announcement_timer.start()
+
+	emit_signal("changed_sound")
 
 
 func _on_Timer_timeout():
 	hs_reset_announcement.hide()
+	op_reset_announcement.hide()
+
+
+

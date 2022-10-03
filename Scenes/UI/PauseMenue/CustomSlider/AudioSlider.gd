@@ -17,12 +17,14 @@ func _ready() -> void:
 	._ready()
 	value_change_code(db2linear( AudioServer.get_bus_volume_db(AudioServer.get_bus_index(audio_channel))))
 
+func set_to_current_volume():
+	value_change_code(db2linear( AudioServer.get_bus_volume_db(AudioServer.get_bus_index(audio_channel))))
 
-func value_change_code(value):#wrapper  in case the vslider value gets changed by code, to differentiate it from user input
+func value_change_code(value):#wrapper  in case the vslider value gets changed by code, to differentiate it from user input, gets linear value
 	changed_by_code = true
 	slider.value = value
 
-func _on_VSlider_value_changed(value):
+func _on_VSlider_value_changed(value):#gets linear value
 	var sfx_index= AudioServer.get_bus_index(audio_channel)
 	var db_value = linear2db(value)
 	AudioServer.set_bus_volume_db(sfx_index, db_value)
