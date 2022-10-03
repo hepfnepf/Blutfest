@@ -22,7 +22,6 @@ func _ready()-> void:
 
 	#Retrieve volume settings
 	var sg = SaveManager.read_saveOptions()
-	var sfx_index= AudioServer.get_bus_index("SFX")
 	gui.pause_menu.sfx_slider.value_change_code(sg["sfx_volume"])
 	gui.pause_menu.music_slider.value_change_code(sg["music_volume"])
 
