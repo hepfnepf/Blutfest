@@ -84,9 +84,9 @@ autoplay = false
 bus = "Music"
 tracks = [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 20 ) ]
 volumes = {
-ExtResource( 18 ): 0.0,
-ExtResource( 21 ): -6.0,
 ExtResource( 20 ): 0.0,
 ExtResource( 19 ): 6.0,
-ExtResource( 22 ): 0.0
+ExtResource( 22 ): 0.0,
+ExtResource( 18 ): 0.0,
+ExtResource( 21 ): -6.0
 }
