@@ -22,10 +22,13 @@ var alive:bool = true
 var elapsed_time=0 #get increased by 1 sec every time the time counter returns
 var locked = false #can the player pick up new guns
 
+
+#For effects
 var invincible:bool = false#for the invincibility item
 #How much of the current value is due to temporary effects
 var delta_move_speed = 0
 var invincible_count = 0
+var bullet_time_count = 0
 
 
 onready var weapon = $Weapon

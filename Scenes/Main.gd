@@ -8,6 +8,7 @@ onready var map = $Map
 onready var player = $Player
 onready var spawner = $Spawner
 onready var debug_gui = $GUI/HUD/VBoxContainer/DebugLayout
+onready var time_manager = get_node("/root/TimeManager")
 
 var enemys_alive:int = 0
 
@@ -17,6 +18,7 @@ func _ready()-> void:
 	connect("killed_enemy",debug_gui,"_on_enemy_count_changed")
 	gui.set_player(player)
 	gui.set_cursor(Cursor.CURSOR_TYPE.CROSSHAIR)
+	time_manager.set_time_scale(1.0)
 	var map_size:Vector2 = map.get_map_size()
 	spawner.set_map_size(map_size[0],map_size[1])
 

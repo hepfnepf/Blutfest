@@ -4,6 +4,7 @@ signal time_scale_changed
 
 var time_scale:float = 1.0 setget set_time_scale
 
+
 func set_time_scale(value:float) -> void:
 	time_scale = value
 	Engine.time_scale = value
