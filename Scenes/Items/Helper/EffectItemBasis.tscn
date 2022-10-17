@@ -28,6 +28,7 @@ shader_param/blink_speed = 1.5
 
 [node name="EffectItemBasis" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+effect_node = null
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )
