@@ -1,2 +1,3 @@
-tool
+#tool
+#extends Item
 extends EnemyAreaEffectItemBasis

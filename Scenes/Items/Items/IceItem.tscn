@@ -37,8 +37,8 @@ radius = 4000.0
 
 [node name="IceItem" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-radius = 4000.0
 effect_node = ExtResource( 4 )
+blast_time = 1.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 3 )
