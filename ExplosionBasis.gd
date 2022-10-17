@@ -1,10 +1,11 @@
-extends Item
+extends EnemyAreaEffectItemBasis
 
 export (PackedScene) var explosion
 
 onready var game = get_node("/root/Game")
 
 func pick_up(player:Player):
+	._ready()
 	if explosion==null:
 		return
 	var _exp = explosion.instance()
