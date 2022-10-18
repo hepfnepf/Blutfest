@@ -8,8 +8,8 @@ export (int) var points = 50
 export (int) var damage = 20
 export (float) var drop_rate = 0.04 #Propability to spawn an item on death
 
-export (float)var time_before_fade=1#after the enemy is dead it takes time_before_fade seconds until the fading begins
-export (float)var time_to_fade=5#how long the fading takes
+export (float)var time_before_fade=1.0#after the enemy is dead it takes time_before_fade seconds until the fading begins
+export (float)var time_to_fade=5.0#how long the fading takes
 
 onready var health_Node = $Health
 onready var ai = $AI
@@ -111,5 +111,8 @@ func _on_TimeUntilFading_timeout()->void:
 	fade_out.interpolate_property(self, "modulate:a", 1.0, 0.0,time_to_fade, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	fade_out.start()
 
+
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _on_FadeOut_tween_completed(object, key)->void:
 	queue_free()

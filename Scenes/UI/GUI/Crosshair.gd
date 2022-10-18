@@ -2,10 +2,11 @@ extends Node2D
 
 onready var outer_crosshair = $OuterCrosshair
 
-export (float)var max_size = 1
+export (float)var max_size = 1.0
 export (float)var min_size = 0.5
-export (float)var spread_scaler = 50
+export (float)var spread_scaler = 50.0
 
+# warning-ignore:unused_argument
 func _process(delta) -> void:
 	global_position = get_viewport().get_mouse_position()
 

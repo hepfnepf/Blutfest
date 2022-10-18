@@ -22,6 +22,7 @@ func _on_SkipButton_pressed()->void:
 	music_player.skip_track()
 
 
+# warning-ignore:unused_argument
 func _on_LoopButton_toggled(button_pressed)->void:
 	music_player.loop = !music_player.loop
 

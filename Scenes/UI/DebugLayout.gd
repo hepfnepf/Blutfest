@@ -9,6 +9,7 @@ var alive = true
 func _ready():
 	set_alive(false)
 
+# warning-ignore:unused_argument
 func _process(delta):
 	if !alive:
 		return

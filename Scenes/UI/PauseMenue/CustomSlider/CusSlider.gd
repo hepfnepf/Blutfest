@@ -15,5 +15,6 @@ func set_texture(_texture:Texture)->void:
 		button.icon = button_texture
 
 
+# warning-ignore:unused_argument
 func _on_VSlider_value_changed(value):
 	pass # Replace with function body.

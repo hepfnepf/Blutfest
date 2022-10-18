@@ -33,6 +33,7 @@ func akn_new_highscore(former_score:int,new_score:int) -> void:
 	before_cont.show_score(former_score)
 	before_cont.visible = true
 
+
 func akn_new_besttime(former_time:int,new_time:int) -> void:
 	akn_time.visible=true
 	before_cont.show_time(former_time)
@@ -46,6 +47,7 @@ func handle_score_display(former_score:int,new_score:int,former_time:int,new_tim
 	if new_time > former_time:
 		akn_new_besttime(former_time,new_time)
 
+# warning-ignore:unused_argument
 func _process(delta):
 	if Input.is_action_pressed("Escape"):
 		 get_tree().quit()

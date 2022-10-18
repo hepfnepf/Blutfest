@@ -1,9 +1,9 @@
 extends Item
 
 
-export (float) var bullet_rate = 10
-export (float) var rot_speed = 10
-export (float) var duration = 5
+export (float) var bullet_rate = 10.0
+export (float) var rot_speed = 10.0
+export (float) var duration = 5.0
 
 #Bullet parameter
 export (PackedScene) var bullet
@@ -18,7 +18,7 @@ var is_active:bool = false
 var time:float = 0 #Helper for spawning speed
 onready var game = get_node("/root/Game")
 
-func pick_up(player:Player):
+func pick_up(_player:Player):
 	is_active = true
 	timer.paused = true
 	$Duration.start(duration)

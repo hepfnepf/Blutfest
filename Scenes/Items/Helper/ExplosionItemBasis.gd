@@ -1,10 +1,10 @@
 extends EnemyAreaEffectItemBasis
 
-export (float) var damage = 100
-export (float) var exp_size = 5
+export (float) var damage = 100.0
+export (float) var exp_size = 5.0
 export (PackedScene) var explosion
 
-func pick_up(player:Player):
+func pick_up(_player:Player):
 	var _exp:Node2D = explosion.instance()
 	_exp.damage = damage
 	_exp.scale.x = exp_size

@@ -1,6 +1,6 @@
 extends Node2D
 
-export (float) var damage = 0
+export (float) var damage = 100.0
 
 onready var anim:AnimationPlayer = $Node2D/AnimationPlayer
 onready var area:Area2D = $Node2D/Area2D
@@ -10,6 +10,7 @@ func _ready() -> void:
 	anim.play("explosion")
 
 
+# warning-ignore:unused_argument
 func _process(delta: float) -> void:
 	for body in area.get_overlapping_bodies():
 			if body.is_in_group("ENEMIES"):

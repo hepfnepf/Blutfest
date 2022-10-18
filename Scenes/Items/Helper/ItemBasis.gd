@@ -2,7 +2,7 @@ extends Area2D
 class_name Item
 
 export (float) var pop_up_time = 1.0
-export (float) var time_to_despawn = 30
+export (float) var time_to_despawn = 30.0
 
 var time_of_blink:float = 10
 var is_blinking:bool = false
@@ -25,7 +25,7 @@ func _ready():
 
 		timer.start(time_to_despawn-time_of_blink)
 
-func pick_up(player:Player):
+func pick_up(_player:Player):
 	queue_free()
 
 func blink() -> void:
@@ -45,11 +45,13 @@ func _on_Despawn_timeout():
 
 
 
-
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _on_FadeOut_tween_completed(object, key):
 	queue_free()
 
 
+# warning-ignore:unused_argument
 func _on_FadeIn_tween_completed(object, key):
 	if key == ":modulate:a":
 		if blink_to_zero:
