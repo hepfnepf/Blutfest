@@ -68,6 +68,7 @@ func set_lock(new_lock:bool):
 	lock_texture.visible = new_lock
 
 func time_to_str(time:int) -> String:
+# warning-ignore:integer_division
 	var minutes = time / 60
 	var seconds = time % 60
 	var str_time = "%02d:%02d" % [minutes, seconds]
@@ -77,6 +78,6 @@ func set_cursor(cursor_type:int) -> void:
 	Globals.cursor_manager.set_crosshair(crosshair)
 	Globals.cursor_manager.set_cursor(cursor_type)
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	if Input.is_action_just_pressed("show_debug_info"):
 		debug_info.set_alive(!debug_info.alive)

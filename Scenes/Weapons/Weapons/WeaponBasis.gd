@@ -12,8 +12,8 @@ export (int) var max_ammo = 15
 export (int) var damage = 20
 export (int) var max_range = 300
 export (int) var speed = 100#of bullet
-export (float) var reload_time = 1
-export (float) var fire_rate = 10 setget set_fire_rate
+export (float) var reload_time = 1.0
+export (float) var fire_rate = 10.0 setget set_fire_rate
 
 
 export (float) var base_spread = 0.3

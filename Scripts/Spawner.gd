@@ -18,7 +18,7 @@ signal spawned_enemy
 export (float)var enemy_spawn_rate= 1.0
 export (float)var enemy_spawn_rate_increase=0.02
 export (float)var item_spawn_rate=0.05
-export (float)var max_enemys = 200
+export (int)var max_enemys = 200
 
 #Modify difficulty
 #Currently effects the multiplayer on all enemys base values

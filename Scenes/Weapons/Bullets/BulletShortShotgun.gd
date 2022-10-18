@@ -5,7 +5,7 @@ Copy of CleanBullet2 but damage depends on distance.
 """
 
 
-export (float) var penalty_free_distance = 500 #Below this distance, the damage is 100%
+export (float) var penalty_free_distance = 500.0 #Below this distance, the damage is 100%
 export (float) var fallof_per_dis = 0.1 # Decrease per meter
 
 var start_pos:Vector2 = Vector2.ZERO

@@ -13,7 +13,7 @@ func _ready():
 	connect("dead",get_parent(),"_on_trail_faded")
 	set_as_toplevel(true)
 
-func add_point(point_pos:Vector2, at_po :=-1):#playe in space to be spawned at, position in the array to be spawned at
+func add_point(point_pos:Vector2, _at_po :=-1):#playe in space to be spawned at, position in the array to be spawned at
 	update_position(point_pos)
 
 func update_position(point_pos:Vector2):

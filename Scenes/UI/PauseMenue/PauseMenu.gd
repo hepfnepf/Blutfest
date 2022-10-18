@@ -14,7 +14,7 @@ func _ready() -> void:
 	options.connect("changed_sound",self,"_on_reset_sound")
 
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	if Input.is_action_just_pressed("Escape") and !blocked:
 		switch_state()
 	if Input.is_action_just_pressed("show_debug_info") and visible:

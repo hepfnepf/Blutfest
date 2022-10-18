@@ -116,6 +116,12 @@ SaveManager="*res://Scripts/SaveManager.gd"
 TimeManager="*res://Scenes/Helper/TimeManager.tscn"
 NonDirectionalSoundPool="*res://Sounds/NonDirectionalSoundPool.tscn"
 
+[debug]
+
+gdscript/warnings/shadowed_variable=false
+gdscript/warnings/return_value_discarded=false
+gdscript/warnings/integer_division=false
+
 [display]
 
 window/size/width=1536

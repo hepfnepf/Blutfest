@@ -9,6 +9,7 @@ var icon:TextureRect  = null
 func _ready():
 	add_effect()
 
+# warning-ignore:unused_argument
 func _process(delta):
 	pass
 

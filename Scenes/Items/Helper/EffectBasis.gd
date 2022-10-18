@@ -18,6 +18,7 @@ func _ready():
 		container.add_child(icon)
 	add_effect()
 
+# warning-ignore:unused_argument
 func _process(delta):
 	var scroller:float = time_left/wait_time
 	icon.material.set_shader_param("scroller",scroller)
