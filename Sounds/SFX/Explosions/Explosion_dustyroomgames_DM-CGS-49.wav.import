@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Explosion_dustyroomgames_DM-CGS-49.wav-a75524a3eb08b94b6ca4e7cefd6a39f8.sample"
+
+[deps]
+
+source_file="res://Sounds/SFX/Explosions/Explosion_dustyroomgames_DM-CGS-49.wav"
+dest_files=[ "res://.import/Explosion_dustyroomgames_DM-CGS-49.wav-a75524a3eb08b94b6ca4e7cefd6a39f8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
