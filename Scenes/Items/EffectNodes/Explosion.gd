@@ -4,10 +4,13 @@ export (float) var damage = 100.0
 
 onready var anim:AnimationPlayer = $Node2D/AnimationPlayer
 onready var area:Area2D = $Node2D/Area2D
+onready var sound:AudioStreamPlayer2D = $Node2D/ExplosionSound
 
 
 func _ready() -> void:
 	anim.play("explosion")
+	if sound.stream != null:
+		sound.play()
 
 
 # warning-ignore:unused_argument
