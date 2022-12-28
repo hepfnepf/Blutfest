@@ -14,6 +14,7 @@ export (int) var move_speed = 300
 export (int) var max_health = 100 setget set_max_health
 export (int) var health = max_health setget set_health
 export (PackedScene) var start_weapon = null
+export (bool) var invincible:bool = false#for the invincibility item
 
 var experience:int = 0
 var experience_limit:int=100
@@ -24,7 +25,7 @@ var locked = false #can the player pick up new guns
 
 
 #For effects
-var invincible:bool = false#for the invincibility item
+
 #How much of the current value is due to temporary effects
 var delta_move_speed = 0
 var invincible_count = 0

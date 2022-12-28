@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/Items/Items/ItemHealUp.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Maps/GrassMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Items/Items/ItemIcicleGun.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Enemys/defaultEnemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Weapons/Weapons/AkRifle.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/UI/GUI/GUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Spawner.tscn" type="PackedScene" id=8]
@@ -48,26 +48,16 @@ death_screen_prefab = ExtResource( 9 )
 position = Vector2( -884, -8 )
 move_speed = 600
 health = 100
-
-[node name="Zombie" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1002.11, -13.0142 )
-
-[node name="Zombie2" parent="." instance=ExtResource( 5 )]
-position = Vector2( -290.923, -5.87769 )
-
-[node name="Zombie3" parent="." instance=ExtResource( 5 )]
-position = Vector2( -3780.55, 2597.54 )
-
-[node name="Zombie4" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3300.21, -1837.38 )
-
-[node name="Zombie5" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3431.24, 2370.76 )
+start_weapon = ExtResource( 5 )
+invincible = true
 
 [node name="GUI" parent="." instance=ExtResource( 7 )]
 
 [node name="Spawner" parent="." instance=ExtResource( 8 )]
-item_spawn_rate = 1.5
+enemy_spawn_rate = 0.0
+enemy_spawn_rate_increase = 0.0
+item_spawn_rate = 2.0
+max_enemys = 300
 enemy_speed_increase = 0.01
 enemy_health_increase = 0.012
 enemy_damage_increase = 0.01
