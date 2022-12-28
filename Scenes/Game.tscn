@@ -85,18 +85,9 @@ autoplay = false
 bus = "Music"
 tracks = [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 20 ) ]
 volumes = {
-ExtResource( 19 ): 6.0,
-ExtResource( 22 ): 0.0,
-ExtResource( 21 ): -6.0,
 ExtResource( 18 ): 0.0,
-ExtResource( 20 ): 0.0
+ExtResource( 20 ): 0.0,
+ExtResource( 21 ): -6.0,
+ExtResource( 22 ): 0.0,
+ExtResource( 19 ): 6.0
 }
-
-[node name="Bomb2" parent="." instance=ExtResource( 28 )]
-position = Vector2( -1234.13, 630.171 )
-
-[node name="Bomb4" parent="." instance=ExtResource( 28 )]
-position = Vector2( -1471.99, 456.498 )
-
-[node name="Bomb3" parent="." instance=ExtResource( 28 )]
-position = Vector2( -909.439, 818.946 )
