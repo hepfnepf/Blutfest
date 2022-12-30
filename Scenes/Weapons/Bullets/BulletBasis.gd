@@ -5,6 +5,7 @@ This is meant to inherit from. Not to be used directly.
 """
 
 var direction := Vector2.ZERO
+var template:PackedScene = null #gets set when instanced, needed for bullet pool is the packed scene the bullet is an instance of
 
 #Get set by the weapon
 var speed =100.0
@@ -19,7 +20,7 @@ onready var timer = $Timer
 func _ready():
 	pass
 
-func _process(delta):
+func _physics_process(delta):
 	if alive:
 		move(delta)
 
@@ -32,7 +33,7 @@ func die():
 		alive = false
 		smoketrail.fade_out(1.0)
 		speed = 0.0
-		sprite.queue_free()#This makes sure the traile fades slowly. When done it sends the _on_trail_faded-Signal.
+		sprite.visible = false
 
 func _on_Bullet_body_entered(body):
 	if !alive or body.is_in_group("Projectile"):
@@ -46,4 +47,29 @@ func _on_Timer_timeout():
 	die()
 
 func _on_trail_faded():
-	queue_free()
+	BulletPool.store_bullet(self) # calls disable() on bullet
+
+# ---------------- For Object Pooling --------------
+#Get called from pool
+func reset():
+	alive = true
+	visible = true
+	set_process(true)
+	set_physics_process(true)
+	set_process_input(true)
+	$CollisionShape2D.disabled = false
+	
+	#revert the stuff from die()
+	sprite.visible = true
+	smoketrail.reset()
+
+
+func disable():
+	# Not just removing the cild, because adding it tot the tree seems to be a problem
+	alive=false
+	visible=false
+	set_process(false)
+	set_physics_process(false)
+	set_process_input(false)
+	$CollisionShape2D.disabled = true
+	smoketrail.disable()

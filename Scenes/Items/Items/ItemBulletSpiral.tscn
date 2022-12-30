@@ -57,9 +57,7 @@ position = Vector2( 253.333, 3.33333 )
 [node name="ShootDirection" type="Position2D" parent="Sprite" index="1"]
 position = Vector2( 310, 3.33328 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="5"]
-
-[node name="Duration" type="Timer" parent="." index="6"]
+[node name="Duration" type="Timer" parent="." index="5"]
 one_shot = true
 
 [connection signal="timeout" from="Duration" to="." method="_on_Duration_timeout"]

@@ -49,9 +49,9 @@ export (Array,PackedScene) var item_array
 export (Array, int)var item_likelihood setget changed_likelihood##likelihood for an item to be spawned relative to eachtother.(10 = 2x as likely as 5)
 var item_probs:Array = [] #Gets calculated from item_likelihood. Actual probability.
 
-onready var game = get_node("/root/Game")
-onready var debug_gui =get_node("/root/Game/GUI/HUD/VBoxContainer/DebugLayout")
-onready var map:Map = get_node("/root/Game/Map")
+onready var game = get_node_or_null("/root/Game")
+onready var debug_gui =get_node_or_null("/root/Game/GUI/HUD/VBoxContainer/DebugLayout")
+onready var map:Map = get_node_or_null("/root/Game/Map")
 
 func _ready():
 	connect("spawned_enemy",debug_gui,"_on_enemy_count_changed")
