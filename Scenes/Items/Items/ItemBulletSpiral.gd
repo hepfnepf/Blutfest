@@ -35,8 +35,7 @@ func _process(delta):
 			time -= 1/bullet_rate
 
 func shoot_bullet():
-	var _bullet = bullet.instance()
-	_bullet.global_position = $Sprite/SpawnPosition.global_position
+	var _bullet = BulletPool.get_bullet(bullet,$Sprite/SpawnPosition.global_position)
 	var dir_vector = $Sprite/SpawnPosition.global_position.direction_to($Sprite/ShootDirection.global_position).normalized()
 	var rot = dir_vector.angle()
 	_bullet.rotation = rot
@@ -45,7 +44,6 @@ func shoot_bullet():
 	_bullet.p_range = max_range
 	_bullet.damage = damage
 	NonDirectionalSoundPool.play_sound(shoot_sfx, shoot_db)
-	game.add_child(_bullet)
 
 
 func _on_Duration_timeout():
