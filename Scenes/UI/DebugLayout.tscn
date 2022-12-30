@@ -19,7 +19,7 @@ text = "FPS:"
 
 [node name="FPS" type="Label" parent="."]
 margin_left = 57.0
-margin_right = 84.0
+margin_right = 98.0
 margin_bottom = 19.0
 custom_fonts/font = ExtResource( 1 )
 text = "144"
@@ -34,7 +34,7 @@ text = "ENEMY"
 [node name="Enemys" type="Label" parent="."]
 margin_left = 57.0
 margin_top = 23.0
-margin_right = 84.0
+margin_right = 98.0
 margin_bottom = 42.0
 custom_fonts/font = ExtResource( 1 )
 text = "10"
@@ -49,6 +49,22 @@ text = "Nodes:"
 [node name="Nodes" type="Label" parent="."]
 margin_left = 57.0
 margin_top = 46.0
-margin_right = 84.0
+margin_right = 98.0
 margin_bottom = 65.0
 custom_fonts/font = ExtResource( 1 )
+text = "0"
+
+[node name="LabelBullets" type="Label" parent="."]
+margin_top = 69.0
+margin_right = 53.0
+margin_bottom = 88.0
+custom_fonts/font = ExtResource( 1 )
+text = "Bullets:"
+
+[node name="Bullets" type="Label" parent="."]
+margin_left = 57.0
+margin_top = 69.0
+margin_right = 98.0
+margin_bottom = 88.0
+custom_fonts/font = ExtResource( 1 )
+text = "0/0/0"

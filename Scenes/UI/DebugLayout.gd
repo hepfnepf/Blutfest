@@ -3,6 +3,7 @@ extends GridContainer
 onready var fps = $FPS
 onready var enemys = $Enemys
 onready var nodes = $Nodes
+onready var bullet = $Bullets
 
 var alive = true
 
@@ -29,3 +30,6 @@ func set_alive(new_alive):
 
 	alive = new_alive
 
+func _on_bullet_count_changed(new_bullet_count,new_bullet_active_count):
+	var txt= "%s/%s/%s" % [new_bullet_count, new_bullet_active_count, new_bullet_count-new_bullet_active_count]
+	bullet.text=txt

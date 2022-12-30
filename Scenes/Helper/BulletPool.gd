@@ -1,7 +1,12 @@
 extends Node2D
 
+signal bullet_count_changed
 
 var pools = {}
+
+#Statistics
+var bullets_active:int = 0
+var bullets_cnt:int=0
 """
 shoots an instance of the given bullet
 """
@@ -22,7 +27,9 @@ func get_bullet(packed_bullet:PackedScene, pos:Vector2 = Vector2(0,0)) -> Bullet
 	else:
 		pools[packed_bullet] = Queue.new()
 		_bul= create_new_bullet(packed_bullet,pos)
-
+	
+	bullets_active +=1
+	emit_signal("bullet_count_changed",bullets_cnt,bullets_active)
 	return _bul
 
 func create_new_bullet(packed_bullet:PackedScene, pos:Vector2) -> Bullet:
@@ -30,6 +37,8 @@ func create_new_bullet(packed_bullet:PackedScene, pos:Vector2) -> Bullet:
 	_bul.template = packed_bullet	
 	_bul.global_position = pos
 	add_child(_bul)
+	bullets_cnt+=1
+	emit_signal("bullet_count_changed",bullets_cnt,bullets_active)
 	return _bul
 
 func store_bullet(bullet:Bullet) -> void:
@@ -44,3 +53,5 @@ func store_bullet(bullet:Bullet) -> void:
 			pools[bullet.template] = Queue.new()
 			pools[bullet.template].add(bullet)
 			bullet.disable() 
+	bullets_active -=1
+	emit_signal("bullet_count_changed",bullets_cnt,bullets_active)
