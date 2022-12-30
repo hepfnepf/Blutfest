@@ -7,7 +7,7 @@
 [ext_resource path="res://Sprites/Player/forearm.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Weapons/muzzle_flash_02.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/Weapons/Bullets/BulletClean2.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Helper/Bullettrailtest.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/Helper/Testing/Bullettrailtest.gd" type="Script" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "shot"

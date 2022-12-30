@@ -7,6 +7,7 @@
 extents = Vector2( 41.5, 36.5 )
 
 [node name="SpikedBall" instance=ExtResource( 1 )]
+BULLET_TYPE = "BULLET_SPIKED_BALL"
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2( -2, -4 )

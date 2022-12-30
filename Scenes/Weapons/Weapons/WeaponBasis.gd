@@ -113,8 +113,9 @@ func shoot():
 	emit_signal("ammo_changed",ammo)
 
 func shoot_bullet():
-	var bullet = Bullet.instance()
-	bullet.global_position = bullet_spawn_position.global_position
+	#var bullet = Bullet.instance()
+	var bullet = BulletPool.get_bullet(Bullet,bullet_spawn_position.global_position)
+	#bullet.global_position = bullet_spawn_position.global_position
 	var dir_vector = bullet_spawn_position.global_position.direction_to(bullet_spawn_direction.global_position).normalized()
 	var rot = dir_vector.angle()+ rng.randf_range(-spread,spread)
 	bullet.rotation = rot
@@ -122,8 +123,7 @@ func shoot_bullet():
 	bullet.speed = speed
 	bullet.p_range = max_range
 	bullet.damage = damage
-	game.add_child(bullet)
-	#add_child(bullet)
+	#game.add_child(bullet)
 	increase_spread()
 
 """

@@ -12,7 +12,7 @@
 [ext_resource path="res://Scenes/Items/Items/PistolItem.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Items/Items/SpeedUpItem.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Items/Items/ItemInvincibility.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/Items/Items/ItemAmmoFinity.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Items/Items/ItemAmmoInfinity.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Items/Items/ItemStandardRifle.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/BackgroundMusic.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Items/Items/IceItem.tscn" type="PackedScene" id=16]
@@ -85,9 +85,9 @@ autoplay = false
 bus = "Music"
 tracks = [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 20 ) ]
 volumes = {
-ExtResource( 21 ): -6.0,
-ExtResource( 20 ): 0.0,
-ExtResource( 22 ): 0.0,
+ExtResource( 19 ): 6.0,
 ExtResource( 18 ): 0.0,
-ExtResource( 19 ): 6.0
+ExtResource( 20 ): 0.0,
+ExtResource( 21 ): -6.0,
+ExtResource( 22 ): 0.0
 }
