@@ -62,6 +62,7 @@ func reset():
 	#revert the stuff from die()
 	sprite.visible = true
 	smoketrail.reset()
+	timer.start()
 
 
 func disable():
