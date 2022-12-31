@@ -1,9 +1,11 @@
 extends GridContainer
 
-onready var fps = $FPS
-onready var enemys = $Enemys
-onready var nodes = $Nodes
-onready var bullet = $Bullets
+onready var fps:Label = $FPS
+onready var enemys:Label = $Enemys
+onready var nodes:Label = $Nodes
+onready var bullet:Label = $Bullets
+onready var difficulty:Label = $Difficulty
+onready var spawn_rate:Label = $EnemySpawnRate
 
 var alive = true
 
@@ -33,3 +35,9 @@ func set_alive(new_alive):
 func _on_bullet_count_changed(new_bullet_count,new_bullet_active_count):
 	var txt= "%s/%s/%s" % [new_bullet_count, new_bullet_active_count, new_bullet_count-new_bullet_active_count]
 	bullet.text=txt
+
+func _on_difficulty_changed(health, damage, speed, view_range,enemy_spawn_rate):
+	var txt = "%.3f/%.3f/%.3f/%.3f" % [health,damage, speed, view_range]
+	difficulty.text = txt
+	spawn_rate.text = "%.3f" % enemy_spawn_rate
+
