@@ -12,43 +12,103 @@ columns = 2
 script = ExtResource( 2 )
 
 [node name="LabelFPS" type="Label" parent="."]
-margin_right = 53.0
+margin_right = 272.0
 margin_bottom = 19.0
 custom_fonts/font = ExtResource( 1 )
 text = "FPS:"
 
 [node name="FPS" type="Label" parent="."]
-margin_left = 57.0
-margin_right = 84.0
+margin_left = 276.0
+margin_right = 333.0
 margin_bottom = 19.0
 custom_fonts/font = ExtResource( 1 )
 text = "144"
 
 [node name="LabelEnemy" type="Label" parent="."]
 margin_top = 23.0
-margin_right = 53.0
+margin_right = 272.0
 margin_bottom = 42.0
 custom_fonts/font = ExtResource( 1 )
 text = "ENEMY"
 
 [node name="Enemys" type="Label" parent="."]
-margin_left = 57.0
+margin_left = 276.0
 margin_top = 23.0
-margin_right = 84.0
+margin_right = 333.0
 margin_bottom = 42.0
 custom_fonts/font = ExtResource( 1 )
 text = "10"
 
-[node name="LabelNodes" type="Label" parent="."]
+[node name="LabelEnemySpawnrate" type="Label" parent="."]
 margin_top = 46.0
-margin_right = 53.0
+margin_right = 272.0
 margin_bottom = 65.0
+custom_fonts/font = ExtResource( 1 )
+text = "ENEMY_SPAWN_RATE"
+
+[node name="EnemySpawnRate" type="Label" parent="."]
+margin_left = 276.0
+margin_top = 46.0
+margin_right = 333.0
+margin_bottom = 65.0
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+
+[node name="LabelNodes" type="Label" parent="."]
+margin_top = 69.0
+margin_right = 272.0
+margin_bottom = 88.0
 custom_fonts/font = ExtResource( 1 )
 text = "Nodes:"
 
 [node name="Nodes" type="Label" parent="."]
-margin_left = 57.0
-margin_top = 46.0
-margin_right = 84.0
-margin_bottom = 65.0
+margin_left = 276.0
+margin_top = 69.0
+margin_right = 333.0
+margin_bottom = 88.0
 custom_fonts/font = ExtResource( 1 )
+text = "0"
+
+[node name="LabelBullets" type="Label" parent="."]
+margin_top = 92.0
+margin_right = 272.0
+margin_bottom = 111.0
+custom_fonts/font = ExtResource( 1 )
+text = "Bullets:"
+
+[node name="Bullets" type="Label" parent="."]
+margin_left = 276.0
+margin_top = 92.0
+margin_right = 333.0
+margin_bottom = 111.0
+custom_fonts/font = ExtResource( 1 )
+text = "0/0/0"
+
+[node name="Current Difficulty" type="Label" parent="."]
+margin_top = 115.0
+margin_right = 272.0
+margin_bottom = 134.0
+custom_fonts/font = ExtResource( 1 )
+text = "CURRENT_DIFFICULTY"
+
+[node name="placeholder" type="Label" parent="."]
+margin_left = 276.0
+margin_top = 115.0
+margin_right = 333.0
+margin_bottom = 134.0
+custom_fonts/font = ExtResource( 1 )
+
+[node name="LabelDifficulty" type="Label" parent="."]
+margin_top = 138.0
+margin_right = 272.0
+margin_bottom = 157.0
+custom_fonts/font = ExtResource( 1 )
+text = "HEALT_DAMAGE_SPEED_VIEWRANGE"
+
+[node name="Difficulty" type="Label" parent="."]
+margin_left = 276.0
+margin_top = 138.0
+margin_right = 333.0
+margin_bottom = 157.0
+custom_fonts/font = ExtResource( 1 )
+text = "1/1/1/1"

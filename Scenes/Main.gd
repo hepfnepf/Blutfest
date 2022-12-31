@@ -16,6 +16,7 @@ func _ready()-> void:
 	randomize()
 	player.connect("dead",self,"_on_player_death")
 	connect("killed_enemy",debug_gui,"_on_enemy_count_changed")
+	BulletPool.connect("bullet_count_changed", debug_gui,"_on_bullet_count_changed")
 	gui.set_player(player)
 	gui.set_cursor(Cursor.CURSOR_TYPE.CROSSHAIR)
 	time_manager.set_time_scale(1.0)
