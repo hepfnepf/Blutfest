@@ -66,7 +66,7 @@ func reset():
 
 
 func disable():
-	# Not just removing the cild, because adding it tot the tree seems to be a problem
+	# Not just removing the child, because adding it tot the tree seems to be a problem
 	alive=false
 	visible=false
 	set_process(false)

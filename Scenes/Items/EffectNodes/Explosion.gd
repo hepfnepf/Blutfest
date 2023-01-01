@@ -1,6 +1,6 @@
 extends Node2D
 
-export (float) var damage = 100.0
+var damage = 100.0
 
 onready var anim:AnimationPlayer = $Node2D/AnimationPlayer
 onready var area:Area2D = $Node2D/Area2D
