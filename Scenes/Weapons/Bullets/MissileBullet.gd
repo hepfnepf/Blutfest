@@ -16,4 +16,6 @@ func _on_Bullet_body_entered(body):
 		_exp.global_position=orig.global_position
 		_exp.damage = damage
 		_exp.scale =Vector2(exp_size,exp_size)
-		game.call_deferred("add_child", _exp)
+		game = get_node_or_null("/root/Game")#gets set again, because if game gets reset after player death, this instance will be removed
+		if game!=null:
+			game.call_deferred("add_child", _exp)

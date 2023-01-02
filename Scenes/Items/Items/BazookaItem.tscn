@@ -1,11 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scenes/Items/Helper/ItemBasis.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Items/Helper/ItemBasisWeapon.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Items/Helper/ItemBasisWeapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Items/Weapons/bazooka_item.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Weapons/Weapons/Bazooka.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=3]
 resource_local_to_scene = true
-extents = Vector2( 283.162, 70.7906 )
+extents = Vector2( 740.941, 185.629 )
 
 [sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
@@ -28,12 +29,14 @@ shader_param/is_blinking = false
 shader_param/blink_speed = 1.5
 shader_param/starded_blinking = 0.0
 
-[node name="ItemBasisWeapon" groups=["WeaponItem"] instance=ExtResource( 1 )]
-script = ExtResource( 2 )
-weapon = null
+[node name="BazookaItem" instance=ExtResource( 1 )]
+weapon = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( -3.20666, -1.08618 )
 shape = SubResource( 3 )
 
 [node name="Sprite" parent="." index="1"]
 material = SubResource( 4 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )

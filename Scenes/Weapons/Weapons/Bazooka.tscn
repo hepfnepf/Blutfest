@@ -14,10 +14,10 @@
 z_index = 1
 script = ExtResource( 6 )
 max_ammo = 6
-damage = 120
+damage = 95
 speed = 3000
 reload_time = 2.0
-fire_rate = 2.0
+fire_rate = 1.0
 base_spread = 0.05
 max_spread = 0.28
 spread_inc = 0.03
@@ -26,7 +26,7 @@ shoot_sfx = ExtResource( 8 )
 reload_sfx = ExtResource( 9 )
 shoot_db = 2.0
 reload_db = 1.0
-explosion_size = 1.5
+explosion_size = 3.7
 
 [node name="muzzle_flash_02" parent="." index="0"]
 position = Vector2( 221.039, 33.4145 )
