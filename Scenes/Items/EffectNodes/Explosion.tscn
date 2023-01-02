@@ -72,5 +72,6 @@ shape = SubResource( 3 )
 
 [node name="ExplosionSound" type="AudioStreamPlayer2D" parent="Node2D"]
 stream = ExtResource( 3 )
+volume_db = 12.0
 
 [connection signal="animation_finished" from="Node2D/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -13,9 +13,12 @@ Icicle Gun based on Xavier4321 - https://opengameart.org/content/gun-mine - CC B
 Longrange Shotgun based on - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player
 Trap Canon based on - richtaur - https://opengameart.org/content/bomb-party - CC BY 3.0
 Spiked Ball - dravenx - https://opengameart.org/content/spikey-stuff - CC BY 3.0
+Bazooka - me - CC0
 
 Ammo:
 Icicle - ? - https://proofmart.com/product/icicles-png-images-transparent-background-free-download/ - CC BY 4.0
+Missle based on - Mystic Mike (Mike Hosker) - https://opengameart.org/content/agm-65-maverick-missile - GPL 2.0,
+removed background, rotated 31.12.2022
 
 Pick-Up items
 SpeedUp - Delapouite - https://game-icons.net/1x1/delapouite/running-shoe.html
@@ -32,6 +35,7 @@ Ice - https://game-icons.net/1x1/lorc/ice-cube.html#download
 Icicle Gun based on Xavier4321 - https://opengameart.org/content/gun-mine - CC BY 3.0
 Longrange Shotgun based on - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player
 Bullet Spiral - https://game-icons.net/1x1/lorc/bullets.html
+Bazooka -Robert Brooks- https://opengameart.org/content/bazooka - CC BY 3.0
 
 Effects
 Ice - digit1024 - https://opengameart.org/content/ice-block - CC BY 3.0

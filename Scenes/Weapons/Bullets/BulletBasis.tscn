@@ -4,7 +4,8 @@
 [ext_resource path="res://Scenes/Weapons/Bullets/BulletBasis.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16.119, 10 )
+resource_local_to_scene = true
+extents = Vector2( 14.9831, 4.77297 )
 
 [node name="Bullet" type="Area2D" groups=["Projectile"]]
 collision_layer = 8
@@ -12,6 +13,7 @@ collision_mask = 4
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.110183, 0 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]

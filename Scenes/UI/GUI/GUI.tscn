@@ -82,10 +82,10 @@ text = "1000"
 [node name="DebugLayout" parent="HUD/VBoxContainer" instance=ExtResource( 6 )]
 margin_top = 42.0
 margin_right = 1516.0
-margin_bottom = 107.0
+margin_bottom = 199.0
 
 [node name="Seperator" type="HBoxContainer" parent="HUD/VBoxContainer"]
-margin_top = 111.0
+margin_top = 203.0
 margin_right = 1516.0
 margin_bottom = 818.0
 size_flags_horizontal = 3

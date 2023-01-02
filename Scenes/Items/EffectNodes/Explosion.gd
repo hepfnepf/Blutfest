@@ -1,11 +1,12 @@
 extends Node2D
 
-export (float) var damage = 100.0
+var damage = 100.0
 
 onready var anim:AnimationPlayer = $Node2D/AnimationPlayer
 onready var area:Area2D = $Node2D/Area2D
 onready var sound:AudioStreamPlayer2D = $Node2D/ExplosionSound
 
+var already_hit = []
 
 func _ready() -> void:
 	anim.play("explosion")
@@ -16,8 +17,9 @@ func _ready() -> void:
 # warning-ignore:unused_argument
 func _process(delta: float) -> void:
 	for body in area.get_overlapping_bodies():
-			if body.is_in_group("ENEMIES"):
+			if body.is_in_group("ENEMIES") and !(body in already_hit):
 				apply_effect(body)
+				already_hit.append(body)
 
 func apply_effect(body) -> void:
 	if body.has_method("handle_hit"):
