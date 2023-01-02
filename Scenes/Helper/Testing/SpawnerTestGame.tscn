@@ -75,9 +75,8 @@ speed = 0
 [node name="GUI" parent="." instance=ExtResource( 7 )]
 
 [node name="Spawner" parent="." instance=ExtResource( 8 )]
-enemy_spawn_rate = 0.0
-enemy_spawn_rate_increase = 0.0
-item_spawn_rate = 0.0
+enemy_spawn_rate_increase = 0.08
+item_spawn_rate = 1.0
 max_enemys = 300
 enemy_speed_increase = 0.01
 enemy_health_increase = 0.012
@@ -108,8 +107,8 @@ volumes = {
 ExtResource( 19 ): 6.0,
 ExtResource( 22 ): 0.0,
 ExtResource( 20 ): 0.0,
-ExtResource( 18 ): 0.0,
-ExtResource( 21 ): -6.0
+ExtResource( 21 ): -6.0,
+ExtResource( 18 ): 0.0
 }
 
 [node name="EffectItemBasis" parent="." instance=ExtResource( 13 )]
