@@ -1,4 +1,5 @@
 extends Node2D
+class_name Spawner
 ##
 ## This Script handles all spawning of items and enemys.
 ##
@@ -54,17 +55,16 @@ onready var game = get_node_or_null("/root/Game")
 onready var debug_gui =get_node_or_null("/root/Game/GUI/HUD/VBoxContainer/DebugLayout")
 onready var map:Map = get_node_or_null("/root/Game/Map")
 
-func _ready():
+func _ready() -> void:
 	connect("spawned_enemy",debug_gui,"_on_enemy_count_changed")
 	connect("difficulty_changed",debug_gui,"_on_difficulty_changed")
 	connect("spawned_enemy",game,"_on_enemy_spawned")
 
-func _process(delta):
+func _process(delta) -> void:
 	if !game_alive:
 		return
 	handle_enemy_spawning(delta)
 	handle_item_spawning(delta)
-
 
 #-----------Spawning Routine-------------
 ##Handles the automatic spawning of items on the map
@@ -120,6 +120,16 @@ func spawn(scene):
 	game.add_child(_obj)
 	return _obj
 
+##Needed for effect fo standard rifle
+func mult_all_weapon_probs(factor:float) -> void:
+	for item in item_array:
+		var state: SceneState = item.get_state()
+		var c:int = state.get_node_property_count(0)
+		if c > 0 and "weapon" == state.get_node_property_name(0,0):
+			var lh:float = get_item_spawn_lh(item)
+			#inefficient for many items because calc_item_probs get called after every change
+			set_item_spawn_prob(item,lh*factor)
+
 #-----------Helpers for Spawning routine -------------
 func random_position_in_map() -> Vector2:
 	var random_x= rand_range(-map_size_x,map_size_x)
@@ -145,7 +155,6 @@ func random_position_out_map()->Vector2:
 func set_map_size(x_size:float,y_size:float)->void:
 	map_size_x = x_size/2
 	map_size_y = y_size/2
-
 
 #-----------Needed for random item-------------
 
@@ -176,8 +185,16 @@ func changed_likelihood(new_likelihoods) -> void:##Recalculates the item_probs a
 	item_likelihood = new_likelihoods
 	calc_item_probs()
 
+func get_item_spawn_lh(item) -> float:
+	return item_likelihood[item_array.find(item)]
+
+func set_item_spawn_prob(item,new_lh) -> void:
+	item_likelihood[item_array.find(item)] = new_lh
+	calc_item_probs()
+
 func sum(int_array:Array)-> int:
 	var res:int = 0
 	for el in int_array:
 		res += el
 	return res
+

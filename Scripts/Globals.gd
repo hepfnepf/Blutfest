@@ -6,6 +6,7 @@ enum DamageType{PROJECTILE,EXPLOSION}
 
 var cursor_manager = null
 var music_player = null setget set_music_player #this var gets set by the background music node using set_music_player
+var game = null
 
 func _ready() -> void:
 	cursor_manager = load("res://Scripts/Cursor.gd").new()
