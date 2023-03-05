@@ -6,7 +6,7 @@ export (PackedScene) var death_screen_prefab
 onready var gui = $GUI
 onready var map = $Map
 onready var player = $Player
-onready var spawner = $Spawner
+onready var spawner:Spawner = $Spawner
 onready var debug_gui = $GUI/HUD/VBoxContainer/DebugLayout
 onready var time_manager = get_node("/root/TimeManager")
 
@@ -22,6 +22,7 @@ func _ready()-> void:
 	time_manager.set_time_scale(1.0)
 	var map_size:Vector2 = map.get_map_size()
 	spawner.set_map_size(map_size[0],map_size[1])
+	Globals.game = self
 
 	#Retrieve volume settings
 	var sg = SaveManager.read_saveOptions()
@@ -43,10 +44,10 @@ func _on_player_death()->void:
 
 	SaveManager.save_game(save_dict)
 
-func _on_enemy_killed(points):
+func _on_enemy_killed(points) -> void:
 	enemys_alive -=1
 	player.set_score(player.score + points)
 	emit_signal("killed_enemy")
 
-func _on_enemy_spawned():
+func _on_enemy_spawned() -> void:
 	enemys_alive +=1
