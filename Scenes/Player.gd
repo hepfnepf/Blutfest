@@ -16,7 +16,7 @@ export (int) var health = max_health setget set_health
 export (PackedScene) var start_weapon = null
 export (bool) var invincible:bool = false#for the invincibility item
 
-var experience:int = 0
+var experience:int = 0 setget set_experience
 var experience_limit:int=100
 var score:int = 0 setget set_score
 var alive:bool = true
@@ -95,9 +95,13 @@ func set_max_health(new_max_health:int):
 	max_health = new_max_health
 	emit_signal("max_health_changed",max_health)
 
+func add_points(points:int)->void:
+	set_score(score+points)
+	set_experience(experience+points)
+
 func set_score(new_score):
 	if !alive:
-			return
+		return
 	score=new_score
 	emit_signal("score_changed",new_score)
 
@@ -112,10 +116,11 @@ func take_damage(damage:int):
 	hurt.play()
 
 #Experience Management
-func receive_experience(base_xp:int):
+func set_experience(new_exp:int):
 	if !alive:
 		return
-	experience += base_xp
+	experience = new_exp
+	emit_signal("exp_changed",experience)
 	while experience >= experience_limit:
 		level_up()
 
@@ -123,6 +128,7 @@ func level_up():
 	if !alive:
 		return
 	experience -= experience_limit
+	print("Level UP")
 	emit_signal("exp_changed",experience)
 	next_exp_limit()
 
@@ -133,7 +139,7 @@ func next_exp_limit():
 	emit_signal("exp_limit_changed",experience_limit)
 	pass
 
-func change_invincibility(change:int):#function to be used from effect to turn the player invinsible, it handles stacking of the effect
+func change_invincibility(change:int):#function to be used from effect to turn the player invincible, it handles stacking of the effect
 	invincible_count += change
 	if invincible_count <= 0:
 		invincible = false

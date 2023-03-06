@@ -16,9 +16,6 @@ font_data = ExtResource( 2 )
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 margin_top = 5.0
