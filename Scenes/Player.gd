@@ -27,24 +27,25 @@ var locked = false #can the player pick up new guns
 #For effects
 
 #How much of the current value is due to temporary effects
-var delta_move_speed = 0
-var invincible_count = 0
-var bullet_time_count = 0
+var delta_move_speed:float = 0
+var invincible_count:int = 0
+var bullet_time_count:int = 0
 
 
 onready var weapon = $Weapon
-onready var hurt = $Hurt
+onready var hurt:AudioStreamPlayer = $Hurt
+onready var perkManager:PerkManager = $PerkManager
 
 var velocity:Vector2 = Vector2.ZERO #needed for movement inaccuracy of player
 export (float) var friction = 0.01
 export (float) var acceleration = 0.1
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready()->void:
 	if start_weapon != null:
 		weapon.set_weapon(start_weapon)
 
-func _physics_process(delta):
+func _physics_process(delta)->void:
 	if !alive:
 		return
 
@@ -78,7 +79,7 @@ func _physics_process(delta):
 	look_at(get_global_mouse_position())
 
 #Health related, maybe should be outsourced to its own node
-func set_health(new_health:int):
+func set_health(new_health:int)->void:
 	if !alive:
 		return
 	if new_health > max_health:
@@ -89,7 +90,7 @@ func set_health(new_health:int):
 	if health <= 0:
 		die()
 
-func set_max_health(new_max_health:int):
+func set_max_health(new_max_health:int)->void:
 	if !alive or invincible:
 		return
 	max_health = new_max_health
@@ -99,24 +100,24 @@ func add_points(points:int)->void:
 	set_score(score+points)
 	set_experience(experience+points)
 
-func set_score(new_score):
+func set_score(new_score)->void:
 	if !alive:
 		return
 	score=new_score
 	emit_signal("score_changed",new_score)
 
-func die():
+func die()->void:
 	emit_signal("dead")
 	alive = false
 
-func take_damage(damage:int):
+func take_damage(damage:int)->void:
 	if !alive or invincible:
 		return
 	set_health(health - damage)
 	hurt.play()
 
 #Experience Management
-func set_experience(new_exp:int):
+func set_experience(new_exp:int)->void:
 	if !alive:
 		return
 	experience = new_exp
@@ -129,6 +130,7 @@ func level_up():
 		return
 	experience -= experience_limit
 	print("Level UP")
+	perkManager.new_perk_selection()
 	emit_signal("exp_changed",experience)
 	next_exp_limit()
 

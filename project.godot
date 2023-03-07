@@ -74,6 +74,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Perks/Perk.gd"
 }, {
+"base": "PanelContainer",
+"class": "PerkCard",
+"language": "GDScript",
+"path": "res://Scenes/Perks/PerkCard.gd"
+}, {
+"base": "Node",
+"class": "PerkManager",
+"language": "GDScript",
+"path": "res://Scripts/PerkManager.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -108,6 +118,8 @@ _global_script_class_icons={
 "Movement": "",
 "PauseMenu": "",
 "Perk": "",
+"PerkCard": "",
+"PerkManager": "",
 "Player": "",
 "Queue": "",
 "Spawner": "",

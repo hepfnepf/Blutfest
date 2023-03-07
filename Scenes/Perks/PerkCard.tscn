@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Sprites/Items/Effects/SpeedUp.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Perks/PerkCard.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Perks/PerkSpeedUp.tscn" type="PackedScene" id=3]
 
 [node name="PerkCard" type="PanelContainer"]
 anchor_right = 0.675781
@@ -10,17 +9,19 @@ anchor_bottom = 1.41556
 margin_right = -512.0
 margin_bottom = -974.0
 rect_min_size = Vector2( 200, 300 )
+mouse_filter = 1
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
-perk = ExtResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 519.0
 margin_bottom = 293.004
+mouse_filter = 2
+mouse_default_cursor_shape = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_right = 511.0
@@ -71,3 +72,12 @@ margin_right = 511.0
 margin_bottom = 40.0
 text = "THIS IS THE DESCRIPTION"
 autowrap = true
+
+[node name="Button" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 519.0
+margin_bottom = 293.004
+
+[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]

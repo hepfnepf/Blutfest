@@ -11,14 +11,16 @@ onready var crosshair = $Crosshair
 onready var effect_container = $HUD/VBoxContainer/HBoxContainer/EffectContainer
 onready var credits = $PauseMenu/CreditsScreen
 onready var pause_menu =$PauseMenu
-#enum CURSOR_TYPE{DEFAULT,CUSTOM}
+onready var card_holder = $CardHolder/HBoxContainer
+
 var player:Player
+var perkCard = preload("res://Scenes/Perks/PerkCard.tscn")
 
 
 func _ready() -> void:
 	pause_menu.set_debug_info(debug_info)
 
-func set_player(player:Player):
+func set_player(player:Player)->void:
 	self.player = player
 
 	set_health(player.health)
@@ -29,6 +31,7 @@ func set_player(player:Player):
 	set_max_exp(player.experience_limit)
 
 	player.weapon.connect("weapon_switch",self,"reset_weapon")
+	player.perkManager.connect("newSelection",self,"new_perk_selection")
 	player.connect("health_changed",self,"set_health")
 	player.connect("max_health_changed",self,"set_max_health")
 	player.connect("exp_changed",self,"set_exp")
@@ -38,7 +41,7 @@ func set_player(player:Player):
 	player.connect("time_changed",self,"set_time")
 	player.connect("lock_changed",self,"set_lock")
 
-func reset_weapon(weapon):
+func reset_weapon(weapon)->void:
 	set_ammo(weapon.ammo)
 	set_max_ammo(weapon.max_ammo)
 	weapon.connect("ammo_changed",self,"set_ammo")
@@ -46,26 +49,50 @@ func reset_weapon(weapon):
 	weapon.connect("reload_percent_change", self, "set_reload_progress")
 	weapon.connect("spread_changed",crosshair,"set_spread")
 
-func set_health(new_health:int):
+func set_health(new_health:int)->void:
 	health_widget.set_health(new_health)
-func set_max_health(new_max_health:int):
+func set_max_health(new_max_health:int)->void:
 	health_widget.set_max_health(new_max_health)
-func set_ammo(new_ammo:int):
+func set_ammo(new_ammo:int)->void:
 	ammo_widget.set_ammo(new_ammo)
-func set_max_ammo(new_max_ammo:int):
+func set_max_ammo(new_max_ammo:int)->void:
 	ammo_widget.set_max_ammo(new_max_ammo)
-func set_reload_progress(percent:float):
+func set_reload_progress(percent:float)->void:
 	ammo_widget.set_reload_progress(percent)
-func set_exp(new_exp:int):
+func set_exp(new_exp:int)->void:
 	exp_widget.set_exp(new_exp)
-func set_max_exp(new_max_exp:int):
+func set_max_exp(new_max_exp:int)->void:
 	exp_widget.set_max_exp(new_max_exp)
-func set_score(new_score:int):
+func set_score(new_score:int)->void:
 	score.text = str(new_score)
-func set_time(new_time:int):
+func set_time(new_time:int)->void:
 	time.text = time_to_str(new_time)
-func set_lock(new_lock:bool):
+func set_lock(new_lock:bool)->void:
 	lock_texture.visible = new_lock
+##Opens the perk selection screen
+func new_perk_selection(perks):
+	var cards = []
+	for perk in perks:
+		var card:PerkCard = perkCard.instance()
+		card.perk=perk
+		cards.append(card)
+		card.connect("card_selected",self,"_on_card_selected")
+	
+	for card in cards:
+		card_holder.add_child(card)
+	
+	TimeManager.set_time_scale(0.0,true)
+	card_holder.get_parent().visible=true
+	set_cursor(Globals.cursor_manager.CURSOR_TYPE.DEFAULT)
+
+func _on_card_selected(card:PerkCard)->void:
+	player.add_child(card.perk.instance())
+	
+	card_holder.get_parent().visible=false
+	for card in card_holder.get_children():
+		card.queue_free()
+	set_cursor(Globals.cursor_manager.CURSOR_TYPE.CROSSHAIR)
+	TimeManager.restore_from_stored_time()
 
 func time_to_str(time:int) -> String:
 # warning-ignore:integer_division
