@@ -120,7 +120,7 @@ func shoot_bullet():
 	bullet.direction = Vector2.RIGHT.rotated(rot)
 	bullet.speed = speed
 	bullet.p_range = max_range
-	bullet.damage = damage
+	bullet.damage = damage*player.damage_multi
 	increase_spread()
 
 """

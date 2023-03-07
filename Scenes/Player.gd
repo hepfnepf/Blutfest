@@ -9,20 +9,21 @@ signal exp_limit_changed(new_exp_limit)
 signal time_changed(new_time)
 signal score_changed(new_score)
 signal lock_changed(new_lock_state)
+signal leveled_up
 
 export (int) var move_speed = 300
 export (int) var max_health = 100 setget set_max_health
 export (int) var health = max_health setget set_health
 export (PackedScene) var start_weapon = null
-export (bool) var invincible:bool = false#for the invincibility item
+export (bool) var invincible:bool = false#for the invincibility item, exported for debugging
 
 var experience:int = 0 setget set_experience
 var experience_limit:int=100
 var score:int = 0 setget set_score
 var alive:bool = true
 var elapsed_time=0 #get increased by 1 sec every time the time counter returns
-var locked = false #can the player pick up new guns
-
+var locked:bool = false #can the player pick up new guns
+var damage_multi:float=1.0
 
 #For effects
 
@@ -130,6 +131,7 @@ func level_up():
 		return
 	experience -= experience_limit
 	print("Level UP")
+	emit_signal("leveled_up")
 	perkManager.new_perk_selection()
 	emit_signal("exp_changed",experience)
 	next_exp_limit()
