@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Perks/Perk.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Perks/PerkSpeedUp.gd" type="Script" id=2]
+
+[node name="PerkSpeedUp" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+title = "Speed Up"
+desc = "Increases the player's speed by 20%."

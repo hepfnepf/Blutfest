@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Bazooka.png-f9e1a83d14ef39090faa2fb92302280a.stex"
+path="res://.import/Bazooka.png-9ca4162dfc73367a90e2aa8b5d73d561.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Bazooka.png"
-dest_files=[ "res://.import/Bazooka.png-f9e1a83d14ef39090faa2fb92302280a.stex" ]
+source_file="res://Sprites/Weapons/Bazooka.png"
+dest_files=[ "res://.import/Bazooka.png-9ca4162dfc73367a90e2aa8b5d73d561.stex" ]
 
 [params]
 

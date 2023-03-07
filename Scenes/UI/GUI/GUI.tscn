@@ -87,15 +87,15 @@ margin_bottom = 199.0
 [node name="Seperator" type="HBoxContainer" parent="HUD/VBoxContainer"]
 margin_top = 203.0
 margin_right = 1516.0
-margin_bottom = 818.0
+margin_bottom = 784.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer"]
-margin_top = 822.0
+margin_top = 788.0
 margin_right = 1516.0
-margin_bottom = 822.0
+margin_bottom = 788.0
 alignment = 2
 
 [node name="EffectContainer" type="HBoxContainer" parent="HUD/VBoxContainer/HBoxContainer"]
@@ -118,26 +118,26 @@ expand = true
 stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/VBoxContainer"]
-margin_top = 826.0
+margin_top = 792.0
 margin_right = 1516.0
 margin_bottom = 880.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer/VBoxContainer"]
 margin_right = 1516.0
-margin_bottom = 54.0
+margin_bottom = 88.0
 mouse_filter = 2
 size_flags_vertical = 4
 
 [node name="CenterContainer" type="CenterContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer"]
 margin_right = 385.0
-margin_bottom = 54.0
+margin_bottom = 88.0
 mouse_filter = 2
 size_flags_horizontal = 9
 size_flags_vertical = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer"]
 margin_right = 385.0
-margin_bottom = 54.0
+margin_bottom = 88.0
 size_flags_horizontal = 5
 size_flags_vertical = 9
 
@@ -151,7 +151,6 @@ margin_bottom = 54.0
 rect_min_size = Vector2( 0, 50 )
 
 [node name="ExpbarWidget" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
-visible = false
 margin_top = 58.0
 margin_right = 385.0
 margin_bottom = 88.0
@@ -159,7 +158,7 @@ margin_bottom = 88.0
 [node name="CenterContainer2" type="CenterContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer"]
 margin_left = 1468.0
 margin_right = 1516.0
-margin_bottom = 54.0
+margin_bottom = 88.0
 mouse_filter = 2
 size_flags_horizontal = 10
 
@@ -169,9 +168,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 14.0
+margin_top = 31.0
 margin_right = 48.0
-margin_bottom = 40.0
+margin_bottom = 57.0
 size_flags_vertical = 9
 alignment = 2
 
@@ -186,3 +185,22 @@ anchor_bottom = 0.0
 margin_right = 1536.0
 margin_bottom = 900.0
 mouse_filter = 1
+
+[node name="CardHolder" type="CenterContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 150.0
+margin_top = 150.0
+margin_right = -150.0
+margin_bottom = -150.0
+mouse_filter = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CardHolder"]
+margin_left = 618.0
+margin_top = 300.0
+margin_right = 618.0
+margin_bottom = 300.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+alignment = 1

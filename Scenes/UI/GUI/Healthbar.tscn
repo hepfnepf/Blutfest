@@ -14,9 +14,6 @@ margin_right = 225.0
 margin_bottom = 40.0
 mouse_filter = 2
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 margin_top = 5.0

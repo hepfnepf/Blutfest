@@ -5,7 +5,7 @@ export (PackedScene) var death_screen_prefab
 
 onready var gui = $GUI
 onready var map = $Map
-onready var player = $Player
+onready var player:Player = $Player
 onready var spawner:Spawner = $Spawner
 onready var debug_gui = $GUI/HUD/VBoxContainer/DebugLayout
 onready var time_manager = get_node("/root/TimeManager")
@@ -46,7 +46,8 @@ func _on_player_death()->void:
 
 func _on_enemy_killed(points) -> void:
 	enemys_alive -=1
-	player.set_score(player.score + points)
+	player.add_points(points)
+	#player.set_score(player.score + points)
 	emit_signal("killed_enemy")
 
 func _on_enemy_spawned() -> void:

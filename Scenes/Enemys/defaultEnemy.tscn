@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Scripts/Actor.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Enemys/Actor.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/SFX/EnemyHurt76965__michel88__painb.wav" type="AudioStream" id=2]
 [ext_resource path="res://Sprites/Items/Effects/icleblock.jpg" type="Texture" id=3]
 [ext_resource path="res://Sprites/Enemys/Standard/zom2Full.png" type="Texture" id=6]

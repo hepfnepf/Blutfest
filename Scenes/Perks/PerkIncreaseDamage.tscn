@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Perks/PerkIncreaseDamage.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Perks/Perk.tscn" type="PackedScene" id=2]
+
+[node name="PerkIncreaseDamage" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+title = "More Damage"
+desc = "Increases the players damage by 20%."
