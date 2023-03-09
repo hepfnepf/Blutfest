@@ -11,6 +11,6 @@ func _process(delta) -> void:
 	if effect_todo:
 		game.spawner.mult_all_weapon_probs(weapon_spawn_rate_multi)
 		effect_todo = false
-		
+
 func remove_from_player():
 	game.spawner.mult_all_weapon_probs(1/weapon_spawn_rate_multi)

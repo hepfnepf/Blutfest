@@ -58,7 +58,7 @@ func reset():
 	set_physics_process(true)
 	set_process_input(true)
 	$CollisionShape2D.disabled = false
-	
+
 	#revert the stuff from die()
 	sprite.visible = true
 	smoketrail.reset()

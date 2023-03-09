@@ -77,17 +77,17 @@ func new_perk_selection(perks):
 		card.perk=perk
 		cards.append(card)
 		card.connect("card_selected",self,"_on_card_selected")
-	
+
 	for card in cards:
 		card_holder.add_child(card)
-	
+
 	TimeManager.set_time_scale(0.0,true)
 	card_holder.get_parent().visible=true
 	set_cursor(Globals.cursor_manager.CURSOR_TYPE.DEFAULT)
 
 func _on_card_selected(card:PerkCard)->void:
 	player.add_child(card.perk.instance())
-	
+
 	card_holder.get_parent().visible=false
 	for card in card_holder.get_children():
 		card.queue_free()
