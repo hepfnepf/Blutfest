@@ -1,4 +1,4 @@
-tool
+#tool
 extends PanelContainer
 class_name PerkCard
 
@@ -12,11 +12,27 @@ onready var rarityLabel:Label=$"%RarityLabel"
 onready var icon:TextureRect=$"%Icon"
 onready var descLabel:Label=$"%DescriptionLabel"
 
+export (float) var hover_size = 1.0
+export (float) var up_duration = 2 #
+export (float) var down_duration = 2 #
 var min_size:Vector2 = Vector2(0,0)
+
+var is_hovered:bool = false
+var weight:float = 0.0
 
 func _ready()->void:
 	display_perk()
 	min_size = rect_min_size
+
+func _process(delta: float) -> void:
+	if is_hovered:
+		print(weight)
+		weight += delta*10/up_duration
+	else:
+		weight -= delta*10/down_duration
+
+	weight=clamp(weight,0,1)
+	rect_min_size=min_size.linear_interpolate(min_size*Vector2(hover_size,hover_size), weight)
 
 func display_perk()->void:
 	if perk == null:
@@ -37,10 +53,7 @@ func _on_Button_button_up()->void:
 	emit_signal("card_selected",self)
 
 func _on_Button_mouse_entered() -> void:
-	rect_min_size *=1.3
-
-
+	is_hovered=true
 
 func _on_Button_mouse_exited() -> void:
-	print("left")
-	rect_min_size = min_size
+	is_hovered=false
