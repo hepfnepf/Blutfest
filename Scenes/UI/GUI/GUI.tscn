@@ -194,6 +194,8 @@ margin_left = 150.0
 margin_top = 150.0
 margin_right = -150.0
 margin_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CardHolder"]
@@ -201,6 +203,8 @@ margin_left = 618.0
 margin_top = 300.0
 margin_right = 618.0
 margin_bottom = 300.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
 alignment = 1

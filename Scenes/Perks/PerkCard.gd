@@ -12,8 +12,11 @@ onready var rarityLabel:Label=$"%RarityLabel"
 onready var icon:TextureRect=$"%Icon"
 onready var descLabel:Label=$"%DescriptionLabel"
 
+var min_size:Vector2 = Vector2(0,0)
+
 func _ready()->void:
 	display_perk()
+	min_size = rect_min_size
 
 func display_perk()->void:
 	if perk == null:
@@ -32,3 +35,12 @@ func display_perk()->void:
 
 func _on_Button_button_up()->void:
 	emit_signal("card_selected",self)
+
+func _on_Button_mouse_entered() -> void:
+	rect_min_size *=1.3
+
+
+
+func _on_Button_mouse_exited() -> void:
+	print("left")
+	rect_min_size = min_size
