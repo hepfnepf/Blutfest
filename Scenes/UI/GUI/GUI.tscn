@@ -177,16 +177,8 @@ alignment = 2
 [node name="Crosshair" parent="." instance=ExtResource( 7 )]
 scale = Vector2( 0.3, 0.3 )
 
-[node name="PauseMenu" parent="." instance=ExtResource( 8 )]
-pause_mode = 2
-visible = false
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1536.0
-margin_bottom = 900.0
-mouse_filter = 1
-
 [node name="CardHolder" type="CenterContainer" parent="."]
+pause_mode = 2
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -199,12 +191,19 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CardHolder"]
-margin_left = 618.0
-margin_top = 300.0
-margin_right = 618.0
-margin_bottom = 300.0
+margin_left = 518.0
+margin_top = 150.0
+margin_right = 718.0
+margin_bottom = 450.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 2
-size_flags_vertical = 2
 alignment = 1
+
+[node name="PauseMenu" parent="." instance=ExtResource( 8 )]
+pause_mode = 2
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1536.0
+margin_bottom = 900.0
+mouse_filter = 1
