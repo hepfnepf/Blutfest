@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+#signal perk_selected
+
 onready var health_widget = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/HealthbarWidget
 onready var exp_widget = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/ExpbarWidget
 onready var ammo_widget = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2/AmmoWidget
@@ -19,6 +21,7 @@ var perkCard = preload("res://Scenes/Perks/PerkCard.tscn")
 
 func _ready() -> void:
 	pause_menu.set_debug_info(debug_info)
+	#connect("perk_selected",PerkManager,"_on_Perk_selected")
 
 func set_player(player:Player)->void:
 	self.player = player
@@ -87,6 +90,7 @@ func new_perk_selection(perks):
 
 func _on_card_selected(card:PerkCard)->void:
 	player.add_child(card.perk.instance())
+	player.perkManager._on_Perk_selected(card.perk)
 
 	card_holder.get_parent().visible=false
 	for card in card_holder.get_children():

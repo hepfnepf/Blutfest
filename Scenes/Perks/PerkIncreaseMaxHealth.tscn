@@ -7,3 +7,4 @@
 script = ExtResource( 1 )
 title = "Increase max health"
 desc = "Increases your max health by 20 points."
+max_health_increase = 20.0
