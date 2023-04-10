@@ -1246,7 +1246,9 @@ bus = "SFX"
 [node name="PerkManager" type="Node" parent="."]
 script = ExtResource( 13 )
 perks = [ ExtResource( 12 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ]
-likelihoods = [ 10.0, 10.0, 10.0, 10.0, 5.0 ]
+likelihoods = [ 10.0, 10.0, 10.0, 10.0, 7.0 ]
+rarity_normal = 10.0
+rarity_rare = 7.0
 
 [connection signal="area_entered" from="ItemInteractionZone" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="ElapsedTime" to="." method="_on_ElapsedTime_timeout"]

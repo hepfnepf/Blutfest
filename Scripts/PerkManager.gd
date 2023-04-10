@@ -23,6 +23,14 @@ export(Array,float) var likelihoods=[]
 #this was done because	1. This allows to see and manipulate all likeliehoods from a central point
 #						2. The likeliehoods are not needed somwhere else
 
+#Steps of the raritys
+#perk p will have the rarity level x, if p's likeliehood is smaller than the rarity_x but higher than all other raritys
+#This means the exported rarity values need to get lower with higher raritys. If the lh is higher then rarity_normal, the rarity will be COMMON
+enum RARITY{COMMON,NORMAL,RARE,LEGENDARY}#export(float) var rarity_common
+export(float) var rarity_normal
+export(float) var rarity_rare
+export(float) var rarity_legendary
+
 var current_perks:Array = []
 var current_likelihoods:Array=[]
 var active_perks:Array=[]
@@ -33,6 +41,7 @@ var perk_selection_amount:int=2
 
 func _ready()->void:
 	assert(perks.size()==likelihoods.size(),"Different amount of perks and likelihoods")
+	assert(rarity_normal>rarity_rare and rarity_rare>rarity_legendary,"Exported rarity steppings are not increasing.")
 	update_current_arrays() #creates current_perks and _likeliehoods
 	update_probs()
 
@@ -48,7 +57,8 @@ func new_perk_selection()->void:
 		#select perk
 		var perk = get_random_perk(temp_perks,compute_percentages(temp_perks,temp_lh))
 		perk_candidates.append(perk)
-		candidates_rarity.append(perk_probs[current_perks.find(perk)])
+		candidates_rarity.append(get_rarity(current_likelihoods[current_perks.find(perk)]))
+		#candidates_rarity.append(perk_probs[current_perks.find(perk)])
 		#remove that perk from the possibilities
 		var index = temp_perks.find(perk)
 		temp_perks.remove(index)
@@ -92,6 +102,16 @@ func requirements_satisfied(perk:PackedScene, active_perks:Array) -> bool:
 			return false
 
 	return true
+
+func get_rarity(likeliehood:float)-> int:
+	if likeliehood <= rarity_legendary:
+		return Globals.Rarity.LEGENDARY
+	if likeliehood <= rarity_rare:
+		return Globals.Rarity.RARE
+	if likeliehood <= rarity_normal:
+		return Globals.Rarity.NORMAL
+	else:
+		return Globals.Rarity.COMMON
 
 #Gets called from GUI
 func _on_Perk_selected(perk:PackedScene) -> void:

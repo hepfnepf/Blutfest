@@ -17,6 +17,7 @@ export (float) var up_duration = 2
 export (float) var down_duration = 2
 var min_size:Vector2 = Vector2(0,0)
 
+var rarity:int = 0
 var is_hovered:bool = false
 var weight:float = 0.0
 var last_time:float = 0 #needed to make my own delta for the animation, since the delta in process does not work if the game is paused
@@ -54,6 +55,20 @@ func display_perk()->void:
 
 	nameLabel.text = title
 	descLabel.text= desc
+	rarityLabel.text = get_rarity_string(rarity)
+
+func get_rarity_string(rarity:int)->String:
+	if rarity == Globals.Rarity.COMMON:
+		return "Common"
+	if rarity == Globals.Rarity.NORMAL:
+		return "Normal"
+	if rarity == Globals.Rarity.RARE:
+		return "Rare"
+	if rarity == Globals.Rarity.LEGENDARY:
+		return "Legendary"
+	else:
+		printerr("Rarity is no known level")
+		return "Error"
 
 func _on_Button_button_up()->void:
 	emit_signal("card_selected",self)
