@@ -158,6 +158,7 @@ window/stretch/mode="2d"
 v-sync=false
 layer=false
 vsy=false
+trans=false
 
 [input]
 

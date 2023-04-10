@@ -23,3 +23,7 @@ RESET_OPTIONS,Reset Options,Optionen zurücksetzen
 CURRENT_DIFFICULTY,Difficulty,Schwierigkeit
 HEALT_DAMAGE_SPEED_VIEWRANGE,HP/DMG/Speed/Vision-Multi.,Leben/Schaden/Geschw./Sicht-Multi
 ENEMY_SPAWN_RATE,Enemy Spawn Rate,Gegner Spawnrate
+RARITY_COMMON,Common,Häufig
+RARITY_NORMAL,Normal,Normal
+RARITY_RARE,Rare,Selten
+RARITY_LEGENDARY,Legendary,Legendär

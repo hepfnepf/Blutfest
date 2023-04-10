@@ -59,13 +59,13 @@ func display_perk()->void:
 
 func get_rarity_string(rarity:int)->String:
 	if rarity == Globals.Rarity.COMMON:
-		return "Common"
+		return tr("RARITY_COMMON")
 	if rarity == Globals.Rarity.NORMAL:
-		return "Normal"
+		return tr("RARITY_NORMAL")
 	if rarity == Globals.Rarity.RARE:
-		return "Rare"
+		return tr("RARITY_RARE")
 	if rarity == Globals.Rarity.LEGENDARY:
-		return "Legendary"
+		return tr("RARITY_LEGENDARY")
 	else:
 		printerr("Rarity is no known level")
 		return "Error"
