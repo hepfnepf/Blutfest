@@ -7,4 +7,4 @@
 script = ExtResource( 2 )
 title = "PERK_SPEED_UP"
 desc = "PERK_SPEED_UP_DESC"
-speed_multi = 1.2
+speed_inc_perc = 20.0
