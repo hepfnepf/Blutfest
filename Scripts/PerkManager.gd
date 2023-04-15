@@ -11,7 +11,7 @@ class_name PerkManager
 ##
 ##
 
-signal newSelection
+signal newSelection(perk,rarity)
 
 
 #The two variables describe the perks and likeliehoods only during initialisation
@@ -23,6 +23,14 @@ export(Array,float) var likelihoods=[]
 #this was done because	1. This allows to see and manipulate all likeliehoods from a central point
 #						2. The likeliehoods are not needed somwhere else
 
+#Steps of the raritys
+#perk p will have the rarity level x, if p's likeliehood is smaller than the rarity_x but higher than all other raritys
+#This means the exported rarity values need to get lower with higher raritys. If the lh is higher then rarity_normal, the rarity will be COMMON
+enum RARITY{COMMON,NORMAL,RARE,LEGENDARY}#export(float) var rarity_common
+export(float) var rarity_normal
+export(float) var rarity_rare
+export(float) var rarity_legendary
+
 var current_perks:Array = []
 var current_likelihoods:Array=[]
 var active_perks:Array=[]
@@ -33,12 +41,14 @@ var perk_selection_amount:int=2
 
 func _ready()->void:
 	assert(perks.size()==likelihoods.size(),"Different amount of perks and likelihoods")
+	assert(rarity_normal>rarity_rare and rarity_rare>rarity_legendary,"Exported rarity steppings are not increasing.")
 	update_current_arrays() #creates current_perks and _likeliehoods
-	perk_probs=compute_percentages(current_perks,current_likelihoods)
+	update_probs()
 
 ## Draws perk_selection_amount perks of the currently available ones
 func new_perk_selection()->void:
 	var perk_candidates:Array=[]
+	var candidates_rarity:Array=[]
 
 	#Get perk candidates
 	var temp_perks=[]+(current_perks)
@@ -47,13 +57,15 @@ func new_perk_selection()->void:
 		#select perk
 		var perk = get_random_perk(temp_perks,compute_percentages(temp_perks,temp_lh))
 		perk_candidates.append(perk)
+		candidates_rarity.append(get_rarity(current_likelihoods[current_perks.find(perk)]))
+		#candidates_rarity.append(perk_probs[current_perks.find(perk)])
 		#remove that perk from the possibilities
 		var index = temp_perks.find(perk)
 		temp_perks.remove(index)
 		temp_lh.remove(index)
 
 	#Send to GUI
-	emit_signal("newSelection",perk_candidates)
+	emit_signal("newSelection",perk_candidates, candidates_rarity)
 
 ##Creates the run time arrays of current perks and likeliehoods from the exported base arrays, by checking the perks requirements and blocks
 func update_current_arrays() -> void:
@@ -91,6 +103,16 @@ func requirements_satisfied(perk:PackedScene, active_perks:Array) -> bool:
 
 	return true
 
+func get_rarity(likeliehood:float)-> int:
+	if likeliehood <= rarity_legendary:
+		return Globals.Rarity.LEGENDARY
+	if likeliehood <= rarity_rare:
+		return Globals.Rarity.RARE
+	if likeliehood <= rarity_normal:
+		return Globals.Rarity.NORMAL
+	else:
+		return Globals.Rarity.COMMON
+
 #Gets called from GUI
 func _on_Perk_selected(perk:PackedScene) -> void:
 	#Add to active perks
@@ -108,7 +130,7 @@ func _on_Perk_selected(perk:PackedScene) -> void:
 		remove_perk(perk)
 	#Update arrays
 	update_current_arrays()
-	compute_percentages()
+	update_probs()
 
 func remove_perk(perk, perks_array=self.current_perks,likelihood_array=self.current_likelihoods) -> void:
 	var ind:int = current_perks.find(perk)
@@ -117,11 +139,14 @@ func remove_perk(perk, perks_array=self.current_perks,likelihood_array=self.curr
 
 func get_random_perk(perks=self.current_perks,probs=self.perk_probs) -> PackedScene:
 	if probs == []:
-		compute_percentages()
+		update_probs()
 	var _perk = perks[probs.bsearch(randf())]
 	return _perk
 
-func compute_percentages(perks=self.current_perks,likelihoods=self.current_likelihoods)->Array:
+func update_probs()->void:
+	perk_probs=compute_percentages(self.current_perks,self.current_likelihoods)
+
+func compute_percentages(perks,likelihoods)->Array:
 	var start:float = 0
 	if perks.size() != likelihoods.size():
 		print_debug("ERROR: AMOUNT OF LIKELIHOODS DOES NOT EQUAL AMOUNT OF ITEMS IN SPAWNER")

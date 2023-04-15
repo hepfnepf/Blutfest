@@ -6,7 +6,7 @@
 
 [node name="PerkIncreaseMaxHealth2" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
-title = "Increase max health"
-desc = "Increases your max health by 50 points."
+title = "PERK_INC_MAX_HEALTH"
+desc = "PERK_INC_MAX_HEALTH_DESC"
 required = [ ExtResource( 3 ) ]
 max_health_increase = 50.0

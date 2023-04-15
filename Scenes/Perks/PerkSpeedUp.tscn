@@ -5,5 +5,6 @@
 
 [node name="PerkSpeedUp" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-title = "Speed Up"
-desc = "Increases the player's speed by 20%."
+title = "PERK_SPEED_UP"
+desc = "PERK_SPEED_UP_DESC"
+speed_inc_perc = 20.0

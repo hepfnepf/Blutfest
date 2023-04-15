@@ -34,7 +34,7 @@ func set_player(player:Player)->void:
 	set_max_exp(player.experience_limit)
 
 	player.weapon.connect("weapon_switch",self,"reset_weapon")
-	player.perkManager.connect("newSelection",self,"new_perk_selection")
+	player.perkManager.connect("newSelection",self,"_on_new_perk_selection")
 	player.connect("health_changed",self,"set_health")
 	player.connect("max_health_changed",self,"set_max_health")
 	player.connect("exp_changed",self,"set_exp")
@@ -73,11 +73,12 @@ func set_time(new_time:int)->void:
 func set_lock(new_lock:bool)->void:
 	lock_texture.visible = new_lock
 ##Opens the perk selection screen
-func new_perk_selection(perks):
+func _on_new_perk_selection(perks, raritys):
 	var cards = []
-	for perk in perks:
+	for i in range(perks.size()):
 		var card:PerkCard = perkCard.instance()
-		card.perk=perk
+		card.perk=perks[i]
+		card.rarity=raritys[i]
 		cards.append(card)
 		card.connect("card_selected",self,"_on_card_selected")
 

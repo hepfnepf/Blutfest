@@ -3,7 +3,7 @@ extends PanelContainer
 class_name PerkCard
 
 signal card_selected
-var perk=null
+var perk:PackedScene=null
 var title:String = ""
 var desc:String= ""
 
@@ -17,6 +17,7 @@ export (float) var up_duration = 2
 export (float) var down_duration = 2
 var min_size:Vector2 = Vector2(0,0)
 
+var rarity:int = 0
 var is_hovered:bool = false
 var weight:float = 0.0
 var last_time:float = 0 #needed to make my own delta for the animation, since the delta in process does not work if the game is paused
@@ -43,17 +44,29 @@ func _process(delta: float) -> void:
 func display_perk()->void:
 	if perk == null:
 		return
-	var state:SceneState=perk.get_state()
 
-	var prop_count:int = state.get_node_property_count(0)
-	for i in range(prop_count):
-		if state.get_node_property_name(0,i)=="title":
-			title=state.get_node_property_value(0,i)
-		if state.get_node_property_name(0,i)=="desc":
-			desc=state.get_node_property_value(0,i)
+	var _perk:Perk=perk.instance()
+	title = _perk.get_title()
+	desc = _perk.get_desc()
 
 	nameLabel.text = title
 	descLabel.text= desc
+	rarityLabel.text = get_rarity_string(rarity)
+
+	_perk.queue_free()
+
+func get_rarity_string(rarity:int)->String:
+	if rarity == Globals.Rarity.COMMON:
+		return tr("RARITY_COMMON")
+	if rarity == Globals.Rarity.NORMAL:
+		return tr("RARITY_NORMAL")
+	if rarity == Globals.Rarity.RARE:
+		return tr("RARITY_RARE")
+	if rarity == Globals.Rarity.LEGENDARY:
+		return tr("RARITY_LEGENDARY")
+	else:
+		printerr("Rarity is no known level")
+		return "Error"
 
 func _on_Button_button_up()->void:
 	emit_signal("card_selected",self)
