@@ -53,20 +53,7 @@ func display_perk()->void:
 	descLabel.text= desc
 	rarityLabel.text = get_rarity_string(rarity)
 
-	"""
-	var state:SceneState=perk.get_state()
-
-	var prop_count:int = state.get_node_property_count(0)
-	for i in range(prop_count):
-		if state.get_node_property_name(0,i)=="title":
-			title=state.get_node_property_value(0,i)
-		if state.get_node_property_name(0,i)=="desc":
-			desc=state.get_node_property_value(0,i)
-
-	nameLabel.text = title
-	descLabel.text= desc
-	rarityLabel.text = get_rarity_string(rarity)
-	"""
+	_perk.queue_free()
 
 func get_rarity_string(rarity:int)->String:
 	if rarity == Globals.Rarity.COMMON:
