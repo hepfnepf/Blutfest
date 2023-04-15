@@ -5,5 +5,6 @@
 
 [node name="PerkIncreaseDamage" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
-title = "More Damage"
-desc = "Increases the players damage by 20%."
+title = "MORE_DMG_PERK"
+desc = "MORE_DMG_PERK_DESC"
+dmg_mult_inc = 0.2

@@ -5,5 +5,5 @@
 
 [node name="PerkHealUp" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
-title = "Heal Up"
-desc = "Increases player health by 50 points."
+title = "PERK_HEAL_UP"
+desc = "PERK_HEAL_UP_DESC"

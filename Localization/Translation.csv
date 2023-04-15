@@ -27,3 +27,11 @@ RARITY_COMMON,Common,Häufig
 RARITY_NORMAL,Normal,Normal
 RARITY_RARE,Rare,Selten
 RARITY_LEGENDARY,Legendary,Legendär
+PERK_HEAL_UP,Heal Up, Heilung
+PERK_HEAL_UP_DESC,Increases player health by %d points.,Heilt dich um %d Lebenspunkte.
+MORE_DMG_PERK,More Damage,Mehr Schaden
+MORE_DMG_PERK_DESC,Increases the players damage by %d%%.,Erhöht deinen Schaden um %d%%.
+PERK_INC_MAX_HEALTH,Increase max. Health,Mehr max. Lebenspunkte
+PERK_INC_MAX_HEALTH_DESC,Increases your max health by %d points.,Erhöhe deine max. LP um %d LP.
+PERK_SPEED_UP,Speed Up,Schneller
+PERK_SPEED_UP_DESC,Increases the player's speed by %d%%.,Erhöht deine Geschw. um %d%%.

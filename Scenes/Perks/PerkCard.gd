@@ -3,7 +3,7 @@ extends PanelContainer
 class_name PerkCard
 
 signal card_selected
-var perk=null
+var perk:PackedScene=null
 var title:String = ""
 var desc:String= ""
 
@@ -44,6 +44,16 @@ func _process(delta: float) -> void:
 func display_perk()->void:
 	if perk == null:
 		return
+
+	var _perk:Perk=perk.instance()
+	title = _perk.get_title()
+	desc = _perk.get_desc()
+
+	nameLabel.text = title
+	descLabel.text= desc
+	rarityLabel.text = get_rarity_string(rarity)
+
+	"""
 	var state:SceneState=perk.get_state()
 
 	var prop_count:int = state.get_node_property_count(0)
@@ -56,6 +66,7 @@ func display_perk()->void:
 	nameLabel.text = title
 	descLabel.text= desc
 	rarityLabel.text = get_rarity_string(rarity)
+	"""
 
 func get_rarity_string(rarity:int)->String:
 	if rarity == Globals.Rarity.COMMON:
