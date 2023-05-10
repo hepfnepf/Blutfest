@@ -92,7 +92,7 @@ func set_health(new_health:int)->void:
 		die()
 
 func set_max_health(new_max_health:int)->void:
-	if !alive or invincible:
+	if !alive:
 		return
 	max_health = new_max_health
 	emit_signal("max_health_changed",max_health)
