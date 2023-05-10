@@ -22,8 +22,6 @@ onready var collision_shape:CollisionShape2D = $CollisionShape2D
 onready var fade_out:Tween = $FadeOut
 onready var sound_player:AudioStreamPlayer2D = $AudioStreamPlayer2D
 
-onready var player = get_node_or_null("/root/Game/Player")
-onready var game = get_node_or_null("/root/Game")
 
 var alive :=true
 var fading :=false
@@ -39,10 +37,8 @@ func _ready():
 	health_Node.health = max_health
 
 	movement.initialize(self, animation_player)
-	ai.initialize(movement,team_Node.team)
-	ai.damage = damage
+	ai.initialize(movement)
 
-	connect("enemy_dead",game,"_on_enemy_killed")
 
 func handle_hit(damage:int, type:int = 1):
 	if alive:
@@ -73,7 +69,6 @@ func start_death_animation():
 	collision_shape.queue_free()
 	z_index = -4
 	emit_signal("enemy_dead",points)
-	game.spawner.spawn_rand_item_at_prob(drop_rate,global_position)
 
 	animation_player.stop()
 	animation_player.play("Death")

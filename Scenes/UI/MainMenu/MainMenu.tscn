@@ -1,9 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Fonts/standardUI.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Sprites/Maps/None_Albedo_1001.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/white_256.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Enemys/defaultEnemyIdle.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -34,44 +34,6 @@ void fragment(){
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = SubResource( 3 )
-
-[sub_resource type="Shader" id=5]
-code = "shader_type canvas_item;
-
-uniform vec4 void_color: hint_color;
-uniform bvec4 border_flags;
-uniform float border = 0.01;
-uniform float offset = 0.1;
-
-void fragment(){
-	float _border = border + offset;
-	COLOR = vec4(0.0,0.0,0.0,0.0);
-	if (UV.x <= _border && border_flags[0]){
-		float dis = (0.5 - abs(UV.x-0.5+ (-offset)))*(1.0/border);
-		COLOR = mix(COLOR,void_color,clamp(1.0-dis,0,1));
-	}else{
-		if (UV.x >= 1.0f-_border && border_flags[1]){
-		float dis = (0.5 - abs(UV.x-0.5+ (offset)))*(1.0/border);
-		COLOR = mix(COLOR,void_color,clamp(1.0-dis,0,1));
-		}
-	}
-	if (UV.y <= _border && border_flags[2]) {
-		float dis = (0.5 - abs(UV.y-0.5+ (-offset)))*(1.0/border);
-		COLOR = mix(COLOR,void_color,clamp(1.0-dis,0,1));
-	}else{
-		if (UV.y >=  1.0f-_border  && border_flags[3]) {
-		float dis = (0.5 - abs(UV.y-0.5+ (offset)))*(1.0/border);
-		COLOR = mix(COLOR,void_color,clamp(1.0-dis,0,1));
-	}
-	}
-}"
-
-[sub_resource type="ShaderMaterial" id=6]
-shader = SubResource( 5 )
-shader_param/void_color = Color( 0, 0, 0, 1 )
-shader_param/border_flags = 15
-shader_param/border = 0.059
-shader_param/offset = 0.115
 
 [node name="MainMenu" type="CanvasLayer"]
 
@@ -158,13 +120,111 @@ material = SubResource( 4 )
 position = Vector2( 760.992, 430.893 )
 scale = Vector2( 0.15, 0.15 )
 
+[node name="Zombie" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( 33.9863, 363.725 )
+z_index = -2
+
+[node name="Zombie2" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( -5430.19, 256.817 )
+z_index = -2
+
+[node name="Zombie3" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( 259.681, 3345.27 )
+z_index = -2
+
+[node name="Zombie4" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( 3502.55, 3285.87 )
+z_index = -2
+
+[node name="Zombie5" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( 5438.77, 1195.23 )
+z_index = -2
+
+[node name="Zombie6" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( 5593.19, -990.442 )
+z_index = -2
+
+[node name="Zombie7" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( 4108.36, -3069.21 )
+z_index = -2
+
+[node name="Zombie8" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( -2151.69, -2986.05 )
+z_index = -2
+
+[node name="Zombie9" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( 1126.82, -3045.45 )
+z_index = -2
+
+[node name="Zombie10" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( 5688.22, -2047.64 )
+z_index = -2
+
+[node name="Zombie11" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( -4622.45, -3045.45 )
+z_index = -2
+
+[node name="Zombie12" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( -5489.59, -2415.88 )
+z_index = -2
+
+[node name="Zombie13" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( -5477.71, -1323.04 )
+z_index = -2
+
+[node name="Zombie14" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( -5430.2, -408.387 )
+z_index = -2
+
+[node name="Zombie15" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( -5465.83, 1456.56 )
+z_index = -2
+
+[node name="Zombie16" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( -5596.49, 2608.79 )
+z_index = -2
+
+[node name="Zombie17" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( -4076.03, 3511.57 )
+z_index = -2
+
+[node name="Zombie18" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( -2508.05, 3511.57 )
+z_index = -2
+
+[node name="Zombie19" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( -880.676, 3440.29 )
+z_index = -2
+
+[node name="Zombie20" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( 1780.14, 3273.99 )
+z_index = -2
+
+[node name="Zombie21" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( 4690.41, 3357.14 )
+z_index = -2
+
+[node name="Zombie22" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( 5474.41, 2478.13 )
+z_index = -2
+
+[node name="Zombie23" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( 5628.83, 185.543 )
+z_index = -2
+
+[node name="Zombie24" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( 2754.2, -3092.96 )
+z_index = -2
+
+[node name="Zombie25" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( -453.039, -3021.69 )
+z_index = -2
+
+[node name="Zombie26" parent="Map" instance=ExtResource( 5 )]
+position = Vector2( -3351.43, -3033.57 )
+z_index = -2
+
 [node name="Texture" type="Sprite" parent="Map"]
 scale = Vector2( 3.555, 3.555 )
 z_index = -8
 texture = ExtResource( 3 )
-
-[node name="VoidOverlay" type="Sprite" parent="Map"]
-material = SubResource( 6 )
-scale = Vector2( 73, 73 )
-z_index = 20
-texture = ExtResource( 4 )
