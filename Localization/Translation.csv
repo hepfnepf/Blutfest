@@ -6,6 +6,7 @@ YOU_DIED,You Died,Du bist gestorben
 DEATH_RESTART,Press 'Enter' to try again,Drücke 'Enter' für einen neuen Versuch
 DEATH_QUIT,Press 'ESC' to quit the Game,Drücke 'ESC' um das Spiel zu beenden
 PAUSE_MENU,Pause Menu,Menü
+PLAY,Play,Spielen
 RETURN,Return,Zurück
 OPTIONS,Options,Optionen
 RESTART,Restart,Neustart

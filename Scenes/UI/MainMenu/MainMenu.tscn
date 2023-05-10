@@ -1,0 +1,170 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Fonts/standardUI.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Sprites/Maps/None_Albedo_1001.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/white_256.png" type="Texture" id=4]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec4 color: hint_color;
+uniform float multiplier = 0.2;
+uniform float softness = 3.0;
+
+void fragment()
+{
+	float value = (0.1+distance(UV,vec2(0.5)))*multiplier;
+	COLOR = vec4(color.rgb, value);// smoothstep(multiplier,softness,value));
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/color = Color( 0, 0, 0, 1 )
+shader_param/multiplier = 4.455
+shader_param/softness = 3.0
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+
+void fragment(){
+  //this shader will result in an all white rectangle
+  COLOR.b = 1.0;
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+
+uniform vec4 void_color: hint_color;
+uniform bvec4 border_flags;
+uniform float border = 0.01;
+uniform float offset = 0.1;
+
+void fragment(){
+	float _border = border + offset;
+	COLOR = vec4(0.0,0.0,0.0,0.0);
+	if (UV.x <= _border && border_flags[0]){
+		float dis = (0.5 - abs(UV.x-0.5+ (-offset)))*(1.0/border);
+		COLOR = mix(COLOR,void_color,clamp(1.0-dis,0,1));
+	}else{
+		if (UV.x >= 1.0f-_border && border_flags[1]){
+		float dis = (0.5 - abs(UV.x-0.5+ (offset)))*(1.0/border);
+		COLOR = mix(COLOR,void_color,clamp(1.0-dis,0,1));
+		}
+	}
+	if (UV.y <= _border && border_flags[2]) {
+		float dis = (0.5 - abs(UV.y-0.5+ (-offset)))*(1.0/border);
+		COLOR = mix(COLOR,void_color,clamp(1.0-dis,0,1));
+	}else{
+		if (UV.y >=  1.0f-_border  && border_flags[3]) {
+		float dis = (0.5 - abs(UV.y-0.5+ (offset)))*(1.0/border);
+		COLOR = mix(COLOR,void_color,clamp(1.0-dis,0,1));
+	}
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
+shader_param/void_color = Color( 0, 0, 0, 1 )
+shader_param/border_flags = 15
+shader_param/border = 0.059
+shader_param/offset = 0.115
+
+[node name="MainMenu" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+margin_right = 1516.0
+margin_bottom = 880.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
+margin_left = 407.0
+margin_top = 186.0
+margin_right = 1109.0
+margin_bottom = 693.0
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
+margin_right = 702.0
+margin_bottom = 163.0
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer"]
+margin_right = 702.0
+margin_bottom = 163.0
+custom_colors/font_color = Color( 0.494118, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_shadow = Color( 0.12549, 0.121569, 0.121569, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Blutfest"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 167.0
+margin_right = 702.0
+margin_bottom = 507.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2"]
+margin_left = 208.0
+margin_right = 493.0
+margin_bottom = 340.0
+
+[node name="PlayButton" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_right = 285.0
+margin_bottom = 82.0
+custom_fonts/font = ExtResource( 1 )
+text = "PLAY"
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 86.0
+margin_right = 285.0
+margin_bottom = 168.0
+custom_fonts/font = ExtResource( 1 )
+text = "OPTIONS"
+
+[node name="CreditsButton" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 172.0
+margin_right = 285.0
+margin_bottom = 254.0
+custom_fonts/font = ExtResource( 1 )
+text = "CREDITS"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 258.0
+margin_right = 285.0
+margin_bottom = 340.0
+custom_fonts/font = ExtResource( 1 )
+text = "EXIT"
+
+[node name="Map" type="Node2D" parent="."]
+material = SubResource( 4 )
+position = Vector2( 760.992, 430.893 )
+scale = Vector2( 0.15, 0.15 )
+
+[node name="Texture" type="Sprite" parent="Map"]
+scale = Vector2( 3.555, 3.555 )
+z_index = -8
+texture = ExtResource( 3 )
+
+[node name="VoidOverlay" type="Sprite" parent="Map"]
+material = SubResource( 6 )
+scale = Vector2( 73, 73 )
+z_index = 20
+texture = ExtResource( 4 )
