@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Scenes/UI/MainMenu/MainMenuTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/Perks/PerkTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Sprites/Maps/None_Albedo_1001.png" type="Texture" id=3]
 [ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=4]
