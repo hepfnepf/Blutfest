@@ -208,7 +208,7 @@ size_flags_horizontal = 4
 margin_right = 40.0
 margin_bottom = 19.0
 custom_fonts/font = ExtResource( 4 )
-text = "Time:"
+text = "TIME"
 
 [node name="Time" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/BeforeCont/TimeCont"]
 margin_left = 44.0
