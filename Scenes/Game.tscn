@@ -30,7 +30,7 @@
 [ext_resource path="res://Scenes/Items/Items/Bomb.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Scenes/Items/Items/BazookaItem.tscn" type="PackedScene" id=29]
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id=3]
 code = "shader_type canvas_item;
 
 void fragment(){
@@ -39,7 +39,7 @@ void fragment(){
 }"
 
 [sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
+shader = SubResource( 3 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 6 )
@@ -88,7 +88,7 @@ tracks = [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource(
 volumes = {
 ExtResource( 20 ): 0.0,
 ExtResource( 19 ): 6.0,
-ExtResource( 22 ): 0.0,
 ExtResource( 18 ): 0.0,
-ExtResource( 21 ): -6.0
+ExtResource( 21 ): -6.0,
+ExtResource( 22 ): 0.0
 }

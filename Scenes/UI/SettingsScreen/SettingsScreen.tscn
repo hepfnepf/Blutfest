@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=2]
@@ -14,74 +14,6 @@ extra_spacing_top = -10
 extra_spacing_bottom = -10
 extra_spacing_char = 1
 font_data = ExtResource( 2 )
-
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.4, 0.278431, 0.278431, 1 )
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.372549, 0.227451, 0.227451, 1 )
-border_width_left = 8
-border_color = Color( 0.270588, 0.164706, 0.164706, 1 )
-
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.27451, 0.188235, 0.188235, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 0, 0, 0, 1 )
-border_blend = true
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0.4, 0.278431, 0.278431, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_color = Color( 0, 0, 0, 1 )
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-expand_margin_left = 5.0
-expand_margin_right = 5.0
-expand_margin_top = 5.0
-
-[sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.27451, 0.196078, 0.196078, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_color = Color( 0, 0, 0, 1 )
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-expand_margin_left = 5.0
-expand_margin_right = 5.0
-expand_margin_top = 5.0
-
-[sub_resource type="StyleBoxFlat" id=7]
-bg_color = Color( 0.4, 0.278431, 0.278431, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_color = Color( 0, 0, 0, 1 )
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-expand_margin_left = 5.0
-expand_margin_right = 5.0
-expand_margin_top = 5.0
-
-[sub_resource type="StyleBoxFlat" id=8]
-
-[sub_resource type="Theme" id=9]
-Button/styles/hover = SubResource( 3 )
-Button/styles/normal = SubResource( 1 )
-TabContainer/styles/panel = SubResource( 4 )
-TabContainer/styles/tab_bg = SubResource( 5 )
-TabContainer/styles/tab_disabled = SubResource( 6 )
-TabContainer/styles/tab_fg = SubResource( 7 )
-Tabs/styles/tab_bg = SubResource( 8 )
 
 [sub_resource type="DynamicFont" id=10]
 size = 42
@@ -123,16 +55,15 @@ margin_top = 99.0
 margin_right = 1496.0
 margin_bottom = 800.0
 size_flags_vertical = 3
-theme = SubResource( 9 )
 tab_align = 0
 
 [node name="Game" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1.0
-margin_top = 16.0
-margin_right = -1.0
-margin_bottom = -1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
 tab_align = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game"]
@@ -144,14 +75,14 @@ margin_right = -5.0
 margin_bottom = -5.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer"]
-margin_right = 150.0
-margin_bottom = 42.0
+margin_right = 154.0
+margin_bottom = 54.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="ResetHighscore" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
-margin_right = 150.0
-margin_bottom = 19.0
+margin_right = 154.0
+margin_bottom = 25.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 3 )
@@ -169,9 +100,9 @@ text = "HISCORE_GOT_RESET"
 one_shot = true
 
 [node name="ResetOptions" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
-margin_top = 23.0
-margin_right = 150.0
-margin_bottom = 42.0
+margin_top = 29.0
+margin_right = 154.0
+margin_bottom = 54.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 3 )

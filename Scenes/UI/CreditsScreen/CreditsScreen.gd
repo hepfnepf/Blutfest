@@ -19,7 +19,8 @@ func load_file(file) -> String:
 	f.close()
 	return txt
 
-
+func hide_background_color():
+	$ColorRect.color = Color(0,0,0,0)
 
 func _on_ExitButton_pressed():
 	visible = false
