@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Fonts/standardUI.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=2]
@@ -19,6 +19,9 @@ bg_color = Color( 0.4, 0.278431, 0.278431, 1 )
 bg_color = Color( 0.372549, 0.227451, 0.227451, 1 )
 border_width_left = 8
 border_color = Color( 0.270588, 0.164706, 0.164706, 1 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.4, 0.278431, 0.278431, 1 )
 
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.27451, 0.188235, 0.188235, 1 )
@@ -74,6 +77,7 @@ expand_margin_top = 5.0
 [sub_resource type="Theme" id=9]
 Button/styles/hover = SubResource( 3 )
 Button/styles/normal = SubResource( 1 )
+RichTextLabel/styles/normal = SubResource( 15 )
 TabContainer/styles/panel = SubResource( 4 )
 TabContainer/styles/tab_bg = SubResource( 5 )
 TabContainer/styles/tab_disabled = SubResource( 6 )

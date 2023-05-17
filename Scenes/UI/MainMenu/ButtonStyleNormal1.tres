@@ -2,15 +2,15 @@
 
 [resource]
 bg_color = Color( 0, 0, 0, 1 )
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
 border_color = Color( 0.494118, 0.0901961, 0.0901961, 1 )
 border_blend = true
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 corner_detail = 9
-shadow_size = 14
+shadow_size = 6

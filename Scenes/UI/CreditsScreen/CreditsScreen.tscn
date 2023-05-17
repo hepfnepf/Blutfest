@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/UI/CreditsScreen/CreditsScreen.gd" type="Script" id=2]
@@ -16,23 +16,6 @@ extra_spacing_bottom = -10
 extra_spacing_char = 1
 font_data = ExtResource( 3 )
 
-[sub_resource type="StyleBoxFlat" id=4]
-content_margin_left = 10.0
-bg_color = Color( 0.4, 0.278431, 0.278431, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 0, 0, 0, 1 )
-border_blend = true
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="Theme" id=5]
-RichTextLabel/styles/normal = SubResource( 4 )
-
 [sub_resource type="DynamicFont" id=1]
 size = 42
 extra_spacing_char = 1
@@ -46,7 +29,7 @@ script = ExtResource( 2 )
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 1536.0
 margin_bottom = 900.0
-color = Color( 0.447059, 0.447059, 0.447059, 1 )
+color = Color( 0.45, 0.45, 0.45, 1 )
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
 anchor_right = 1.0
@@ -75,15 +58,7 @@ margin_right = 1496.0
 margin_bottom = 800.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = SubResource( 5 )
 text = "loooo"
-
-[node name="ColorRect" type="ColorRect" parent="ColorRect/MarginContainer/VBoxContainer/RichTextLabel"]
-visible = false
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.4, 0.278431, 0.278431, 1 )
 
 [node name="ExitButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
 margin_left = 706.0

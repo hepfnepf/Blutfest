@@ -32,6 +32,8 @@ func _on_ResetOptions_pressed() -> void:
 
 	emit_signal("changed_sound")
 
+func hide_background_color():
+	$ColorRect.color = Color(0,0,0,0)
 
 func _on_Timer_timeout():
 	hs_reset_announcement.hide()
