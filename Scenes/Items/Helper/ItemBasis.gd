@@ -1,6 +1,14 @@
 extends Area2D
 class_name Item
-
+##
+## This script defines the basic propertys of an item. It is not meant to be used directly, but to inherit from.
+##
+## @desc:
+##     This creates an item that fades in, stays a while and fades out. It can be picked up by the player.
+##     The behaviout when picked up gets defined in pick_up().
+##
+##
+##
 export (float) var pop_up_time = 1.0
 export (float) var time_to_despawn = 30.0
 
