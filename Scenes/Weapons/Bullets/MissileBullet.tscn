@@ -17,7 +17,6 @@ explosion = ExtResource( 5 )
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2( 0.287334, 0.623111 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [node name="Sprite" parent="." index="1"]

@@ -38,3 +38,5 @@ PERK_SPEED_UP,Speed Up,Schneller
 PERK_SPEED_UP_DESC,Increases the player's speed by %d%%.,Erhöht deine Geschw. um %d%%.
 PERK_HEAL_UP_ON_LEVEL_UP,Refreshment,Erfrischung
 PERK_HEAL_UP_ON_LEVEL_UP_DESC,Heals the player by %d hp on level up.,Heilt dich um %d LP bei jedem Level Up.
+PERK_EXPLOSION_ON_LEVEL_UP,To much energy,Platzen vor Freude
+PERK_EXPLOSION_ON_LEVEL_UP_DESC,After gaining that much Exp you just need to show unleash your power. So you explode.,"Aus Freude über deinen Level Up, fliegst du einfach in die Luft."

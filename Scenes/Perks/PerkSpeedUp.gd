@@ -1,6 +1,6 @@
 extends Perk
 
-export(float)var speed_inc_perc=20
+export(float)var speed_inc_perc=20.0
 
 func add_effect()->void:
 	player.move_speed *=1+speed_inc_perc/100

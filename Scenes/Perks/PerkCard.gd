@@ -13,8 +13,8 @@ onready var icon:TextureRect=$"%Icon"
 onready var descLabel:Label=$"%DescriptionLabel"
 
 export (float) var hover_size = 1.3
-export (float) var up_duration = 2
-export (float) var down_duration = 2
+export (float) var up_duration = 2.0
+export (float) var down_duration = 2.0
 var min_size:Vector2 = Vector2(0,0)
 
 var rarity:int = 0
