@@ -10,7 +10,7 @@ func _on_Bullet_body_entered(body):
 	if !alive or body.is_in_group("Projectile"):
 		return
 	die()
-	
+
 	if game != null:
 		var _exp = explosion.instance()
 		_exp.global_position=orig.global_position

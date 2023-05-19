@@ -51,6 +51,9 @@ export (Array,PackedScene) var item_array
 export (Array, int)var item_likelihood setget changed_likelihood##likelihood for an item to be spawned relative to eachtother.(10 = 2x as likely as 5)
 var item_probs:Array = [] #Gets calculated from item_likelihood. Actual probability.
 
+#Other
+export (PackedScene) var explosion
+
 onready var game = get_node_or_null("/root/Game")
 onready var debug_gui =get_node_or_null("/root/Game/GUI/HUD/VBoxContainer/DebugLayout")
 onready var map:Map = get_node_or_null("/root/Game/Map")
@@ -65,6 +68,8 @@ func _process(delta) -> void:
 		return
 	handle_enemy_spawning(delta)
 	handle_item_spawning(delta)
+
+
 
 #-----------Spawning Routine-------------
 ##Handles the automatic spawning of items on the map

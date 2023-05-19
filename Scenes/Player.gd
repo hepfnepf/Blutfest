@@ -16,6 +16,9 @@ export (int) var max_health = 100 setget set_max_health
 export (int) var health = max_health setget set_health
 export (PackedScene) var start_weapon = null
 export (bool) var invincible:bool = false#for the invincibility item, exported for debugging
+export (PackedScene) var explosion = null
+export (float) var exp_damage = 100.0
+export (float) var exp_size = 5.0
 
 var experience:int = 0 setget set_experience
 var experience_limit:int=100
@@ -25,7 +28,7 @@ var elapsed_time=0 #get increased by 1 sec every time the time counter returns
 var locked:bool = false #can the player pick up new guns
 var damage_multi:float=1.0
 
-#For effects
+#For effects and perks
 
 #How much of the current value is due to temporary effects
 var delta_move_speed:float = 0
@@ -33,6 +36,7 @@ var invincible_count:int = 0
 var bullet_time_count:int = 0
 
 var heal_up_on_level_up:int = 0
+var explosion_on_level_up:bool = false
 
 
 onready var weapon = $Weapon
@@ -134,8 +138,12 @@ func level_up():
 	experience -= experience_limit
 	print("Level UP")
 	emit_signal("leveled_up")
+
 	if heal_up_on_level_up:
 		set_health(health+heal_up_on_level_up)
+	if explosion_on_level_up:
+		create_explosion(exp_damage,exp_size)
+
 	perkManager.new_perk_selection()
 	emit_signal("exp_changed",experience)
 	next_exp_limit()
@@ -155,10 +163,20 @@ func change_invincibility(change:int):#function to be used from effect to turn t
 	else:
 		invincible = true
 
+func create_explosion(damage,size):
+	var _exp = explosion.instance()
+	_exp.global_position=global_position
+	_exp.damage = damage
+	_exp.scale =Vector2(size,size)
+	var game = get_node_or_null("/root/Game")#gets set again, because if game gets reset after player death, this instance will be removed
+	if game!=null:
+		game.call_deferred("add_child", _exp)
+
 func set_weapon(_weapon):
 	if !alive:
 		return
 	weapon.set_weapon(_weapon)
+
 
 func _on_Area2D_area_entered(area):
 	if !alive:
