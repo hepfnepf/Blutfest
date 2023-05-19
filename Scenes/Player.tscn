@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Sprites/Player/leg.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Player/hand_holding_gun.png" type="Texture" id=2]
@@ -11,12 +11,7 @@
 [ext_resource path="res://Scenes/Weapons/Weapons/StandardRifle.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Player.gd" type="Script" id=10]
 [ext_resource path="res://Sounds/SFX/PlayerHurt163441__under7dude__man-getting-hit.wav" type="AudioStream" id=11]
-[ext_resource path="res://Scenes/Perks/PerkSpeedUp.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scripts/PerkManager.gd" type="Script" id=13]
-[ext_resource path="res://Scenes/Perks/PerkHealUp.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scenes/Perks/PerkIncreaseMaxHealth.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/Perks/PerkIncreaseDamage.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scenes/Perks/PerkIncreaseMaxHealth2.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Perks/PerkManager.tscn" type="PackedScene" id=12]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 73.9803
@@ -1243,12 +1238,8 @@ autostart = true
 stream = ExtResource( 11 )
 bus = "SFX"
 
-[node name="PerkManager" type="Node" parent="."]
-script = ExtResource( 13 )
-perks = [ ExtResource( 12 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ]
-likelihoods = [ 10.0, 10.0, 10.0, 10.0, 7.0 ]
-rarity_normal = 10.0
-rarity_rare = 7.0
+[node name="PerkManager" parent="." instance=ExtResource( 12 )]
+likelihoods = [ 10.0, 10.0, 10.0, 10.0, 7.0, 8.0 ]
 
 [connection signal="area_entered" from="ItemInteractionZone" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="ElapsedTime" to="." method="_on_ElapsedTime_timeout"]

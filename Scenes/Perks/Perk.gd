@@ -4,6 +4,7 @@ class_name Perk
 export (String) var title = "" setget ,get_title
 export (String) var desc = "" setget ,get_desc
 export (Texture) var icon= null
+export (bool) var one_time = false
 
 export (Array,PackedScene) var required
 export (Array,PackedScene) var blocks

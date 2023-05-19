@@ -7,3 +7,4 @@
 script = ExtResource( 1 )
 title = "PERK_HEAL_UP"
 desc = "PERK_HEAL_UP_DESC"
+health_inc = 50

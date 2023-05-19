@@ -123,8 +123,10 @@ func _on_Perk_selected(perk:PackedScene) -> void:
 	var state:SceneState=perk.get_state()
 	var prop_count:int = state.get_node_property_count(0)
 	for i in range(prop_count):
-		if state.get_node_property_name(0,i)=="blocked":
-			_blocked_perks=state.get_node_property_value(0,i)
+		if state.get_node_property_name(0,i)=="blocks":
+			_blocked_perks.append_array(state.get_node_property_value(0,i))
+		if state.get_node_property_name(0,i)=="one_time":
+			_blocked_perks.append(perk)
 	for perk in _blocked_perks:
 		blocked_perks.append(perk)
 		remove_perk(perk)

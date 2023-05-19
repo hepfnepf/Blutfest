@@ -32,6 +32,8 @@ var delta_move_speed:float = 0
 var invincible_count:int = 0
 var bullet_time_count:int = 0
 
+var heal_up_on_level_up:int = 0
+
 
 onready var weapon = $Weapon
 onready var hurt:AudioStreamPlayer = $Hurt
@@ -132,6 +134,8 @@ func level_up():
 	experience -= experience_limit
 	print("Level UP")
 	emit_signal("leveled_up")
+	if heal_up_on_level_up:
+		set_health(health+heal_up_on_level_up)
 	perkManager.new_perk_selection()
 	emit_signal("exp_changed",experience)
 	next_exp_limit()
