@@ -1,4 +1,5 @@
 extends Line2D
+class_name Smoketrail
 
 signal dead
 
@@ -14,8 +15,8 @@ func _ready():
 	set_as_toplevel(true)
 
 
-func add_point(point_pos:Vector2, _at_po :=-1):#playe in space to be spawned at, position in the array to be spawned at
-	update_position(point_pos)
+func add_point(point_pos:Vector2, _at_po :=-1):#playce in space to be spawned at, position in the array to be spawned at
+	update_position(to_local(point_pos))
 
 func update_position(point_pos:Vector2):
 	points[0] = point_pos
