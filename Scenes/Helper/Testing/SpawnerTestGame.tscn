@@ -49,7 +49,6 @@ death_screen_prefab = ExtResource( 9 )
 position = Vector2( -884, -8 )
 move_speed = 600
 health = 100
-start_weapon = ExtResource( 14 )
 
 [node name="Zombie" parent="." instance=ExtResource( 29 )]
 position = Vector2( 467.068, -87.3807 )
@@ -94,11 +93,11 @@ autoplay = false
 bus = "Music"
 tracks = [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 20 ) ]
 volumes = {
-ExtResource( 20 ): 0.0,
-ExtResource( 19 ): 6.0,
-ExtResource( 18 ): 0.0,
+ExtResource( 22 ): 0.0,
 ExtResource( 21 ): -6.0,
-ExtResource( 22 ): 0.0
+ExtResource( 19 ): 6.0,
+ExtResource( 20 ): 0.0,
+ExtResource( 18 ): 0.0
 }
 
 [node name="EffectItemBasis2" parent="." instance=ExtResource( 13 )]

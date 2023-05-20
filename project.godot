@@ -94,6 +94,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Queue.gd"
 }, {
+"base": "Line2D",
+"class": "Smoketrail",
+"language": "GDScript",
+"path": "res://Scenes/Weapons/Bullets/SmoketrailFlat.gd"
+}, {
 "base": "Node2D",
 "class": "Spawner",
 "language": "GDScript",
@@ -122,6 +127,7 @@ _global_script_class_icons={
 "PerkManager": "",
 "Player": "",
 "Queue": "",
+"Smoketrail": "",
 "Spawner": "",
 "Weapon": ""
 }
