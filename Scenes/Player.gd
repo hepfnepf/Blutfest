@@ -42,6 +42,7 @@ var explosion_on_level_up:bool = false
 onready var weapon = $Weapon
 onready var hurt:AudioStreamPlayer = $Hurt
 onready var perkManager:PerkManager = $PerkManager
+onready var gui = get_node_or_null("/root/Game/GUI")
 
 var velocity:Vector2 = Vector2.ZERO #needed for movement inaccuracy of player
 export (float) var friction = 0.01
@@ -131,6 +132,9 @@ func set_experience(new_exp:int)->void:
 	emit_signal("exp_changed",experience)
 	while experience >= experience_limit:
 		level_up()
+		#important so that the perk selection does not get called multiple time before a single perk gets selected
+		if is_instance_valid(gui):
+			yield(gui, "perk_selected")
 
 func level_up():
 	if !alive:
