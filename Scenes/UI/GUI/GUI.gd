@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-#signal perk_selected
+signal perk_selected
 
 onready var health_widget = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/HealthbarWidget
 onready var exp_widget = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/ExpbarWidget
@@ -98,6 +98,7 @@ func _on_card_selected(card:PerkCard)->void:
 		card.queue_free()
 	set_cursor(Globals.cursor_manager.CURSOR_TYPE.CROSSHAIR)
 	TimeManager.restore_from_stored_time()
+	emit_signal("perk_selected")
 
 func time_to_str(time:int) -> String:
 # warning-ignore:integer_division
