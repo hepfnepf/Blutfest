@@ -16,12 +16,12 @@
 [node name="ShortShotgun" instance=ExtResource( 1 )]
 position = Vector2( -1.12369, 1.52588e-05 )
 script = ExtResource( 6 )
-max_ammo = 7
+max_ammo = 8
 damage = 18
 speed = 3500
-reload_time = 3.0
+reload_time = 2.8
 fire_rate = 0.9
-base_spread = 0.2
+base_spread = 0.22
 Bullet = ExtResource( 8 )
 shoot_sfx = ExtResource( 11 )
 reload_sfx = ExtResource( 12 )
