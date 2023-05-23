@@ -73,7 +73,6 @@ speed = 0
 [node name="GUI" parent="." instance=ExtResource( 7 )]
 
 [node name="Spawner" parent="." instance=ExtResource( 8 )]
-enemy_spawn_rate_increase = 0.08
 item_spawn_rate = 1.0
 max_enemys = 300
 enemy_speed_increase = 0.01
@@ -93,11 +92,11 @@ autoplay = false
 bus = "Music"
 tracks = [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 20 ) ]
 volumes = {
-ExtResource( 18 ): 0.0,
+ExtResource( 20 ): 0.0,
 ExtResource( 22 ): 0.0,
-ExtResource( 19 ): 6.0,
 ExtResource( 21 ): -6.0,
-ExtResource( 20 ): 0.0
+ExtResource( 18 ): 0.0,
+ExtResource( 19 ): 6.0
 }
 
 [node name="EffectItemBasis2" parent="." instance=ExtResource( 13 )]
@@ -108,3 +107,6 @@ position = Vector2( -1135.89, 477.9 )
 
 [node name="BazookaItem" parent="." instance=ExtResource( 5 )]
 position = Vector2( -440.994, 20.708 )
+
+[node name="AkItem" parent="." instance=ExtResource( 23 )]
+position = Vector2( -785.611, -309.448 )

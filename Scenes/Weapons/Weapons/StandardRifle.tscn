@@ -14,7 +14,7 @@
 [node name="StandardRifle" instance=ExtResource( 1 )]
 script = ExtResource( 10 )
 max_ammo = 20
-damage = 40
+damage = 49
 speed = 3500
 reload_time = 1.58
 fire_rate = 1.0
