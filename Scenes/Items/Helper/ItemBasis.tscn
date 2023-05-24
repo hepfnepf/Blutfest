@@ -41,6 +41,7 @@ shape = SubResource( 1 )
 material = SubResource( 3 )
 
 [node name="Despawn" type="Timer" parent="."]
+one_shot = true
 
 [node name="FadeIn" type="Tween" parent="."]
 
