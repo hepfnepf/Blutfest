@@ -27,7 +27,7 @@ shader = SubResource( 2 )
 shader_param/is_blinking = false
 shader_param/blink_speed = 1.5
 
-[node name="EffectItemBasis" instance=ExtResource( 2 )]
+[node name="ItemAmmoInfinity" instance=ExtResource( 2 )]
 effect_node = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="0"]

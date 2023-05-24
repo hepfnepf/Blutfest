@@ -33,6 +33,13 @@ func _ready():
 
 		timer.start(time_to_despawn-time_of_blink)
 
+func increase_lifetime(time):
+	if is_blinking:
+		is_blinking = false
+		timer.start(timer.time_left+time)
+	else:
+		timer.start(timer.time_left+time+time_of_blink)
+
 func pick_up(_player:Player):
 	queue_free()
 
@@ -61,8 +68,9 @@ func _on_FadeOut_tween_completed(object, key):
 
 # warning-ignore:unused_argument
 func _on_FadeIn_tween_completed(object, key):
+	tween_in.remove_all()
 	if key == ":modulate:a":
-		if blink_to_zero:
+		if blink_to_zero or !is_blinking:
 			blink_to_zero=false
 			tween_in.interpolate_property(self,"modulate:a",null,1.0,1.0)
 			tween_in.start()

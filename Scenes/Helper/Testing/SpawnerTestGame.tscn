@@ -4,7 +4,6 @@
 [ext_resource path="res://Scenes/Items/Items/ItemHealUp.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Maps/GrassMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Items/Items/ItemIcicleGun.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Items/Items/BazookaItem.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/UI/GUI/GUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Spawner.tscn" type="PackedScene" id=8]
@@ -29,6 +28,7 @@
 [ext_resource path="res://Scenes/Items/Items/ItemSlowDownTime.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Scenes/Items/Items/Bomb.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Scenes/Enemys/defaultEnemy.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Scenes/Items/Items/ItemAddTimeToItems.tscn" type="PackedScene" id=30]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -49,6 +49,7 @@ death_screen_prefab = ExtResource( 9 )
 position = Vector2( -884, -8 )
 move_speed = 600
 health = 100
+invincible = true
 
 [node name="Zombie" parent="." instance=ExtResource( 29 )]
 position = Vector2( 467.068, -87.3807 )
@@ -73,7 +74,6 @@ speed = 0
 [node name="GUI" parent="." instance=ExtResource( 7 )]
 
 [node name="Spawner" parent="." instance=ExtResource( 8 )]
-item_spawn_rate = 1.0
 max_enemys = 300
 enemy_speed_increase = 0.01
 enemy_health_increase = 0.012
@@ -92,21 +92,15 @@ autoplay = false
 bus = "Music"
 tracks = [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 20 ) ]
 volumes = {
-ExtResource( 20 ): 0.0,
-ExtResource( 22 ): 0.0,
-ExtResource( 21 ): -6.0,
 ExtResource( 18 ): 0.0,
-ExtResource( 19 ): 6.0
+ExtResource( 20 ): 0.0,
+ExtResource( 19 ): 6.0,
+ExtResource( 21 ): -6.0,
+ExtResource( 22 ): 0.0
 }
-
-[node name="EffectItemBasis2" parent="." instance=ExtResource( 13 )]
-position = Vector2( -1687.89, 421.9 )
 
 [node name="EffectItemBasis3" parent="." instance=ExtResource( 13 )]
 position = Vector2( -1135.89, 477.9 )
+time_to_despawn = 15.0
 
-[node name="BazookaItem" parent="." instance=ExtResource( 5 )]
-position = Vector2( -440.994, 20.708 )
-
-[node name="AkItem" parent="." instance=ExtResource( 23 )]
-position = Vector2( -785.611, -309.448 )
+[node name="ItemAddTimeToItems" parent="." instance=ExtResource( 30 )]
