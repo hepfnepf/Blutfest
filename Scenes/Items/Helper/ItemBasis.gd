@@ -34,6 +34,12 @@ func _ready():
 		timer.start(time_to_despawn-time_of_blink)
 
 func increase_lifetime(time):
+
+	#The area effect items delete the timer when triggered, but still exist to perform the effect
+	if !is_instance_valid(timer):
+		return
+
+
 	if is_blinking:
 		is_blinking = false
 		timer.start(timer.time_left+time)
