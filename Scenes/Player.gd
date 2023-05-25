@@ -35,8 +35,11 @@ var delta_move_speed:float = 0
 var invincible_count:int = 0
 var bullet_time_count:int = 0
 
+# For Perks
 var heal_up_on_level_up:int = 0
 var explosion_on_level_up:bool = false
+var spike_balls_explode:bool = false
+var spike_ball_explosion_damage:float = 90
 
 
 onready var weapon = $Weapon

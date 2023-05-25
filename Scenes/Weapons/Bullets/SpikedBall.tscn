@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Weapons/Bullets/BulletClean2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Weapons/spikedball.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Weapons/Bullets/SpikedBall.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 41.5, 36.5 )
 
 [node name="SpikedBall" instance=ExtResource( 1 )]
-BULLET_TYPE = "BULLET_SPIKED_BALL"
+script = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2( -2, -4 )
