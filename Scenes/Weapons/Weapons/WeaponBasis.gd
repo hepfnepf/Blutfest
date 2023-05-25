@@ -21,6 +21,8 @@ export (float) var max_spread = 0.5
 export (float) var spread_inc = 0.05#per shot
 export (float) var spread_dec = 0.04#per second
 
+#export (bool) var does_explode = false
+export (float) var explosion_damage = 0
 
 export (PackedScene) var Bullet
 
@@ -116,6 +118,7 @@ func shoot_bullet():
 	var bullet = BulletPool.get_bullet(Bullet,bullet_spawn_position.global_position)
 	var dir_vector = bullet_spawn_position.global_position.direction_to(bullet_spawn_direction.global_position).normalized()
 	var rot = dir_vector.angle()+ rng.randf_range(-spread,spread)
+	bullet.player=player
 	bullet.rotation = rot
 	bullet.direction = Vector2.RIGHT.rotated(rot)
 	bullet.speed = speed

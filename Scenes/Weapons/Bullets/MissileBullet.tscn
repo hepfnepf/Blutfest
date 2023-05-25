@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sprites/Weapons/Missle.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Weapons/Bullets/BulletBasis.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Weapons/Bullets/MissileBullet.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Weapons/Bullets/SmoketrailFlat.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Items/EffectNodes/Explosion.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -17,7 +16,6 @@ colors = PoolColorArray( 0.0431373, 0.0431373, 0.0431373, 0.976471, 0.0588235, 0
 [node name="MissileBullet" instance=ExtResource( 2 )]
 scale = Vector2( 5, 6 )
 script = ExtResource( 3 )
-explosion = ExtResource( 5 )
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2( 0.287334, 0.623111 )
@@ -35,5 +33,5 @@ position = Vector2( -26.4451, 0.811585 )
 width = 30.0
 gradient = SubResource( 2 )
 
-[node name="ExplosionOrigin" type="Position2D" parent="." index="4"]
+[node name="ExplosionOrigin" parent="." index="4"]
 position = Vector2( 24.1227, 0 )
