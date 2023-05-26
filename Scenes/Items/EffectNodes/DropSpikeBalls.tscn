@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Items/Helper/EffectBasis.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Items/EffectNodes/DropSpikeBalls.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Items/Effects/spiked-ball.png" type="Texture" id=3]
+
+[node name="DropSpikeBalls" instance=ExtResource( 1 )]
+wait_time = 30.0
+script = ExtResource( 2 )
+icon_texture = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="." index="0"]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
