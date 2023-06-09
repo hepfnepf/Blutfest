@@ -22,7 +22,7 @@ export (float) var spread_inc = 0.05#per shot
 export (float) var spread_dec = 0.04#per second
 
 #export (bool) var does_explode = false
-export (float) var explosion_damage = 0
+export (float) var explosion_damage = 0.0
 
 export (PackedScene) var Bullet
 
@@ -161,6 +161,15 @@ func reload():
 		tween.start()
 	if reload_time == 0:#skip reloading
 		_on_ReloadTimer_timeout()
+
+func instant_finish_reloading()->void:
+	if is_reloading:
+		reload_timer.stop()
+		tween.stop_all()
+		spread = base_spread
+		_on_ReloadTimer_timeout()
+		emit_signal("reload_percent_change",0)
+
 
 func set_fire_rate(new_fire_rate:float):
 	fire_rate = new_fire_rate
