@@ -23,6 +23,10 @@ func add_effect():
 		weapon.fire_rate_delta += fire_rate_delta
 		weapon.set_fire_rate(new_fire_rate)
 
+		#Skip reloading
+		if weapon.is_reloading:
+			weapon.instant_finish_reloading()
+
 func remove_effect():
 	if is_instance_valid(weapon):
 		weapon.ammo_infinity_stack -= 1
