@@ -17,37 +17,37 @@ corner_radius_bottom_left = 5
 corner_detail = 9
 shadow_size = 14
 
-[sub_resource type="StyleBoxFlat" id=11]
-bg_color = Color( 0, 0, 0, 1 )
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color( 1, 1, 1, 1 )
-border_blend = true
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-corner_detail = 9
-shadow_size = 14
-
-[sub_resource type="StyleBoxFlat" id=12]
-bg_color = Color( 0, 0, 0, 1 )
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color( 1, 1, 1, 1 )
-border_blend = true
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-corner_detail = 9
-shadow_size = 14
-
 [sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 1, 1, 1, 1 )
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 9
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 1, 1, 1, 1 )
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 9
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id=17]
 bg_color = Color( 0, 0, 0, 1 )
 corner_detail = 9
 shadow_size = 6
@@ -67,11 +67,11 @@ corner_detail = 20
 Button/colors/font_color = Color( 0.494118, 0.0901961, 0.0901961, 1 )
 Button/colors/font_color_focus = Color( 0.494118, 0.0901961, 0.0901961, 1 )
 Button/styles/focus = SubResource( 13 )
-Button/styles/hover = SubResource( 11 )
+Button/styles/hover = SubResource( 15 )
 Button/styles/normal = ExtResource( 1 )
-Button/styles/pressed = SubResource( 12 )
+Button/styles/pressed = SubResource( 16 )
 Label/colors/font_color = Color( 0.494118, 0.0901961, 0.0901961, 1 )
-Label/styles/normal = SubResource( 15 )
+Label/styles/normal = SubResource( 17 )
 PanelContainer/styles/panel = ExtResource( 1 )
 RichTextLabel/styles/normal = ExtResource( 1 )
 TabContainer/styles/panel = ExtResource( 1 )
