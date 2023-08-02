@@ -85,7 +85,8 @@ func _on_new_perk_selection(perks, raritys):
 	for card in cards:
 		card_holder.add_child(card)
 
-	TimeManager.set_time_scale(0.0,true)
+	get_tree().paused = true
+	#TimeManager.set_time_scale(0.0,true)
 	card_holder.get_parent().visible=true
 	set_cursor(Globals.cursor_manager.CURSOR_TYPE.DEFAULT)
 
@@ -97,7 +98,8 @@ func _on_card_selected(card:PerkCard)->void:
 	for card in card_holder.get_children():
 		card.queue_free()
 	set_cursor(Globals.cursor_manager.CURSOR_TYPE.CROSSHAIR)
-	TimeManager.restore_from_stored_time()
+	get_tree().paused = false
+	#TimeManager.restore_from_stored_time()
 	emit_signal("perk_selected")
 
 func time_to_str(time:int) -> String:
