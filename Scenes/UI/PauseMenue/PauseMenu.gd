@@ -67,8 +67,10 @@ func _on_ExitButton_pressed():
 	if sfx_slider.has_chagend or music_slider.has_chagend:
 		save_volume()
 
-	#Quit game
-	get_tree().quit()
+	#Back tu main menu
+	get_tree().paused = false
+	TimeManager.set_time_scale(1.0)
+	get_tree().change_scene("res://Scenes/UI/MainMenu/MainMenu.tscn")
 
 func _on_Player_Death(): # gets connected in GUI
 	blocked = true

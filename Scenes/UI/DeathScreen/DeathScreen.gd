@@ -50,6 +50,8 @@ func handle_score_display(former_score:int,new_score:int,former_time:int,new_tim
 # warning-ignore:unused_argument
 func _process(delta):
 	if Input.is_action_pressed("Escape"):
+		get_tree().paused = false
+		TimeManager.set_time_scale(1.0)
 		get_tree().change_scene("res://Scenes/UI/MainMenu/MainMenu.tscn")
 	if Input.is_action_pressed("Enter"):
 		get_tree().reload_current_scene()

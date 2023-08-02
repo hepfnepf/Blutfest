@@ -162,8 +162,8 @@ margin_bottom = 679.0
 alignment = 1
 
 [node name="SFXSlider" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
-margin_left = 267.0
-margin_right = 307.0
+margin_left = 216.0
+margin_right = 256.0
 margin_bottom = 498.0
 theme = SubResource( 12 )
 button_texture = ExtResource( 7 )
@@ -171,14 +171,14 @@ audio_channel = "SFX"
 button_texture_disabled = ExtResource( 9 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
-margin_left = 311.0
-margin_right = 601.0
+margin_left = 260.0
+margin_right = 652.0
 margin_bottom = 498.0
 size_flags_horizontal = 4
 size_flags_vertical = 5
 
 [node name="ReturnButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_right = 290.0
+margin_right = 392.0
 margin_bottom = 90.0
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
@@ -186,7 +186,7 @@ text = "RETURN"
 
 [node name="OptionsButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 94.0
-margin_right = 290.0
+margin_right = 392.0
 margin_bottom = 184.0
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
@@ -194,7 +194,7 @@ text = "OPTIONS"
 
 [node name="CreditsButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 188.0
-margin_right = 290.0
+margin_right = 392.0
 margin_bottom = 278.0
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
@@ -202,7 +202,7 @@ text = "CREDITS"
 
 [node name="Restart" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 282.0
-margin_right = 290.0
+margin_right = 392.0
 margin_bottom = 372.0
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
@@ -210,24 +210,24 @@ text = "RESTART"
 
 [node name="ExitButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 376.0
-margin_right = 290.0
+margin_right = 392.0
 margin_bottom = 466.0
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
-text = "EXIT"
+text = "MAIN_MENU"
 
 [node name="MusicController" parent="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource( 10 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 470.0
-margin_right = 290.0
+margin_right = 392.0
 margin_bottom = 498.0
 size_flags_vertical = 3
 theme = SubResource( 18 )
 
 [node name="MusicSlider" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
-margin_left = 605.0
-margin_right = 645.0
+margin_left = 656.0
+margin_right = 696.0
 margin_bottom = 498.0
 theme = SubResource( 12 )
 button_texture = ExtResource( 6 )

@@ -27,7 +27,7 @@ func value_change_code(value):#wrapper  in case the vslider value gets changed b
 func _on_VSlider_value_changed(value):#gets linear value
 	var sfx_index= AudioServer.get_bus_index(audio_channel)
 	var db_value = linear2db(value)
-	print_debug(db_value)
+
 	AudioServer.set_bus_volume_db(sfx_index, db_value)
 	if !changed_by_code:
 		button.pressed = false
