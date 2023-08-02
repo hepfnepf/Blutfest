@@ -5,6 +5,8 @@ ENEMY,Enemy:,Gegner:
 YOU_DIED,You Died,Du bist gestorben
 DEATH_RESTART,Press 'Enter' to try again,Drücke 'Enter' für einen neuen Versuch
 DEATH_QUIT,Press 'ESC' to quit the Game,Drücke 'ESC' um das Spiel zu beenden
+DEATH_RETURN,Press 'ESC' to return to the main menu,Drücke 'ESC' um zum Hauptmenü zurückzukehren
+MAIN_MENU,Main Menu,Hauptmenü
 PAUSE_MENU,Pause Menu,Menü
 PLAY,Play,Spielen
 RETURN,Return,Zurück
