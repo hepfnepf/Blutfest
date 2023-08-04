@@ -24,7 +24,7 @@ spread_inc = 0.0
 Bullet = ExtResource( 7 )
 shoot_sfx = ExtResource( 8 )
 reload_sfx = ExtResource( 9 )
-shoot_db = 0.3
+shoot_db = 2.7
 reload_db = 0.1
 empty_db = 0.1
 

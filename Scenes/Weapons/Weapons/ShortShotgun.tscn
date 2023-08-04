@@ -26,8 +26,8 @@ Bullet = ExtResource( 8 )
 shoot_sfx = ExtResource( 11 )
 reload_sfx = ExtResource( 12 )
 empty_sfx = ExtResource( 10 )
-shoot_db = 0.2
-reload_db = 1.0
+shoot_db = 0.5
+reload_db = 0.8
 empty_db = 1.0
 projectile_nmbr = 10
 

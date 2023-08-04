@@ -9,6 +9,6 @@ func _on_Bullet_body_entered(body):
 		body.handle_hit(damage, Globals.DamageType.PROJECTILE)
 	if exp_dmg != 0.0:
 		explode()
-	elif player.spike_balls_explode:
+	elif is_instance_valid(player) and player.spike_balls_explode:
 		exp_dmg = player.spike_ball_explosion_damage
 		explode()

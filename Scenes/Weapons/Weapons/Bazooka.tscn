@@ -27,7 +27,7 @@ Bullet = ExtResource( 7 )
 shoot_sfx = ExtResource( 8 )
 reload_sfx = ExtResource( 9 )
 shoot_db = 2.0
-reload_db = 1.0
+reload_db = 0.5
 explosion_size = 3.7
 
 [node name="muzzle_flash_02" parent="." index="0"]
