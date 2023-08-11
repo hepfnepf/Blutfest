@@ -25,8 +25,8 @@ Bullet = ExtResource( 6 )
 shoot_sfx = ExtResource( 7 )
 reload_sfx = ExtResource( 8 )
 empty_sfx = ExtResource( 9 )
-shoot_db = 0.1
-reload_db = 0.1
+shoot_db = 0.35
+reload_db = 0.25
 empty_db = 0.2
 weapon_spawn_rate_multi = 2.5
 
