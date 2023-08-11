@@ -41,7 +41,7 @@ damage = 20
 max_range = 500
 speed = 2000
 shoot_sfx = ExtResource( 5 )
-shoot_db = 0.08
+shoot_db = 0.25
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 3 )

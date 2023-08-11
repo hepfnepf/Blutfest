@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/692923_7943867-lq.ogg-3324b26533bbc24944d4b5b4a8cbd979.oggstr"
+
+[deps]
+
+source_file="res://Sounds/SFX/Explosions/692923_7943867-lq.ogg"
+dest_files=[ "res://.import/692923_7943867-lq.ogg-3324b26533bbc24944d4b5b4a8cbd979.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

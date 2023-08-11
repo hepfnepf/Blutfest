@@ -7,6 +7,8 @@ onready var area:Area2D = $Node2D/Area2D
 onready var sound:AudioStreamPlayer2D = $Node2D/ExplosionSound
 
 var already_hit = []
+var anim_finished:bool = false
+var sound_finished:bool = false
 
 func _ready() -> void:
 	anim.play("explosion")
@@ -28,4 +30,16 @@ func apply_effect(body) -> void:
 
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if (anim_name=="explosion"):
+		anim_finished=true
+		check_finished()
+		#queue_free()
+
+func _on_ExplosionSound_finished() -> void:
+	sound_finished = true
+	check_finished()
+
+
+func check_finished()->void:
+	if (anim_finished==true and sound_finished==true):
+		print("bye")
 		queue_free()
