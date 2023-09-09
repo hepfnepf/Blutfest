@@ -13,10 +13,10 @@ onready var crosshair = $Crosshair
 onready var effect_container = $HUD/VBoxContainer/HBoxContainer/EffectContainer
 onready var credits = $PauseMenu/CreditsScreen
 onready var pause_menu =$PauseMenu
-onready var card_holder = $CardHolder/HBoxContainer
+onready var card_holder = $CardHolder
 
 var player:Player
-var perkCard = preload("res://Scenes/Perks/PerkCard.tscn")
+var perkCard = preload("res://Scenes/UI/PerkSelection/PerkCard.tscn")
 
 
 func _ready() -> void:
@@ -83,20 +83,21 @@ func _on_new_perk_selection(perks, raritys):
 		card.connect("card_selected",self,"_on_card_selected")
 
 	for card in cards:
-		card_holder.add_child(card)
+		card_holder.add_card(card)
 
 	get_tree().paused = true
 	#TimeManager.set_time_scale(0.0,true)
-	card_holder.get_parent().visible=true
+	card_holder.visible=true
 	set_cursor(Globals.cursor_manager.CURSOR_TYPE.DEFAULT)
 
 func _on_card_selected(card:PerkCard)->void:
 	player.add_child(card.perk.instance())
 	player.perkManager._on_Perk_selected(card.perk)
 
-	card_holder.get_parent().visible=false
-	for card in card_holder.get_children():
-		card.queue_free()
+	card_holder.visible=false
+	card_holder.clear_cards()
+	#for card in card_holder.get_children():
+	#	card.queue_free()
 	set_cursor(Globals.cursor_manager.CURSOR_TYPE.CROSSHAIR)
 	get_tree().paused = false
 	#TimeManager.restore_from_stored_time()
