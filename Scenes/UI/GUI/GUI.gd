@@ -74,6 +74,8 @@ func set_lock(new_lock:bool)->void:
 	lock_texture.visible = new_lock
 ##Opens the perk selection screen
 func _on_new_perk_selection(perks, raritys):
+	get_tree().paused = true
+
 	var cards = []
 	for i in range(perks.size()):
 		var card:PerkCard = perkCard.instance()
@@ -84,23 +86,20 @@ func _on_new_perk_selection(perks, raritys):
 
 	for card in cards:
 		card_holder.add_card(card)
-
-	get_tree().paused = true
-	#TimeManager.set_time_scale(0.0,true)
 	card_holder.visible=true
+	card_holder.draw_cards()
+
+
 	set_cursor(Globals.cursor_manager.CURSOR_TYPE.DEFAULT)
 
 func _on_card_selected(card:PerkCard)->void:
 	player.add_child(card.perk.instance())
 	player.perkManager._on_Perk_selected(card.perk)
+	card_holder.clear_cards(card)
+	yield(card_holder,"cards_cleared")
 
-	card_holder.visible=false
-	card_holder.clear_cards()
-	#for card in card_holder.get_children():
-	#	card.queue_free()
 	set_cursor(Globals.cursor_manager.CURSOR_TYPE.CROSSHAIR)
 	get_tree().paused = false
-	#TimeManager.restore_from_stored_time()
 	emit_signal("perk_selected")
 
 func time_to_str(time:int) -> String:
