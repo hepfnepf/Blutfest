@@ -57,6 +57,7 @@ Icicle Gun shot - leohpaz - https://opengameart.org/content/8-magic-attacks -  C
 Icicle Gun reload - IgnasD - https://opengameart.org/content/ice-breakingshattering - CC0
 Explosion1 - dustyroomgames - https://dustyroom.com/free-casual-game-sounds/ - CC0
 Explosion2 - DustyWind - https://freesound.org/people/DustyWind/sounds/692923/ - CC0
+UI swing - artisticdude - https://opengameart.org/content/rpg-sound-pack - CC0
 
 
 Music

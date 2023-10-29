@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/UI/PerkSelection/CardHolder.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/SFX/UI/swing.wav" type="AudioStream" id=2]
+
+[node name="CardHolder" type="CenterContainer"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 150.0
+margin_top = 150.0
+margin_right = -150.0
+margin_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource( 1 )
+sound_effect = ExtResource( 2 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 618.0
+margin_top = 300.0
+margin_right = 618.0
+margin_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

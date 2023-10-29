@@ -13,33 +13,30 @@ onready var icon:TextureRect=$"%Icon"
 onready var descLabel:Label=$"%DescriptionLabel"
 
 export (float) var hover_size = 1.3
-export (float) var up_duration = 2.0
-export (float) var down_duration = 2.0
+export (float) var up_speed = 3.0
+export (float) var down_speed = 5.0
 var min_size:Vector2 = Vector2(0,0)
 
 var rarity:int = 0
 var is_hovered:bool = false
 var weight:float = 0.0
-var last_time:float = 0 #needed to make my own delta for the animation, since the delta in process does not work if the game is paused
+var disabled:bool = false
 
 func _ready()->void:
 	display_perk()
 	min_size = rect_min_size
-	last_time = OS.get_ticks_msec()
 
 func _process(delta: float) -> void:
-	#makeing my own delta for the animation, since the delta in process does not work if the game is paused
-	var new_time = OS.get_ticks_msec()
-	delta = (new_time-last_time)/100
-
+	if disabled:
+		return
 	if is_hovered:
-		weight += delta/up_duration
+		weight += delta*up_speed
 	else:
-		weight -= delta/down_duration
+		weight -= delta*down_speed
 
 	weight=clamp(weight,0,1)
 	rect_min_size=min_size.linear_interpolate(min_size*Vector2(hover_size,hover_size), weight)
-	last_time = new_time
+
 
 func display_perk()->void:
 	if perk == null:
@@ -55,6 +52,7 @@ func display_perk()->void:
 
 	_perk.queue_free()
 
+
 func get_rarity_string(rarity:int)->String:
 	if rarity == Globals.Rarity.COMMON:
 		return tr("RARITY_COMMON")
@@ -69,6 +67,8 @@ func get_rarity_string(rarity:int)->String:
 		return "Error"
 
 func _on_Button_button_up()->void:
+	if disabled:
+		return
 	emit_signal("card_selected",self)
 
 func _on_Button_mouse_entered() -> void:
