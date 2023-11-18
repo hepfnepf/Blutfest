@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Items/Items/ItemHealUp.tscn" type="PackedScene" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://Scenes/Items/Items/ItemTrapCanon.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Weapons/Weapons/TrapCanon.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Items/Items/ItemPoints1000.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/Items/Items/ItemPoints500.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenes/Items/Items/ItemPoints5000.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Items/Items/AkItem.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scenes/Items/Items/ItemLongShotgun.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Items/Items/ShortShotgunItem.tscn" type="PackedScene" id=25]
@@ -96,10 +98,10 @@ volume_db = 0.0
 autoplay = false
 volumes = {
 Resource( "res://Sounds/Music/Beyond - part 2_alexander nakarada _httpsfreepd.commusicBeyond%20-%20part%202.mp3.mp3" ): 6.0,
-Resource( "res://Sounds/Music/Murder On The Bayou_ Bryan Teoh_httpsfreepd.commusicMurder%20On%20The%20Bayou.mp3.mp3" ): -6.0,
-Resource( "res://Sounds/Music/One Destination - Two Journeys_Alexander Nakarada_httpsfreepd.commusicOne%20Destination%20-%20Two%20Journeys.mp3.mp3" ): 0.0,
 Resource( "res://Sounds/Music/Deck the Halls_alexander nakarada_httpsfreepd.commusicDeck%20the%20Halls.mp3.mp3" ): 0.0,
-Resource( "res://Sounds/Music/Construction_Alexander Nakarada_httpsfreepd.commusicConstruction.mp3.mp3" ): 0.0
+Resource( "res://Sounds/Music/Construction_Alexander Nakarada_httpsfreepd.commusicConstruction.mp3.mp3" ): 0.0,
+Resource( "res://Sounds/Music/Murder On The Bayou_ Bryan Teoh_httpsfreepd.commusicMurder%20On%20The%20Bayou.mp3.mp3" ): -6.0,
+Resource( "res://Sounds/Music/One Destination - Two Journeys_Alexander Nakarada_httpsfreepd.commusicOne%20Destination%20-%20Two%20Journeys.mp3.mp3" ): 0.0
 }
 
 [node name="EffectItemBasis3" parent="." instance=ExtResource( 13 )]
@@ -111,3 +113,9 @@ position = Vector2( -503.447, 8.77588 )
 
 [node name="ItemPoints1000" parent="." instance=ExtResource( 19 )]
 position = Vector2( -956.506, -667.038 )
+
+[node name="ItemPoints500" parent="." instance=ExtResource( 20 )]
+position = Vector2( -2130.69, -508.467 )
+
+[node name="ItemPoints5000" parent="." instance=ExtResource( 21 )]
+position = Vector2( -2942.42, 718.569 )
