@@ -86,9 +86,11 @@ func apply_rarity() -> void:
 		_apply_rarity_color(color_legendary)
 
 func _apply_rarity_color(color:Color) -> void:
+
 	var stylebox:StyleBoxFlat =  theme.get_stylebox("panel","PanelContainer").duplicate()#StyleBoxFlat.new()
 	add_stylebox_override("panel",stylebox)
 	stylebox.border_color=color
+
 	nameLabel.add_color_override("font_color",color)
 	rarityLabel.add_color_override("font_color",color)
 	descLabel.add_color_override("font_color",color)
