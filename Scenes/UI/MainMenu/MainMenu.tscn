@@ -1,6 +1,5 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Scenes/Perks/PerkTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Sprites/Maps/None_Albedo_1001.png" type="Texture" id=3]
 [ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=4]
@@ -9,6 +8,7 @@
 [ext_resource path="res://Scenes/UI/CreditsScreen/CreditsScreen.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/UI/SettingsScreen/SettingsScreen.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/BackgroundMusic.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/UI/MainMenu/MainMenuTheme.tres" type="Theme" id=10]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -104,7 +104,7 @@ margin_bottom = 396.0
 [node name="PlayButton" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_right = 315.0
 margin_bottom = 96.0
-theme = ExtResource( 1 )
+theme = ExtResource( 10 )
 custom_fonts/font = SubResource( 10 )
 text = "PLAY"
 
@@ -112,7 +112,7 @@ text = "PLAY"
 margin_top = 100.0
 margin_right = 315.0
 margin_bottom = 196.0
-theme = ExtResource( 1 )
+theme = ExtResource( 10 )
 custom_fonts/font = SubResource( 10 )
 text = "OPTIONS"
 
@@ -120,7 +120,7 @@ text = "OPTIONS"
 margin_top = 200.0
 margin_right = 315.0
 margin_bottom = 296.0
-theme = ExtResource( 1 )
+theme = ExtResource( 10 )
 custom_fonts/font = SubResource( 10 )
 text = "CREDITS"
 
@@ -128,7 +128,7 @@ text = "CREDITS"
 margin_top = 300.0
 margin_right = 315.0
 margin_bottom = 396.0
-theme = ExtResource( 1 )
+theme = ExtResource( 10 )
 custom_fonts/font = SubResource( 10 )
 text = "EXIT"
 
@@ -248,11 +248,11 @@ texture = ExtResource( 3 )
 
 [node name="CreditsScreen" parent="." instance=ExtResource( 7 )]
 visible = false
-theme = ExtResource( 1 )
+theme = ExtResource( 10 )
 
 [node name="SettingsScreen" parent="." instance=ExtResource( 8 )]
 visible = false
-theme = ExtResource( 1 )
+theme = ExtResource( 10 )
 
 [node name="BackgroundMusic" parent="." instance=ExtResource( 9 )]
 volume_db = 0.0

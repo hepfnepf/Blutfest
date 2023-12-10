@@ -24,6 +24,7 @@ func clear_cards(selected_card:PerkCard)->void:
 		if card != selected_card:
 			if sound_effect:
 				var audio_effect:AudioStreamPlayer = AudioStreamPlayer.new()
+				audio_effect.bus="SFX"
 				card.add_child(audio_effect)
 				audio_effect.stream = sound_effect
 				#audio_effect.play()
@@ -54,6 +55,7 @@ func draw_cards()->void:
 	for card in $HBoxContainer.get_children():
 		if sound_effect:
 			var audio_effect:AudioStreamPlayer = AudioStreamPlayer.new()
+			audio_effect.bus="SFX"
 			card.add_child(audio_effect)
 			audio_effect.stream = sound_effect
 			#audio_effect.play()
