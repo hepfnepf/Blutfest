@@ -52,3 +52,4 @@ func _on_enemy_killed(points) -> void:
 
 func _on_enemy_spawned() -> void:
 	enemys_alive +=1
+
