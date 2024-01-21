@@ -13,6 +13,7 @@ func _ready() -> void:
 func add_card(card:PerkCard)->void:
 	$HBoxContainer.add_child(card)
 	card.disabled = true
+	card.modulate = Color(0,0,0,0)#turn card invisible, but not using the visible var beacause that messes with the placement of UI elements
 
 func clear_cards(selected_card:PerkCard)->void:
 	var tween:SceneTreeTween  = create_tween()
@@ -49,7 +50,9 @@ func draw_cards()->void:
 	yield(get_tree(), "idle_frame")
 	var tween:SceneTreeTween = create_tween()
 
+
 	for card in $HBoxContainer.get_children():
+		card.modulate = Color(1,1,1,1)#make card visible again
 		card.rect_position.y = rect_size.y+card.rect_size.y #move cards out of visible screen
 
 	for card in $HBoxContainer.get_children():

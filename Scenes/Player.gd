@@ -46,6 +46,7 @@ onready var weapon = $Weapon
 onready var hurt:AudioStreamPlayer = $Hurt
 onready var perkManager:PerkManager = $PerkManager
 onready var gui = get_node_or_null("/root/Game/GUI")
+onready var shockWave=get_node_or_null("/root/Game/ShockWaveLayer/ShockWave")
 
 var velocity:Vector2 = Vector2.ZERO #needed for movement inaccuracy of player
 export (float) var friction = 0.01
@@ -145,6 +146,12 @@ func level_up():
 	experience -= experience_limit
 	print("Level UP")
 	emit_signal("leveled_up")
+
+	$LevelUpSound.play()
+
+	if is_instance_valid(shockWave):
+		shockWave.start(1.0)
+		yield(shockWave,"wave_finished")#removing this line will make the wave appear after perk card selection
 
 	if heal_up_on_level_up:
 		set_health(health+heal_up_on_level_up)
