@@ -21,14 +21,14 @@ Missle based on - Mystic Mike (Mike Hosker) - https://opengameart.org/content/ag
 removed background, rotated 31.12.2022
 
 Pick-Up items
-SpeedUp - Delapouite - https://game-icons.net/1x1/delapouite/running-shoe.html
-Shiled - Lorc - https://game-icons.net/1x1/lorc/checked-shield.html
-Reflect - Lorc - https://game-icons.net/1x1/lorc/shield-reflect.html
-ExtraAmmo - Delapouite - https://game-icons.net/1x1/delapouite/heavy-bullets.html
-Infnity - Various artists - https://game-icons.net/1x1/various-artists/infinity.html
-Penetrating Bullet - lorc - https://game-icons.net/1x1/lorc/supersonic-bullet.html
-Critical Bullet - Delapouite - https://game-icons.net/1x1/delapouite/silver-bullet.html
-Explosion - Lorc - https://game-icons.net/1x1/lorc/grenade.html
+SpeedUp - Delapouite - https://game-icons.net/1x1/delapouite/running-shoe.html - CC BY 3.0
+Shiled - Lorc - https://game-icons.net/1x1/lorc/checked-shield.html -CC BY 3.0
+Reflect - Lorc - https://game-icons.net/1x1/lorc/shield-reflect.html - CC BY 3.0
+ExtraAmmo - Delapouite - https://game-icons.net/1x1/delapouite/heavy-bullets.html - CC BY 3.0
+Infnity - Various artists - https://game-icons.net/1x1/various-artists/infinity.html - CC BY 3.0
+Penetrating Bullet - lorc - https://game-icons.net/1x1/lorc/supersonic-bullet.html - CC BY 3.0
+Critical Bullet - Delapouite - https://game-icons.net/1x1/delapouite/silver-bullet.html - CC BY 3.0
+Explosion - Lorc - https://game-icons.net/1x1/lorc/grenade.html - CC BY 3.0
 Ak Rifle - Game Developer Studio - https://opengameart.org/content/ak-47-icon - CC BY 3.0
 Short Shotgun - clayster2012 - https://opengameart.org/content/weapon-set-0 - CC BY 3.0
 Ice - https://game-icons.net/1x1/lorc/ice-cube.html#download
@@ -58,6 +58,7 @@ Icicle Gun reload - IgnasD - https://opengameart.org/content/ice-breakingshatter
 Explosion1 - dustyroomgames - https://dustyroom.com/free-casual-game-sounds/ - CC0
 Explosion2 - DustyWind - https://freesound.org/people/DustyWind/sounds/692923/ - CC0
 UI swing - artisticdude - https://opengameart.org/content/rpg-sound-pack - CC0
+Shock Wave - SubspaceAudio - https://opengameart.org/content/512-sound-effects-8-bit-style - CC0
 
 
 Music

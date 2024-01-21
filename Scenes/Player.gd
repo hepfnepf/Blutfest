@@ -147,6 +147,8 @@ func level_up():
 	print("Level UP")
 	emit_signal("leveled_up")
 
+	$LevelUpSound.play()
+
 	if is_instance_valid(shockWave):
 		shockWave.start(1.0)
 		yield(shockWave,"wave_finished")#removing this line will make the wave appear after perk card selection
