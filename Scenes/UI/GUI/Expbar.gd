@@ -1,7 +1,7 @@
 extends HBoxContainer
 
 
-onready var prog_bar:ProgressBar = $ProgressBar
+onready var prog_bar = $ProgressBar
 onready var label:Label = $Label
 
 func set_exp(new_exp):
