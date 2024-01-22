@@ -1,10 +1,10 @@
 
 
 Sprites
-Player - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player
+Player - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player - CC-BY 3.0
 
 Wapons top-down:
-Pistol - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player
+Pistol - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player CC-BY 3.0
 Pistol icon - rgs_dev - https://opengameart.org/content/gun-glock-26-gen5-9mm-vector
 Standard Rifle - knik1985 - https://opengameart.org/content/guns-wwii
 Ak Rifle - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player
@@ -42,6 +42,7 @@ Ice - digit1024 - https://opengameart.org/content/ice-block - CC BY 3.0
 
 GUI
 Padlock - https://game-icons.net/1x1/lorc/padlock.html#download
+Health/Exp Bar - StumpyStrust - https://opengameart.org/content/loading-bar - CC0
 
 Sounds
 Standard Rifle/Ak Shot - KuraiWolf - https://opengameart.org/content/light-machine-gun -  CC BY 4.0
