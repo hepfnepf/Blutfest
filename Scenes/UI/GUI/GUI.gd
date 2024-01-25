@@ -14,6 +14,7 @@ onready var effect_container = $HUD/VBoxContainer/HBoxContainer/EffectContainer
 onready var credits = $PauseMenu/CreditsScreen
 onready var pause_menu =$PauseMenu
 onready var card_holder = $CardHolder
+onready var instructions = $HUD/InstructionsPopup
 
 var player:Player
 var perkCard = preload("res://Scenes/UI/PerkSelection/PerkCard.tscn")
@@ -21,6 +22,10 @@ var perkCard = preload("res://Scenes/UI/PerkSelection/PerkCard.tscn")
 
 func _ready() -> void:
 	pause_menu.set_debug_info(debug_info)
+
+	#instructions.popup()
+
+
 	#connect("perk_selected",PerkManager,"_on_Perk_selected")
 
 func set_player(player:Player)->void:
