@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
+[ext_resource path="res://Scenes/UI/GUI/InstructionsPopup.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UI/GUI/Expbar2.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/UI/GUI/Ammo.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/UI/GUI/GUI.gd" type="Script" id=4]
@@ -10,6 +11,28 @@
 [ext_resource path="res://Sprites/Items/padlock.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/UI/PerkSelection/CardHolder.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/UI/GUI/Healthbar2.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Fonts/help_titles.tres" type="DynamicFont" id=12]
+
+[sub_resource type="Theme" id=3]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color( 0.494118, 0.0901961, 0.0901961, 1 )
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 9
+shadow_size = 6
+
+[sub_resource type="Theme" id=5]
+Label/colors/font_color = Color( 1, 1, 1, 1 )
+PanelContainer/styles/panel = SubResource( 4 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -33,6 +56,91 @@ margin_right = -10.0
 margin_bottom = -10.0
 mouse_filter = 2
 size_flags_horizontal = 3
+
+[node name="InstructionsPopup" type="Popup" parent="HUD"]
+pause_mode = 2
+visible = true
+margin_left = 758.0
+margin_top = 440.0
+margin_right = 758.0
+margin_bottom = 440.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="HUD/InstructionsPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 3 )
+use_top_left = true
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD/InstructionsPopup/CenterContainer"]
+margin_left = -108.0
+margin_top = -92.0
+margin_right = 108.0
+margin_bottom = 92.0
+theme = SubResource( 5 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/InstructionsPopup/CenterContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 209.0
+margin_bottom = 177.0
+
+[node name="InstructionsTitle" type="Label" parent="HUD/InstructionsPopup/CenterContainer/PanelContainer/VBoxContainer"]
+margin_right = 202.0
+margin_bottom = 38.0
+custom_colors/font_color = Color( 0.494118, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 12 )
+text = "HELP_TITLE1"
+align = 1
+
+[node name="GameplayInstruction" type="Label" parent="HUD/InstructionsPopup/CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 42.0
+margin_right = 202.0
+margin_bottom = 56.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "HELP_DESCRIPTION"
+
+[node name="MovementTitle" type="Label" parent="HUD/InstructionsPopup/CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 60.0
+margin_right = 202.0
+margin_bottom = 98.0
+custom_colors/font_color = Color( 0.494118, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 12 )
+text = "HELP_TITLE2"
+align = 1
+
+[node name="Movement" type="Label" parent="HUD/InstructionsPopup/CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 102.0
+margin_right = 202.0
+margin_bottom = 116.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "HELP_MOVEMENT"
+align = 1
+
+[node name="Shooting" type="Label" parent="HUD/InstructionsPopup/CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 120.0
+margin_right = 202.0
+margin_bottom = 134.0
+text = "HELP_SHOOTING"
+align = 1
+
+[node name="Locking" type="Label" parent="HUD/InstructionsPopup/CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 138.0
+margin_right = 202.0
+margin_bottom = 152.0
+text = "HELP_LOCKING"
+align = 1
+
+[node name="Label" type="Label" parent="HUD/InstructionsPopup/CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 156.0
+margin_right = 202.0
+margin_bottom = 170.0
+text = "HELP_HELP"
+align = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
 margin_right = 1516.0
@@ -187,3 +295,6 @@ anchor_bottom = 0.0
 margin_right = 1536.0
 margin_bottom = 900.0
 mouse_filter = 1
+
+[connection signal="about_to_show" from="HUD/InstructionsPopup" to="HUD/InstructionsPopup" method="_on_InstructionsPopup_about_to_show"]
+[connection signal="popup_hide" from="HUD/InstructionsPopup" to="HUD/InstructionsPopup" method="_on_InstructionsPopup_popup_hide"]

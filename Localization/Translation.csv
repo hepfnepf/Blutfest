@@ -44,3 +44,10 @@ PERK_EXPLOSION_ON_LEVEL_UP,To much energy,Platzen vor Freude
 PERK_EXPLOSION_ON_LEVEL_UP_DESC,After gaining that much Exp you just need to show unleash your power. So you explode.,"Aus Freude über deinen Level Up, fliegst du einfach in die Luft."
 PERK_SPIKE_BALLS_EXPLODE,Boom Balls,Bumm Bälle
 PERK_SPIKE_BALLS_EXPLODE_DESC,The spike balls are spicy now. Which means they explode.,Die Stachelbälle böllern böß.
+HELP_TITLE1,How to play,Wie geht's?
+HELP_DESCRIPTION,"Survive as long as possible, while evil monsters try to kill you! Use power ups and weapons to your advantage and select the right perks to stay alive.",Überlebe solange es geht! Verschaffe dir dabei einen Vorteil durch die Nutzung von Items und Waffen. Sowie der richtigen Perks!
+HELP_TITLE2,Movement,Steuerung
+HELP_MOVEMENT,"W, A,S,D - move around","W, A, S, D - Bewegung"
+HELP_SHOOTING,Mouse & Left click - aim & shoot,Maus und Linksclick - Zielen & Schießen
+HELP_LOCKING,L - lock your current weapon,L - fixiere deine aktuelle Waffe
+HELP_HELP,H - toggle this help,H - Öffne/Schließe diese Hilfe
