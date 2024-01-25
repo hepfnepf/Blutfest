@@ -83,6 +83,8 @@ scale = Vector2( 0.54, 0.54 )
 speed = 0
 
 [node name="Spawner" parent="." instance=ExtResource( 8 )]
+enemy_spawn_rate = 0.0
+enemy_spawn_rate_increase = 0.0
 item_spawn_rate = 0.294
 max_enemys = 300
 enemy_speed_increase = 0.01
@@ -100,9 +102,9 @@ pause_mode = 2
 volume_db = 0.0
 autoplay = false
 volumes = {
-Resource( "res://Sounds/Music/One Destination - Two Journeys_Alexander Nakarada_httpsfreepd.commusicOne%20Destination%20-%20Two%20Journeys.mp3.mp3" ): 0.0,
-Resource( "res://Sounds/Music/Beyond - part 2_alexander nakarada _httpsfreepd.commusicBeyond%20-%20part%202.mp3.mp3" ): 6.0,
 Resource( "res://Sounds/Music/Construction_Alexander Nakarada_httpsfreepd.commusicConstruction.mp3.mp3" ): 0.0,
+Resource( "res://Sounds/Music/Beyond - part 2_alexander nakarada _httpsfreepd.commusicBeyond%20-%20part%202.mp3.mp3" ): 6.0,
+Resource( "res://Sounds/Music/One Destination - Two Journeys_Alexander Nakarada_httpsfreepd.commusicOne%20Destination%20-%20Two%20Journeys.mp3.mp3" ): 0.0,
 Resource( "res://Sounds/Music/Deck the Halls_alexander nakarada_httpsfreepd.commusicDeck%20the%20Halls.mp3.mp3" ): 0.0,
 Resource( "res://Sounds/Music/Murder On The Bayou_ Bryan Teoh_httpsfreepd.commusicMurder%20On%20The%20Bayou.mp3.mp3" ): -6.0
 }

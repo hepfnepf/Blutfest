@@ -26,6 +26,7 @@ onready var game = get_node_or_null("/root/Game")
 onready var orig:Position2D = $ExplosionOrigin
 
 func _ready():
+	#timer.start(p_range/speed)
 	pass
 
 func _physics_process(delta):
@@ -50,7 +51,7 @@ func _on_Bullet_body_entered(body):
 
 	if body.has_method("handle_hit"):
 		body.handle_hit(damage, Globals.DamageType.PROJECTILE)
-	if exp_dmg != 0.0:
+	if exp_dmg != 0.0 and !body.is_in_group("Border"):
 		explode()
 
 func explode() -> void:

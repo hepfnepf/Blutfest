@@ -16,7 +16,8 @@ resource_name = "shot"
 [node name="IcicleGun" instance=ExtResource( 1 )]
 script = ExtResource( 6 )
 damage = 50
-speed = 2750
+max_range = 3500.0
+speed = 2750.0
 fire_rate = 2.0
 base_spread = 0.025
 max_spread = 0.103

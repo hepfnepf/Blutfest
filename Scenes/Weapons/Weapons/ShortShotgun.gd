@@ -23,6 +23,7 @@ func _shoot_bullet() -> void:
 	bullet.speed = speed
 	bullet.p_range = max_range
 	bullet.damage = damage
+	bullet.timer.start(float(max_range)/speed)
 
 
 #The spread function gets overwritten, because the crosshair would get to big else

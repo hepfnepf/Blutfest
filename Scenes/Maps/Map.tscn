@@ -64,7 +64,7 @@ scale = Vector2( 56.7305, -61.8465 )
 z_index = 20
 texture = ExtResource( 3 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Border"]]
 position = Vector2( 4.19617e-05, -2.86102e-06 )
 collision_layer = 2
 
