@@ -14,6 +14,7 @@
 [node name="AkRifle" instance=ExtResource( 1 )]
 script = ExtResource( 10 )
 damage = 35
+max_range = 6000.0
 speed = 3500
 reload_time = 1.5
 fire_rate = 8.0

@@ -15,7 +15,8 @@
 script = ExtResource( 10 )
 max_ammo = 20
 damage = 49
-speed = 3500
+max_range = 7500.0
+speed = 3500.0
 reload_time = 1.58
 fire_rate = 1.0
 base_spread = 0.01

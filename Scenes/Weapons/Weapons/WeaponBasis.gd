@@ -10,8 +10,8 @@ signal spread_changed(new_spread)
 
 export (int) var max_ammo = 15
 export (int) var damage = 20
-export (int) var max_range = 300
-export (int) var speed = 100#of bullet
+export (float) var max_range = 300
+export (float) var speed = 100#of bullet
 export (float) var reload_time = 1.0
 export (float) var fire_rate = 10.0 setget set_fire_rate
 
@@ -124,6 +124,7 @@ func shoot_bullet():
 	bullet.speed = speed
 	bullet.p_range = max_range
 	bullet.damage = damage*player.damage_multi
+	bullet.timer.start(float(max_range)/speed)#??, yes max_range already is a float, but without this conversion it did not work
 	increase_spread()
 
 """

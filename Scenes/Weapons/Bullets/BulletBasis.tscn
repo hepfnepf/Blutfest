@@ -9,7 +9,7 @@ extents = Vector2( 14.9831, 4.77297 )
 
 [node name="Bullet" type="Area2D" groups=["Projectile"]]
 collision_layer = 8
-collision_mask = 4
+collision_mask = 6
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

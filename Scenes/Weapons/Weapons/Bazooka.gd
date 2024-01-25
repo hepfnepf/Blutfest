@@ -17,4 +17,5 @@ func shoot_bullet():
 	#bullet.explodes=true
 	bullet.exp_dmg = explosion_damage
 	bullet.exp_size = explosion_size
+	bullet.timer.start(float(max_range)/speed)
 	increase_spread()
