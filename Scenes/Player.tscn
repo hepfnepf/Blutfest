@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Sprites/Player/leg.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Player/hand_holding_gun.png" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Scenes/Perks/PerkIncreaseMaxHealth2.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/Perks/PerkExplodingSpikeBalls.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Sounds/SFX/LevelUpSound/LvlUpWave_01_SubspaceAudio_sfx_exp_cluster2.wav" type="AudioStream" id=22]
+[ext_resource path="res://Scenes/PlayerCamera.gd" type="Script" id=23]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 73.9803
@@ -1235,6 +1236,7 @@ anims/walk_right = SubResource( 10 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 4, 4 )
+script = ExtResource( 23 )
 
 [node name="ItemInteractionZone" type="Area2D" parent="."]
 
