@@ -7,10 +7,10 @@ Wapons top-down:
 Pistol - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player CC-BY 3.0
 Pistol icon - rgs_dev - https://opengameart.org/content/gun-glock-26-gen5-9mm-vector
 Standard Rifle - knik1985 - https://opengameart.org/content/guns-wwii
-Ak Rifle - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player
-Short Shotgun based on - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player
+Ak Rifle - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player - CC BY 3.0
+Short Shotgun based on - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player - CC BY 3.0
 Icicle Gun based on Xavier4321 - https://opengameart.org/content/gun-mine - CC BY 3.0
-Longrange Shotgun based on - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player
+Longrange Shotgun based on - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player - CC BY 3.0
 Trap Canon based on - richtaur - https://opengameart.org/content/bomb-party - CC BY 3.0
 Spiked Ball - dravenx - https://opengameart.org/content/spikey-stuff - CC BY 3.0
 Bazooka - me - CC0
@@ -41,8 +41,9 @@ Effects
 Ice - digit1024 - https://opengameart.org/content/ice-block - CC BY 3.0
 
 GUI
-Padlock - https://game-icons.net/1x1/lorc/padlock.html#download
+Padlock - https://game-icons.net/1x1/lorc/padlock.html#download - CC BY 3.0
 Health/Exp Bar - StumpyStrust - https://opengameart.org/content/loading-bar - CC0
+Blood on screen - 1up Indie - https://opengameart.org/content/blood-overlay - CC0
 
 Sounds
 Standard Rifle/Ak Shot - KuraiWolf - https://opengameart.org/content/light-machine-gun -  CC BY 4.0

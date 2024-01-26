@@ -15,6 +15,8 @@ onready var credits = $PauseMenu/CreditsScreen
 onready var pause_menu =$PauseMenu
 onready var card_holder = $CardHolder
 onready var instructions = $HUD/InstructionsPopup
+onready var blood= $ScreenBlood
+
 
 var player:Player
 var perkCard = preload("res://Scenes/UI/PerkSelection/PerkCard.tscn")
@@ -59,8 +61,10 @@ func reset_weapon(weapon)->void:
 
 func set_health(new_health:int)->void:
 	health_widget.set_health(new_health)
+	blood.modulate = Color(1.0,1.0,1.0,1.0 - float(player.health)/float(player.max_health))
 func set_max_health(new_max_health:int)->void:
 	health_widget.set_max_health(new_max_health)
+	#blood.modulate = Color(1.0,1.0,1.0,1.0 - float(player.health)/float(player.max_health))
 func set_ammo(new_ammo:int)->void:
 	ammo_widget.set_ammo(new_ammo)
 func set_max_ammo(new_max_ammo:int)->void:
