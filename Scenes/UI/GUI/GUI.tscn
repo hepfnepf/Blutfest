@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/UI/GUI/InstructionsPopup.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UI/GUI/Expbar2.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Scenes/UI/PerkSelection/CardHolder.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/UI/GUI/Healthbar2.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Fonts/help_titles.tres" type="DynamicFont" id=12]
+[ext_resource path="res://Scenes/Helper/Testing/BloodOverlay.png" type="Texture" id=13]
 
 [sub_resource type="Theme" id=3]
 
@@ -46,6 +47,12 @@ font_data = ExtResource( 5 )
 
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource( 4 )
+
+[node name="ScreenBlood" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 13 )
+stretch_mode = 1
 
 [node name="HUD" type="MarginContainer" parent="."]
 anchor_right = 1.0
