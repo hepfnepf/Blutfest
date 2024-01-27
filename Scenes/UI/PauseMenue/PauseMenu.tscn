@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Fonts/standardUI.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=2]
@@ -14,20 +14,7 @@
 [ext_resource path="res://Scenes/Perks/PerkTheme.tres" type="Theme" id=12]
 [ext_resource path="res://Scenes/UI/MainMenu/ButtonStyleNormal1.tres" type="StyleBox" id=13]
 
-[sub_resource type="StyleBoxFlat" id=10]
-bg_color = Color( 0.372549, 0.227451, 0.227451, 1 )
-border_width_left = 8
-border_color = Color( 0.270588, 0.164706, 0.164706, 1 )
-
-[sub_resource type="StyleBoxFlat" id=11]
-bg_color = Color( 0.4, 0.278431, 0.278431, 1 )
-border_width_left = 8
-border_color = Color( 0.270588, 0.164706, 0.164706, 1 )
-
 [sub_resource type="Theme" id=12]
-Button/styles/focus = SubResource( 10 )
-Button/styles/hover = SubResource( 11 )
-Button/styles/pressed = SubResource( 10 )
 
 [sub_resource type="StyleBoxFlat" id=13]
 bg_color = Color( 0, 0, 0, 1 )
