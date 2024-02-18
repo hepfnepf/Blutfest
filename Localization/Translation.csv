@@ -44,6 +44,14 @@ PERK_EXPLOSION_ON_LEVEL_UP,To much energy,Platzen vor Freude
 PERK_EXPLOSION_ON_LEVEL_UP_DESC,After gaining that much Exp you just need to show unleash your power. So you explode.,"Aus Freude über deinen Level Up, fliegst du einfach in die Luft."
 PERK_SPIKE_BALLS_EXPLODE,Boom Balls,Bumm Bälle
 PERK_SPIKE_BALLS_EXPLODE_DESC,The spike balls are spicy now. Which means they explode.,Die Stachelbälle böllern böß.
+PERK_ACCURACY_BOOST,Accuracy Reward, Guter Schütze
+PERK_ACCURACY_BOOST_DESC,Multiply your damage by 2x the accuracy.,Dein Schaden wird mit dem doppelten der Trefferrate multipliziert.
+PERK_ACCURACY_BOOST_2,Accuracy Reward II, Guter Schütze II
+PERK_ACCURACY_BOOST_2_DESC Your damage gets doubled if your acuraccy is above 0.7\, but multiplied with the current accuracy. (If accuracy is above 1.0, your damage wil be multiplied by 2x of the accuracy.),Falls deine Trefferquote über 0.7 liegt\, wird dein Schaden verdoppelt. Andernfalls wird er jedoch mit deiner Trefferquote multipliziert.(Falls deine Trefferquote über 1.0 liegt\, wird der Schaden mit 2x deiner Trefferquote multipliziert.)
+PERK_MAX_ACCURACY,Overperformer,Überflieger
+PERK_MAX_ACCURACY_DESC,Your accuracy can go above 1.0.,Deine Trefferquote kann 1.0 überschreiten.
+PERK_BAD_AIMER,Shaky fingers,Schlechter Schütze
+PERK_BAD_AIMER,Badass with bad aim. All damage taken will be multiplied with your accuracy.,Erleideter Schaden wird mit deiner Trefferquote multipliziert.
 HELP_TITLE1,How to play,Wie geht's?
 HELP_DESCRIPTION,"Survive as long as possible, while evil monsters try to kill you! Use power ups and weapons to your advantage and select the right perks to stay alive.",Überlebe solange es geht! Verschaffe dir dabei einen Vorteil durch die Nutzung von Items und Waffen. Sowie der richtigen Perks!
 HELP_TITLE2,Movement,Steuerung

@@ -26,7 +26,7 @@ var score:int = 0 setget set_score
 var alive:bool = true
 var elapsed_time=0 #get increased by 1 sec every time the time counter returns
 var locked:bool = false #can the player pick up new guns
-var damage_multi:float=1.0
+var damage_multi:float=1.0#will mosty influenced by perks
 
 #For statistics and some percs
 var enemies_hit:int = 0 setget set_enemies_hit
@@ -45,7 +45,7 @@ var heal_up_on_level_up:int = 0
 var explosion_on_level_up:bool = false
 var spike_balls_explode:bool = false
 var spike_ball_explosion_damage:float = 90
-
+var boost_accuracy_dmg_level:int = 0 setget set_boost_accuracy_dmg_level
 
 onready var weapon = $Weapon
 onready var hurt:AudioStreamPlayer = $Hurt
@@ -132,7 +132,35 @@ func set_shots_fired(new_amnt)->void:
 	calculate_accuracy()
 
 func calculate_accuracy()->void:
-	accuracy = clamp(float(enemies_hit)/float(shots_fired),0.0,1.0)
+	#you could never reache 100%, because shots_fired is always at least 1 bigger than enemies hit, therefore we reduce that by one
+	var _shots_fired_modi=1
+	if (shots_fired==1):
+		accuracy = 1.0
+		return
+
+	accuracy = clamp(float(enemies_hit)/float(shots_fired-_shots_fired_modi),0.0,1.0)
+	calculate_damage_multiplier()
+
+func set_boost_accuracy_dmg_level(level)->void:
+	boost_accuracy_dmg_level=level
+	calculate_damage_multiplier()
+
+func calculate_damage_multiplier()->void:
+
+	var accuracy_boni = 1.0
+	if(boost_accuracy_dmg_level==1):
+		accuracy_boni = 2.0*accuracy
+	elif(boost_accuracy_dmg_level==2):
+		if(accuracy>=1.0):
+			accuracy_boni = 2.0*accuracy
+		elif(accuracy>=0.7):
+			accuracy_boni = 2*accuracy
+		else:
+			accuracy_boni=accuracy
+
+
+	damage_multi = 1.0 * accuracy_boni
+	print_debug(damage_multi)
 
 func die()->void:
 	emit_signal("dead")
