@@ -28,6 +28,11 @@ var elapsed_time=0 #get increased by 1 sec every time the time counter returns
 var locked:bool = false #can the player pick up new guns
 var damage_multi:float=1.0
 
+#For statistics and some percs
+var enemies_hit:int = 0 setget set_enemies_hit
+var shots_fired:int = 0 setget set_shots_fired
+var accuracy:float = 0
+
 #For effects and perks
 
 #How much of the current value is due to temporary effects
@@ -117,6 +122,17 @@ func set_score(new_score)->void:
 		return
 	score=new_score
 	emit_signal("score_changed",new_score)
+
+func set_enemies_hit(new_amnt)->void:
+	enemies_hit = new_amnt
+	calculate_accuracy()
+
+func set_shots_fired(new_amnt)->void:
+	shots_fired = new_amnt
+	calculate_accuracy()
+
+func calculate_accuracy()->void:
+	accuracy = clamp(float(enemies_hit)/float(shots_fired),0.0,1.0)
 
 func die()->void:
 	emit_signal("dead")
