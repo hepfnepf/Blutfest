@@ -154,7 +154,7 @@ func calculate_damage_multiplier()->void:
 		if(accuracy>=1.0):
 			accuracy_boni = 2.0*accuracy
 		elif(accuracy>=0.7):
-			accuracy_boni = 2*accuracy
+			accuracy_boni = 2
 		else:
 			accuracy_boni=accuracy
 
