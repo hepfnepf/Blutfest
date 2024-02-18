@@ -46,7 +46,6 @@ func _ready():
 
 func handle_hit(damage:int, type:int = 1):
 	if alive:
-		print_debug(player.damage_multi)
 		health_Node.health -= damage*player.damage_multi
 		if (randf()<sound_prob):
 			sound_player.play()

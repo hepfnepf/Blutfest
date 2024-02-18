@@ -46,6 +46,8 @@ var explosion_on_level_up:bool = false
 var spike_balls_explode:bool = false
 var spike_ball_explosion_damage:float = 90
 var boost_accuracy_dmg_level:int = 0 setget set_boost_accuracy_dmg_level
+var cap_accuracy:bool = true
+var shaky_finger:bool = false
 
 onready var weapon = $Weapon
 onready var hurt:AudioStreamPlayer = $Hurt
@@ -138,7 +140,10 @@ func calculate_accuracy()->void:
 		accuracy = 1.0
 		return
 
-	accuracy = clamp(float(enemies_hit)/float(shots_fired-_shots_fired_modi),0.0,1.0)
+	if(cap_accuracy):
+			accuracy = clamp(float(enemies_hit)/float(shots_fired-_shots_fired_modi),0.0,1.0)
+	else:
+		accuracy = float(enemies_hit)/float(shots_fired-_shots_fired_modi)
 	calculate_damage_multiplier()
 
 func set_boost_accuracy_dmg_level(level)->void:
@@ -160,7 +165,6 @@ func calculate_damage_multiplier()->void:
 
 
 	damage_multi = 1.0 * accuracy_boni
-	print_debug(damage_multi)
 
 func die()->void:
 	emit_signal("dead")
@@ -169,7 +173,10 @@ func die()->void:
 func take_damage(damage:int)->void:
 	if !alive or invincible:
 		return
-	set_health(health - damage)
+	if shaky_finger:
+		set_health(health - damage * accuracy)
+	else:
+		set_health(health - damage)
 	hurt.play()
 
 #Experience Management

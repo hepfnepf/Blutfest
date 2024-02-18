@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Perks/PerkOverperformer.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Perks/Perk.tscn" type="PackedScene" id=2]
+
+[node name="PerkOverperformer" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+title = "PERK_MAX_ACCURACY"
+desc = "PERK_MAX_ACCURACY_DESC"
+one_time = true
