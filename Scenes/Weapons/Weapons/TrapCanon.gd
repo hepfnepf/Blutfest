@@ -2,6 +2,9 @@ extends Weapon
 
 onready var localAnimationPlayer:AnimationPlayer = $LocalAnimationPlayer
 func shoot():
+
+	player.shots_fired+=1
+
 	#animation
 	localAnimationPlayer.play("shot")
 

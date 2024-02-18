@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Perks/PerkAccuracyBoost.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Perks/Perk.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Perks/PerkAccuracyBoost1.tscn" type="PackedScene" id=3]
+
+[node name="PerkAccuracyBoost2" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+title = "PERK_ACCURACY_BOOST_2"
+desc = "PERK_ACCURACY_BOOST_2_DESC"
+one_time = true
+required = [ ExtResource( 3 ) ]
+level = 2

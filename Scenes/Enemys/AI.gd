@@ -79,7 +79,7 @@ func create_random_patrol_location() -> Vector2:
 		return game.spawner.random_position_in_map()
 
 
-func attack(player):
+func attack(player:Player):
 	get_parent().animation_player.play("Attack")
 	player.take_damage(damage)
 	ready_to_attack = false

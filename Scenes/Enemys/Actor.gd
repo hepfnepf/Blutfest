@@ -22,7 +22,7 @@ onready var collision_shape:CollisionShape2D = $CollisionShape2D
 onready var fade_out:Tween = $FadeOut
 onready var sound_player:AudioStreamPlayer2D = $AudioStreamPlayer2D
 
-onready var player = get_node_or_null("/root/Game/Player")
+onready var player:Player = get_node_or_null("/root/Game/Player")
 onready var game = get_node_or_null("/root/Game")
 
 var alive :=true
@@ -46,7 +46,7 @@ func _ready():
 
 func handle_hit(damage:int, type:int = 1):
 	if alive:
-		health_Node.health -= damage
+		health_Node.health -= damage*player.damage_multi
 		if (randf()<sound_prob):
 			sound_player.play()
 		if health_Node.health <= 0:

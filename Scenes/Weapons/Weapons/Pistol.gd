@@ -12,6 +12,9 @@ func check_for_input():#the pistol shuld only not fire as long as butten is pres
 		reload()
 
 func shoot():
+
+	player.shots_fired+=1
+
 	#animation
 	animation_player.play("shot")
 
