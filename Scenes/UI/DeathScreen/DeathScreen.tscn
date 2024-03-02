@@ -1,12 +1,17 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scenes/UI/DeathScreen/BeforeContainer.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UI/DeathScreen/DeathScreen.gd" type="Script" id=2]
-[ext_resource path="res://Fonts/standardUI.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Fonts/smallUI.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Fonts/titleFont2.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Fonts/smallUIFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Fonts/acknowledge_font.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Scenes/UI/DeathScreen/ReplayMassage.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/UI/DeathScreen/StatsButton.gd" type="Script" id=8]
+[ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Scenes/UI/MainMenuTheme.tres" type="Theme" id=10]
+[ext_resource path="res://Scenes/UI/PauseMenue/PauseMenuTheme.tres" type="Theme" id=11]
+[ext_resource path="res://Fonts/statsUIFont.tres" type="DynamicFont" id=12]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -26,6 +31,57 @@ shader = SubResource( 1 )
 shader_param/color = Color( 0, 0, 0, 1 )
 shader_param/multiplier = 4.455
 shader_param/softness = 3.0
+
+[sub_resource type="Theme" id=6]
+default_font = ExtResource( 5 )
+
+[sub_resource type="Theme" id=7]
+default_font = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 54
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_char = 1
+font_data = ExtResource( 9 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 8 )
+Button/colors/font_color_hover = Color( 0.670588, 0.121569, 0.121569, 1 )
+Button/styles/focus = SubResource( 10 )
+Button/styles/hover = SubResource( 9 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 11 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "Blink"
+length = 3.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 3.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="DeathScreen" type="CanvasLayer"]
 script = ExtResource( 2 )
@@ -72,21 +128,21 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/CenterContainer2"]
-margin_left = 578.0
-margin_top = 255.0
-margin_right = 938.0
-margin_bottom = 411.0
+margin_left = 537.0
+margin_top = 192.0
+margin_right = 979.0
+margin_bottom = 475.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer"]
-margin_right = 360.0
-margin_bottom = 156.0
+margin_right = 442.0
+margin_bottom = 283.0
 size_flags_horizontal = 5
 
 [node name="AcknowledgementContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer"]
-margin_left = 180.0
-margin_right = 180.0
+margin_left = 221.0
+margin_right = 221.0
 size_flags_horizontal = 4
 
 [node name="acknowledge_score" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/AcknowledgementContainer"]
@@ -111,64 +167,68 @@ uppercase = true
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer"]
 margin_top = 4.0
-margin_right = 360.0
-margin_bottom = 156.0
+margin_right = 442.0
+margin_bottom = 210.0
 size_flags_horizontal = 4
 columns = 2
 
 [node name="ScoreContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/GridContainer"]
-margin_right = 360.0
-margin_bottom = 152.0
+margin_right = 442.0
+margin_bottom = 206.0
 size_flags_horizontal = 2
 custom_constants/vseparation = 0
 custom_constants/hseparation = 10
 columns = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/GridContainer/ScoreContainer"]
-margin_right = 203.0
-margin_bottom = 76.0
+margin_right = 283.0
+margin_bottom = 103.0
+theme = SubResource( 6 )
 custom_fonts/font = ExtResource( 3 )
 text = "SCORE"
 align = 1
 
 [node name="Score" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/GridContainer/ScoreContainer"]
-margin_left = 213.0
-margin_right = 360.0
-margin_bottom = 76.0
+margin_left = 293.0
+margin_right = 442.0
+margin_bottom = 103.0
+theme = SubResource( 7 )
 custom_fonts/font = ExtResource( 3 )
 text = "1000"
 align = 2
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/GridContainer/ScoreContainer"]
-margin_top = 76.0
-margin_right = 203.0
-margin_bottom = 152.0
+margin_top = 103.0
+margin_right = 283.0
+margin_bottom = 206.0
+theme = SubResource( 7 )
 custom_fonts/font = ExtResource( 3 )
 text = "TIME"
 align = 1
 
 [node name="Time" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/GridContainer/ScoreContainer"]
-margin_left = 213.0
-margin_top = 76.0
-margin_right = 360.0
-margin_bottom = 152.0
+margin_left = 293.0
+margin_top = 103.0
+margin_right = 442.0
+margin_bottom = 206.0
+theme = SubResource( 7 )
 custom_fonts/font = ExtResource( 3 )
 text = "3:04"
 align = 2
 
 [node name="BeforeCont" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer"]
 visible = false
-margin_top = 242.0
-margin_right = 601.0
-margin_bottom = 261.0
+margin_top = 160.0
+margin_right = 360.0
+margin_bottom = 179.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Before" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/BeforeCont"]
-margin_left = 275.0
-margin_right = 325.0
+margin_left = 151.0
+margin_right = 209.0
 margin_bottom = 19.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
@@ -217,6 +277,17 @@ margin_bottom = 19.0
 custom_fonts/font = ExtResource( 4 )
 text = "3:04"
 
+[node name="StatsButton" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer"]
+margin_top = 214.0
+margin_right = 442.0
+margin_bottom = 283.0
+theme = SubResource( 4 )
+text = "STATS"
+script = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/StatsButton"]
+anims/Blink = SubResource( 5 )
+
 [node name="CenterContainer3" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 838.0
 margin_right = 1516.0
@@ -225,3 +296,342 @@ margin_bottom = 880.0
 [node name="ReplayMassage" parent="MarginContainer/VBoxContainer/CenterContainer3" instance=ExtResource( 7 )]
 margin_left = 694.0
 margin_right = 821.0
+
+[node name="StatsScreen" type="Popup" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -281.5
+margin_top = -103.0
+margin_right = 281.5
+margin_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 11 )
+
+[node name="CenterContainer" type="CenterContainer" parent="StatsScreen"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -768.0
+margin_top = -450.0
+margin_right = 768.0
+margin_bottom = 450.0
+
+[node name="PanelContainer" type="PanelContainer" parent="StatsScreen/CenterContainer"]
+margin_left = 424.0
+margin_top = 256.0
+margin_right = 1111.0
+margin_bottom = 643.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 10 )
+
+[node name="MarginContainer" type="MarginContainer" parent="StatsScreen/CenterContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 680.0
+margin_bottom = 380.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer"]
+margin_right = 673.0
+margin_bottom = 373.0
+
+[node name="Title" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_right = 673.0
+margin_bottom = 163.0
+custom_fonts/font = ExtResource( 5 )
+text = "STATS"
+align = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_top = 167.0
+margin_right = 673.0
+margin_bottom = 373.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer"]
+margin_right = 673.0
+margin_bottom = 206.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LeftRow" type="VBoxContainer" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_right = 326.0
+margin_bottom = 206.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HealthGained" type="HBoxContainer" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow"]
+margin_right = 326.0
+margin_bottom = 31.0
+
+[node name="Label" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/HealthGained"]
+margin_right = 193.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "HEALTH_GAINED"
+
+[node name="Label2" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/HealthGained"]
+margin_left = 197.0
+margin_right = 326.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "90"
+align = 2
+
+[node name="ShotsFired" type="HBoxContainer" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow"]
+margin_top = 35.0
+margin_right = 326.0
+margin_bottom = 66.0
+
+[node name="Label" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/ShotsFired"]
+margin_right = 161.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "SHOTS_FIRED"
+
+[node name="Label2" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/ShotsFired"]
+margin_left = 165.0
+margin_right = 326.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "125"
+align = 2
+
+[node name="EnemiesKilled" type="HBoxContainer" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow"]
+margin_top = 70.0
+margin_right = 326.0
+margin_bottom = 101.0
+
+[node name="Label" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/EnemiesKilled"]
+margin_right = 194.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "ENEMIES_KILLED"
+
+[node name="Label2" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/EnemiesKilled"]
+margin_left = 198.0
+margin_right = 326.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "90%"
+align = 2
+
+[node name="DistanceCovered" type="HBoxContainer" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow"]
+margin_top = 105.0
+margin_right = 326.0
+margin_bottom = 136.0
+
+[node name="Label" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/DistanceCovered"]
+margin_right = 236.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "DISTANCE_COVERED"
+
+[node name="Label2" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/DistanceCovered"]
+margin_left = 240.0
+margin_right = 326.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "90%"
+align = 2
+
+[node name="PowerUpsCollected" type="HBoxContainer" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow"]
+margin_top = 140.0
+margin_right = 326.0
+margin_bottom = 171.0
+
+[node name="Label" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/PowerUpsCollected"]
+margin_right = 276.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "POWERUPS_COLLECTED"
+
+[node name="Label2" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/PowerUpsCollected"]
+margin_left = 280.0
+margin_right = 326.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "90%"
+align = 2
+
+[node name="FavoriteWeapon" type="HBoxContainer" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow"]
+margin_top = 175.0
+margin_right = 326.0
+margin_bottom = 206.0
+
+[node name="Label" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/FavoriteWeapon"]
+margin_right = 228.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "FAVORITE_WEAPON"
+
+[node name="Label2" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/FavoriteWeapon"]
+margin_left = 232.0
+margin_right = 326.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "90%"
+align = 2
+
+[node name="VSeparator" type="VSeparator" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_left = 330.0
+margin_right = 334.0
+margin_bottom = 206.0
+
+[node name="RightRow" type="VBoxContainer" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_left = 338.0
+margin_right = 673.0
+margin_bottom = 206.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="HealthLKost" type="HBoxContainer" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow"]
+margin_right = 335.0
+margin_bottom = 31.0
+
+[node name="Label" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/HealthLKost"]
+margin_right = 165.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "HEALTH_LOST"
+
+[node name="Label2" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/HealthLKost"]
+margin_left = 169.0
+margin_right = 335.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "190"
+align = 2
+
+[node name="Accuracy" type="HBoxContainer" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow"]
+margin_top = 35.0
+margin_right = 335.0
+margin_bottom = 66.0
+
+[node name="Label" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/Accuracy"]
+margin_right = 165.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "ACCURACY"
+
+[node name="Label2" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/Accuracy"]
+margin_left = 169.0
+margin_right = 335.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "100"
+align = 2
+
+[node name="DamageCaused" type="HBoxContainer" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow"]
+margin_top = 70.0
+margin_right = 335.0
+margin_bottom = 101.0
+
+[node name="Label" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/DamageCaused"]
+margin_right = 165.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "DMG_CAUSED"
+
+[node name="Label2" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/DamageCaused"]
+margin_left = 169.0
+margin_right = 335.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "90%"
+align = 2
+
+[node name="StandingTime" type="HBoxContainer" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow"]
+margin_top = 105.0
+margin_right = 335.0
+margin_bottom = 136.0
+
+[node name="Label" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/StandingTime"]
+margin_right = 191.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "STANDING_TIME"
+
+[node name="Label2" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/StandingTime"]
+margin_left = 195.0
+margin_right = 335.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "90%"
+align = 2
+
+[node name="PerksCollected" type="HBoxContainer" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow"]
+margin_top = 140.0
+margin_right = 335.0
+margin_bottom = 171.0
+
+[node name="Label" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/PerksCollected"]
+margin_right = 285.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "PERKS_COOLECTED_CNT"
+
+[node name="Label2" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/PerksCollected"]
+margin_left = 289.0
+margin_right = 335.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "90%"
+align = 2
+
+[node name="FavoritePowerUps" type="HBoxContainer" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow"]
+margin_top = 175.0
+margin_right = 335.0
+margin_bottom = 206.0
+
+[node name="Label" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/FavoritePowerUps"]
+margin_right = 256.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "FAVORITE_POWERUPS"
+
+[node name="Label2" type="Label" parent="StatsScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/FavoritePowerUps"]
+margin_left = 260.0
+margin_right = 335.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 12 )
+text = "90%"
+align = 2
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/StatsButton" to="." method="_on_StatsButton_pressed"]

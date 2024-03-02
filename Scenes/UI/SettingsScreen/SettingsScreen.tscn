@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Fonts/smallUI.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Fonts/smallUIFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Scenes/UI/SettingsScreen/SettingsScreen.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=2]

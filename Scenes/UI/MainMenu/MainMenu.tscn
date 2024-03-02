@@ -8,7 +8,7 @@
 [ext_resource path="res://Scenes/UI/CreditsScreen/CreditsScreen.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/UI/SettingsScreen/SettingsScreen.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/BackgroundMusic.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/UI/MainMenu/MainMenuTheme.tres" type="Theme" id=10]
+[ext_resource path="res://Scenes/UI/MainMenuTheme.tres" type="Theme" id=10]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
