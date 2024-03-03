@@ -18,7 +18,7 @@ onready var instructions = $HUD/InstructionsPopup
 onready var blood= $ScreenBlood
 
 
-var player:Player
+var player:Player=null
 var perkCard = preload("res://Scenes/UI/PerkSelection/PerkCard.tscn")
 
 
@@ -32,6 +32,7 @@ func _ready() -> void:
 
 func set_player(player:Player)->void:
 	self.player = player
+	card_holder.player=player
 
 	set_health(player.health)
 	set_max_health(player.max_health)
@@ -84,6 +85,7 @@ func set_lock(new_lock:bool)->void:
 ##Opens the perk selection screen
 func _on_new_perk_selection(perks, raritys):
 	get_tree().paused = true
+	card_holder.visible=true
 
 	var cards = []
 	for i in range(perks.size()):
@@ -109,6 +111,7 @@ func _on_card_selected(card:PerkCard)->void:
 
 	set_cursor(Globals.cursor_manager.CURSOR_TYPE.CROSSHAIR)
 	get_tree().paused = false
+	card_holder.visible=false
 	emit_signal("perk_selected")
 
 func time_to_str(time:int) -> String:

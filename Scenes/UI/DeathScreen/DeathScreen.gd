@@ -16,6 +16,10 @@ onready var statsScreen = $StatsScreen
 func _ready():
 	pass # Replace with function body.
 
+# Passes the player to the stat screen to fill in the values
+func populate_stats(player:Player)->void:
+	statsScreen.populate(player)
+
 func set_score(score:int) -> void:
 	scoreLabel.text = str(score)
 

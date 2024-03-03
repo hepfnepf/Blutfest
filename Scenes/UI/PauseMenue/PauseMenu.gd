@@ -25,7 +25,8 @@ func set_debug_info(_debug_info)->void:
 	debug_info = _debug_info
 
 func switch_state():
-	get_tree().paused = !get_tree().paused
+	if !get_parent().card_holder.visible:
+		get_tree().paused = !get_tree().paused
 	visible = !visible
 	if credits.visible:
 		credits.visible = false

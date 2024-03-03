@@ -32,6 +32,20 @@ var damage_multi:float=1.0#will mosty influenced by perks
 var enemies_hit:int = 0 setget set_enemies_hit
 var shots_fired:int = 0 setget set_shots_fired
 var accuracy:float = 0
+var health_gained:int=0
+var health_lost:int=0
+var enemies_killed:int=0
+var distance_covered:float=0
+var powerups_collected_amnt:int=0
+#var perks_collected_amnt:int=0 can be gotten from PerkManager.active_perks.length
+var damage_caused:int=0
+var max_standing_time:float=0
+var current_standing_time:float=0
+#var weapon_time_used={} van be gotten from weapon.weapon_time_used
+var power_ups_collected={}
+
+#TODO: store how long each weapon was used
+#TODO: store which powerup has been picked up how often
 
 #For effects and perks
 
@@ -55,9 +69,11 @@ onready var perkManager:PerkManager = $PerkManager
 onready var gui = get_node_or_null("/root/Game/GUI")
 onready var shockWave=get_node_or_null("/root/Game/ShockWaveLayer/ShockWave")
 
+#Movement
 var velocity:Vector2 = Vector2.ZERO #needed for movement inaccuracy of player
 export (float) var friction = 0.01
 export (float) var acceleration = 0.1
+var is_standing:bool = true #used for perks and statistics
 
 # Called when the node enters the scene tree for the first time.
 func _ready()->void:
@@ -93,6 +109,23 @@ func _physics_process(delta)->void:
 		velocity = lerp(velocity, Vector2.ZERO,friction)
 
 	move_and_collide(velocity * delta)
+	distance_covered+=velocity.length()*delta#for statistics
+	if velocity.length()==0:
+		#used for statistics
+		if is_standing==false:
+			current_standing_time=0
+		else:
+			current_standing_time+=delta
+
+		is_standing=true
+	else:
+		#for statistics
+		if is_standing==true:
+			if current_standing_time>max_standing_time:
+				max_standing_time=current_standing_time
+			current_standing_time=0
+
+		is_standing=false
 
 	#self.look_at(get_global_mouse_position()-self.position)
 	look_at(get_global_mouse_position())
@@ -102,8 +135,12 @@ func set_health(new_health:int)->void:
 	if !alive:
 		return
 	if new_health > max_health:
+		var _health_before:int=health #used for statistics
 		health=max_health
+		health_gained=health-_health_before
+
 	else:
+		health_lost = clamp(health-new_health,0,health)
 		health = new_health
 	emit_signal("health_changed",health)
 	if health <= 0:
@@ -165,6 +202,9 @@ func calculate_damage_multiplier()->void:
 
 
 	damage_multi = 1.0 * accuracy_boni
+
+func add_enemy_death()->void:
+	enemies_killed+=1
 
 func die()->void:
 	emit_signal("dead")
@@ -242,6 +282,12 @@ func set_weapon(_weapon):
 		return
 	weapon.set_weapon(_weapon)
 
+#gets called from the item on pickup
+func stats_add_powerup(powerup)->void:
+	if power_ups_collected.has(powerup):
+		power_ups_collected[powerup]+=1
+	else:
+		power_ups_collected[powerup]=1
 
 func _on_Area2D_area_entered(area):
 	if !alive:

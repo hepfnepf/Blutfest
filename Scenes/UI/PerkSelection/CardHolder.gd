@@ -5,10 +5,17 @@ signal cards_cleared
 export(AudioStream)var sound_effect = null
 export(float) var animation_duration = .5
 
+var player:Player=null
 
 func _ready() -> void:
 	if animation_duration<sound_effect.get_length():
 		printerr("Card drawing sound longer than animation")
+
+func _process(delta: float) -> void:
+	#see death functions below
+	if player and !player.alive:
+		cancel_perk_selection()
+		queue_free()
 
 func add_card(card:PerkCard)->void:
 	$HBoxContainer.add_child(card)
@@ -48,6 +55,12 @@ func clear_cards(selected_card:PerkCard)->void:
 
 func draw_cards()->void:
 	yield(get_tree(), "idle_frame")
+
+	#see death functions below
+	if player and !player.alive:
+		cancel_perk_selection()
+		return
+
 	var tween:SceneTreeTween = create_tween()
 
 
@@ -72,5 +85,17 @@ func draw_cards()->void:
 			tween.tween_property(card,"rect_position",Vector2(card.rect_position.x,0),animation_duration)
 
 	yield(tween,"finished")
+	#see death functions below
+	if player and !player.alive:
+		cancel_perk_selection()
+		return
+
 	for card in $HBoxContainer.get_children():
 		card.disabled = false
+
+#sometime the player triggers a perk selection shortly before death, resulting in the cards getting drawn after their death
+#in these cases the cards obstruct the death screen, so they need to be removed
+
+func cancel_perk_selection():
+	for card in $HBoxContainer.get_children():
+		card.queue_free()

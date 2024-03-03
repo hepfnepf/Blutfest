@@ -1,0 +1,344 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fonts/statsUIFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/UI/MainMenuTheme.tres" type="Theme" id=2]
+[ext_resource path="res://Scenes/UI/PauseMenue/PauseMenuTheme.tres" type="Theme" id=3]
+[ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Scenes/UI/DeathScreen/StatsScreen.gd" type="Script" id=5]
+
+[node name="StatsScreen" type="Popup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -281.5
+margin_top = -103.0
+margin_right = 281.5
+margin_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+script = ExtResource( 5 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -768.0
+margin_top = -450.0
+margin_right = 768.0
+margin_bottom = 450.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+margin_left = 761.0
+margin_top = 443.0
+margin_right = 775.0
+margin_bottom = 457.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 680.0
+margin_bottom = 380.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+margin_right = 673.0
+margin_bottom = 373.0
+
+[node name="Title" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_right = 673.0
+margin_bottom = 163.0
+custom_fonts/font = ExtResource( 4 )
+text = "STATS"
+align = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+margin_top = 167.0
+margin_right = 673.0
+margin_bottom = 373.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer"]
+margin_right = 673.0
+margin_bottom = 206.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LeftRow" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_right = 326.0
+margin_bottom = 206.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HealthGained" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow"]
+margin_right = 326.0
+margin_bottom = 31.0
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/HealthGained"]
+margin_right = 193.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "HEALTH_GAINED"
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/HealthGained"]
+margin_left = 197.0
+margin_right = 326.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "90"
+align = 2
+
+[node name="ShotsFired" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow"]
+margin_top = 35.0
+margin_right = 326.0
+margin_bottom = 66.0
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/ShotsFired"]
+margin_right = 161.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "SHOTS_FIRED"
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/ShotsFired"]
+margin_left = 165.0
+margin_right = 326.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "125"
+align = 2
+
+[node name="EnemiesKilled" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow"]
+margin_top = 70.0
+margin_right = 326.0
+margin_bottom = 101.0
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/EnemiesKilled"]
+margin_right = 194.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "ENEMIES_KILLED"
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/EnemiesKilled"]
+margin_left = 198.0
+margin_right = 326.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "90%"
+align = 2
+
+[node name="DistanceCovered" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow"]
+margin_top = 105.0
+margin_right = 326.0
+margin_bottom = 136.0
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/DistanceCovered"]
+margin_right = 236.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "DISTANCE_COVERED"
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/DistanceCovered"]
+margin_left = 240.0
+margin_right = 326.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "90%"
+align = 2
+
+[node name="PowerUpsCollected" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow"]
+margin_top = 140.0
+margin_right = 326.0
+margin_bottom = 171.0
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/PowerUpsCollected"]
+margin_right = 276.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "POWERUPS_COLLECTED"
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/PowerUpsCollected"]
+margin_left = 280.0
+margin_right = 326.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "90%"
+align = 2
+
+[node name="FavoriteWeapon" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow"]
+margin_top = 175.0
+margin_right = 326.0
+margin_bottom = 206.0
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/FavoriteWeapon"]
+margin_right = 228.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "FAVORITE_WEAPON"
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/LeftRow/FavoriteWeapon"]
+margin_left = 232.0
+margin_right = 326.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "90%"
+align = 2
+
+[node name="VSeparator" type="VSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_left = 330.0
+margin_right = 334.0
+margin_bottom = 206.0
+
+[node name="RightRow" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_left = 338.0
+margin_right = 673.0
+margin_bottom = 206.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="HealthLost" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow"]
+margin_right = 335.0
+margin_bottom = 31.0
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/HealthLost"]
+margin_right = 165.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "HEALTH_LOST"
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/HealthLost"]
+margin_left = 169.0
+margin_right = 335.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "190"
+align = 2
+
+[node name="Accuracy" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow"]
+margin_top = 35.0
+margin_right = 335.0
+margin_bottom = 66.0
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/Accuracy"]
+margin_right = 165.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "ACCURACY"
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/Accuracy"]
+margin_left = 169.0
+margin_right = 335.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "100"
+align = 2
+
+[node name="DamageCaused" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow"]
+margin_top = 70.0
+margin_right = 335.0
+margin_bottom = 101.0
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/DamageCaused"]
+margin_right = 165.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "DMG_CAUSED"
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/DamageCaused"]
+margin_left = 169.0
+margin_right = 335.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "90%"
+align = 2
+
+[node name="StandingTime" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow"]
+margin_top = 105.0
+margin_right = 335.0
+margin_bottom = 136.0
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/StandingTime"]
+margin_right = 191.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "STANDING_TIME"
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/StandingTime"]
+margin_left = 195.0
+margin_right = 335.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "90%"
+align = 2
+
+[node name="PerksCollected" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow"]
+margin_top = 140.0
+margin_right = 335.0
+margin_bottom = 171.0
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/PerksCollected"]
+margin_right = 285.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "PERKS_COOLECTED_CNT"
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/PerksCollected"]
+margin_left = 289.0
+margin_right = 335.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "90%"
+align = 2
+
+[node name="FavoritePowerUps" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow"]
+margin_top = 175.0
+margin_right = 335.0
+margin_bottom = 206.0
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/FavoritePowerUps"]
+margin_right = 256.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "FAVORITE_POWERUPS"
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/RightRow/FavoritePowerUps"]
+margin_left = 260.0
+margin_right = 335.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "90%"
+align = 2
