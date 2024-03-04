@@ -32,6 +32,8 @@ func _on_Bullet_body_entered(body):
 
 	if body.has_method("handle_hit"):
 		body.handle_hit(_damage, Globals.DamageType.PROJECTILE)
+		if (is_instance_valid(player)):
+			player.enemies_hit +=1
 
 # ---------------- For Object Pooling --------------
 #Get called from pool
