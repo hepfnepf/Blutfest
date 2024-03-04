@@ -1,12 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scenes/UI/DeathScreen/BeforeContainer.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UI/DeathScreen/DeathScreen.gd" type="Script" id=2]
-[ext_resource path="res://Fonts/standardUI.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Fonts/smallUI.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Fonts/titleFont2.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Fonts/smallUIFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Fonts/acknowledge_font.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Scenes/UI/DeathScreen/ReplayMassage.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/UI/DeathScreen/StatsButton.gd" type="Script" id=8]
+[ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Scenes/UI/DeathScreen/StatsScreen.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -26,6 +29,57 @@ shader = SubResource( 1 )
 shader_param/color = Color( 0, 0, 0, 1 )
 shader_param/multiplier = 4.455
 shader_param/softness = 3.0
+
+[sub_resource type="Theme" id=6]
+default_font = ExtResource( 5 )
+
+[sub_resource type="Theme" id=7]
+default_font = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 54
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+extra_spacing_char = 1
+font_data = ExtResource( 9 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 8 )
+Button/colors/font_color_hover = Color( 0.670588, 0.121569, 0.121569, 1 )
+Button/styles/focus = SubResource( 10 )
+Button/styles/hover = SubResource( 9 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 11 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "Blink"
+length = 3.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 3.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="DeathScreen" type="CanvasLayer"]
 script = ExtResource( 2 )
@@ -72,21 +126,21 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/CenterContainer2"]
-margin_left = 578.0
-margin_top = 255.0
-margin_right = 938.0
-margin_bottom = 411.0
+margin_left = 537.0
+margin_top = 192.0
+margin_right = 979.0
+margin_bottom = 475.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer"]
-margin_right = 360.0
-margin_bottom = 156.0
+margin_right = 442.0
+margin_bottom = 283.0
 size_flags_horizontal = 5
 
 [node name="AcknowledgementContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer"]
-margin_left = 180.0
-margin_right = 180.0
+margin_left = 221.0
+margin_right = 221.0
 size_flags_horizontal = 4
 
 [node name="acknowledge_score" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/AcknowledgementContainer"]
@@ -111,64 +165,68 @@ uppercase = true
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer"]
 margin_top = 4.0
-margin_right = 360.0
-margin_bottom = 156.0
+margin_right = 442.0
+margin_bottom = 210.0
 size_flags_horizontal = 4
 columns = 2
 
 [node name="ScoreContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/GridContainer"]
-margin_right = 360.0
-margin_bottom = 152.0
+margin_right = 442.0
+margin_bottom = 206.0
 size_flags_horizontal = 2
 custom_constants/vseparation = 0
 custom_constants/hseparation = 10
 columns = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/GridContainer/ScoreContainer"]
-margin_right = 203.0
-margin_bottom = 76.0
+margin_right = 283.0
+margin_bottom = 103.0
+theme = SubResource( 6 )
 custom_fonts/font = ExtResource( 3 )
 text = "SCORE"
 align = 1
 
 [node name="Score" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/GridContainer/ScoreContainer"]
-margin_left = 213.0
-margin_right = 360.0
-margin_bottom = 76.0
+margin_left = 293.0
+margin_right = 442.0
+margin_bottom = 103.0
+theme = SubResource( 7 )
 custom_fonts/font = ExtResource( 3 )
 text = "1000"
 align = 2
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/GridContainer/ScoreContainer"]
-margin_top = 76.0
-margin_right = 203.0
-margin_bottom = 152.0
+margin_top = 103.0
+margin_right = 283.0
+margin_bottom = 206.0
+theme = SubResource( 7 )
 custom_fonts/font = ExtResource( 3 )
 text = "TIME"
 align = 1
 
 [node name="Time" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/GridContainer/ScoreContainer"]
-margin_left = 213.0
-margin_top = 76.0
-margin_right = 360.0
-margin_bottom = 152.0
+margin_left = 293.0
+margin_top = 103.0
+margin_right = 442.0
+margin_bottom = 206.0
+theme = SubResource( 7 )
 custom_fonts/font = ExtResource( 3 )
 text = "3:04"
 align = 2
 
 [node name="BeforeCont" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer"]
 visible = false
-margin_top = 242.0
-margin_right = 601.0
-margin_bottom = 261.0
+margin_top = 160.0
+margin_right = 360.0
+margin_bottom = 179.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Before" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/BeforeCont"]
-margin_left = 275.0
-margin_right = 325.0
+margin_left = 151.0
+margin_right = 209.0
 margin_bottom = 19.0
 size_flags_horizontal = 4
 size_flags_vertical = 3
@@ -217,6 +275,17 @@ margin_bottom = 19.0
 custom_fonts/font = ExtResource( 4 )
 text = "3:04"
 
+[node name="StatsButton" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer"]
+margin_top = 214.0
+margin_right = 442.0
+margin_bottom = 283.0
+theme = SubResource( 4 )
+text = "STATS"
+script = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/StatsButton"]
+anims/Blink = SubResource( 5 )
+
 [node name="CenterContainer3" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 838.0
 margin_right = 1516.0
@@ -225,3 +294,8 @@ margin_bottom = 880.0
 [node name="ReplayMassage" parent="MarginContainer/VBoxContainer/CenterContainer3" instance=ExtResource( 7 )]
 margin_left = 694.0
 margin_right = 821.0
+
+[node name="StatsScreen" parent="." instance=ExtResource( 10 )]
+visible = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/StatsButton" to="." method="_on_StatsButton_pressed"]

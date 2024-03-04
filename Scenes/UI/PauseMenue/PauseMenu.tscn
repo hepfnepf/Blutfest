@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://Fonts/standardUI.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fonts/standardUIFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scenes/UI/PauseMenue/PauseMenu.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/UI/CreditsScreen/CreditsScreen.tscn" type="PackedScene" id=4]

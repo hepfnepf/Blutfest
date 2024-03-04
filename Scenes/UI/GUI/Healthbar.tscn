@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/UI/GUI/Healthbar.gd" type="Script" id=1]
-[ext_resource path="res://Fonts/smallUI.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fonts/smallUIFont.tres" type="DynamicFont" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.592157, 0.113725, 0.0666667, 1 )

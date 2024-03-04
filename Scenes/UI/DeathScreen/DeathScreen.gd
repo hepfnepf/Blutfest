@@ -9,10 +9,16 @@ onready var akn_time = $MarginContainer/VBoxContainer/CenterContainer2/MarginCon
 
 onready var before_cont = $MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/BeforeCont
 
+onready var statsScreen = $StatsScreen
 
+# Gets added to tree in main.gd
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
+
+# Passes the player to the stat screen to fill in the values
+func populate_stats(player:Player)->void:
+	statsScreen.populate(player)
 
 func set_score(score:int) -> void:
 	scoreLabel.text = str(score)
@@ -55,3 +61,7 @@ func _process(delta):
 		get_tree().change_scene("res://Scenes/UI/MainMenu/MainMenu.tscn")
 	if Input.is_action_pressed("Enter"):
 		get_tree().reload_current_scene()
+
+
+func _on_StatsButton_pressed() -> void:
+	statsScreen.popup_centered()

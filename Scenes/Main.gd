@@ -37,6 +37,7 @@ func _on_player_death()->void:
 	Globals.cursor_manager.set_cursor(Cursor.CURSOR_TYPE.DEFAULT)
 	var save_dict= SaveManager.read_savegame()
 	death_screen.handle_score_display(save_dict["highscore"],player.score,save_dict["best_time"],player.elapsed_time)
+	death_screen.populate_stats(player)
 	if save_dict["highscore"] < player.score:
 		save_dict["highscore"] = player.score
 	if save_dict["best_time"] < player.elapsed_time:

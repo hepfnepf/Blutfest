@@ -293,6 +293,7 @@ alignment = 2
 scale = Vector2( 0.3, 0.3 )
 
 [node name="CardHolder" parent="." instance=ExtResource( 10 )]
+visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource( 8 )]
 pause_mode = 2

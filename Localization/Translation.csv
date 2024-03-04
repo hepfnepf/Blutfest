@@ -21,6 +21,19 @@ CREDITS,Credits,Credits
 BEFORE,Before:,Vorher:
 NEW_HIGHSCORE,New highscoe,Neuer Highscore
 NEW_BEST_TIME,New best time,Neue Bestzeit
+STATS,STATISTICS,STATISTIKEN
+HEALTH_GAINED,Health gained:,Leben gesammelt:
+HEALTH_LOST,Health lost:,Leben verloren:
+SHOTS_FIRED,Shots fired:,Schüsse:
+ACCURACY,Accuracy:,Trefferquote:
+ENEMIES_KILLED,Enemies killed:,Getötete Gegner:
+DMG_CAUSED,Damage dealt:,Ausgeteilter Schaden:
+DISTANCE_COVERED,Distance covered:,Zurückgelegter Weg:
+STANDING_TIME,Longest standing:,Längstes Stillstehen:
+POWERUPS_COLLECTED,PowerUps collected:,Gesammelte PowerUps:
+PERKS_COOLECTED_CNT,Perks collected:,Gesammelte Perks:
+FAVORITE_WEAPON,Favorite weapon:,Lieblings Waffe:
+FAVORITE_POWERUPS,Favorite PowerUp:,Lieblings PowerUp:
 OPTIONS_GOT_RESET,Opstions have been reset!,Die Einstellungen wurden zurückgesetzt!
 RESET_OPTIONS,Reset Options,Optionen zurücksetzen
 CURRENT_DIFFICULTY,Difficulty,Schwierigkeit
@@ -47,7 +60,7 @@ PERK_SPIKE_BALLS_EXPLODE_DESC,The spike balls are spicy now. Which means they ex
 PERK_ACCURACY_BOOST,Accuracy Reward,Guter Schütze
 PERK_ACCURACY_BOOST_DESC,Multiply your damage by 2x the accuracy.,Dein Schaden wird mit dem doppelten der Trefferrate multipliziert.
 PERK_ACCURACY_BOOST_2,Accuracy Reward II,Guter Schütze II
-PERK_ACCURACY_BOOST_2_DESC,Your damage gets doubled if your acuraccy is above 0.7\, but multiplied with the current accuracy. (If accuracy is above 1.0, your damage wil be multiplied by 2x of the accuracy.),Falls deine Trefferquote über 0.7 liegt\, wird dein Schaden verdoppelt. Andernfalls wird er jedoch mit deiner Trefferquote multipliziert.(Falls deine Trefferquote über 1.0 liegt\, wird der Schaden mit 2x deiner Trefferquote multipliziert.)
+PERK_ACCURACY_BOOST_2_DESC,"Your damage gets doubled if your acuraccy is above 0.7, but multiplied with the current accuracy. (If accuracy is above 1.0, your damage wil be multiplied by 2x of the accuracy.)","Falls deine Trefferquote über 0.7 liegt, wird dein Schaden verdoppelt. Andernfalls wird er jedoch mit deiner Trefferquote multipliziert.(Falls deine Trefferquote über 1.0 liegt, wird der Schaden mit 2x deiner Trefferquote multipliziert.)"
 PERK_MAX_ACCURACY,Overperformer,Überflieger
 PERK_MAX_ACCURACY_DESC,Your accuracy can go above 1.0.,Deine Trefferquote kann 1.0 überschreiten.
 PERK_BAD_AIMER,Shaky fingers,Schlechter Schütze

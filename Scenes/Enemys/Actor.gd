@@ -46,6 +46,7 @@ func _ready():
 
 func handle_hit(damage:int, type:int = 1):
 	if alive:
+		player.damage_caused += clamp(damage*player.damage_multi,0,health_Node.health)#for player stats
 		health_Node.health -= damage*player.damage_multi
 		if (randf()<sound_prob):
 			sound_player.play()
@@ -74,6 +75,7 @@ func start_death_animation():
 	z_index = -4
 	emit_signal("enemy_dead",points)
 	game.spawner.spawn_rand_item_at_prob(drop_rate,global_position)
+	player.add_enemy_death()
 
 	animation_player.stop()
 	animation_player.play("Death")
