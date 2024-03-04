@@ -19,13 +19,13 @@ func populate(player:Player)->void:
 	health_gained_label.text = str(player.health_gained)
 	shots_fired_label.text  = str(player.shots_fired)
 	enemies_killed_label.text=str(player.enemies_killed)
-	distance_covered_label.text=str(player.distance_covered)
+	distance_covered_label.text= "%.f" % player.distance_covered
 	powerups_collected_label.text = str(add_all(player.power_ups_collected))
 	favorite_weapons_label.text = get_favorite_weapon(player.weapon)
 	health_lost_label.text = str(player.health_lost)
-	accuracy_label.text = str(player.accuracy)
+	accuracy_label.text = "%.f%%" % (player.accuracy*100.0)
 	damage_caused_label.text = str(player.damage_caused)
-	standing_time_label.text = str(player.max_standing_time)
+	standing_time_label.text = "%.2fs" % player.max_standing_time
 	perks_collected_label.text = str(player.perkManager.active_perks.size())
 	favorite_powerups_label.text = get_favorite_powerup(player.power_ups_collected)
 
