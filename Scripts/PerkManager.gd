@@ -91,15 +91,21 @@ func update_current_arrays() -> void:
 func requirements_satisfied(perk:PackedScene, active_perks:Array) -> bool:
 	var state:SceneState=perk.get_state()
 	var required_perks:Array=[]
+	var min_level:int=0
 
 	var prop_count:int = state.get_node_property_count(0)
 	for i in range(prop_count):
 		if state.get_node_property_name(0,i)=="required":
 			required_perks=state.get_node_property_value(0,i)
+		if state.get_node_property_name(0,i)=="min_level":
+			min_level=state.get_node_property_value(0,i)
 
 	for req_perk in required_perks:
 		if !(req_perk in active_perks):
 			return false
+
+	if get_parent().level < min_level:
+		return false
 
 	return true
 

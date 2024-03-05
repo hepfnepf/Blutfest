@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Items/Helper/EffectBasis.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Items/EffectNodes/TitForTatBad.gd" type="Script" id=2]
+
+[node name="TitForTatBadEffect" instance=ExtResource( 1 )]
+one_shot = false
+autostart = false
+script = ExtResource( 2 )

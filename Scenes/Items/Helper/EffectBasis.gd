@@ -5,12 +5,12 @@ export (Texture)var icon_texture
 export (PackedScene)var image_container
 
 
-onready var player = get_parent()
+onready var player:Player = get_parent()
 onready var game = get_node_or_null("/root/Game")
 
 var icon:TextureRect  = null
 
-func _ready():
+func _ready()->void:
 	if game != null:
 		icon= image_container.instance()
 		icon.texture = icon_texture
@@ -19,7 +19,7 @@ func _ready():
 	add_effect()
 
 # warning-ignore:unused_argument
-func _process(delta):
+func _process(delta)->void:
 	var scroller:float = time_left/wait_time
 	icon.material.set_shader_param("scroller",scroller)
 

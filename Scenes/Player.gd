@@ -27,6 +27,7 @@ var alive:bool = true
 var elapsed_time=0 #get increased by 1 sec every time the time counter returns
 var locked:bool = false #can the player pick up new guns
 var damage_multi:float=1.0#will mosty influenced by perks
+var level:int=1
 
 #For statistics and some percs
 var enemies_hit:int = 0 setget set_enemies_hit
@@ -41,11 +42,9 @@ var powerups_collected_amnt:int=0
 var damage_caused:int=0
 var max_standing_time:float=0
 var current_standing_time:float=0
-#var weapon_time_used={} van be gotten from weapon.weapon_time_used
+#var weapon_time_used={} can be gotten from weapon.weapon_time_used
 var power_ups_collected={}
 
-#TODO: store how long each weapon was used
-#TODO: store which powerup has been picked up how often
 
 #For effects and perks
 
@@ -62,6 +61,8 @@ var spike_ball_explosion_damage:float = 90
 var boost_accuracy_dmg_level:int = 0 setget set_boost_accuracy_dmg_level
 var cap_accuracy:bool = true
 var shaky_finger:bool = false
+var tit_for_tat_good_multi:float = 1.0 # the longterm increase in deamage dealt
+var tit_for_tat_bad_multi:float=1.0 setget set_tit_for_tat_bad_multi# the shortterm multiplier on damage recieved
 
 onready var weapon = $Weapon
 onready var hurt:AudioStreamPlayer = $Hurt
@@ -187,6 +188,10 @@ func set_boost_accuracy_dmg_level(level)->void:
 	boost_accuracy_dmg_level=level
 	calculate_damage_multiplier()
 
+func set_tit_for_tat_bad_multi(new_multi)->void:
+	tit_for_tat_bad_multi=new_multi
+	calculate_damage_multiplier()
+
 func calculate_damage_multiplier()->void:
 
 	var accuracy_boni = 1.0
@@ -201,7 +206,7 @@ func calculate_damage_multiplier()->void:
 			accuracy_boni=accuracy
 
 
-	damage_multi = 1.0 * accuracy_boni
+	damage_multi = 1.0 * accuracy_boni * tit_for_tat_good_multi
 
 func add_enemy_death()->void:
 	enemies_killed+=1
@@ -213,6 +218,9 @@ func die()->void:
 func take_damage(damage:int)->void:
 	if !alive or invincible:
 		return
+
+	damage=damage*tit_for_tat_bad_multi
+
 	if shaky_finger:
 		set_health(health - damage * accuracy)
 	else:
@@ -235,6 +243,7 @@ func level_up():
 	if !alive:
 		return
 	experience -= experience_limit
+	level+=1
 	print("Level UP")
 	emit_signal("leveled_up")
 
