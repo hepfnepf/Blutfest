@@ -35,9 +35,6 @@ radius = 0.0
 
 [node name="EnemyAreaEffectItemBasis" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-radius = 0.0
-effect_node = null
-blast_time = 1.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 3 )

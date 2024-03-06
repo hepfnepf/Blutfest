@@ -63,6 +63,7 @@ var cap_accuracy:bool = true
 var shaky_finger:bool = false
 var tit_for_tat_good_multi:float = 1.0 # the longterm increase in deamage dealt
 var tit_for_tat_bad_multi:float=1.0 setget set_tit_for_tat_bad_multi# the shortterm multiplier on damage recieved
+var items_explode:bool=false
 
 onready var weapon = $Weapon
 onready var hurt:AudioStreamPlayer = $Hurt
