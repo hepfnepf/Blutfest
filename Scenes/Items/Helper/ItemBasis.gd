@@ -15,6 +15,7 @@ export (float) var time_to_despawn = 30.0
 var time_of_blink:float = 10
 var is_blinking:bool = false
 var blink_to_zero:bool=false
+var explosion_size:float = 2.0
 
 onready var timer:Timer = $Despawn
 onready var tween_in:Tween=$FadeIn
@@ -46,8 +47,13 @@ func increase_lifetime(time):
 	else:
 		timer.start(timer.time_left+time+time_of_blink)
 
-func pick_up(_player:Player):
+func pick_up(player:Player):
+	player.create_explosion(player.exp_damage, explosion_size)
 	queue_free()
+
+func explode_if_enabled(player)->void:
+	if player.items_explode:
+		player.create_explosion(player.exp_damage, explosion_size)
 
 func blink() -> void:
 	is_blinking = true

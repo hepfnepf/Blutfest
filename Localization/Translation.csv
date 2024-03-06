@@ -67,6 +67,8 @@ PERK_BAD_AIMER,Shaky fingers,Schlechter Schütze
 PERK_BAD_AIMER_DESC,Badass with bad aim. All damage taken will be multiplied with your accuracy.,Erleideter Schaden wird mit deiner Trefferquote multipliziert.
 PERK_TIT_FOT_TAT,Tit for Tat,Risiko
 PERK_TIT_FOT_TAT_DESC,"Your damage will get doubled for the rest of the game, but until the next level, all damage received will be multiplied by 4","Dein Schaden wird dauerhaft verdoppelt, aber bis zum nächsten Level, erhälts du 4x Schaden"
+PERK_ITEMS_EXPLODE,Exploding items,Explodierende Items
+PERK_ITEMS_EXPLODE_DESC,"When collecting an item, you will leave an explosion","Du erzeugst eine Explosion, beim Einsammeln von Items"
 HELP_TITLE1,How to play,Wie geht's?
 HELP_DESCRIPTION,"Survive as long as possible, while evil monsters try to kill you! Use power ups and weapons to your advantage and select the right perks to stay alive.",Überlebe solange es geht! Verschaffe dir dabei einen Vorteil durch die Nutzung von Items und Waffen. Sowie der richtigen Perks!
 HELP_TITLE2,Movement,Steuerung

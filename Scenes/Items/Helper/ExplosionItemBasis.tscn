@@ -38,6 +38,7 @@ script = ExtResource( 2 )
 effect_node = null
 blast_time = 1.0
 damage = 100.0
+exp_size = 5.0
 explosion = null
 
 [node name="CollisionShape2D" parent="." index="0"]

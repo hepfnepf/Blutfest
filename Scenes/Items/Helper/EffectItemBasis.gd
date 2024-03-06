@@ -9,5 +9,5 @@ func pick_up(player:Player):
 		var _effect = effect_node.instance()
 		player.add_child(_effect)
 	player.stats_add_powerup(get_script().get_path())
-	print(get_script().get_path())
+	player.create_explosion(player.exp_damage, explosion_size)
 	queue_free()
