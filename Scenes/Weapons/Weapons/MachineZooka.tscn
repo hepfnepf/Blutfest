@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Sprites/Weapons/Machine_zooka.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Weapons/Weapons/WeaponBasis.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Weapons/Bullets/MissileBullet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sounds/SFX/Weapons/swoosh_04_Fire_explosion_04_medium.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sprites/Player/hand_holding_gun.png" type="Texture" id=5]
+[ext_resource path="res://Sounds/SFX/Weapons/gun_reload.2.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Scenes/Weapons/Weapons/Bazooka.gd" type="Script" id=7]
+[ext_resource path="res://Sprites/Player/forearm.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Player/arm.png" type="Texture" id=9]
+
+[node name="MachineZooka" instance=ExtResource( 2 )]
+script = ExtResource( 7 )
+max_ammo = 19
+damage = 25
+max_range = 2700.0
+speed = 800.0
+reload_time = 3.0
+fire_rate = 9.0
+base_spread = 0.144
+spread_inc = 0.73
+spread_dec = 0.073
+explosion_damage = 25.0
+Bullet = ExtResource( 3 )
+shoot_sfx = ExtResource( 4 )
+reload_sfx = ExtResource( 6 )
+shoot_db = 2.0
+reload_db = 0.5
+explosion_size = 1.0
+explode_on_death = true
+
+[node name="muzzle_flash_02" parent="." index="0"]
+position = Vector2( 164.767, 42.5399 )
+
+[node name="BulletSpawnPosition" parent="." index="3"]
+position = Vector2( 124.125, 41.5774 )
+
+[node name="BulletDirection" parent="." index="4"]
+position = Vector2( 163.503, 41.5774 )
+
+[node name="armL" type="Sprite" parent="." index="7"]
+position = Vector2( 42.9644, -32.8493 )
+rotation = 0.944332
+texture = ExtResource( 9 )
+
+[node name="forearmL" type="Sprite" parent="armL" index="0"]
+position = Vector2( 41, -0.624 )
+z_index = -1
+texture = ExtResource( 8 )
+
+[node name="handL" type="Sprite" parent="armL/forearmL" index="0"]
+position = Vector2( 32.3609, 4.96817 )
+scale = Vector2( 0.662, 0.862 )
+z_index = -1
+texture = ExtResource( 5 )
+
+[node name="armR" type="Sprite" parent="." index="8"]
+position = Vector2( 31.0594, 71.7721 )
+texture = ExtResource( 9 )
+flip_v = true
+
+[node name="forearmR" type="Sprite" parent="armR" index="0"]
+position = Vector2( 36.6261, -3.90981 )
+rotation = -0.262937
+z_index = -1
+texture = ExtResource( 8 )
+flip_v = true
+
+[node name="handR" type="Sprite" parent="armR/forearmR" index="0"]
+position = Vector2( 33.6595, -4.69916 )
+scale = Vector2( 0.662, 0.862 )
+z_index = -1
+texture = ExtResource( 5 )
+flip_v = true
+
+[node name="MachineZooka" type="Sprite" parent="." index="9"]
+position = Vector2( 84.438, 41.7078 )
+scale = Vector2( 0.259369, 0.266612 )
+z_index = 1
+texture = ExtResource( 1 )

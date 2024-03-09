@@ -30,6 +30,7 @@ shader_param/starded_blinking = 0.0
 
 [node name="ItemBasisWeapon" groups=["WeaponItem"] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+weapon = null
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 3 )

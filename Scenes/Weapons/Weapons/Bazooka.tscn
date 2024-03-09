@@ -30,6 +30,7 @@ reload_sfx = ExtResource( 9 )
 shoot_db = 2.0
 reload_db = 0.5
 explosion_size = 3.7
+explode_on_death = false
 
 [node name="muzzle_flash_02" parent="." index="0"]
 position = Vector2( 221.039, 33.4145 )
