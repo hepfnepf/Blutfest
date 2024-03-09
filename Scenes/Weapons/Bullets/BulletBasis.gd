@@ -9,9 +9,11 @@ var template:PackedScene = null #gets set when instanced, needed for bullet pool
 var player:Player = null
 
 #For exploding bullets
+#A bullet explodes, if exp_dmg != 0
 var explosion:PackedScene=preload("res://Scenes/Items/EffectNodes/Explosion.tscn")
 var exp_size:float = 1.0
 var exp_dmg:float=0.0 #0 means there is now explosion
+var explode_on_death:bool=false # makes it so, that when not hitting anything, an explosion will still occur when this bullets lifetime ends
 
 #Get set by the weapon
 var speed =100.0
@@ -67,6 +69,8 @@ func explode() -> void:
 	game.call_deferred("add_child", _exp)
 
 func _on_Timer_timeout():
+	if explode_on_death:
+		explode()
 	die()
 
 func _on_trail_faded():
