@@ -44,6 +44,7 @@ var max_standing_time:float=0
 var current_standing_time:float=0
 #var weapon_time_used={} can be gotten from weapon.weapon_time_used
 var power_ups_collected={}
+var explosion_amnt:int=0 setget set_explosion_amnt
 
 
 #For effects and perks
@@ -65,6 +66,9 @@ var tit_for_tat_good_multi:float = 1.0 # the longterm increase in deamage dealt
 var tit_for_tat_bad_multi:float=1.0 setget set_tit_for_tat_bad_multi# the shortterm multiplier on damage recieved
 var items_explode:bool=false
 var vampire_percent:float=0.0
+var explosion_amt_size_multi:float=1.0
+var explosion_amt_size_multi_inc:float=0.0
+var max_explosion_amt_size_multi:float=1.0
 
 onready var weapon = $Weapon
 onready var hurt:AudioStreamPlayer = $Hurt
@@ -146,7 +150,8 @@ func set_health(new_health:int)->void:
 		health_lost = clamp(health-new_health,0,health)
 		health = new_health
 
-	health_gained=health-_health_before#used for statistics
+	if health>_health_before:
+		health_gained=health-_health_before#used for statistics
 
 	emit_signal("health_changed",health)
 	if health <= 0:
@@ -175,6 +180,10 @@ func set_enemies_hit(new_amnt)->void:
 func set_damage_caused(new_damage)->void:
 	set_health(health+int(ceil(vampire_percent/100.0*(new_damage-damage_caused))))#for vampire perk
 	damage_caused=new_damage
+
+func set_explosion_amnt(new_amt)->void:
+	explosion_amnt+=1
+	explosion_amt_size_multi= clamp(explosion_amt_size_multi+explosion_amt_size_multi_inc,1.0,max_explosion_amt_size_multi)
 
 func set_shots_fired(new_amnt)->void:
 	shots_fired = new_amnt
@@ -290,9 +299,10 @@ func create_explosion(damage,size):
 	var _exp = explosion.instance()
 	_exp.global_position=global_position
 	_exp.damage = damage
-	_exp.scale =Vector2(size,size)
+	_exp.scale =Vector2(size,size)*explosion_amt_size_multi
 	var game = get_node_or_null("/root/Game")#gets set again, because if game gets reset after player death, this instance will be removed
 	if game!=null:
+		set_explosion_amnt(explosion_amnt+1)
 		game.call_deferred("add_child", _exp)
 
 func set_weapon(_weapon):

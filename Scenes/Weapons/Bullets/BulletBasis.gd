@@ -60,12 +60,13 @@ func _on_Bullet_body_entered(body):
 
 func explode() -> void:
 	game = get_node_or_null("/root/Game")#gets set again, because if game gets reset after player death, this instance will be removed
-	if game==null:
+	if game==null or player==null:
 		return
 	var _exp = explosion.instance()
 	_exp.global_position=orig.global_position
 	_exp.damage=exp_dmg
-	_exp.scale =Vector2(exp_size,exp_size)
+	_exp.scale =Vector2(exp_size,exp_size)*player.explosion_amt_size_multi
+	player.explosion_amnt +=1
 	game.call_deferred("add_child", _exp)
 
 func _on_Timer_timeout():
