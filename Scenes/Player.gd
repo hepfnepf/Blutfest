@@ -39,7 +39,7 @@ var enemies_killed:int=0
 var distance_covered:float=0
 var powerups_collected_amnt:int=0
 #var perks_collected_amnt:int=0 can be gotten from PerkManager.active_perks.length
-var damage_caused:int=0
+var damage_caused:int=0 setget set_damage_caused
 var max_standing_time:float=0
 var current_standing_time:float=0
 #var weapon_time_used={} can be gotten from weapon.weapon_time_used
@@ -57,13 +57,14 @@ var bullet_time_count:int = 0
 var heal_up_on_level_up:int = 0
 var explosion_on_level_up:bool = false
 var spike_balls_explode:bool = false
-var spike_ball_explosion_damage:float = 90
+var spike_ball_explosion_damage:float = 90.0
 var boost_accuracy_dmg_level:int = 0 setget set_boost_accuracy_dmg_level
 var cap_accuracy:bool = true
 var shaky_finger:bool = false
 var tit_for_tat_good_multi:float = 1.0 # the longterm increase in deamage dealt
 var tit_for_tat_bad_multi:float=1.0 setget set_tit_for_tat_bad_multi# the shortterm multiplier on damage recieved
 var items_explode:bool=false
+var vampire_percent:float=0.0
 
 onready var weapon = $Weapon
 onready var hurt:AudioStreamPlayer = $Hurt
@@ -136,14 +137,17 @@ func _physics_process(delta)->void:
 func set_health(new_health:int)->void:
 	if !alive:
 		return
-	if new_health > max_health:
-		var _health_before:int=health #used for statistics
-		health=max_health
-		health_gained=health-_health_before
 
+	var _health_before:int=health #used for statistics
+
+	if new_health > max_health:
+		health=max_health
 	else:
 		health_lost = clamp(health-new_health,0,health)
 		health = new_health
+
+	health_gained=health-_health_before#used for statistics
+
 	emit_signal("health_changed",health)
 	if health <= 0:
 		die()
@@ -167,6 +171,10 @@ func set_score(new_score)->void:
 func set_enemies_hit(new_amnt)->void:
 	enemies_hit = new_amnt
 	calculate_accuracy()
+
+func set_damage_caused(new_damage)->void:
+	set_health(health+int(ceil(vampire_percent/100.0*(new_damage-damage_caused))))#for vampire perk
+	damage_caused=new_damage
 
 func set_shots_fired(new_amnt)->void:
 	shots_fired = new_amnt
