@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Perks/PerkIncreasePyromaniacCap.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Perks/Perk.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Perks/PerkPyromaniac.tscn" type="PackedScene" id=3]
+
+[node name="PerkIncreasePyromaniacCap" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+title = "PERK_INC_PYROMANIAC"
+desc = "PERK_INC_PYROMANIAC_DESC"
+one_time = true
+required = [ ExtResource( 3 ) ]
+min_level = 3
+max_explosion_amt_size_multi = 4.0
