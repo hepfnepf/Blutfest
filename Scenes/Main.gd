@@ -11,6 +11,7 @@ onready var debug_gui = $GUI/HUD/VBoxContainer/DebugLayout
 onready var time_manager = get_node("/root/TimeManager")
 
 var enemys_alive:int = 0
+var enemy_hpbars_enabled:bool=false
 
 func _ready()-> void:
 	randomize()

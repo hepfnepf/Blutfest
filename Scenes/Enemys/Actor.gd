@@ -21,6 +21,7 @@ onready var until_fading_timer:Timer = $TimeUntilFading
 onready var collision_shape:CollisionShape2D = $CollisionShape2D
 onready var fade_out:Tween = $FadeOut
 onready var sound_player:AudioStreamPlayer2D = $AudioStreamPlayer2D
+onready var health_bar:ProgressBar=$Healthbar
 
 onready var player:Player = get_node_or_null("/root/Game/Player")
 onready var game = get_node_or_null("/root/Game")
@@ -41,6 +42,9 @@ func _ready():
 	movement.initialize(self, animation_player)
 	ai.initialize(movement,team_Node.team)
 	ai.damage = damage
+	health_bar.health_node=health_Node
+	health_bar.set_max_health(max_health)
+	health_bar.set_health(health_Node.health)
 
 	connect("enemy_dead",game,"_on_enemy_killed")
 
@@ -48,6 +52,7 @@ func handle_hit(damage:int, type:int = 1):
 	if alive:
 		player.damage_caused += clamp(damage*player.damage_multi,0,health_Node.health)#for player stats
 		health_Node.health -= damage*player.damage_multi
+		health_bar.set_health(health_Node.health)
 		if (randf()<sound_prob):
 			sound_player.play()
 		if health_Node.health <= 0:
@@ -60,6 +65,9 @@ func set_damage(new_dmg):
 func set_max_health(new_health):
 	max_health = new_health
 	health_Node.health = max_health
+	health_bar.set_max_health(max_health)
+	health_bar.set_health(max_health)
+
 
 func set_speed(new_speed):
 	speed=new_speed
