@@ -37,7 +37,7 @@ var active_perks:Array=[]
 var blocked_perks:Array=[] #cant be chosen anymore
 var perk_probs:Array = [] #Gets calculated from item_likelihood. Actual probability.
 
-var perk_selection_amount:int=2
+export(int)var perk_selection_amount=2
 
 func _ready()->void:
 	assert(perks.size()==likelihoods.size(),"Different amount of perks and likelihoods")
