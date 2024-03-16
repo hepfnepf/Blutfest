@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Perks/Perk.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Perks/PerkHpIncreasesMaxhp.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Perks/PerkHpIncreasesMaxhp.tscn" type="PackedScene" id=3]
+
+[node name="PerkHpIncreasesMaxhp" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+title = "HP_INC_INC_MAX_HP_2"
+desc = "HP_INC_INC_MAX_HP_2_DESC"
+one_time = true
+required = [ ExtResource( 3 ) ]
+perk_level = 2

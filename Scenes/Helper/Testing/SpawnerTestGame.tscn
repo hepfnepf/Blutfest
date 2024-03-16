@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Items/Items/ItemHealUp.tscn" type="PackedScene" id=2]
@@ -17,7 +17,6 @@
 [ext_resource path="res://Scenes/BackgroundMusic.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Items/Items/IceItem.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Items/Items/ItemTrapCanon.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scenes/Weapons/Weapons/MachineZooka.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Items/Items/ItemPoints1000.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Items/Items/ItemPoints500.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/Items/Items/ItemPoints5000.tscn" type="PackedScene" id=21]
@@ -60,11 +59,18 @@ position = Vector2( -53.9392, 593.33 )
 [node name="PistolItem" parent="." instance=ExtResource( 10 )]
 position = Vector2( -512.421, -779.12 )
 
+[node name="ItemHealUp" parent="." instance=ExtResource( 2 )]
+position = Vector2( 466.538, -805.663 )
+scale = Vector2( 0.27, 0.27 )
+
+[node name="ItemHealUp2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1184.96, 1075.24 )
+scale = Vector2( 0.27, 0.27 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -884, -8 )
 move_speed = 600
 health = 100
-start_weapon = ExtResource( 18 )
 
 [node name="Zombie" parent="." instance=ExtResource( 29 )]
 position = Vector2( 467.068, -87.3807 )
@@ -105,11 +111,11 @@ pause_mode = 2
 volume_db = 0.0
 autoplay = false
 volumes = {
-Resource( "res://Sounds/Music/Deck the Halls_alexander nakarada_httpsfreepd.commusicDeck%20the%20Halls.mp3.mp3" ): 0.0,
-Resource( "res://Sounds/Music/One Destination - Two Journeys_Alexander Nakarada_httpsfreepd.commusicOne%20Destination%20-%20Two%20Journeys.mp3.mp3" ): 0.0,
+Resource( "res://Sounds/Music/Beyond - part 2_alexander nakarada _httpsfreepd.commusicBeyond%20-%20part%202.mp3.mp3" ): 6.0,
 Resource( "res://Sounds/Music/Murder On The Bayou_ Bryan Teoh_httpsfreepd.commusicMurder%20On%20The%20Bayou.mp3.mp3" ): -6.0,
+Resource( "res://Sounds/Music/One Destination - Two Journeys_Alexander Nakarada_httpsfreepd.commusicOne%20Destination%20-%20Two%20Journeys.mp3.mp3" ): 0.0,
 Resource( "res://Sounds/Music/Construction_Alexander Nakarada_httpsfreepd.commusicConstruction.mp3.mp3" ): 0.0,
-Resource( "res://Sounds/Music/Beyond - part 2_alexander nakarada _httpsfreepd.commusicBeyond%20-%20part%202.mp3.mp3" ): 6.0
+Resource( "res://Sounds/Music/Deck the Halls_alexander nakarada_httpsfreepd.commusicDeck%20the%20Halls.mp3.mp3" ): 0.0
 }
 
 [node name="EffectItemBasis3" parent="." instance=ExtResource( 13 )]
