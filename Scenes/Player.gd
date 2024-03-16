@@ -187,7 +187,8 @@ func set_enemies_hit(new_amnt)->void:
 	calculate_accuracy()
 
 func set_damage_caused(new_damage)->void:
-	set_health(health+int(ceil(vampire_percent/100.0*(new_damage-damage_caused))))#for vampire perk
+	if vampire_percent > 0.0:
+		set_health(health+int(ceil(vampire_percent/100.0*(new_damage-damage_caused))))#for vampire perk
 	damage_caused=new_damage
 
 func set_explosion_amnt(new_amt)->void:
