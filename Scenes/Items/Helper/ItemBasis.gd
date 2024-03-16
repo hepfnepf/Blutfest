@@ -48,7 +48,7 @@ func increase_lifetime(time):
 		timer.start(timer.time_left+time+time_of_blink)
 
 func pick_up(player:Player):
-	player.create_explosion(player.exp_damage, explosion_size)
+	explode_if_enabled(player)
 	queue_free()
 
 func explode_if_enabled(player)->void:

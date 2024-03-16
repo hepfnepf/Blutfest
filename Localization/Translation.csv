@@ -75,6 +75,8 @@ PERK_PYROMANIC,Pyromanic,Pyromane
 PERK_PYROMANIC_DESC,Every explosion increases the size of explosions. Up to %dx.!,"Jede Explosion erhöht die Explosionsgröße! bis zu %dx."
 PERK_INC_PYROMANIAC,Pyromaniac II,Pyromane II
 PERK_INC_PYROMANIAC_DESC,Increase you maximum pyromaniac multiplier to %1f.,Erhöhe deinen maximalen Pyromanenmultiplicator auf %.1f.
+PERK_XRAY_VSION,X-Ray vision,Röntgenblick
+PERK_XRAY_VSION_DESC,See how much HP enemies have left.,"Du kannst sehen, wieviele LP deine Gegner haben."
 HELP_TITLE1,How to play,Wie geht's?
 HELP_DESCRIPTION,"Survive as long as possible, while evil monsters try to kill you! Use power ups and weapons to your advantage and select the right perks to stay alive.",Überlebe solange es geht! Verschaffe dir dabei einen Vorteil durch die Nutzung von Items und Waffen. Sowie der richtigen Perks!
 HELP_TITLE2,Movement,Steuerung

@@ -69,6 +69,7 @@ var vampire_percent:float=0.0
 var explosion_amt_size_multi:float=1.0
 var explosion_amt_size_multi_inc:float=0.0
 var max_explosion_amt_size_multi:float=1.0
+var see_hpbars:bool=false
 
 onready var weapon = $Weapon
 onready var hurt:AudioStreamPlayer = $Hurt

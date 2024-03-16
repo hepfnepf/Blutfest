@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Perks/Perk.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Perks/PerkXrayVision.gd" type="Script" id=2]
+
+[node name="PerkXRayVision" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+title = "PERK_XRAY_VSION"
+desc = "PERK_XRAY_VSION_DESC"
+one_time = true
