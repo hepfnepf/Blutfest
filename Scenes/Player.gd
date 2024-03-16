@@ -70,6 +70,7 @@ var explosion_amt_size_multi:float=1.0
 var explosion_amt_size_multi_inc:float=0.0
 var max_explosion_amt_size_multi:float=1.0
 var see_hpbars:bool=false
+var hp_increase_increases_maxhp_lvl:int=0
 
 onready var weapon = $Weapon
 onready var hurt:AudioStreamPlayer = $Hurt
@@ -146,7 +147,14 @@ func set_health(new_health:int)->void:
 	var _health_before:int=health #used for statistics
 
 	if new_health > max_health:
-		health=max_health
+		if hp_increase_increases_maxhp_lvl == 1 and health==max_health:#perk PerkIncreaseMaxHealth
+			health=max_health
+			set_max_health(max_health+floor((new_health-max_health)/2.0))
+		elif hp_increase_increases_maxhp_lvl == 2:
+			set_max_health(max_health+floor((new_health-max_health)/2.0))
+			health=max_health
+		else:
+			health=max_health
 	else:
 		health_lost = clamp(health-new_health,0,health)
 		health = new_health
