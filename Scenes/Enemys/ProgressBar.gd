@@ -53,7 +53,7 @@ func show_if_appropiate()->void:
 	if game:
 		default_visible=game.enemy_hpbars_enabled
 
-	if !skip_frame and default_visible and should_be_visible:
+	if !skip_frame and (default_visible or parent.player.see_hpbars) and should_be_visible:
 		show()
 	else:
 		hide()
