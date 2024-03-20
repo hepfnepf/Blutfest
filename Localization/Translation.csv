@@ -83,6 +83,8 @@ HP_INC_INC_MAX_HP_2,Health is healthy II,Leben ist gesund II
 HP_INC_INC_MAX_HP_2_DESC,"If you gain health overstepping your max HP, your max HP will be increased by half of the difference and your HP will be filled.","Wenn du über deine max LP hinaus geheilt wirst, wird die Hälfte der Differenz zu deinen max LP hinzugefügt und du wirst vollständig geheilt."
 PERK_EXTRA_CARDS,Extra Card,Bonuskarte
 PERK_EXTRA_CARDS_DESC,You will get one additional card in the selection.,Du hast eine weitere Karte zur Auswahl.
+PERK_MANUEL_RELOADING,Manuel reloading,Manuelles nachladen
+PERK_MANUEL_RELOADING_DESC,"You reload %d%% faster, if you trigger the relaod manually.","Du lädst %d%% schneller nach, solltest du manuell nachladen."
 HELP_TITLE1,How to play,Wie geht's?
 HELP_DESCRIPTION,"Survive as long as possible, while evil monsters try to kill you! Use power ups and weapons to your advantage and select the right perks to stay alive.",Überlebe solange es geht! Verschaffe dir dabei einen Vorteil durch die Nutzung von Items und Waffen. Sowie der richtigen Perks!
 HELP_TITLE2,Movement,Steuerung

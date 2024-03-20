@@ -160,7 +160,10 @@ func reload():
 	if !is_reloading and reload_time != 0:
 		is_reloading = true
 		play_sound(SOUNDS.RELOAD)
-		reload_timer.start(reload_time)
+		if player.manuel_reloading_perk != 0.0 and ammo != 0:
+			reload_timer.start(reload_time-reload_time*player.manuel_reloading_perk)
+		else:
+			reload_timer.start(reload_time)
 		reload_start_time = OS.get_ticks_msec()
 		tween.interpolate_property(self,"spread", spread, base_spread,reload_time )
 		tween.start()
