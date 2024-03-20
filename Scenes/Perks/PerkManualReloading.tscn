@@ -7,4 +7,5 @@
 script = ExtResource( 2 )
 title = "PERK_MANUEL_RELOADING"
 desc = "PERK_MANUEL_RELOADING_DESC"
+one_time = true
 reload_reduction = 0.3

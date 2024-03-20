@@ -85,6 +85,8 @@ PERK_EXTRA_CARDS,Extra Card,Bonuskarte
 PERK_EXTRA_CARDS_DESC,You will get one additional card in the selection.,Du hast eine weitere Karte zur Auswahl.
 PERK_MANUEL_RELOADING,Manuel reloading,Manuelles nachladen
 PERK_MANUEL_RELOADING_DESC,"You reload %d%% faster, if you trigger the relaod manually.","Du lädst %d%% schneller nach, solltest du manuell nachladen."
+PERK_LAZY_RELOAD,Lazy reload,Faules Nachladen
+PERK_LAZY_RELOAD_DESC,You only have to reload the missing bullets.,Du lädst lediglich die fehlenden Kugeln nach.
 HELP_TITLE1,How to play,Wie geht's?
 HELP_DESCRIPTION,"Survive as long as possible, while evil monsters try to kill you! Use power ups and weapons to your advantage and select the right perks to stay alive.",Überlebe solange es geht! Verschaffe dir dabei einen Vorteil durch die Nutzung von Items und Waffen. Sowie der richtigen Perks!
 HELP_TITLE2,Movement,Steuerung

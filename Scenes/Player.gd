@@ -72,6 +72,7 @@ var max_explosion_amt_size_multi:float=1.0
 var see_hpbars:bool=false
 var hp_increase_increases_maxhp_lvl:int=0
 var manuel_reloading_perk:float=0.0#how much of the reload will be taken away in percent from 0 to 1
+var lazy_reloading:bool = false
 
 onready var weapon = $Weapon
 onready var hurt:AudioStreamPlayer = $Hurt
