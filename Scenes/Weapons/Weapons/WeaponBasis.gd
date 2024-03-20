@@ -160,7 +160,18 @@ func reload():
 	if !is_reloading and reload_time != 0:
 		is_reloading = true
 		play_sound(SOUNDS.RELOAD)
-		reload_timer.start(reload_time)
+		var _reload_time=reload_time
+
+		if ammo==max_ammo and player.lazy_reloading:
+			_on_ReloadTimer_timeout()
+			return
+
+		if player.manuel_reloading_perk != 0.0 and ammo != 0:
+			_reload_time = _reload_time-_reload_time*player.manuel_reloading_perk
+		if player.lazy_reloading and ammo != 0:
+			_reload_time *= 1- float(ammo)/float(max_ammo)
+
+		reload_timer.start(_reload_time)
 		reload_start_time = OS.get_ticks_msec()
 		tween.interpolate_property(self,"spread", spread, base_spread,reload_time )
 		tween.start()
