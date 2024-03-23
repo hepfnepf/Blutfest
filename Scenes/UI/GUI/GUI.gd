@@ -92,6 +92,7 @@ func _on_new_perk_selection(perks, raritys):
 		var card:PerkCard = perkCard.instance()
 		card.perk=perks[i]
 		card.rarity=raritys[i]
+		card.player = player
 		cards.append(card)
 		card.connect("card_selected",self,"_on_card_selected")
 
