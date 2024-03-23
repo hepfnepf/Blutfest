@@ -94,7 +94,6 @@ func check_for_input():
 		reload()
 
 func shoot():
-
 	#for statistics
 	player.shots_fired +=1
 
