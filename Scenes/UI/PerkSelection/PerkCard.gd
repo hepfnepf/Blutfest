@@ -18,6 +18,7 @@ export (float) var down_speed = 5.0
 var min_size:Vector2 = Vector2(0,0)
 
 var rarity:int = 0#gets set by gui when adding cards to cardholder
+var player:Player=null#gets set by gui when adding cards to cardholder
 var is_hovered:bool = false
 var weight:float = 0.0
 var disabled:bool = false
@@ -49,6 +50,7 @@ func display_perk()->void:
 		return
 
 	var _perk:Perk=perk.instance()
+	_perk.player=player
 	title = _perk.get_title()
 	desc = _perk.get_desc()
 

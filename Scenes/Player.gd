@@ -73,10 +73,14 @@ var see_hpbars:bool=false
 var hp_increase_increases_maxhp_lvl:int=0
 var manuel_reloading_perk:float=0.0#how much of the reload will be taken away in percent from 0 to 1
 var lazy_reloading:bool = false
+var regeneration_perk:bool = true
+var seconds_to_start_regeneration:float = 30.0
+var regeneration_amt:float = 1.0 #hp per second
 
 onready var weapon = $Weapon
 onready var hurt:AudioStreamPlayer = $Hurt
 onready var perkManager:PerkManager = $PerkManager
+onready var regenerationTimer:Timer = $RegenerationTimer
 onready var gui = get_node_or_null("/root/Game/GUI")
 onready var shockWave=get_node_or_null("/root/Game/ShockWaveLayer/ShockWave")
 
@@ -90,6 +94,7 @@ var is_standing:bool = true #used for perks and statistics
 func _ready()->void:
 	if start_weapon != null:
 		weapon.set_weapon(start_weapon)
+	regenerationTimer.wait_time = seconds_to_start_regeneration
 
 func _physics_process(delta)->void:
 	if !alive:
@@ -257,6 +262,9 @@ func take_damage(damage:int)->void:
 		set_health(health - damage)
 	hurt.play()
 
+	if regeneration_perk:
+		regenerationTimer.start(seconds_to_start_regeneration)
+
 #Experience Management
 func set_experience(new_exp:int)->void:
 	if !alive:
@@ -346,3 +354,10 @@ func _on_ElapsedTime_timeout():
 		return
 	elapsed_time += 1
 	emit_signal("time_changed",elapsed_time)
+
+func _on_regeneration_step()->void:
+	set_health(health+regeneration_amt)
+
+func _on_RegenerationTimer_timeout() -> void:
+	_on_regeneration_step()
+	regenerationTimer.start(1.0)
