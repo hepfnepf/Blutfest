@@ -37,7 +37,6 @@ bullet_rate = 15.0
 rot_speed = 90.0
 duration = 7.0
 bullet = ExtResource( 4 )
-damage = 20
 max_range = 500
 speed = 2000
 shoot_sfx = ExtResource( 5 )

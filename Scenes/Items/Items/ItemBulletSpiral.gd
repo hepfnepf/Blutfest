@@ -18,7 +18,7 @@ var is_active:bool = false
 var time:float = 0 #Helper for spawning speed
 onready var game = get_node("/root/Game")
 
-func pick_up(_player:Player):
+func pick_up(player:Player):
 	is_active = true
 	timer.paused = true
 	$Duration.start(duration)
@@ -43,6 +43,7 @@ func shoot_bullet():
 	_bullet.direction = Vector2.RIGHT.rotated(rot)
 	_bullet.p_range = max_range
 	_bullet.damage = damage
+	_bullet.direct=false
 	NonDirectionalSoundPool.play_sound(shoot_sfx, shoot_db)
 
 

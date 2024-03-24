@@ -20,6 +20,7 @@ var speed =100.0
 var p_range=500
 var damage = 20
 var alive := true
+var direct:bool=true
 
 onready var smoketrail:Smoketrail = $Smoketrail#does not exist in basis. Only in the inherited bullets
 onready var sprite:Sprite = $Sprite
@@ -53,7 +54,7 @@ func _on_Bullet_body_entered(body):
 
 	if body.has_method("handle_hit"):
 		body.handle_hit(damage, Globals.DamageType.PROJECTILE)
-		if (is_instance_valid(player)):
+		if (is_instance_valid(player) and direct):
 			player.enemies_hit +=1
 	if exp_dmg != 0.0 and !body.is_in_group("Border"):
 		explode()
