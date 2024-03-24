@@ -113,8 +113,8 @@ func spawn_at(scene,pos,apply_difficulty=false):
 
 func _spawn_at(scene,pos,apply_difficulty=false):
 	var _obj = scene.instance()
-	game.add_child(_obj)
 	_obj.global_position = pos
+	game.add_child(_obj)
 	if apply_difficulty and _obj.is_in_group("ENEMIES"):
 		_obj.set_damage(_obj.damage * enemy_damage_mult)
 		_obj.set_speed(_obj.speed * enemy_speed_mult)

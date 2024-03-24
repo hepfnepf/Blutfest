@@ -76,6 +76,7 @@ var lazy_reloading:bool = false
 var regeneration_perk:bool = true
 var seconds_to_start_regeneration:float = 30.0
 var regeneration_amt:float = 1.0 #hp per second
+var spike_balls_explode_on_death:bool=false
 
 onready var weapon = $Weapon
 onready var hurt:AudioStreamPlayer = $Hurt

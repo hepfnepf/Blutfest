@@ -14,3 +14,10 @@ func _on_Bullet_body_entered(body):
 	elif is_instance_valid(player) and player.spike_balls_explode:
 		exp_dmg = player.spike_ball_explosion_damage
 		explode()
+
+func die():
+	if is_instance_valid(player) and player.spike_balls_explode_on_death:
+		exp_dmg = player.spike_ball_explosion_damage
+		explode()
+	.die()
+

@@ -57,6 +57,8 @@ PERK_EXPLOSION_ON_LEVEL_UP,To much energy,Platzen vor Freude
 PERK_EXPLOSION_ON_LEVEL_UP_DESC,After gaining that much Exp you just need to show unleash your power. So you explode.,"Aus Freude über deinen Level Up, fliegst du einfach in die Luft."
 PERK_SPIKE_BALLS_EXPLODE,Boom Balls,Bumm Bälle
 PERK_SPIKE_BALLS_EXPLODE_DESC,The spike balls are spicy now. Which means they explode.,Die Stachelbälle böllern böß.
+PERK_SPIKE_BALLS_EXPLODE_2,Boom Balls II, Bumm Bälle 2
+PERK_SPIKE_BALLS_EXPLODE_2_DESC,"Now, the spike balls even explode if they don't hit anything.","Die Bälle ballern noch böser, sogar wenn sie nichts treffen."
 PERK_ACCURACY_BOOST,Accuracy Reward,Guter Schütze
 PERK_ACCURACY_BOOST_DESC,Multiply your damage by 2x the accuracy.,Dein Schaden wird mit dem doppelten der Trefferrate multipliziert.
 PERK_ACCURACY_BOOST_2,Accuracy Reward II,Guter Schütze II
