@@ -24,6 +24,8 @@ func _ready()-> void:
 	var map_size:Vector2 = map.get_map_size()
 	spawner.set_map_size(map_size[0],map_size[1])
 	Globals.game = self
+	get_tree().paused = false
+
 
 	#Retrieve volume settings
 	var sg = SaveManager.read_saveOptions()
