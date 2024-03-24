@@ -20,6 +20,7 @@ onready var blood= $ScreenBlood
 
 var player:Player=null
 var perkCard = preload("res://Scenes/UI/PerkSelection/PerkCard.tscn")
+var old_health:int=0
 
 
 func _ready() -> void:
@@ -62,7 +63,9 @@ func reset_weapon(weapon)->void:
 
 func set_health(new_health:int)->void:
 	health_widget.set_health(new_health)
-	blood.modulate = Color(1.0,1.0,1.0,1.0 - float(player.health)/float(player.max_health))
+	if (new_health<old_health or blood.modulate.a > 1.0 - float(player.health)/float(player.max_health)):
+		blood.modulate = Color(1.0,1.0,1.0,1.0 - float(player.health)/float(player.max_health))
+	old_health=new_health
 func set_max_health(new_max_health:int)->void:
 	health_widget.set_max_health(new_max_health)
 	#blood.modulate = Color(1.0,1.0,1.0,1.0 - float(player.health)/float(player.max_health))

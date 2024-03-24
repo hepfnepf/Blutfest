@@ -77,3 +77,4 @@ max_distance = 10000.0
 bus = "SFX"
 
 [connection signal="animation_finished" from="Node2D/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="finished" from="Node2D/ExplosionSound" to="." method="_on_ExplosionSound_finished"]
