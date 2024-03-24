@@ -83,6 +83,7 @@ onready var weapon = $Weapon
 onready var hurt:AudioStreamPlayer = $Hurt
 onready var perkManager:PerkManager = $PerkManager
 onready var regenerationTimer:Timer = $RegenerationTimer
+onready var camera:Camera2D = $Camera2D
 onready var gui = get_node_or_null("/root/Game/GUI")
 onready var shockWave=get_node_or_null("/root/Game/ShockWaveLayer/ShockWave")
 

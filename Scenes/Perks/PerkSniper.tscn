@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Perks/Perk.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Perks/PerkSniper.gd" type="Script" id=2]
+
+[node name="PerkSniper" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+title = "PERK_SNIPER"
+desc = "PERK_SNIPER_DESC"
+zoom = 6.0
