@@ -94,6 +94,9 @@ func check_for_input():
 		reload()
 
 func shoot():
+	if !player.alive:
+		return
+
 	#for statistics
 	player.shots_fired +=1
 
@@ -197,5 +200,5 @@ func _on_ReloadTimer_timeout():#after reload is done
 	is_reloading = false
 	#spread = base_spread
 
-func _on_Cooldown_timeout():
+func _on_Cooldown_timeout()->void:
 	cooldown = false

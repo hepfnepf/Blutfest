@@ -1,4 +1,4 @@
-
+Repository: https://github.com/hepfnepf/Blutfest
 
 Sprites
 Player - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player - CC-BY 3.0
@@ -13,7 +13,8 @@ Icicle Gun based on Xavier4321 - https://opengameart.org/content/gun-mine - CC B
 Longrange Shotgun based on - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player - CC BY 3.0
 Trap Canon based on - richtaur - https://opengameart.org/content/bomb-party - CC BY 3.0
 Spiked Ball - dravenx - https://opengameart.org/content/spikey-stuff - CC BY 3.0
-Bazooka - me - CC0
+Bazooka - hepfnepf - CC0
+Machine gun - hepfnepf - CC0
 
 Ammo:
 Icicle - ? - https://proofmart.com/product/icicles-png-images-transparent-background-free-download/ - CC BY 4.0
@@ -61,6 +62,8 @@ Explosion1 - dustyroomgames - https://dustyroom.com/free-casual-game-sounds/ - C
 Explosion2 - DustyWind - https://freesound.org/people/DustyWind/sounds/692923/ - CC0
 UI swing - artisticdude - https://opengameart.org/content/rpg-sound-pack - CC0
 Shock Wave - SubspaceAudio - https://opengameart.org/content/512-sound-effects-8-bit-style - CC0
+Machine gun - Beck15 - https://freesound.org/people/Beck15/sounds/514986/ - CC BY 4.0, slightly cut by hepfnepf
+Machine gun reload - hepfnaepf based on Yin_Yang_Jak... - https://freesound.org/people/Yin_Yang_Jake007/sounds/406108/ - CC0
 
 
 Music

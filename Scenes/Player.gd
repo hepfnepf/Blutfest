@@ -11,7 +11,7 @@ signal score_changed(new_score)
 signal lock_changed(new_lock_state)
 signal leveled_up
 
-export (int) var move_speed = 300
+export (int) var move_speed_base = 300
 export (int) var max_health = 100 setget set_max_health
 export (int) var health = max_health setget set_health
 export (PackedScene) var start_weapon = null
@@ -28,6 +28,8 @@ var elapsed_time=0 #get increased by 1 sec every time the time counter returns
 var locked:bool = false #can the player pick up new guns
 var damage_multi:float=1.0#will mosty influenced by perks
 var level:int=1
+var weapon_movement_speed_multi:float = 1.0 setget set_weapon_movement_speed_multi
+var move_speed:float = move_speed_base * weapon_movement_speed_multi
 
 #For statistics and some percs
 var enemies_hit:int = 0 setget set_enemies_hit
@@ -248,6 +250,13 @@ func calculate_damage_multiplier()->void:
 
 func add_enemy_death()->void:
 	enemies_killed+=1
+
+func set_weapon_movement_speed_multi(new_speed_multi)->void:
+	weapon_movement_speed_multi=new_speed_multi
+	calculate_move_speed()
+
+func calculate_move_speed()->void:
+	move_speed = move_speed_base * weapon_movement_speed_multi
 
 func die()->void:
 	emit_signal("dead")

@@ -11,6 +11,7 @@ func play_sound(stream:AudioStream,volume:float)->void:
 	if _streamer == null:
 		_streamer = AudioStreamPlayer.new()
 		_streamer.bus = "SFX"
+		_streamer.pause_mode = PAUSE_MODE_STOP
 		add_child(_streamer)
 
 	_streamer.stream = stream

@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scenes/Weapons/Weapons/WeaponBasis.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Weapons/Machinegun.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Weapons/Weapons/Machinegun.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/Player/torso.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Player/forearm.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Player/hand_holding_gun.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Player/head.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Player/arm.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Weapons/Bullets/BulletClean2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sounds/SFX/Weapons/machine_reload.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sounds/SFX/Weapons/machinegun2.wav" type="AudioStream" id=11]
+
+[node name="MachineGun" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+max_ammo = 280
+damage = 25
+max_range = 5000.0
+speed = 9000.0
+reload_time = 4.0
+fire_rate = 50.0
+base_spread = 0.103
+spread_inc = 0.008
+Bullet = ExtResource( 9 )
+shoot_sfx = ExtResource( 11 )
+reload_sfx = ExtResource( 10 )
+shoot_db = 0.706
+reload_db = 5.0
+
+[node name="BulletSpawnPosition" parent="." index="3"]
+position = Vector2( 89.1815, -0.396851 )
+
+[node name="BulletDirection" parent="." index="4"]
+position = Vector2( 130.147, -0.396851 )
+
+[node name="torso" type="Sprite" parent="." index="7"]
+position = Vector2( -23.6326, -56.8522 )
+rotation = 0.57351
+z_index = 1
+texture = ExtResource( 4 )
+
+[node name="armL" type="Sprite" parent="torso" index="0"]
+position = Vector2( 36.47, -46.6629 )
+rotation = 0.627668
+texture = ExtResource( 8 )
+
+[node name="forearmL" type="Sprite" parent="torso/armL" index="0"]
+position = Vector2( 41, -0.624 )
+z_index = -1
+texture = ExtResource( 5 )
+
+[node name="handL" type="Sprite" parent="torso/armL/forearmL" index="0"]
+position = Vector2( 32.3609, 4.96817 )
+scale = Vector2( 0.662, 0.862 )
+z_index = -1
+texture = ExtResource( 6 )
+
+[node name="armR" type="Sprite" parent="torso" index="1"]
+position = Vector2( 45.4574, 55.7907 )
+rotation = -0.610097
+texture = ExtResource( 8 )
+flip_v = true
+
+[node name="forearmR" type="Sprite" parent="torso/armR" index="0"]
+position = Vector2( 39.1459, 1.75986 )
+z_index = -1
+texture = ExtResource( 5 )
+flip_v = true
+
+[node name="handR" type="Sprite" parent="torso/armR/forearmR" index="0"]
+position = Vector2( 33.6595, -4.69916 )
+scale = Vector2( 0.662, 0.862 )
+z_index = -1
+texture = ExtResource( 6 )
+flip_v = true
+
+[node name="head" type="Sprite" parent="torso" index="2"]
+rotation = -0.53894
+z_index = 1
+texture = ExtResource( 7 )
+
+[node name="Machinegun" type="Sprite" parent="." index="8"]
+position = Vector2( 31.9821, 10.7226 )
+rotation = -0.00148135
+scale = Vector2( 0.174318, 0.204829 )
+z_index = 1
+texture = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="9"]
+stream = ExtResource( 11 )
+bus = "SFX"
