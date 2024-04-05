@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Weapons/Bullets/BulletBasis.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Weapons/Bullets/OrbBullet.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/FX/Orb.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Weapons/Bullets/SmoketrailFlat.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 420.349
+
+[node name="OrbBullet" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." index="1"]
+visible = false
+texture = null
+
+[node name="Orb" parent="." index="4" instance=ExtResource( 3 )]
+position = Vector2( -0.0936966, -0.0413132 )
+scale = Vector2( 1, 1 )
+
+[node name="Smoketrail" parent="." index="5" instance=ExtResource( 4 )]
+visible = false
+length = 0.0

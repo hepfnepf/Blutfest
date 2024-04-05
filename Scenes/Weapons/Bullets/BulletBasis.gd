@@ -16,9 +16,9 @@ var exp_dmg:float=0.0 #0 means there is now explosion
 var explode_on_death:bool=false # makes it so, that when not hitting anything, an explosion will still occur when this bullets lifetime ends
 
 #Get set by the weapon
-var speed =100.0
-var p_range=500
-var damage = 20
+var speed:float =100.0
+var p_range:int=500
+var damage:int = 20
 var alive := true
 var direct:bool=true
 
