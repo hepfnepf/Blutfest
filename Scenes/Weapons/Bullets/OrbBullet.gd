@@ -1,8 +1,18 @@
 extends Bullet
 
+
+export(float)var min_wobble_volume=0.0
+export(float)var max_wobble_volume=0.0
+
+
+var charge_amt:float=0.0 setget set_charge_amt #0 to 1 of max charge
+
+onready var wobble_sound:AudioStreamPlayer2D=$WobbleSound
 func _ready() -> void:
 	._ready()
 	sprite = $Orb
+
+
 
 func _on_Bullet_body_entered(body):
 	if !alive or body.is_in_group("Projectile"):
@@ -17,6 +27,11 @@ func _on_Bullet_body_entered(body):
 		explode()
 	if damage <1:
 		die()
+
+func set_charge_amt(new_amt)->void:
+	charge_amt=new_amt
+	wobble_sound.volume_db= linear2db(charge_amt*5)#min_wobble_volume + charge_amt* (max_wobble_volume-min_wobble_volume)
+
 
 func die():
 	if alive:

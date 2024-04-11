@@ -20,6 +20,7 @@ Ammo:
 Icicle - ? - https://proofmart.com/product/icicles-png-images-transparent-background-free-download/ - CC BY 4.0
 Missle based on - Mystic Mike (Mike Hosker) - https://opengameart.org/content/agm-65-maverick-missile - GPL 2.0,
 removed background, rotated 31.12.2022
+Charge gun Orb based on - "Hansjörg Malthaner" Varkalandar http://opengameart.org/users/varkalandar - https://opengameart.org/content/200-magic-orbs-psionic-dew - CC-BY 3.0
 
 Pick-Up items
 SpeedUp - Delapouite - https://game-icons.net/1x1/delapouite/running-shoe.html - CC BY 3.0
@@ -64,6 +65,8 @@ UI swing - artisticdude - https://opengameart.org/content/rpg-sound-pack - CC0
 Shock Wave - SubspaceAudio - https://opengameart.org/content/512-sound-effects-8-bit-style - CC0
 Machine gun - Beck15 - https://freesound.org/people/Beck15/sounds/514986/ - CC BY 4.0, slightly cut by hepfnepf
 Machine gun reload - hepfnaepf based on Yin_Yang_Jak... - https://freesound.org/people/Yin_Yang_Jake007/sounds/406108/ - CC0
+Charge gun charging - bernhoftbret - https://freesound.org/people/bernhoftbret/sounds/716426/ - CC0
+Charge gun orb wobble - mazk1985 - https://freesound.org/people/mazk1985/sounds/187405/ - CC0
 
 
 Music

@@ -5,9 +5,11 @@ export(float)var charge_rate = 1.0
 
 var is_charging:bool=false setget set_is_charging
 var charge_start:int=0
+var charge_amnt:float=0#we cant just use the timespan to start time, because it does not factor in pausing and engine timescale
 var charge_par_min_size_fac:float=0.0
 var charge_par_max_size_fac:float=10.0
 onready var charge_particles:CPUParticles2D = $Charger3/Charge
+onready var charging_audio:AudioStreamPlayer = $ChargingSound
 
 func _ready() -> void:
 	._ready()
@@ -22,18 +24,25 @@ func check_for_input():
 	if Input.is_action_just_released("reload"):# && ammo!= max_ammo:
 		reload()
 
-	if is_charging:
-		if !cooldown  && !is_reloading:
-			if ammo > 0:
-				charge()
-				#shoot()
-			else:
-				play_sound(SOUNDS.EMPTY)
+#	if is_charging:
+#		if !cooldown  && !is_reloading:
+#			if ammo > 0:
+#				charge()
+#				#shoot()
+#			else:
+#				play_sound(SOUNDS.EMPTY)
 
-func charge()->void:
+func _process(delta):
+	._process(delta)
+	charge(delta)
+
+func charge(delta:float)->void:
 	if is_charging:
-		var scale_fac:float = float((Time.get_ticks_msec()-charge_start))/1000.0*charge_rate
+		charge_amnt += delta*1000#(Time.get_ticks_msec()-charge_start)*Engine.time_scale
+		#charge_start=Time.get_ticks_msec()
+		var scale_fac:float = float(charge_amnt)/1000.0*charge_rate
 		scale_fac=clamp(scale_fac,charge_par_min_size_fac,charge_par_max_size_fac)
+		print(scale_fac)
 		charge_particles.global_scale = Vector2(scale_fac,scale_fac)
 
 func reload():
@@ -47,15 +56,21 @@ func _on_ReloadTimer_timeout():
 		set_is_charging(true)
 
 func set_is_charging(new_is_charging):
+	if is_charging == new_is_charging:#this can happen if the user hold the button, the game gets paused via perc selection and after reentering the game,the player clicks
+		return
 	is_charging=new_is_charging
 	if is_charging:
 		charge_start = Time.get_ticks_msec()
+		charge_amnt=0
 		charge_particles.visible=true
+		charging_audio.play(0)
 	else:
 		if !is_reloading:
 			shoot()
 		charge_particles.scale=Vector2(0,0)
+		charge_amnt=0
 		charge_particles.visible=false
+		charging_audio.stop()
 
 func shoot():
 	if !player.alive:
@@ -94,8 +109,9 @@ func shoot_bullet():
 	bullet.speed = speed
 	bullet.p_range = max_range
 	bullet.timer.start(float(max_range)/speed)#??, yes max_range already is a float, but without this conversion it did not work
-	var scale_fac:float = float((Time.get_ticks_msec()-charge_start))/1000.0*charge_rate
+	var scale_fac:float = float(charge_amnt)/1000.0*charge_rate
 	scale_fac=clamp(scale_fac,charge_par_min_size_fac,charge_par_max_size_fac)
 	bullet.damage = damage*player.damage_multi*scale_fac
 	bullet.global_scale = $Charger3/Charge/Orb.global_scale#Vector2(scale_fac,scale_fac)
+	bullet.charge_amt = scale_fac/charge_par_max_size_fac
 	increase_spread()
