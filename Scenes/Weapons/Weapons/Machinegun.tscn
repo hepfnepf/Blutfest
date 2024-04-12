@@ -25,7 +25,7 @@ spread_inc = 0.008
 Bullet = ExtResource( 9 )
 shoot_sfx = ExtResource( 11 )
 reload_sfx = ExtResource( 10 )
-shoot_db = 0.706
+shoot_db = 0.66
 reload_db = 5.0
 
 [node name="BulletSpawnPosition" parent="." index="3"]

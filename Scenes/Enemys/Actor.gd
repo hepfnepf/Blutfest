@@ -48,15 +48,18 @@ func _ready():
 
 	connect("enemy_dead",game,"_on_enemy_killed")
 
-func handle_hit(damage:int, type:int = 1):
+func handle_hit(damage:int, type:int = 1) -> int:
 	if alive:
-		player.damage_caused += clamp(damage*player.damage_multi,0,health_Node.health)#for player stats
-		health_Node.health -= damage*player.damage_multi
+		var damage_taken = clamp(damage*player.damage_multi,0,health_Node.health)
+		player.damage_caused +=damage_taken #for player stats
+		health_Node.health -= damage_taken
 		health_bar.set_health(health_Node.health)
 		if (randf()<sound_prob):
 			sound_player.play()
 		if health_Node.health <= 0:
 			start_death_animation()
+		return damage_taken
+	return 0
 
 func set_damage(new_dmg):
 	damage = new_dmg

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Items/Items/ItemHealUp.tscn" type="PackedScene" id=2]
@@ -17,7 +17,7 @@
 [ext_resource path="res://Scenes/BackgroundMusic.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Items/Items/IceItem.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Items/Items/ItemTrapCanon.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scenes/Weapons/Weapons/Machinegun.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Weapons/Weapons/ChargeGun.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Items/Items/ItemPoints1000.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Items/Items/ItemPoints500.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/Items/Items/ItemPoints5000.tscn" type="PackedScene" id=21]
@@ -35,6 +35,7 @@
 [ext_resource path="res://Scenes/Items/Items/ItemPoints100.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Scenes/Items/Items/ItemDropSpikeBalls.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Scenes/Items/Items/MachinegunItem.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Scenes/Items/Items/ChargeGunItem.tscn" type="PackedScene" id=36]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -77,6 +78,7 @@ scale = Vector2( 0.27, 0.27 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -884, -8 )
+move_speed_base = 450
 health = 100
 start_weapon = ExtResource( 18 )
 
@@ -107,8 +109,8 @@ max_enemys = 300
 enemy_speed_increase = 0.01
 enemy_health_increase = 0.012
 enemy_damage_increase = 0.01
-item_array = [ ExtResource( 10 ), ExtResource( 2 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 16 ), ExtResource( 4 ), ExtResource( 24 ), ExtResource( 17 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 33 ), ExtResource( 5 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 32 ), ExtResource( 34 ), ExtResource( 31 ), ExtResource( 35 ) ]
-item_likelihood = [ 7, 15, 20, 10, 15, 5, 5, 6, 10, 6, 4, 4, 20, 3, 15, 3, 5, 4, 3, 2, 1, 10, 7, 6, 6 ]
+item_array = [ ExtResource( 10 ), ExtResource( 2 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 23 ), ExtResource( 25 ), ExtResource( 16 ), ExtResource( 4 ), ExtResource( 24 ), ExtResource( 17 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 33 ), ExtResource( 5 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 32 ), ExtResource( 34 ), ExtResource( 31 ), ExtResource( 35 ), ExtResource( 36 ) ]
+item_likelihood = [ 8, 15, 20, 10, 15, 7, 7, 8, 10, 7, 6, 5, 20, 3, 15, 3, 5, 4, 3, 2, 1, 10, 7, 2, 2, 2 ]
 
 [node name="Map" parent="." instance=ExtResource( 3 )]
 material = SubResource( 2 )
@@ -140,3 +142,9 @@ position = Vector2( -2942.42, 718.569 )
 [node name="ItemBulletSpiral" parent="." instance=ExtResource( 26 )]
 position = Vector2( -468.41, -474.113 )
 damage = 20
+
+[node name="ItemSlowDownTime" parent="." instance=ExtResource( 27 )]
+position = Vector2( -1368.85, -453.764 )
+
+[node name="ChargeGunItem" parent="." instance=ExtResource( 36 )]
+position = Vector2( -757.911, 270.308 )

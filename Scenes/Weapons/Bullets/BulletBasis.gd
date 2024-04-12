@@ -16,9 +16,9 @@ var exp_dmg:float=0.0 #0 means there is now explosion
 var explode_on_death:bool=false # makes it so, that when not hitting anything, an explosion will still occur when this bullets lifetime ends
 
 #Get set by the weapon
-var speed =100.0
-var p_range=500
-var damage = 20
+var speed:float =100.0
+var p_range:int=500
+var damage:int = 20
 var alive := true
 var direct:bool=true
 
@@ -86,7 +86,7 @@ func reset():
 	set_process(true)
 	set_physics_process(true)
 	set_process_input(true)
-	$CollisionShape2D.disabled = false
+	$CollisionShape2D.set_deferred("disabled",false)
 
 	#revert the stuff from die()
 	sprite.visible = true
@@ -95,11 +95,12 @@ func reset():
 
 
 func disable():
-	# Not just removing the child, because adding it tot the tree seems to be a problem
+	# Not just removing the child, because adding it to the tree seems to be a problem
 	alive=false
 	visible=false
+	speed = 0.0
 	set_process(false)
 	set_physics_process(false)
 	set_process_input(false)
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.set_deferred("disabled",true)
 	smoketrail.disable()
