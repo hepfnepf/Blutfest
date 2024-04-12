@@ -4,10 +4,10 @@
 [ext_resource path="res://Scenes/Weapons/Bullets/OrbBullet.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/FX/Orb.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Weapons/Bullets/SmoketrailFlat.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Sounds/SFX/Weapons/chargeTest/187405_635158-lq.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/SFX/Weapons/charge_orb_wobble.mp3" type="AudioStream" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 420.349
+radius = 398.426
 
 [node name="OrbBullet" instance=ExtResource( 1 )]
 script = ExtResource( 2 )

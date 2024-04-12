@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Weapons/Weapons/WeaponBasis.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Weapons/charger3.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Weapons/Weapons/Charge gun.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Weapons/Weapons/ChargeGun.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Weapons/Bullets/OrbBullet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sprites/Player/arm.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Player/hand_holding_gun.png" type="Texture" id=6]
@@ -19,9 +19,10 @@
 script = ExtResource( 3 )
 max_ammo = 1
 damage = 200
-max_range = 30000.0
+max_range = 20000.0
 speed = 400.0
 reload_time = 0.0
+fire_rate = 1.0
 base_spread = 0.0
 max_spread = 0.0
 spread_inc = 0.0
@@ -30,6 +31,7 @@ Bullet = ExtResource( 4 )
 shoot_sfx = ExtResource( 14 )
 shoot_db = 1.0
 charge_rate = 1.0
+min_range = 500.0
 
 [node name="BulletSpawnPosition" parent="." index="3"]
 position = Vector2( 233.301, -0.420441 )

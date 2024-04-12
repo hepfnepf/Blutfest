@@ -2,6 +2,7 @@ extends Weapon
 
 
 export(float)var charge_rate = 1.0
+export(float)var min_range = 500
 
 var is_charging:bool=false setget set_is_charging
 var charge_start:int=0
@@ -13,6 +14,7 @@ onready var charging_audio:AudioStreamPlayer = $ChargingSound
 
 func _ready() -> void:
 	._ready()
+	fire_rate=charge_rate
 	$Charger3/Charge/Orb/Sprite/AnimationPlayer.play("Spark")
 
 func check_for_input():
@@ -24,31 +26,19 @@ func check_for_input():
 	if Input.is_action_just_released("reload"):# && ammo!= max_ammo:
 		reload()
 
-#	if is_charging:
-#		if !cooldown  && !is_reloading:
-#			if ammo > 0:
-#				charge()
-#				#shoot()
-#			else:
-#				play_sound(SOUNDS.EMPTY)
-
 func _process(delta):
 	._process(delta)
 	charge(delta)
 
 func charge(delta:float)->void:
 	if is_charging:
-		charge_amnt += delta*1000#(Time.get_ticks_msec()-charge_start)*Engine.time_scale
-		#charge_start=Time.get_ticks_msec()
-		var scale_fac:float = float(charge_amnt)/1000.0*charge_rate
+		charge_amnt += delta*1000
+		var scale_fac:float = float(charge_amnt)/1000.0*fire_rate
 		scale_fac=clamp(scale_fac,charge_par_min_size_fac,charge_par_max_size_fac)
-		print(scale_fac)
 		charge_particles.global_scale = Vector2(scale_fac,scale_fac)
 
 func reload():
-	#pass
 	.reload()
-#	#set_is_charging(false)
 
 func _on_ReloadTimer_timeout():
 	._on_ReloadTimer_timeout()
@@ -107,11 +97,11 @@ func shoot_bullet():
 	bullet.rotation = rot
 	bullet.direction = Vector2.RIGHT.rotated(rot)
 	bullet.speed = speed
-	bullet.p_range = max_range
-	bullet.timer.start(float(max_range)/speed)#??, yes max_range already is a float, but without this conversion it did not work
 	var scale_fac:float = float(charge_amnt)/1000.0*charge_rate
 	scale_fac=clamp(scale_fac,charge_par_min_size_fac,charge_par_max_size_fac)
 	bullet.damage = damage*player.damage_multi*scale_fac
 	bullet.global_scale = $Charger3/Charge/Orb.global_scale#Vector2(scale_fac,scale_fac)
 	bullet.charge_amt = scale_fac/charge_par_max_size_fac
+	bullet.p_range = max_range
+	bullet.timer.start(float(max_range)/speed)
 	increase_spread()

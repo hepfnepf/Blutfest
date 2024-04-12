@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/charge_orb_wobble.mp3-66c64b4726c35fc245306cbe8cef2b8c.mp3str"
+
+[deps]
+
+source_file="res://Sounds/SFX/Weapons/charge_orb_wobble.mp3"
+dest_files=[ "res://.import/charge_orb_wobble.mp3-66c64b4726c35fc245306cbe8cef2b8c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

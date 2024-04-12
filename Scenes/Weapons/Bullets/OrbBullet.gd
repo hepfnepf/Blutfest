@@ -36,5 +36,15 @@ func set_charge_amt(new_amt)->void:
 func die():
 	if alive:
 		alive = false
-		speed = 0.0
-		sprite.visible = false
+		BulletPool.store_bullet(self) # calls disable() on bullet
+
+
+func reset():
+	.reset()
+	wobble_sound.play()
+
+
+
+func disable():
+	.disable()
+	wobble_sound.stop()

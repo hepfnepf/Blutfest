@@ -29,7 +29,7 @@ var locked:bool = false #can the player pick up new guns
 var damage_multi:float=1.0#will mosty influenced by perks
 var level:int=1
 var weapon_movement_speed_multi:float = 1.0 setget set_weapon_movement_speed_multi
-var move_speed:float = move_speed_base * weapon_movement_speed_multi
+var move_speed:float = move_speed_base#gets recalced in ready
 
 #For statistics and some percs
 var enemies_hit:int = 0 setget set_enemies_hit
@@ -100,6 +100,7 @@ func _ready()->void:
 	if start_weapon != null:
 		weapon.set_weapon(start_weapon)
 	regenerationTimer.wait_time = seconds_to_start_regeneration
+	calculate_move_speed()
 
 func _physics_process(delta)->void:
 	if !alive:
