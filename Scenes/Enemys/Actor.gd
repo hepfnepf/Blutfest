@@ -61,7 +61,7 @@ func handle_hit(damage:int, type:int = 1) -> int:
 		return damage_taken
 	return 0
 
-func set_damage(new_dmg):
+func set_damage(new_dmg:int)->void:
 	damage = new_dmg
 	ai.damage = damage
 

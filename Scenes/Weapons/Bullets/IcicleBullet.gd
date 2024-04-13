@@ -9,10 +9,11 @@ func _on_Bullet_body_entered(body):
 	die()
 
 	if body.has_method("handle_hit"):
-		var _ice = ice_effect.instance()
 		body.handle_hit(damage, Globals.DamageType.PROJECTILE)
 		if (is_instance_valid(player)):
 			player.enemies_hit +=1
 		if randf() <= freeze_prob:
+			var _ice = ice_effect.instance()
+			_ice.player=player
 			body.add_child(_ice)
 
