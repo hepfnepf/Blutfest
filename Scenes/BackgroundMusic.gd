@@ -45,6 +45,9 @@ func play_track(index:int)->void:
 	play()
 	emit_signal("track_changed",stream.resource_path)
 
+func get_current_track()->String:
+	return stream.resource_path
+
 func skip_track()->void:
 	_on_BackgroundMusic_finished()
 
