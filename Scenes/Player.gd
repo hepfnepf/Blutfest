@@ -81,6 +81,7 @@ var regeneration_amt:float = 1.0 #hp per second
 var spike_balls_explode_on_death:bool=false
 var medic_multiplier:float = 1.0
 var ice_damage:int = 0
+var ice_damage_mult:float = 1.0
 
 onready var weapon = $Weapon
 onready var hurt:AudioStreamPlayer = $Hurt

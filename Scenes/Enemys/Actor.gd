@@ -51,6 +51,8 @@ func _ready():
 func handle_hit(damage:int, type:int = 1) -> int:
 	if alive:
 		var damage_taken = clamp(damage*player.damage_multi,0,health_Node.health)
+		if freeze_amount>0:
+			damage_taken*=clamp(player.ice_damage_mult ,0,health_Node.health)
 		player.damage_caused +=damage_taken #for player stats
 		health_Node.health -= damage_taken
 		health_bar.set_health(health_Node.health)
@@ -108,7 +110,6 @@ func defreeze()-> void:
 func unfreeze()-> void:
 	freeze_amount=0
 	$Ice.hide()
-	pass
 
 
 func die()->void:
