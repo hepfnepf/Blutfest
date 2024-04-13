@@ -79,12 +79,13 @@ func create_random_patrol_location() -> Vector2:
 		return game.spawner.random_position_in_map()
 
 
-func attack(player:Player):
-	get_parent().animation_player.play("Attack")
-	player.take_damage(damage)
+func attack(player:Player)->void:
+	get_parent().animation_player.play("Attack")#triggers actual attack_2
 	ready_to_attack = false
 	cooldown_timer.start()
 
+func attack_2()->void:
+	player.take_damage(damage,self.get_parent())
 
 func _on_AttackCooldown_timeout():
 	ready_to_attack = true
