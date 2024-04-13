@@ -173,7 +173,7 @@ func set_health(new_health:int)->void:
 		health = new_health
 
 	if health>_health_before:
-		health_gained=health-_health_before#used for statistics
+		health_gained+=health-_health_before#used for statistics
 
 	emit_signal("health_changed",health)
 	if health <= 0:
