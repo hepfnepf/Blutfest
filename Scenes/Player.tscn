@@ -1279,6 +1279,7 @@ rarity_normal = 9.0
 
 [node name="LevelUpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 22 )
+bus = "SFX"
 
 [node name="RegenerationTimer" type="Timer" parent="."]
 
