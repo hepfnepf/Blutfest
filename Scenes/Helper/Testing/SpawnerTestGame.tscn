@@ -17,7 +17,7 @@
 [ext_resource path="res://Scenes/BackgroundMusic.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Items/Items/IceItem.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Items/Items/ItemTrapCanon.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scenes/Weapons/Weapons/ChargeGun.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Weapons/Weapons/IcicleGun.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Items/Items/ItemPoints1000.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Items/Items/ItemPoints500.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/Items/Items/ItemPoints5000.tscn" type="PackedScene" id=21]
@@ -80,10 +80,14 @@ move_speed_base = 450
 health = 100
 start_weapon = ExtResource( 18 )
 
+[node name="IceItem" parent="." instance=ExtResource( 16 )]
+position = Vector2( -214.659, -300.747 )
+
 [node name="Zombie" parent="." instance=ExtResource( 29 )]
 position = Vector2( 467.068, -87.3807 )
 scale = Vector2( 0.54, 0.54 )
 speed = 0
+max_health = 200
 
 [node name="Zombie2" parent="." instance=ExtResource( 29 )]
 position = Vector2( 509.783, 1215.42 )
@@ -139,6 +143,7 @@ position = Vector2( -2942.42, 718.569 )
 
 [node name="ItemBulletSpiral" parent="." instance=ExtResource( 26 )]
 position = Vector2( -468.41, -474.113 )
+damage = 20
 
 [node name="ItemSlowDownTime" parent="." instance=ExtResource( 27 )]
 position = Vector2( -1368.85, -453.764 )

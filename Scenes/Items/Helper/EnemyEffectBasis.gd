@@ -4,6 +4,7 @@ class_name EnemyEffectBasis
 onready var enemy = get_parent()
 onready var game = get_node_or_null("/root/Game")
 
+var player=null
 var icon:TextureRect  = null
 
 func _ready():

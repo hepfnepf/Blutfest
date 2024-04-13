@@ -5,3 +5,8 @@
 
 [node name="IceEffect" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+
+[node name="IceDamage" type="Timer" parent="." index="0"]
+autostart = true
+
+[connection signal="timeout" from="IceDamage" to="." method="_on_IceDamage_timeout"]

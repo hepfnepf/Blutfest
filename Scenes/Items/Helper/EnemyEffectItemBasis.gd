@@ -11,7 +11,9 @@ onready var tween_blast:Tween = $Blast
 onready var effect_area:Area2D = $EffectArea
 onready var blast_effect:Sprite = $BlastRadius
 
+var player:Player=null
 func pick_up(_player:Player):
+		player=_player
 		var blast_size = effect_area.get_child(0).shape.radius / 4000 * 17
 		tween_blast.interpolate_property(blast_effect,"scale",Vector2(1,1),Vector2(blast_size,blast_size),blast_time)
 		tween_blast.start()
@@ -28,6 +30,7 @@ func pick_up(_player:Player):
 func add_effect(body):
 	if effect_node != null:
 		var _effect = effect_node.instance()
+		_effect.player = player
 		body.add_child(_effect)
 
 # warning-ignore:unused_argument
