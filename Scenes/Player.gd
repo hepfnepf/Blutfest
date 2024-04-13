@@ -82,6 +82,8 @@ var spike_balls_explode_on_death:bool=false
 var medic_multiplier:float = 1.0
 var ice_damage:int = 0
 var ice_damage_mult:float = 1.0
+var thorn_damage:int = 0
+var thorn_damage_equal_fac:float = 0.0
 
 onready var weapon = $Weapon
 onready var hurt:AudioStreamPlayer = $Hurt
@@ -265,7 +267,7 @@ func die()->void:
 	emit_signal("dead")
 	alive = false
 
-func take_damage(damage:int)->void:
+func take_damage(damage:int,entity=null)->void:
 	if !alive or invincible:
 		return
 
@@ -279,6 +281,12 @@ func take_damage(damage:int)->void:
 
 	if regeneration_perk:
 		regenerationTimer.start(seconds_to_start_regeneration)
+
+	if entity:
+		if entity.has_method("handle_hit"):
+			if thorn_damage_equal_fac:
+				entity.handle_hit(thorn_damage_equal_fac*damage)
+			entity.handle_hit(thorn_damage)
 
 #Experience Management
 func set_experience(new_exp:int)->void:
