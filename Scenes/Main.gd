@@ -48,6 +48,10 @@ func _on_player_death()->void:
 
 	SaveManager.save_game(save_dict)
 
+func restart()->void:
+	BulletPool.clear_all_bullets()
+	get_tree().reload_current_scene()
+
 func _on_enemy_killed(points) -> void:
 	enemys_alive -=1
 	player.add_points(points)

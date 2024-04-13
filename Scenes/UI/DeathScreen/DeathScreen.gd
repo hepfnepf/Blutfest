@@ -60,7 +60,7 @@ func _process(delta):
 		TimeManager.set_time_scale(1.0)
 		get_tree().change_scene("res://Scenes/UI/MainMenu/MainMenu.tscn")
 	if Input.is_action_pressed("Enter"):
-		get_tree().reload_current_scene()
+		Globals.game.restart()
 
 
 func _on_StatsButton_pressed() -> void:
