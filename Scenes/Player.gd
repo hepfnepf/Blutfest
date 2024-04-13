@@ -54,6 +54,7 @@ var explosion_amnt:int=0 setget set_explosion_amnt
 #How much of the current value is due to temporary effects
 var delta_move_speed:float = 0
 var invincible_count:int = 0
+var debug_invincible:bool=false
 var bullet_time_count:int = 0
 
 # For Perks
@@ -115,6 +116,8 @@ func _physics_process(delta)->void:
 		locked = !locked
 		emit_signal("lock_changed",locked)
 
+	if Input.is_action_just_pressed("toggle_debug_invincibility") and  OS.is_debug_build():
+		debug_invincible=!debug_invincible
 	#Movement
 	var move_vec = Vector2()
 	if Input.is_action_pressed("move_up"):
@@ -268,7 +271,7 @@ func die()->void:
 	alive = false
 
 func take_damage(damage:int,entity=null)->void:
-	if !alive or invincible:
+	if !alive or invincible or debug_invincible:
 		return
 
 	damage=damage*tit_for_tat_bad_multi
