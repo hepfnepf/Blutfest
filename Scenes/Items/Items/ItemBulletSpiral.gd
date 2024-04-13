@@ -19,6 +19,7 @@ var time:float = 0 #Helper for spawning speed
 onready var game = get_node("/root/Game")
 
 func pick_up(player:Player):
+	explode_if_enabled(player)
 	is_active = true
 	timer.paused = true
 	$Duration.start(duration)
