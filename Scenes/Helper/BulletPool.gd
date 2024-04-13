@@ -55,3 +55,14 @@ func store_bullet(bullet:Bullet) -> void:
 			bullet.disable()
 	bullets_active -=1
 	emit_signal("bullet_count_changed",bullets_cnt,bullets_active)
+
+func clear_all_bullets()->void:
+	for bullet in get_children():
+		bullet.queue_free()
+	pools={}
+
+func disble_all_bullets()->void:
+	for bullet in get_children():
+		bullet.disable()
+	pools={}
+
