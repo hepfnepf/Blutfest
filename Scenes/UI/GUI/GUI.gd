@@ -21,6 +21,7 @@ onready var blood= $ScreenBlood
 var player:Player=null
 var perkCard = preload("res://Scenes/UI/PerkSelection/PerkCard.tscn")
 var old_health:int=0
+var stored_time_scale:float=1.0#used to reset timescale after perk selection
 
 
 func _ready() -> void:
@@ -88,6 +89,8 @@ func set_lock(new_lock:bool)->void:
 ##Opens the perk selection screen
 func _on_new_perk_selection(perks, raritys):
 	get_tree().paused = true
+	stored_time_scale = Engine.time_scale
+	Engine.time_scale=1.0
 	card_holder.visible=true
 
 	var cards = []
@@ -115,6 +118,7 @@ func _on_card_selected(card:PerkCard)->void:
 
 	set_cursor(Globals.cursor_manager.CURSOR_TYPE.CROSSHAIR)
 	get_tree().paused = false
+	Engine.time_scale = stored_time_scale
 	card_holder.visible=false
 	emit_signal("perk_selected")
 
