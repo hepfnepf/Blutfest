@@ -17,7 +17,7 @@
 [ext_resource path="res://Scenes/BackgroundMusic.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Items/Items/IceItem.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Items/Items/ItemTrapCanon.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scenes/Weapons/Weapons/ChargeGun.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Weapons/Weapons/MachineZooka.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Items/Items/ItemPoints1000.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Items/Items/ItemPoints500.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/Items/Items/ItemPoints5000.tscn" type="PackedScene" id=21]
@@ -75,7 +75,7 @@ position = Vector2( -694.285, -121.897 )
 scale = Vector2( 0.27, 0.27 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -884, -8 )
+position = Vector2( -62.5314, -126.433 )
 move_speed_base = 450
 health = 100
 start_weapon = ExtResource( 18 )
@@ -91,12 +91,12 @@ scale = Vector2( 0.54, 0.54 )
 speed = 0
 
 [node name="Zombie3" parent="." instance=ExtResource( 29 )]
-position = Vector2( 968.968, -1101.86 )
+position = Vector2( 432.574, -589.439 )
 scale = Vector2( 0.54, 0.54 )
 speed = 0
 
 [node name="Zombie4" parent="." instance=ExtResource( 29 )]
-position = Vector2( 39.9198, -1187.29 )
+position = Vector2( -202.806, -671.872 )
 scale = Vector2( 0.54, 0.54 )
 speed = 0
 
@@ -112,7 +112,7 @@ item_likelihood = [ 8, 15, 20, 10, 15, 7, 7, 8, 10, 7, 6, 5, 20, 3, 15, 3, 5, 4,
 
 [node name="Map" parent="." instance=ExtResource( 3 )]
 material = SubResource( 2 )
-position = Vector2( 11.9863, -423.274 )
+position = Vector2( 14, -423.274 )
 
 [node name="BackgroundMusic" parent="." instance=ExtResource( 15 )]
 pause_mode = 2

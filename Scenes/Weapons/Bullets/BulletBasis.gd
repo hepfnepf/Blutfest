@@ -71,7 +71,7 @@ func explode() -> void:
 	game.call_deferred("add_child", _exp)
 
 func _on_Timer_timeout():
-	if explode_on_death:
+	if alive and explode_on_death:
 		explode()
 	die()
 
