@@ -7,7 +7,11 @@ var music_player:BackgroundMusic = null#is gotten from globals after it was set 
 
 
 func _ready():
+	set_music_player()
 	Globals.connect("music_player_set",self,"set_music_player")#Tells us that the music player was set in globals
+
+	if is_instance_valid(music_player):
+		_on_track_changed(music_player.get_current_track())
 
 func set_music_player()->void:
 	if is_instance_valid(Globals.music_player):

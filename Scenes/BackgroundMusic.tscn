@@ -15,11 +15,11 @@ bus = "Music"
 script = ExtResource( 2 )
 tracks = [ ExtResource( 1 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ) ]
 volumes = {
-ExtResource( 3 ): 0.0,
 ExtResource( 4 ): 0.0,
-ExtResource( 5 ): -6.0,
+ExtResource( 6 ): 0.0,
+ExtResource( 3 ): 0.0,
 ExtResource( 1 ): 6.0,
-ExtResource( 6 ): 0.0
+ExtResource( 5 ): -6.0
 }
 
 [connection signal="finished" from="." to="." method="_on_BackgroundMusic_finished"]
