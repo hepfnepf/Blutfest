@@ -65,12 +65,10 @@ position = Vector2( -512.421, -779.12 )
 [node name="ItemHealUp" parent="." instance=ExtResource( 2 )]
 position = Vector2( 466.538, -805.663 )
 scale = Vector2( 0.27, 0.27 )
-health = 50.0
 
 [node name="ItemHealUp2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1184.96, 1075.24 )
 scale = Vector2( 0.27, 0.27 )
-health = 50.0
 
 [node name="MachinegunItem" parent="." instance=ExtResource( 35 )]
 position = Vector2( -694.285, -121.897 )
@@ -141,7 +139,6 @@ position = Vector2( -2942.42, 718.569 )
 
 [node name="ItemBulletSpiral" parent="." instance=ExtResource( 26 )]
 position = Vector2( -468.41, -474.113 )
-damage = 20
 
 [node name="ItemSlowDownTime" parent="." instance=ExtResource( 27 )]
 position = Vector2( -1368.85, -453.764 )

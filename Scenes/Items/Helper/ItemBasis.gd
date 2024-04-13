@@ -51,9 +51,9 @@ func pick_up(player:Player):
 	explode_if_enabled(player)
 	queue_free()
 
-func explode_if_enabled(player)->void:
+func explode_if_enabled(player:Player)->void:
 	if player.items_explode:
-		player.create_explosion(player.exp_damage, explosion_size)
+		player.create_explosion(player.exp_damage, explosion_size,global_position)
 
 func blink() -> void:
 	is_blinking = true

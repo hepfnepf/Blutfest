@@ -173,7 +173,7 @@ func set_health(new_health:int)->void:
 		health = new_health
 
 	if health>_health_before:
-		health_gained=health-_health_before#used for statistics
+		health_gained+=health-_health_before#used for statistics
 
 	emit_signal("health_changed",health)
 	if health <= 0:
@@ -328,9 +328,11 @@ func change_invincibility(change:int):#function to be used from effect to turn t
 	else:
 		invincible = true
 
-func create_explosion(damage,size):
+func create_explosion(damage,size,pos=null):
 	var _exp = explosion.instance()
 	_exp.global_position=global_position
+	if pos:
+		_exp.global_position=pos
 	_exp.damage = damage
 	_exp.scale =Vector2(size,size)*explosion_amt_size_multi
 	var game = get_node_or_null("/root/Game")#gets set again, because if game gets reset after player death, this instance will be removed
