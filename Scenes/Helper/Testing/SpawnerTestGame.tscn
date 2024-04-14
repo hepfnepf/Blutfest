@@ -76,7 +76,7 @@ scale = Vector2( 0.27, 0.27 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -62.5314, -126.433 )
-move_speed_base = 450
+move_speed_base = 500
 health = 100
 start_weapon = ExtResource( 18 )
 
