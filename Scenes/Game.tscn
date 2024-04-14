@@ -53,7 +53,7 @@ death_screen_prefab = ExtResource( 9 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -884, -8 )
-move_speed_base = 450
+move_speed_base = 500
 health = 100
 
 [node name="ShockWaveLayer" type="CanvasLayer" parent="."]

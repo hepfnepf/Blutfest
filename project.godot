@@ -135,7 +135,7 @@ _global_script_class_icons={
 [application]
 
 config/name="TopDownExperiment"
-run/main_scene="res://Scenes/Helper/Testing/SpawnerTestGame.tscn"
+run/main_scene="res://Scenes/UI/MainMenu/MainMenu.tscn"
 config/icon="res://Icons/icon.png"
 config/windows_native_icon="res://icon.ico"
 

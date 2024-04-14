@@ -176,7 +176,7 @@ func set_health(new_health:int)->void:
 		else:
 			health=max_health
 	else:
-		health_lost = clamp(health-new_health,0,health)
+		health_lost += clamp(health-new_health,0,health)
 		health = new_health
 
 	if health>_health_before:

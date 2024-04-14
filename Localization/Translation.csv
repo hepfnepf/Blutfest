@@ -57,7 +57,7 @@ PERK_EXPLOSION_ON_LEVEL_UP,To much energy,Platzen vor Freude
 PERK_EXPLOSION_ON_LEVEL_UP_DESC,After gaining that much Exp you just need to show unleash your power. So you explode.,"Aus Freude über deinen Level Up, fliegst du einfach in die Luft."
 PERK_SPIKE_BALLS_EXPLODE,Boom Balls,Bumm Bälle
 PERK_SPIKE_BALLS_EXPLODE_DESC,The spike balls are spicy now. Which means they explode.,Die Stachelbälle böllern böß.
-PERK_SPIKE_BALLS_EXPLODE_2,Boom Balls II, Bumm Bälle 2
+PERK_SPIKE_BALLS_EXPLODE_2,Boom Balls II, Bumm Bälle II
 PERK_SPIKE_BALLS_EXPLODE_2_DESC,"Now, the spike balls even explode if they don't hit anything.","Die Bälle ballern noch böser, sogar wenn sie nichts treffen."
 PERK_ACCURACY_BOOST,Accuracy Reward,Guter Schütze
 PERK_ACCURACY_BOOST_DESC,Multiply your damage by 2x the accuracy.,Dein Schaden wird mit dem doppelten der Trefferrate multipliziert.
@@ -72,7 +72,7 @@ PERK_TIT_FOT_TAT_DESC,"Your damage will get doubled for the rest of the game, bu
 PERK_ITEMS_EXPLODE,Exploding items,Explodierende Items
 PERK_ITEMS_EXPLODE_DESC,"When collecting an item, you will leave an explosion.","Du erzeugst eine Explosion, beim Einsammeln von Items."
 PERK_VAMPIRE,Vampire,Vampire
-PERK_VAMPIRE_DESC,You gain %d%% of the damage you deal as health. Blocks Health-is-Healthy perk,Du erhältst %d%% des ausgeteilten Schadens als Leben. Blockiert den Leben ist gesund Perk.
+PERK_VAMPIRE_DESC,You gain %d%% of the damage you deal as health. Blocks Health-is-Healthy perk.,Du erhältst %d%% des ausgeteilten Schadens als Leben. Blockiert den Leben ist gesund Perk.
 PERK_PYROMANIC,Pyromanic,Pyromane
 PERK_PYROMANIC_DESC,Every explosion increases the size of explosions. Up to %dx.!,"Jede Explosion erhöht die Explosionsgröße! bis zu %dx."
 PERK_INC_PYROMANIAC,Pyromaniac II,Pyromane II
@@ -96,13 +96,13 @@ PERK_MEDIC_DESC,Regain %.1fx the health from health items.,"Heilungsitems geben 
 PERK_SNIPER,Sniper,Scharfschütze
 PERK_SNIPER_DESC,You increase your viewing range.,Du erhöhst deine Sichweite
 PERK_ICE_DAMAGES,Freezer burn ,Gefrierbrand
-PERK_ICE_DAMAGES_DESC,Frozen enemies gets %d damage every second.,Gefrorene Gegner erhalten %d Schaden jede Sekunde.
+PERK_ICE_DAMAGES_DESC,Frozen enemies get %d damage every second.,Gefrorene Gegner erhalten %d Schaden jede Sekunde.
 PERK_ICE_DAMAGE_INC,Frozen and fragile,Frostbeulen
 PERK_ICE_DAMAGE_INC_DESC,Frozen enemys receive %.1fx times the damage.,Gefrorene Gegner erhalten %.1fx so viel schaden.
 PERK_THORNS,Thorns,Dornen
-PERK_THORNS_DESC,You deal %d damage to enemies that hit you.,Du fügst Gegnern %d Schaden zu, wenn sie dich treffen.
+PERK_THORNS_DESC,You deal %d damage to enemies that hit you.,"Du fügst Gegnern %d Schaden zu, wenn sie dich treffen."
 PERK_THORNS_EQUAL,Thorns of justice,"Wie du mir, so ich dir"
-PERK_THORNS_EQUAL_DESC,When hit, the enemy takes as much damage as you do.,Der Gegner kriegt genau so viel Schaden wie du, wenn er dich angreift.
+PERK_THORNS_EQUAL_DESC,"When hit, the enemy takes as much damage as you do.","Der Gegner kriegt genau so viel Schaden wie du, wenn er dich angreift."
 HELP_TITLE1,How to play,Wie geht's?
 HELP_DESCRIPTION,"Survive as long as possible, while evil monsters try to kill you! Use power ups and weapons to your advantage and select the right perks to stay alive.",Überlebe solange es geht! Verschaffe dir dabei einen Vorteil durch die Nutzung von Items und Waffen. Sowie der richtigen Perks!
 HELP_TITLE2,Movement,Steuerung
