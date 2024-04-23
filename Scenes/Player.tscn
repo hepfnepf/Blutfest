@@ -48,6 +48,7 @@
 [ext_resource path="res://Scenes/Perks/PerkThorns2.tscn" type="PackedScene" id=46]
 [ext_resource path="res://Scenes/Perks/PerkThornsEqual.tscn" type="PackedScene" id=47]
 [ext_resource path="res://Scenes/Perks/PerkIncreaseDamageWhileNotMoving.tscn" type="PackedScene" id=48]
+[ext_resource path="res://Scenes/Perks/PerkRangeExtender.tscn" type="PackedScene" id=49]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 73.9803
@@ -1279,10 +1280,10 @@ stream = ExtResource( 11 )
 bus = "SFX"
 
 [node name="PerkManager" parent="." instance=ExtResource( 12 )]
-perks = [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 14 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ) ]
-likelihoods = [ 15.0, 15.0, 12.0, 15.0, 7.0, 5.0, 7.0, 5.0, 8.0, 5.0, 5.0, 6.0, 5.0, 8.0, 2.0, 7.0, 5.0, 8.0, 11.0, 9.0, 4.0, 10.0, 6.0, 10.0, 5.0, 8.0, 8.0, 12.0, 10.0, 8.0, 6.0, 5.0, 8.0 ]
+perks = [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 18 ), ExtResource( 14 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ) ]
+likelihoods = [ 15.0, 15.0, 12.0, 15.0, 7.0, 5.0, 7.0, 5.0, 8.0, 5.0, 5.0, 6.0, 5.0, 8.0, 2.0, 7.0, 5.0, 8.0, 11.0, 9.0, 4.0, 10.0, 6.0, 10.0, 5.0, 8.0, 8.0, 12.0, 10.0, 8.0, 6.0, 5.0, 8.0, 15.0 ]
 rarity_normal = 9.0
-perk_selection_amount = 8
+perk_selection_amount = 2
 
 [node name="LevelUpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 22 )

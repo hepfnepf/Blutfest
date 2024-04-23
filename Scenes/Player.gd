@@ -86,6 +86,7 @@ var ice_damage:int = 0
 var ice_damage_mult:float = 1.0
 var thorn_damage:int = 0
 var thorn_damage_equal_fac:float = 0.0
+var range_multi:float = 1.0
 
 onready var weapon = $Weapon
 onready var hurt:AudioStreamPlayer = $Hurt
