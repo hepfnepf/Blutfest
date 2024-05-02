@@ -112,3 +112,6 @@ HELP_LOCKING,L - lock your current weapon,L - fixiere deine aktuelle Waffe
 HELP_HELP,H - toggle this help,H - Öffne/Schließe diese Hilfe
 PERK_RANGE_EXTENDER,Range Extender,Reichweitenerweiterer
 PERK_RANGE_EXTENDER_DESC,Extends the range by %d%%,Erweitert die Reichweite um %d%%
+PERK_INCREASE_DAMAGE_WHILE_NOT_MOVING,Stop right now!,Stillgestanden!
+PERK_INCREASE_DAMAGE_WHILE_NOT_MOVING_DESC,Your damage while not moving increases by %d%%,"Während du stillstehst, erhöht sich dein Schaden um %d%%"
+

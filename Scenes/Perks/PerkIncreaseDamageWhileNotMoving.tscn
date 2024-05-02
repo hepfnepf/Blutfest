@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Perks/PerkIncreaseDamageWhileNotMoving.gd" type="Script" id=1]
+
+[node name="PerkIncreaseDamageWhileNotMoving" type="Node"]
+script = ExtResource( 1 )
+title = "PERK_INCREASE_DAMAGE_WHILE_NOT_MOVING"
+desc = "PERK_INCREASE_DAMAGE_WHILE_NOT_MOVING_DESC"
+one_time = true

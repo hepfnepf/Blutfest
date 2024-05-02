@@ -27,6 +27,7 @@ var alive:bool = true
 var elapsed_time=0 #get increased by 1 sec every time the time counter returns
 var locked:bool = false #can the player pick up new guns
 var damage_multi:float=1.0#will mosty influenced by perks
+var dmg_multi_not_moving:float=1.0 #will be influenced only by increased damage while not moving perk
 var level:int=1
 var weapon_movement_speed_multi:float = 1.0 setget set_weapon_movement_speed_multi
 var move_speed:float = move_speed_base#gets recalced in ready
@@ -140,7 +141,9 @@ func _physics_process(delta)->void:
 
 	move_and_collide(velocity * delta)
 	distance_covered+=velocity.length()*delta#for statistics
-	if velocity.length()==0:
+	# = 0 has a ~5 second delay until "is_standing" is set to true
+	# <= 0.1 reduces the delay where "is_standing" will be set to true to ~1 second
+	if velocity.length() <= 0.1:
 		#used for statistics
 		if is_standing==false:
 			current_standing_time=0
@@ -244,6 +247,7 @@ func set_tit_for_tat_bad_multi(new_multi)->void:
 func calculate_damage_multiplier()->void:
 
 	var accuracy_boni = 1.0
+	var not_moving_bonus = 1.0
 	if(boost_accuracy_dmg_level==1):
 		accuracy_boni = 2.0*accuracy
 	elif(boost_accuracy_dmg_level==2):
@@ -253,9 +257,11 @@ func calculate_damage_multiplier()->void:
 			accuracy_boni = 2
 		else:
 			accuracy_boni=accuracy
+			
+	if(is_standing == true):
+		not_moving_bonus = dmg_multi_not_moving
 
-
-	damage_multi = 1.0 * accuracy_boni * tit_for_tat_good_multi
+	damage_multi = 1.0 * accuracy_boni * tit_for_tat_good_multi * not_moving_bonus
 
 func add_enemy_death()->void:
 	enemies_killed+=1
