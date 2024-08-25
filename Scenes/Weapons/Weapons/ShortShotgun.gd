@@ -21,9 +21,9 @@ func _shoot_bullet() -> void:
 	bullet.rotation = rot
 	bullet.direction = Vector2.RIGHT.rotated(rot)
 	bullet.speed = speed
-	bullet.p_range = max_range
+	bullet.p_range = max_range*player.range_multi
 	bullet.damage = damage
-	bullet.timer.start(float(max_range)/speed)
+	bullet.timer.start(float(max_range*player.range_multi)/speed)#??, yes max_range already is a float, but without this conversion it did not work
 
 
 #The spread function gets overwritten, because the crosshair would get to big else

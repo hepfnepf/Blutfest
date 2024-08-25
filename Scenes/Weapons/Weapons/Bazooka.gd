@@ -15,11 +15,11 @@ func shoot_bullet():
 	bullet.rotation = rot
 	bullet.direction = Vector2.RIGHT.rotated(rot)
 	bullet.speed = speed
-	bullet.p_range = max_range
+	bullet.p_range = max_range*player.range_multi
 	bullet.damage = damage#damage
 	#bullet.explodes=true
 	bullet.explode_on_death=explode_on_death
 	bullet.exp_dmg = explosion_damage
 	bullet.exp_size = explosion_size
-	bullet.timer.start(float(max_range)/speed)
+	bullet.timer.start(float(max_range*player.range_multi)/speed)#??, yes max_range already is a float, but without this conversion it did not work
 	increase_spread()
