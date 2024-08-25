@@ -102,6 +102,6 @@ func shoot_bullet():
 	bullet.damage = damage*player.damage_multi*scale_fac
 	bullet.global_scale = $Charger3/Charge/Orb.global_scale#Vector2(scale_fac,scale_fac)
 	bullet.charge_amt = scale_fac/charge_par_max_size_fac
-	bullet.p_range = max_range
-	bullet.timer.start(float(max_range)/speed)
+	bullet.p_range = max_range*player.range_multi
+	bullet.timer.start(float(max_range*player.range_multi)/speed)#??, yes max_range already is a float, but without this conversion it did not work
 	increase_spread()

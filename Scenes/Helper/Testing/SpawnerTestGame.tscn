@@ -87,7 +87,6 @@ position = Vector2( -214.659, -300.747 )
 position = Vector2( 467.068, -87.3807 )
 scale = Vector2( 0.54, 0.54 )
 speed = 0
-max_health = 200
 
 [node name="Zombie2" parent="." instance=ExtResource( 29 )]
 position = Vector2( 509.783, 1215.42 )

@@ -228,6 +228,7 @@ func calculate_accuracy()->void:
 	var _shots_fired_modi=1
 	if (shots_fired==1):
 		accuracy = 1.0
+		calculate_damage_multiplier()
 		return
 
 	if(cap_accuracy):
@@ -257,7 +258,7 @@ func calculate_damage_multiplier()->void:
 			accuracy_boni = 2
 		else:
 			accuracy_boni=accuracy
-			
+
 	if(is_standing == true):
 		not_moving_bonus = dmg_multi_not_moving
 

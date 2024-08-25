@@ -39,9 +39,9 @@ func shoot_bullet():
 	bullet.rotation = rot
 	bullet.direction = Vector2.RIGHT.rotated(rot)
 	bullet.speed = speed
-	bullet.p_range = max_range
+	bullet.p_range = max_range*player.range_multi
 	bullet.damage = (damage+damage_boost)*player.damage_multi
-	bullet.timer.start(float(max_range)/speed)#??, yes max_range already is a float, but without this conversion it did not work
+	bullet.timer.start(float(max_range*player.range_multi)/speed)#??, yes max_range already is a float, but without this conversion it did not work
 	increase_spread()
 
 func set_shots_fired(new_shots_fired)->void:
