@@ -42,10 +42,10 @@ func switch_state():
 		save_volume()
 
 func save_volume() -> void:
-	var sg = SaveManager.read_saveOptions()
+	var sg = SaveManager.get_options_save()
 	sg["sfx_volume"] = db2linear( AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))#sfx_slider.slider.value
 	sg["music_volume"] = db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
-	SaveManager.save_options(sg)
+	SaveManager.set_options_save(sg)
 
 func _on_ReturnButton_pressed():
 	switch_state()
@@ -54,7 +54,6 @@ func _on_ReturnButton_pressed():
 func _on_OptionsButton_pressed():
 	if is_instance_valid(options):
 		options.show()
-	#pass # Replace with function body.
 
 
 func _on_CreditsButton_pressed():
@@ -78,7 +77,7 @@ func _on_Player_Death(): # gets connected in GUI
 	print_debug("died")
 
 func _on_reset_sound():
-	var sg = SaveManager.read_saveOptions()
+	var sg = SaveManager.get_options_save()
 
 	sfx_slider.value_change_code(sg["sfx_volume"])
 	music_slider.value_change_code(sg["music_volume"])
