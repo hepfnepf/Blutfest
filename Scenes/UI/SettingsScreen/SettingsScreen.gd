@@ -15,16 +15,16 @@ func _on_ExitButton_pressed():
 
 
 func _on_ResetHighscore_pressed():
-	var save_dict = SaveManager.read_savegame()
+	var save_dict = SaveManager.get_game_save()
 	save_dict["highscore"] = 0
 	save_dict["best_time"] = 0
-	SaveManager.save_game(save_dict)
+	SaveManager.set_game_save(save_dict)
 
 	hs_reset_announcement.show()
 	hs_reset_announcement_time.start()
 
 func _on_ResetOptions_pressed() -> void:
-	SaveManager.create_save_options()
+	SaveManager.create_empty_save_options_file()
 
 
 	op_reset_announcement.show()

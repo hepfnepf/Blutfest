@@ -28,7 +28,7 @@ func _ready()-> void:
 
 
 	#Retrieve volume settings
-	var sg = SaveManager.read_saveOptions()
+	var sg = SaveManager.get_options_save()
 	gui.pause_menu.sfx_slider.value_change_code(sg["sfx_volume"])
 	gui.pause_menu.music_slider.value_change_code(sg["music_volume"])
 
@@ -38,15 +38,20 @@ func _on_player_death()->void:
 	add_child(death_screen)
 	spawner.game_alive = false
 	Globals.cursor_manager.set_cursor(Cursor.CURSOR_TYPE.DEFAULT)
-	var save_dict= SaveManager.read_savegame()
+	var save_dict= SaveManager.get_game_save()
 	death_screen.handle_score_display(save_dict["highscore"],player.score,save_dict["best_time"],player.elapsed_time)
 	death_screen.populate_stats(player)
+
+	var change:bool=false
 	if save_dict["highscore"] < player.score:
 		save_dict["highscore"] = player.score
+		change=true
 	if save_dict["best_time"] < player.elapsed_time:
 		save_dict["best_time"] = player.elapsed_time
+		change=true
 
-	SaveManager.save_game(save_dict)
+	if change:
+			SaveManager.set_game_save(save_dict)
 
 func restart()->void:
 	BulletPool.clear_all_bullets()

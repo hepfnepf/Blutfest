@@ -8,7 +8,7 @@ func _ready() -> void:
 
 
 	#Retrieve volume settings
-	var sg = SaveManager.read_saveOptions()
+	var sg = SaveManager.get_options_save()
 
 	var sfx_db_value = linear2db(sg["sfx_volume"])
 	var music_db_value = linear2db(sg["music_volume"])
