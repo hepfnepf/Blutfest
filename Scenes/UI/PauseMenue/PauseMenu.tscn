@@ -11,7 +11,7 @@
 [ext_resource path="res://Sprites/UI/speaker_disabled.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/UI/PauseMenue/MusicController.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/UI/SettingsScreen/SettingsScreen.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/Perks/PerkTheme.tres" type="Theme" id=12]
+[ext_resource path="res://Scenes/UI/MainMenuTheme.tres" type="Theme" id=12]
 [ext_resource path="res://Scenes/UI/MainMenu/ButtonStyleNormal1.tres" type="StyleBox" id=13]
 
 [sub_resource type="Theme" id=12]

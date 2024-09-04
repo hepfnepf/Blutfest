@@ -27,7 +27,7 @@ script = ExtResource( 2 )
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 1536.0
 margin_bottom = 900.0
-color = Color( 0.45, 0.45, 0.45, 1 )
+color = Color( 0.45098, 0.45098, 0.45098, 0 )
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
 anchor_right = 1.0

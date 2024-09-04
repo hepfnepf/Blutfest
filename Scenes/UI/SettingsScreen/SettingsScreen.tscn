@@ -1,9 +1,15 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Fonts/smallUIFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Scenes/UI/SettingsScreen/SettingsScreen.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/UI/double-quaver_disabled.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/UI/double-quaver.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/UI/PauseMenue/CustomSlider/AudioCusSlider.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/UI/speaker_disabled.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/UI/speaker.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/UI/MainMenuTheme.tres" type="Theme" id=10]
 
 [sub_resource type="DynamicFont" id=2]
 size = 90
@@ -15,6 +21,8 @@ extra_spacing_bottom = -10
 extra_spacing_char = 1
 font_data = ExtResource( 2 )
 
+[sub_resource type="Theme" id=11]
+
 [sub_resource type="DynamicFont" id=10]
 size = 42
 extra_spacing_char = 1
@@ -23,12 +31,13 @@ font_data = ExtResource( 1 )
 [node name="SettingsScreen" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 10 )
 script = ExtResource( 4 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 1536.0
 margin_bottom = 900.0
-color = Color( 0.447059, 0.447059, 0.447059, 1 )
+color = Color( 1, 1, 1, 0 )
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
 anchor_right = 1.0
@@ -53,17 +62,17 @@ align = 1
 [node name="TabContainer" type="TabContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
 margin_top = 99.0
 margin_right = 1496.0
-margin_bottom = 800.0
+margin_bottom = 792.0
 size_flags_vertical = 3
 tab_align = 0
 
 [node name="Game" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 7.0
+margin_top = 31.0
+margin_right = -7.0
+margin_bottom = -7.0
 tab_align = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game"]
@@ -73,16 +82,19 @@ margin_left = 5.0
 margin_top = 5.0
 margin_right = -5.0
 margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer"]
-margin_right = 154.0
-margin_bottom = 54.0
+margin_right = 156.0
+margin_bottom = 70.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="ResetHighscore" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
-margin_right = 154.0
-margin_bottom = 25.0
+margin_right = 156.0
+margin_bottom = 33.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 3 )
@@ -100,9 +112,9 @@ text = "HISCORE_GOT_RESET"
 one_shot = true
 
 [node name="ResetOptions" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
-margin_top = 29.0
-margin_right = 154.0
-margin_bottom = 54.0
+margin_top = 37.0
+margin_right = 156.0
+margin_bottom = 70.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 3 )
@@ -119,10 +131,52 @@ text = "OPTIONS_GOT_RESET"
 [node name="Timer" type="Timer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/OptionsResetAnnouncement"]
 one_shot = true
 
+[node name="Sound" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+margin_top = 665.0
+margin_right = 1496.0
+margin_bottom = 693.0
+tab_align = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Sound"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Sound/MarginContainer"]
+margin_right = 1486.0
+margin_bottom = 60.0
+alignment = 1
+
+[node name="SFXSlider" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer" instance=ExtResource( 7 )]
+unique_name_in_owner = true
+margin_left = 701.0
+margin_right = 741.0
+margin_bottom = 60.0
+button_texture = ExtResource( 9 )
+audio_channel = "SFX"
+button_texture_disabled = ExtResource( 8 )
+
+[node name="MusicSlider" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer" instance=ExtResource( 7 )]
+unique_name_in_owner = true
+margin_left = 745.0
+margin_right = 785.0
+margin_bottom = 60.0
+theme = SubResource( 11 )
+button_texture = ExtResource( 6 )
+audio_channel = "Music"
+button_texture_disabled = ExtResource( 5 )
+
 [node name="ExitButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
-margin_left = 660.0
-margin_top = 804.0
-margin_right = 835.0
+margin_left = 659.0
+margin_top = 796.0
+margin_right = 836.0
 margin_bottom = 860.0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 10 )
