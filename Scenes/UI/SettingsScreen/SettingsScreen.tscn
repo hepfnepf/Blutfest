@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Sprites/UI/speaker_disabled.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/UI/speaker.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/UI/MainMenuTheme.tres" type="Theme" id=10]
+[ext_resource path="res://Scenes/UI/SettingsScreen/FullscreenToggle.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/UI/SettingsScreen/VsyncToggle.gd" type="Script" id=12]
 
 [sub_resource type="DynamicFont" id=2]
 size = 90
@@ -173,6 +175,59 @@ button_texture = ExtResource( 6 )
 audio_channel = "Music"
 button_texture_disabled = ExtResource( 5 )
 
+[node name="Graphics" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+tab_align = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer"]
+margin_right = 1478.0
+margin_bottom = 647.0
+columns = 2
+
+[node name="WindowModeLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
+margin_top = 16.0
+margin_right = 1396.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+text = "WINDOW_FULLSCREEN"
+
+[node name="FullscreenToggle" type="CheckButton" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
+margin_left = 1400.0
+margin_right = 1478.0
+margin_bottom = 46.0
+script = ExtResource( 11 )
+
+[node name="VsyncModeLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
+margin_top = 66.0
+margin_right = 1396.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+text = "WINDOW_VSYNC"
+
+[node name="VsyncToggle" type="CheckButton" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
+margin_left = 1400.0
+margin_top = 50.0
+margin_right = 1478.0
+margin_bottom = 96.0
+script = ExtResource( 12 )
+
 [node name="ExitButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
 margin_left = 659.0
 margin_top = 796.0
@@ -186,4 +241,6 @@ text = "RETURN"
 [connection signal="timeout" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HighscoreResetAnnouncement/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetOptions" to="." method="_on_ResetOptions_pressed"]
 [connection signal="timeout" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/OptionsResetAnnouncement/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/FullscreenToggle" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/FullscreenToggle" method="_on_FullscreenToggle_toggled"]
+[connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/VsyncToggle" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/VsyncToggle" method="_on_VsyncToggle_toggled"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]

@@ -15,6 +15,8 @@ RESTART,Restart,Neustart
 EXIT,Exit,Beenden
 OPTIONS,Options,Optionen
 RESET_HIGHSCORE,Reset Highscore,Highscore zurücksetzen
+WINDOW_FULLSCREEN,Fullscreen,Vollbild
+WINDOW_VSYNC,V-Sync,V-Sync
 GAME,Game,Spiel
 HISCORE_GOT_RESET,Highscore has been reset!,Der Highscore wurde zurückgesetzt!
 CREDITS,Credits,Credits

@@ -2,7 +2,6 @@ extends MarginContainer
 
 signal changed_sound
 
-onready var but_reset_highscore = $ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetHighscore
 onready var hs_reset_announcement = $"%HighscoreResetAnnouncement"
 onready var hs_reset_announcement_time = $ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HighscoreResetAnnouncement/Timer
 onready var op_reset_announcement = $"%OptionsResetAnnouncement"
@@ -14,8 +13,7 @@ onready var music_slider = $"%MusicSlider"
 
 func _on_ExitButton_pressed()->void:
 	visible = false
-	#Save new volume setting in linear between 0 and 1
-	store_changes()
+	store_settings()
 
 
 
@@ -45,19 +43,23 @@ func _on_Timer_timeout()->void:
 	op_reset_announcement.hide()
 
 
+func _on_VsyncToggle_toggled(button_pressed:bool)->void:
+	OS.vsync_enabled = button_pressed
+
 """
 Begin of saving funtions
 """
-
-
-func store_changes()->void:
-	if sfx_slider.has_chagend or music_slider.has_chagend:
-		save_volume()
-
-func save_volume() -> void:
+func store_settings()->void:
 	var sg = SaveManager.get_options_save()
+
 	sg["sfx_volume"] = db2linear( AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
 	sg["music_volume"] = db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
 	sg["sfx_disabled"] = AudioServer.is_bus_mute(AudioServer.get_bus_index("SFX"))
 	sg["music_disabled"] = AudioServer.is_bus_mute(AudioServer.get_bus_index("Music"))
+
+	sg["fullscreen_enabled"] = OS.window_fullscreen
+	sg["vsync_enabled"]= OS.vsync_enabled
+
 	SaveManager.set_options_save(sg)
+
+

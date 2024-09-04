@@ -26,6 +26,8 @@ const new_save_options_dict = {
 	"sfx_disabled":false,
 	"music_volume":0.5,
 	"music_disabled":true,
+	"fullscreen_enabled":false,
+	"vsync_enabled":true
 	}
 
 onready var current_save_game= read_savegame()
