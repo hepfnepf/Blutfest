@@ -45,6 +45,8 @@ func save_volume() -> void:
 	var sg = SaveManager.get_options_save()
 	sg["sfx_volume"] = db2linear( AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))#sfx_slider.slider.value
 	sg["music_volume"] = db2linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
+	sg["sfx_disabled"] = AudioServer.is_bus_mute(AudioServer.get_bus_index("SFX"))
+	sg["music_disabled"] = AudioServer.is_bus_mute(AudioServer.get_bus_index("Music"))
 	SaveManager.set_options_save(sg)
 
 func _on_ReturnButton_pressed():

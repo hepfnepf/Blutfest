@@ -1,6 +1,6 @@
 extends Node
 
-const VERSION :int=1
+const VERSION :int=2
 """
 Manages the save game. Stores and reads data.
 
@@ -23,7 +23,9 @@ var save_options_path = "user://saveOptions.save"
 const new_save_options_dict = {
 	"version":VERSION,
 	"sfx_volume":0.5,
+	"sfx_disabled":false,
 	"music_volume":0.5,
+	"music_disabled":true,
 	}
 
 onready var current_save_game= read_savegame()
@@ -166,7 +168,7 @@ func read_saveOptions()->Dictionary:
 
 
 #Gets the read save game file dict and returns a new save game dict, while doing correction of possible errors.
-func import_save_game(save_game):
+func import_save_game(save_game:Dictionary):
 	var new_save_game = new_save_game_dict.duplicate()
 	var needed_change:bool=false
 	for key in new_save_game:
@@ -179,7 +181,7 @@ func import_save_game(save_game):
 
 
 #Gets the read options save file dict and returns a new save options dict, while doing correction of possible errors.
-func import_save_options(save_options):
+func import_save_options(save_options:Dictionary):
 	var new_save_options = new_save_options_dict.duplicate()
 	var needed_change:bool=false
 	for key in new_save_options:

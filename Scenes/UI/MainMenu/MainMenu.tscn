@@ -252,7 +252,6 @@ theme = ExtResource( 10 )
 
 [node name="SettingsScreen" parent="." instance=ExtResource( 8 )]
 visible = false
-theme = ExtResource( 10 )
 
 [node name="BackgroundMusic" parent="." instance=ExtResource( 9 )]
 volume_db = 0.0
