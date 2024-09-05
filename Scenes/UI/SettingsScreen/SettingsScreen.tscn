@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Scenes/UI/MainMenuTheme.tres" type="Theme" id=10]
 [ext_resource path="res://Scenes/UI/SettingsScreen/FullscreenToggle.gd" type="Script" id=11]
 [ext_resource path="res://Scenes/UI/SettingsScreen/VsyncToggle.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/UI/SettingsScreen/RebindButton.tscn" type="PackedScene" id=13]
 
 [sub_resource type="DynamicFont" id=2]
 size = 90
@@ -69,6 +70,7 @@ size_flags_vertical = 3
 tab_align = 0
 
 [node name="Game" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 7.0
@@ -135,9 +137,12 @@ one_shot = true
 
 [node name="Sound" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
 visible = false
-margin_top = 665.0
-margin_right = 1496.0
-margin_bottom = 693.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.0
+margin_top = 31.0
+margin_right = -7.0
+margin_bottom = -7.0
 tab_align = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Sound"]
@@ -152,24 +157,24 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Sound/MarginContainer"]
-margin_right = 1486.0
-margin_bottom = 60.0
+margin_right = 1472.0
+margin_bottom = 645.0
 alignment = 1
 
 [node name="SFXSlider" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer" instance=ExtResource( 7 )]
 unique_name_in_owner = true
-margin_left = 701.0
-margin_right = 741.0
-margin_bottom = 60.0
+margin_left = 694.0
+margin_right = 734.0
+margin_bottom = 645.0
 button_texture = ExtResource( 9 )
 audio_channel = "SFX"
 button_texture_disabled = ExtResource( 8 )
 
 [node name="MusicSlider" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer" instance=ExtResource( 7 )]
 unique_name_in_owner = true
-margin_left = 745.0
-margin_right = 785.0
-margin_bottom = 60.0
+margin_left = 738.0
+margin_right = 778.0
+margin_bottom = 645.0
 theme = SubResource( 11 )
 button_texture = ExtResource( 6 )
 audio_channel = "Music"
@@ -179,10 +184,10 @@ button_texture_disabled = ExtResource( 5 )
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 7.0
+margin_top = 31.0
+margin_right = -7.0
+margin_bottom = -7.0
 tab_align = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics"]
@@ -197,36 +202,193 @@ __meta__ = {
 }
 
 [node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer"]
-margin_right = 1478.0
-margin_bottom = 647.0
+margin_right = 1472.0
+margin_bottom = 645.0
 columns = 2
 
 [node name="WindowModeLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
 margin_top = 16.0
-margin_right = 1396.0
+margin_right = 1390.0
 margin_bottom = 30.0
 size_flags_horizontal = 3
 text = "WINDOW_FULLSCREEN"
 
 [node name="FullscreenToggle" type="CheckButton" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
-margin_left = 1400.0
-margin_right = 1478.0
+margin_left = 1394.0
+margin_right = 1472.0
 margin_bottom = 46.0
 script = ExtResource( 11 )
 
 [node name="VsyncModeLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
 margin_top = 66.0
-margin_right = 1396.0
+margin_right = 1390.0
 margin_bottom = 80.0
 size_flags_horizontal = 3
 text = "WINDOW_VSYNC"
 
 [node name="VsyncToggle" type="CheckButton" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
-margin_left = 1400.0
+margin_left = 1394.0
 margin_top = 50.0
-margin_right = 1478.0
+margin_right = 1472.0
 margin_bottom = 96.0
 script = ExtResource( 12 )
+
+[node name="Controls" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.0
+margin_top = 31.0
+margin_right = -7.0
+margin_bottom = -7.0
+tab_align = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer"]
+margin_right = 1472.0
+margin_bottom = 645.0
+columns = 2
+
+[node name="RebindLabelUp" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
+margin_top = 7.0
+margin_right = 1365.0
+margin_bottom = 21.0
+size_flags_horizontal = 3
+text = "MOVE_UP"
+
+[node name="RebindButton" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
+margin_left = 1369.0
+margin_right = 1472.0
+size_flags_horizontal = 9
+
+[node name="RebindLabelDown" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
+margin_top = 39.0
+margin_right = 1365.0
+margin_bottom = 53.0
+size_flags_horizontal = 3
+text = "MOVE_DOWN"
+
+[node name="RebindButton2" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
+margin_left = 1369.0
+margin_top = 32.0
+margin_right = 1472.0
+margin_bottom = 60.0
+size_flags_horizontal = 9
+rebind_action = "move_down"
+
+[node name="RebindLabelLeft" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
+margin_top = 71.0
+margin_right = 1365.0
+margin_bottom = 85.0
+size_flags_horizontal = 3
+text = "MOVE_LEFT"
+
+[node name="RebindButton3" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
+margin_left = 1369.0
+margin_top = 64.0
+margin_right = 1472.0
+margin_bottom = 92.0
+size_flags_horizontal = 9
+rebind_action = "move_left"
+
+[node name="RebindLabelRight" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
+margin_top = 103.0
+margin_right = 1365.0
+margin_bottom = 117.0
+size_flags_horizontal = 3
+text = "MOVE_RIGHT"
+
+[node name="RebindButton4" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
+margin_left = 1369.0
+margin_top = 96.0
+margin_right = 1472.0
+margin_bottom = 124.0
+size_flags_horizontal = 9
+rebind_action = "move_right"
+
+[node name="RebindLabelReload" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
+margin_top = 135.0
+margin_right = 1365.0
+margin_bottom = 149.0
+size_flags_horizontal = 3
+text = "RELOAD_BTN"
+
+[node name="RebindButton8" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
+margin_left = 1369.0
+margin_top = 128.0
+margin_right = 1472.0
+margin_bottom = 156.0
+size_flags_horizontal = 9
+rebind_action = "reload"
+
+[node name="RebindLabelLocking" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
+margin_top = 167.0
+margin_right = 1365.0
+margin_bottom = 181.0
+size_flags_horizontal = 3
+text = "LOCK_WEAPON"
+
+[node name="RebindButton5" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
+margin_left = 1369.0
+margin_top = 160.0
+margin_right = 1472.0
+margin_bottom = 188.0
+size_flags_horizontal = 9
+rebind_action = "lock_weapon"
+
+[node name="RebindLabelHelp" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
+margin_top = 199.0
+margin_right = 1365.0
+margin_bottom = 213.0
+size_flags_horizontal = 3
+text = "HELP_BTN"
+
+[node name="RebindButton6" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
+margin_left = 1369.0
+margin_top = 192.0
+margin_right = 1472.0
+margin_bottom = 220.0
+size_flags_horizontal = 9
+rebind_action = "help"
+
+[node name="RebindLabelDebug" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
+margin_top = 231.0
+margin_right = 1365.0
+margin_bottom = 245.0
+size_flags_horizontal = 3
+text = "DEBUG_INFO_BTN"
+
+[node name="RebindButton7" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
+margin_left = 1369.0
+margin_top = 224.0
+margin_right = 1472.0
+margin_bottom = 252.0
+size_flags_horizontal = 9
+rebind_action = "show_debug_info"
+
+[node name="RebindLabelInvincibility" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
+margin_top = 263.0
+margin_right = 1365.0
+margin_bottom = 277.0
+size_flags_horizontal = 3
+text = "INVINCIBILITY_BTN"
+
+[node name="RebindButton9" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
+margin_left = 1369.0
+margin_top = 256.0
+margin_right = 1472.0
+margin_bottom = 284.0
+size_flags_horizontal = 9
+rebind_action = "toggle_debug_invincibility"
 
 [node name="ExitButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
 margin_left = 659.0

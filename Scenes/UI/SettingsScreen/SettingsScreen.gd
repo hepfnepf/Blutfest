@@ -63,3 +63,12 @@ func store_settings()->void:
 	SaveManager.set_options_save(sg)
 
 
+func _on_Button_button_up() -> void:
+	print_debug(InputMap.get_actions())
+	print_debug(InputMap.get_action_list("ui_left"))
+
+	for event in InputMap.get_action_list("ui_left"):
+		if event is InputEventKey:
+			InputMap.action_erase_event("ui_left",event)
+
+	print_debug(InputMap.get_action_list("ui_left"))
