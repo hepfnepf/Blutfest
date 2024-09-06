@@ -32,7 +32,8 @@ const new_save_options_dict = {
 	"blood_overlay_enabled":true,
 	"crosshair_is_dynamic":true,
 	"crosshair_color":Color(0.25,0.54,0.81,0.95),
-	"crosshair_size":0.3
+	"crosshair_size":0.3,
+	"max_enemy_count":250
 	}
 
 onready var current_save_game= read_savegame()

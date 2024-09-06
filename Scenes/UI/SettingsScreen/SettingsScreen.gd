@@ -25,6 +25,8 @@ func load_settings()->void:
 	ui_tab.crosshair_dynamic_toggle.pressed=sg["crosshair_is_dynamic"]
 	ui_tab.crosshair_color_picker.color= sg["crosshair_color"]
 	ui_tab.crosshair_size.value= sg["crosshair_size"]
+	game_tab.max_enemy_count_slider.value = sg["max_enemy_count"]
+	game_tab.set_enemy_count_label(sg["max_enemy_count"])
 
 func store_settings()->void:
 	var sg = SaveManager.get_options_save()
@@ -43,5 +45,6 @@ func store_settings()->void:
 	sg["crosshair_is_dynamic"]=ui_tab.crosshair_dynamic_toggle.pressed
 	sg["crosshair_color"] = ui_tab.crosshair_color_picker.color
 	sg["crosshair_size"] = ui_tab.crosshair_size.value
+	sg["max_enemy_count"] = game_tab.max_enemy_count_slider.value
 
 	SaveManager.set_options_save(sg)
