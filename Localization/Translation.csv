@@ -17,6 +17,7 @@ OPTIONS,Options,Optionen
 RESET_HIGHSCORE,Reset Highscore,Highscore zurücksetzen
 WINDOW_FULLSCREEN,Fullscreen,Vollbild
 WINDOW_VSYNC,V-Sync,V-Sync
+TOGGLE_BLOOD_ON_SCREEN_EFFECT,Blood effect on screen,Bildschirmbluteffekt
 MOVE_UP,Up,Oben
 MOVE_DOWN,Down,Unten
 MOVE_LEFT,Left,Links
