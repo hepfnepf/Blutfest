@@ -5,7 +5,7 @@ var zoom_speed:float = 0.3
 var invert_zooming:bool = 0
 
 func _ready() -> void:
-	Globals.connect("zooming_inverted",self,"_on_zooming_inverted")
+	EventBus.connect("zooming_inverted",self,"_on_zooming_inverted")
 
 func _input(event)->void:
 	#The reason for this seemingly unneccessary _zoom variable in between, is that setting zoom=Vector(0,0) triggers an error, so we cant directly add/substract from the value

@@ -26,11 +26,8 @@ var stored_time_scale:float=1.0#used to reset timescale after perk selection
 
 func _ready() -> void:
 	pause_menu.set_debug_info(debug_info)
-
-	#instructions.popup()
-
-
-	#connect("perk_selected",PerkManager,"_on_Perk_selected")
+	EventBus.connect("blood_overlay_enabled",self,"_on_blood_overlay_toggle")
+	blood.visible = SaveManager.current_save_options["blood_overlay_enabled"]
 
 func set_player(player:Player)->void:
 	self.player = player
@@ -121,6 +118,9 @@ func _on_card_selected(card:PerkCard)->void:
 	Engine.time_scale = stored_time_scale
 	card_holder.visible=false
 	emit_signal("perk_selected")
+
+func _on_blood_overlay_toggle(is_toggled)->void:
+	blood.visible=is_toggled
 
 func time_to_str(time:int) -> String:
 # warning-ignore:integer_division

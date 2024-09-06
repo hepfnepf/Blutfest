@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=2]
@@ -14,6 +14,10 @@
 [ext_resource path="res://Scenes/UI/SettingsScreen/VsyncToggle.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/UI/SettingsScreen/RebindButton.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/UI/SettingsScreen/InvertZooming.gd" type="Script" id=14]
+[ext_resource path="res://Scenes/UI/SettingsScreen/GameSettings.gd" type="Script" id=15]
+[ext_resource path="res://Scenes/UI/SettingsScreen/ControlSettings.gd" type="Script" id=16]
+[ext_resource path="res://Scenes/UI/SettingsScreen/UISettings.gd" type="Script" id=17]
+[ext_resource path="res://Scenes/UI/SettingsScreen/SoundSettings.gd" type="Script" id=18]
 
 [sub_resource type="DynamicFont" id=2]
 size = 90
@@ -71,7 +75,7 @@ size_flags_vertical = 3
 tab_align = 0
 
 [node name="Game" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
-visible = false
+unique_name_in_owner = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 7.0
@@ -79,6 +83,7 @@ margin_top = 31.0
 margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
+script = ExtResource( 15 )
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game"]
 anchor_right = 1.0
@@ -137,6 +142,7 @@ text = "OPTIONS_GOT_RESET"
 one_shot = true
 
 [node name="Sound" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
+unique_name_in_owner = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -145,6 +151,7 @@ margin_top = 31.0
 margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
+script = ExtResource( 18 )
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Sound"]
 anchor_right = 1.0
@@ -235,6 +242,7 @@ margin_bottom = 96.0
 script = ExtResource( 12 )
 
 [node name="Controls" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
+unique_name_in_owner = true
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -243,6 +251,7 @@ margin_top = 31.0
 margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
+script = ExtResource( 16 )
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls"]
 anchor_right = 1.0
@@ -267,6 +276,7 @@ margin_bottom = 22.0
 text = "INVERT_ZOOMING"
 
 [node name="CheckBox" type="CheckBox" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
+unique_name_in_owner = true
 margin_left = 1442.0
 margin_right = 1472.0
 margin_bottom = 30.0
@@ -408,6 +418,8 @@ size_flags_horizontal = 9
 rebind_action = "toggle_debug_invincibility"
 
 [node name="UI" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
+unique_name_in_owner = true
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 7.0
@@ -415,6 +427,7 @@ margin_top = 31.0
 margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
+script = ExtResource( 17 )
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI"]
 anchor_right = 1.0
@@ -444,6 +457,7 @@ size_flags_horizontal = 3
 text = "TOGGLE_BLOOD_ON_SCREEN_EFFECT"
 
 [node name="BloodOnScreenToggle" type="CheckBox" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
 margin_left = 1442.0
 margin_right = 1472.0
 margin_bottom = 30.0
@@ -452,27 +466,59 @@ margin_bottom = 30.0
 margin_top = 34.0
 margin_right = 1472.0
 margin_bottom = 48.0
-text = "Crosshair:"
+text = "CROSSHAIR"
 align = 1
 
 [node name="GridContainer2" type="GridContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer"]
 margin_top = 52.0
 margin_right = 1472.0
-margin_bottom = 80.0
+margin_bottom = 134.0
 columns = 2
 
-[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer2"]
-margin_top = 7.0
+[node name="Label3" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer2"]
+margin_top = 8.0
 margin_right = 734.0
-margin_bottom = 21.0
-size_flags_horizontal = 3
-text = "Color"
+margin_bottom = 22.0
+text = "DYNAMIC"
 
-[node name="ColorPickButton" type="ColorPickerButton" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer2"]
-margin_left = 738.0
+[node name="CrosshairDynamicToggle" type="CheckBox" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer2"]
+unique_name_in_owner = true
+margin_left = 1442.0
 margin_right = 1472.0
-margin_bottom = 28.0
+margin_bottom = 30.0
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer2"]
+margin_top = 41.0
+margin_right = 734.0
+margin_bottom = 55.0
 size_flags_horizontal = 3
+text = "COLOR"
+
+[node name="CrosshairColorPicker" type="ColorPickerButton" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer2"]
+unique_name_in_owner = true
+margin_left = 738.0
+margin_top = 34.0
+margin_right = 1472.0
+margin_bottom = 62.0
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer2"]
+margin_top = 67.0
+margin_right = 734.0
+margin_bottom = 81.0
+text = "SIZE"
+
+[node name="CrosshairSize" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer2"]
+unique_name_in_owner = true
+margin_left = 738.0
+margin_top = 66.0
+margin_right = 1472.0
+margin_bottom = 82.0
+min_value = 0.1
+max_value = 2.0
+step = 0.1
+value = 0.1
 
 [node name="ExitButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
 margin_left = 659.0
@@ -483,12 +529,15 @@ size_flags_horizontal = 4
 custom_fonts/font = SubResource( 10 )
 text = "RETURN"
 
-[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetHighscore" to="." method="_on_ResetHighscore_pressed"]
-[connection signal="timeout" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HighscoreResetAnnouncement/Timer" to="." method="_on_Timer_timeout"]
-[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetOptions" to="." method="_on_ResetOptions_pressed"]
-[connection signal="timeout" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/OptionsResetAnnouncement/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetHighscore" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game" method="_on_ResetHighscore_pressed"]
+[connection signal="timeout" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HighscoreResetAnnouncement/Timer" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game" method="_on_Timer_timeout_hs"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetOptions" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game" method="_on_ResetOptions_pressed"]
+[connection signal="timeout" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/OptionsResetAnnouncement/Timer" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game" method="_on_Timer_timeout_op"]
 [connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/FullscreenToggle" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/FullscreenToggle" method="_on_FullscreenToggle_toggled"]
 [connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/VsyncToggle" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/VsyncToggle" method="_on_VsyncToggle_toggled"]
 [connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer/CheckBox" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer/CheckBox" method="_on_CheckBox_toggled"]
-[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer2/ColorPickButton" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer2/ColorPickButton" method="_on_ColorPickButton_pressed"]
+[connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer/BloodOnScreenToggle" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI" method="_on_BloodOnScreenToggle_toggled"]
+[connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer2/CrosshairDynamicToggle" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI" method="_on_CrosshairDynamicToggle_toggled"]
+[connection signal="color_changed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer2/CrosshairColorPicker" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI" method="_on_CrosshairColorPicker_color_changed"]
+[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer2/CrosshairSize" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI" method="_on_CrosshairSize_value_changed"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]

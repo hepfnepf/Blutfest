@@ -11,7 +11,7 @@ var debug_info = null
 var blocked := false
 
 func _ready() -> void:
-	options.connect("changed_sound",self,"_on_reset_sound")
+	options.sound_tab.connect("changed_sound",self,"_on_reset_sound")
 
 
 func _unhandled_input(_event):

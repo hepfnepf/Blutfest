@@ -28,7 +28,11 @@ const new_save_options_dict = {
 	"music_disabled":true,
 	"fullscreen_enabled":false,
 	"vsync_enabled":true,
-	"zooming_inverted":false
+	"zooming_inverted":false,
+	"blood_overlay_enabled":true,
+	"crosshair_is_dynamic":true,
+	"crosshair_color":Color(0.25,0.54,0.81,0.95),
+	"crosshair_size":0.3
 	}
 
 onready var current_save_game= read_savegame()
@@ -39,10 +43,10 @@ To be used directly:
 """
 
 func get_game_save()->Dictionary:
-	return current_save_game
+	return current_save_game.duplicate()
 
 func get_options_save()->Dictionary:
-	return current_save_options
+	return current_save_options.duplicate()
 
 func set_game_save(game_save:Dictionary)->void:
 	var res = import_save_game(game_save)

@@ -25,7 +25,7 @@ func load_options()->void:
 	OS.window_fullscreen = sg["fullscreen_enabled"]
 	OS.vsync_enabled = sg["vsync_enabled"]
 
-	Globals.zooming_inverted = sg["zooming_inverted"]
+	EventBus.emit_signal("zooming_inverted",sg["zooming_inverted"])
 
 
 func _on_PlayButton_pressed() -> void:
