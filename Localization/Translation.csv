@@ -23,6 +23,7 @@ MOVE_LEFT,Left,Links
 MOVE_RIGHT,Right,Rechts
 LOCK_WEAPON,Lock weapn,Waffe sperren
 INVINCIBILITY_BTN,Invincibility,Unverwundbarkeit
+INVERT_ZOOMING,Invert zooming,Zoomen invertieren
 HELP_BTN,Help,Hilfe
 DEBUG_INFO_BTN,Debug,Debug
 RELOAD_BTN,Reload,Nachladen
