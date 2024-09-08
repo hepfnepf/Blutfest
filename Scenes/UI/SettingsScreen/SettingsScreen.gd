@@ -5,6 +5,7 @@ onready var game_tab = $"%Game"
 onready var ui_tab = $"%UI"
 onready var controls_tab = $"%Controls"
 onready var sound_tab = $"%Sound"
+onready var language_tab = $"%Language"
 
 
 func _ready() -> void:
@@ -46,5 +47,6 @@ func store_settings()->void:
 	sg["crosshair_color"] = ui_tab.crosshair_color_picker.color
 	sg["crosshair_size"] = ui_tab.crosshair_size.value
 	sg["max_enemy_count"] = game_tab.max_enemy_count_slider.value
+	sg["language"] = TranslationServer.get_locale()
 
 	SaveManager.set_options_save(sg)

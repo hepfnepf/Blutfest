@@ -7,9 +7,9 @@ onready var hs_reset_announcement_time = $MarginContainer/VBoxContainer/Highscor
 onready var op_reset_announcement = $"%OptionsResetAnnouncement"
 onready var op_reset_announcement_timer = $MarginContainer/VBoxContainer/OptionsResetAnnouncement/Timer
 
-onready var max_enemy_count_slider:Slider = $MarginContainer/VBoxContainer/HBoxContainer/EnemyCountSlider
-onready var slider_min = $MarginContainer/VBoxContainer/HBoxContainer/SliderMin
-onready var slider_max = $MarginContainer/VBoxContainer/HBoxContainer/SliderMax
+onready var max_enemy_count_slider:Slider = $"%EnemyCountSlider"
+onready var slider_min = $"%SliderMin"
+onready var slider_max = $"%SliderMax"
 onready var max_enemy_count = $MarginContainer/VBoxContainer/MaxEnemyCount
 
 func _ready() -> void:
@@ -48,3 +48,6 @@ func _on_Timer_timeout_op() -> void:
 func _on_EnemyCounSlider_value_changed(value: int) -> void:
 	EventBus.emit_signal("max_enemy_count_change",value)
 	set_enemy_count_label(value)
+
+func _on_new_langauge_selected(new_language_id:String)->void:
+	pass

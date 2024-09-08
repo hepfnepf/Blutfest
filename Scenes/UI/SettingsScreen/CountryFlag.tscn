@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/UI/SettingsScreen/CountryFlag.gd" type="Script" id=2]
+
+[node name="CountryFlag" type="VBoxContainer"]
+margin_left = 371.0
+margin_right = 738.0
+margin_bottom = 645.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource( 2 )
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_right = 367.0
+margin_bottom = 320.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="."]
+margin_top = 324.0
+margin_right = 367.0
+margin_bottom = 645.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+align = 1
+
+[connection signal="toggled" from="TextureButton" to="." method="_on_TextureButton_toggled"]

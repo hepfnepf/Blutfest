@@ -33,7 +33,8 @@ const new_save_options_dict = {
 	"crosshair_is_dynamic":true,
 	"crosshair_color":Color(0.25,0.54,0.81,0.95),
 	"crosshair_size":0.3,
-	"max_enemy_count":250
+	"max_enemy_count":250,
+	"language":""
 	}
 
 onready var current_save_game= read_savegame()
