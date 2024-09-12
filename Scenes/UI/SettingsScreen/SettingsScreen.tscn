@@ -88,8 +88,111 @@ margin_bottom = 792.0
 size_flags_vertical = 3
 tab_align = 0
 
+[node name="Game" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.0
+margin_top = 31.0
+margin_right = -7.0
+margin_bottom = -7.0
+tab_align = 0
+script = ExtResource( 15 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer"]
+margin_right = 156.0
+margin_bottom = 108.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="ResetHighscore" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
+margin_right = 156.0
+margin_bottom = 33.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "RESET_HIGHSCORE"
+
+[node name="HighscoreResetAnnouncement" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+margin_top = 29.0
+margin_right = 167.0
+margin_bottom = 43.0
+text = "HISCORE_GOT_RESET"
+
+[node name="Timer" type="Timer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HighscoreResetAnnouncement"]
+one_shot = true
+
+[node name="ResetOptions" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
+margin_top = 37.0
+margin_right = 156.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "RESET_OPTIONS"
+
+[node name="OptionsResetAnnouncement" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+margin_top = 29.0
+margin_right = 167.0
+margin_bottom = 43.0
+text = "OPTIONS_GOT_RESET"
+
+[node name="Timer" type="Timer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/OptionsResetAnnouncement"]
+one_shot = true
+
+[node name="MaxEnemyCount" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
+margin_top = 74.0
+margin_right = 156.0
+margin_bottom = 88.0
+text = "MAX_ENEMY_COUNT"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
+margin_top = 92.0
+margin_right = 156.0
+margin_bottom = 108.0
+
+[node name="SliderMin" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_top = 1.0
+margin_bottom = 15.0
+
+[node name="EnemyCountSlider" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 4.0
+margin_right = 152.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+min_value = 50.0
+max_value = 500.0
+step = 5.0
+value = 300.0
+rounded = true
+
+[node name="SliderMax" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 156.0
+margin_top = 1.0
+margin_right = 156.0
+margin_bottom = 15.0
+
 [node name="Controls" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
 unique_name_in_owner = true
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 7.0
@@ -262,109 +365,6 @@ margin_right = 1472.0
 margin_bottom = 318.0
 size_flags_horizontal = 9
 rebind_action = "toggle_debug_invincibility"
-
-[node name="Game" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
-unique_name_in_owner = true
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 7.0
-margin_top = 31.0
-margin_right = -7.0
-margin_bottom = -7.0
-tab_align = 0
-script = ExtResource( 15 )
-
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 5.0
-margin_right = -5.0
-margin_bottom = -5.0
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer"]
-margin_right = 156.0
-margin_bottom = 108.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-
-[node name="ResetHighscore" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
-margin_right = 156.0
-margin_bottom = 33.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 3 )
-text = "RESET_HIGHSCORE"
-
-[node name="HighscoreResetAnnouncement" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-visible = false
-margin_top = 29.0
-margin_right = 167.0
-margin_bottom = 43.0
-text = "HISCORE_GOT_RESET"
-
-[node name="Timer" type="Timer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HighscoreResetAnnouncement"]
-one_shot = true
-
-[node name="ResetOptions" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
-margin_top = 37.0
-margin_right = 156.0
-margin_bottom = 70.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 3 )
-text = "RESET_OPTIONS"
-
-[node name="OptionsResetAnnouncement" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-visible = false
-margin_top = 29.0
-margin_right = 167.0
-margin_bottom = 43.0
-text = "OPTIONS_GOT_RESET"
-
-[node name="Timer" type="Timer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/OptionsResetAnnouncement"]
-one_shot = true
-
-[node name="MaxEnemyCount" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
-margin_top = 74.0
-margin_right = 156.0
-margin_bottom = 88.0
-text = "MAX_ENEMY_COUNT"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
-margin_top = 92.0
-margin_right = 156.0
-margin_bottom = 108.0
-
-[node name="SliderMin" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-margin_top = 1.0
-margin_bottom = 15.0
-
-[node name="EnemyCountSlider" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-margin_left = 4.0
-margin_right = 152.0
-margin_bottom = 16.0
-size_flags_horizontal = 3
-min_value = 50.0
-max_value = 500.0
-step = 5.0
-value = 300.0
-rounded = true
-
-[node name="SliderMax" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-margin_left = 156.0
-margin_top = 1.0
-margin_right = 156.0
-margin_bottom = 15.0
 
 [node name="Sound" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
 unique_name_in_owner = true
@@ -621,12 +621,12 @@ size_flags_horizontal = 4
 custom_fonts/font = SubResource( 10 )
 text = "RETURN"
 
-[connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer/CheckBox" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer/CheckBox" method="_on_CheckBox_toggled"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetHighscore" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game" method="_on_ResetHighscore_pressed"]
 [connection signal="timeout" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HighscoreResetAnnouncement/Timer" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game" method="_on_Timer_timeout_hs"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetOptions" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game" method="_on_ResetOptions_pressed"]
 [connection signal="timeout" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/OptionsResetAnnouncement/Timer" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game" method="_on_Timer_timeout_op"]
 [connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HBoxContainer/EnemyCountSlider" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game" method="_on_EnemyCounSlider_value_changed"]
+[connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer/CheckBox" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer/CheckBox" method="_on_CheckBox_toggled"]
 [connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/FullscreenToggle" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/FullscreenToggle" method="_on_FullscreenToggle_toggled"]
 [connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/VsyncToggle" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/VsyncToggle" method="_on_VsyncToggle_toggled"]
 [connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer/BloodOnScreenToggle" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI" method="_on_BloodOnScreenToggle_toggled"]

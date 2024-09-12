@@ -7,6 +7,7 @@ var waiting_for_input:bool=false
 
 func _ready() -> void:
 	update_text()
+	EventBus.connect("settings_reset",self,"update_text")
 
 func update_text()->void:
 	var _text:String = ""

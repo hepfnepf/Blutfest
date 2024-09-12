@@ -38,8 +38,18 @@ const new_save_options_dict = {
 	"key_bindings":{}
 	}
 
+var standard_keybindings={}
+
+
 onready var current_save_game= read_savegame()
 onready var current_save_options=read_saveOptions()
+
+
+
+func _ready() -> void:
+	standard_keybindings = get_current_key_binding_dict()
+	load_key_binding(current_save_options["key_bindings"])
+
 
 """
 To be used directly:
@@ -66,11 +76,21 @@ func set_options_save(options_save:Dictionary)->void:
 	write_save_options_to_file(current_save_options)
 
 """
-								The rest of this script is not meant to be acessed directly from other scripts!
+								The rest of this script is mostly not meant to be acessed directly from other scripts!
 """
+func reset_key_bindings()->void:
+	load_key_binding(standard_keybindings)
+	current_save_options["key_bindings"]={}
 
-func _ready() -> void:
-	load_key_binding(current_save_options["key_bindings"])
+
+func get_current_key_binding_dict()->Dictionary:
+	var bindings = {}
+	var actions = InputMap.get_actions()
+	for action in actions:
+		bindings[action] = serialize_action(action)
+
+	return bindings
+
 
 func load_key_binding(bindings:Dictionary)->void:
 	for action in bindings:
@@ -124,6 +144,7 @@ func serialize_key_event(event:InputEventKey)->Dictionary:
 		"unicode":event.unicode
 	}
 	return toStore
+
 
 
 """

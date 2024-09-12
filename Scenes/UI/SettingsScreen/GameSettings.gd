@@ -21,20 +21,19 @@ func set_enemy_count_label(count:int)->void:
 
 
 func _on_ResetHighscore_pressed()->void:
-	var save_dict = SaveManager.get_game_save()
-	save_dict["highscore"] = 0
-	save_dict["best_time"] = 0
-	SaveManager.set_game_save(save_dict)
+	SaveManager.set_game_save(SaveManager.new_save_game_dict)
 
 	hs_reset_announcement.show()
 	hs_reset_announcement_time.start()
 
 func _on_ResetOptions_pressed() -> void:
-	SaveManager.create_empty_save_options_file()
+	SaveManager.set_options_save(SaveManager.new_save_options_dict)
+	SaveManager.reset_key_bindings()
 
 	op_reset_announcement.show()
 	op_reset_announcement_timer.start()
 
+	EventBus.emit_signal("settings_reset")
 	emit_signal("changed_sound")
 
 func _on_Timer_timeout_hs() -> void:
