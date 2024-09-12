@@ -39,6 +39,7 @@ const new_save_options_dict = {
 	}
 
 var standard_keybindings={}
+var initial_language=""
 
 
 onready var current_save_game= read_savegame()
@@ -48,8 +49,8 @@ onready var current_save_options=read_saveOptions()
 
 func _ready() -> void:
 	standard_keybindings = get_current_key_binding_dict()
-	load_key_binding(current_save_options["key_bindings"])
-
+	initial_language = TranslationServer.get_locale()
+	init_game()
 
 """
 To be used directly:
@@ -78,6 +79,34 @@ func set_options_save(options_save:Dictionary)->void:
 """
 								The rest of this script is mostly not meant to be acessed directly from other scripts!
 """
+
+func init_game()->void:
+	load_key_binding(current_save_options["key_bindings"])
+	if current_save_options["language"] != "":
+		TranslationServer.set_locale(current_save_options["language"])
+	else:
+		TranslationServer.set_locale(initial_language)
+	EventBus.emit_signal("blood_overlay_enabled",current_save_options["blood_overlay_enabled"])
+	EventBus.emit_signal("max_enemy_count_change",current_save_options["max_enemy_count"])
+	EventBus.emit_signal("blood_overlay_enabled",current_save_options["blood_overlay_enabled"])
+	OS.window_fullscreen = current_save_options["fullscreen_enabled"]
+	OS.vsync_enabled=current_save_options["vsync_enabled"]
+	EventBus.emit_signal("fullscreen_changed")
+	EventBus.emit_signal("vsync_changed")
+	EventBus.emit_signal("zooming_inverted",current_save_options["zooming_inverted"])
+
+	var sfx_index= AudioServer.get_bus_index("SFX")
+	var music_index= AudioServer.get_bus_index("Music")
+	var sfx_db_value = linear2db(current_save_options["sfx_volume"])
+	var music_db_value = linear2db(current_save_options["music_volume"])
+	var sfx_muted = current_save_options["sfx_disabled"]
+	var music_muted = current_save_options["music_disabled"]
+	AudioServer.set_bus_volume_db(sfx_index, sfx_db_value)
+	AudioServer.set_bus_volume_db(music_index, music_db_value)
+	AudioServer.set_bus_mute(sfx_index,sfx_muted)
+	AudioServer.set_bus_mute(music_index,music_muted)
+
+
 func reset_key_bindings()->void:
 	load_key_binding(standard_keybindings)
 	current_save_options["key_bindings"]={}

@@ -10,6 +10,7 @@ onready var language_tab = $"%Language"
 
 func _ready() -> void:
 	load_settings()
+	EventBus.connect("settings_reset",self,"load_settings")
 
 func _on_ExitButton_pressed()->void:
 	visible = false

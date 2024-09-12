@@ -29,6 +29,7 @@ func _on_ResetHighscore_pressed()->void:
 func _on_ResetOptions_pressed() -> void:
 	SaveManager.set_options_save(SaveManager.new_save_options_dict)
 	SaveManager.reset_key_bindings()
+	SaveManager.init_game()
 
 	op_reset_announcement.show()
 	op_reset_announcement_timer.start()

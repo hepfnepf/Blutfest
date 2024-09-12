@@ -17,7 +17,5 @@ func _on_BloodOnScreenToggle_toggled(button_pressed: bool) -> void:
 func _on_CrosshairDynamicToggle_toggled(button_pressed: bool) -> void:
 	EventBus.emit_signal("crosshair_is_dynamic",button_pressed)
 
-
-
 func _on_CrosshairSize_value_changed(value: float) -> void:
 	EventBus.emit_signal("crosshair_size_change",value)

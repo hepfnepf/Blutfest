@@ -4,30 +4,6 @@ extends CanvasLayer
 onready var creditsScreen = $CreditsScreen
 onready var settingsScreen = $SettingsScreen
 
-func _ready() -> void:
-	load_options()
-
-
-func load_options()->void:
-	var sg = SaveManager.get_options_save()
-
-	var sfx_index= AudioServer.get_bus_index("SFX")
-	var music_index= AudioServer.get_bus_index("Music")
-	var sfx_db_value = linear2db(sg["sfx_volume"])
-	var music_db_value = linear2db(sg["music_volume"])
-	var sfx_muted = sg["sfx_disabled"]
-	var music_muted = sg["music_disabled"]
-	AudioServer.set_bus_volume_db(sfx_index, sfx_db_value)
-	AudioServer.set_bus_volume_db(music_index, music_db_value)
-	AudioServer.set_bus_mute(sfx_index,sfx_muted)
-	AudioServer.set_bus_mute(music_index,music_muted)
-
-	OS.window_fullscreen = sg["fullscreen_enabled"]
-	OS.vsync_enabled = sg["vsync_enabled"]
-
-	EventBus.emit_signal("zooming_inverted",sg["zooming_inverted"])
-
-
 func _on_PlayButton_pressed() -> void:
 	get_tree().change_scene("res://Scenes/Game.tscn")
 

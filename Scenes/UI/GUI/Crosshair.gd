@@ -10,17 +10,22 @@ export (float)var spread_scaler = 50.0
 var dynamic:bool = true
 
 func _ready() -> void:
-	var color = SaveManager.current_save_options["crosshair_color"]
-	dynamic = SaveManager.current_save_options["crosshair_is_dynamic"]
-	outer_crosshair.material.set("shader_param/color",color)
-	inner_crosshair.material.set("shader_param/color",color)
+	init_values()
 	EventBus.connect("crosshair_color_change",self,"_on_crosshair_color_change")
 	EventBus.connect("crosshair_is_dynamic",self,"_on_crosshair_is_dynamic_change")
 	EventBus.connect("crosshair_size_change",self,"_on_crosshair_size_change")
+	EventBus.connect("settings_reset",self,"init_values")
 
 # warning-ignore:unused_argument
 func _process(delta) -> void:
 	global_position = get_viewport().get_mouse_position()
+
+func init_values()->void:
+	var color = SaveManager.current_save_options["crosshair_color"]
+	dynamic = SaveManager.current_save_options["crosshair_is_dynamic"]
+	outer_crosshair.material.set("shader_param/color",color)
+	inner_crosshair.material.set("shader_param/color",color)
+
 
 func set_spread(new_spread) -> void:
 	if dynamic:
