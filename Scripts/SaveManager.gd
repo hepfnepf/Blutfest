@@ -26,20 +26,41 @@ const new_save_options_dict = {
 	"sfx_disabled":false,
 	"music_volume":0.5,
 	"music_disabled":true,
+	"fullscreen_enabled":false,
+	"vsync_enabled":true,
+	"zooming_inverted":false,
+	"blood_overlay_enabled":true,
+	"crosshair_is_dynamic":true,
+	"crosshair_color":Color(0.25,0.54,0.81,0.95),
+	"crosshair_size":0.3,
+	"max_enemy_count":250,
+	"language":"",
+	"key_bindings":{}
 	}
+
+var standard_keybindings={}
+var initial_language=""
+
 
 onready var current_save_game= read_savegame()
 onready var current_save_options=read_saveOptions()
+
+
+
+func _ready() -> void:
+	standard_keybindings = get_current_key_binding_dict()
+	initial_language = TranslationServer.get_locale()
+	init_game()
 
 """
 To be used directly:
 """
 
 func get_game_save()->Dictionary:
-	return current_save_game
+	return current_save_game.duplicate()
 
 func get_options_save()->Dictionary:
-	return current_save_options
+	return current_save_options.duplicate()
 
 func set_game_save(game_save:Dictionary)->void:
 	var res = import_save_game(game_save)
@@ -56,8 +77,104 @@ func set_options_save(options_save:Dictionary)->void:
 	write_save_options_to_file(current_save_options)
 
 """
-The rest of this script is not meant to be acessed directly from other scripts!
+								The rest of this script is mostly not meant to be acessed directly from other scripts!
 """
+
+func init_game()->void:
+	load_key_binding(current_save_options["key_bindings"])
+	if current_save_options["language"] != "":
+		TranslationServer.set_locale(current_save_options["language"])
+	else:
+		TranslationServer.set_locale(initial_language)
+	EventBus.emit_signal("blood_overlay_enabled",current_save_options["blood_overlay_enabled"])
+	EventBus.emit_signal("max_enemy_count_change",current_save_options["max_enemy_count"])
+	EventBus.emit_signal("blood_overlay_enabled",current_save_options["blood_overlay_enabled"])
+	OS.window_fullscreen = current_save_options["fullscreen_enabled"]
+	OS.vsync_enabled=current_save_options["vsync_enabled"]
+	EventBus.emit_signal("fullscreen_changed")
+	EventBus.emit_signal("vsync_changed")
+	EventBus.emit_signal("zooming_inverted",current_save_options["zooming_inverted"])
+
+	var sfx_index= AudioServer.get_bus_index("SFX")
+	var music_index= AudioServer.get_bus_index("Music")
+	var sfx_db_value = linear2db(current_save_options["sfx_volume"])
+	var music_db_value = linear2db(current_save_options["music_volume"])
+	var sfx_muted = current_save_options["sfx_disabled"]
+	var music_muted = current_save_options["music_disabled"]
+	AudioServer.set_bus_volume_db(sfx_index, sfx_db_value)
+	AudioServer.set_bus_volume_db(music_index, music_db_value)
+	AudioServer.set_bus_mute(sfx_index,sfx_muted)
+	AudioServer.set_bus_mute(music_index,music_muted)
+
+
+func reset_key_bindings()->void:
+	load_key_binding(standard_keybindings)
+	current_save_options["key_bindings"]={}
+
+
+func get_current_key_binding_dict()->Dictionary:
+	var bindings = {}
+	var actions = InputMap.get_actions()
+	for action in actions:
+		bindings[action] = serialize_action(action)
+
+	return bindings
+
+
+func load_key_binding(bindings:Dictionary)->void:
+	for action in bindings:
+		if not bindings[action].empty():#since currently only keyboard keys are getting stored, some things like the click for fire do net get saved and are storead as an empty dict
+			InputMap.action_erase_events(action)
+			for event_dict in bindings[action]:#currently, can only be one event per action, so loop not really neccessary yet
+				var event = deserialize_key_event(bindings[action])
+				if event.scancode != 0:
+					InputMap.action_add_event(action,event)
+
+
+
+func deserialize_key_event(event_dict:Dictionary)->InputEventKey:
+	if event_dict["type"] == "InputEventKey":
+			var event = InputEventKey.new()
+			event.device = event_dict["device"]
+			event.alt = event_dict["alt"]
+			event.command = event_dict["command"]
+			event.control = event_dict["control"]
+			event.meta = event_dict["meta"]
+			event.shift = event_dict["shift"]
+			event.echo = event_dict["echo"]
+			event.pressed = event_dict["pressed"]
+			event.scancode = event_dict["scancode"]
+			event.unicode = event_dict["unicode"]
+			return event
+	return InputEventKey.new()
+
+#Currently, only keyboard events are possibile to serialize and an action can also only have one
+#If no event was found, an empty dict gets returned
+func serialize_action(action:String)->Dictionary:
+	var event_dict = {}
+	for event in InputMap.get_action_list(action):
+		if event is InputEventKey:
+			return serialize_key_event(event)
+
+	return event_dict
+
+func serialize_key_event(event:InputEventKey)->Dictionary:
+	var toStore ={
+		"type":"InputEventKey",
+		"device":event.device,
+		"alt":event.alt,
+		"command":event.command,
+		"control":event.control,
+		"meta":event.meta,
+		"shift":event.shift,
+		"echo":event.echo,
+		"pressed":event.pressed,
+		"scancode":event.scancode,
+		"unicode":event.unicode
+	}
+	return toStore
+
+
 
 """
 Create new save files with base values.

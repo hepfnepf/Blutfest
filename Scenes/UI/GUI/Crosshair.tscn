@@ -41,12 +41,12 @@ void fragment(){
 [sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
 shader = SubResource( 1 )
-shader_param/radius = 0.345
+shader_param/radius = 0.239
 shader_param/width = 0.011
 shader_param/start_fading = 0.009
 shader_param/harshness = 1.0
 shader_param/center = Vector2( 0.5, 0.5 )
-shader_param/color = Color( 0.184314, 0.443137, 0.690196, 0.678431 )
+shader_param/color = Color( 0.25098, 0.541176, 0.819608, 0.956863 )
 
 [sub_resource type="ShaderMaterial" id=3]
 resource_local_to_scene = true

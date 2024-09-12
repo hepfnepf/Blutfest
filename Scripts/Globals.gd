@@ -15,3 +15,4 @@ func _ready() -> void:
 func set_music_player(_music_player:AudioStreamPlayer)->void:
 	music_player = _music_player
 	emit_signal("music_player_set")
+

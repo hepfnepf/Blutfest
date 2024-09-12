@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/UI/SettingsScreen/RebindButton.gd" type="Script" id=1]
+
+[node name="RebindButton" type="Button"]
+margin_right = 103.0
+margin_bottom = 28.0
+text = "show_bindngs"
+script = ExtResource( 1 )
+rebind_action = "move_up"
+
+[connection signal="button_up" from="." to="." method="_on_RebindButton_button_up"]

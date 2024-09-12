@@ -2,10 +2,10 @@ extends Popup
 
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("toogle_help") and visible:
+	if Input.is_action_just_pressed("help") and visible:
 		hide()
 
-	elif Input.is_action_just_pressed("toogle_help") and !visible and !get_tree().paused:#game should not be in main menu or card selection
+	elif Input.is_action_just_pressed("help") and !visible and !get_tree().paused:#game should not be in main menu or card selection
 		popup()
 
 

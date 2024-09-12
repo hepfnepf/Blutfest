@@ -15,6 +15,24 @@ RESTART,Restart,Neustart
 EXIT,Exit,Beenden
 OPTIONS,Options,Optionen
 RESET_HIGHSCORE,Reset Highscore,Highscore zurücksetzen
+MAX_ENEMY_COUNT,Max. Enemys: %d,Max. Gegneranzahl: %d
+WINDOW_FULLSCREEN,Fullscreen,Vollbild
+WINDOW_VSYNC,V-Sync,V-Sync
+TOGGLE_BLOOD_ON_SCREEN_EFFECT,Blood effect on screen,Bildschirmbluteffekt
+CROSSHAIR,Crosshair,Fadenkreuz
+DYNAMIC,Dynamic,Dynamisch
+COLOR,Color,Farbe
+SIZE,Size,Größe
+MOVE_UP,Up,Oben
+MOVE_DOWN,Down,Unten
+MOVE_LEFT,Left,Links
+MOVE_RIGHT,Right,Rechts
+LOCK_WEAPON,Lock weapn,Waffe sperren
+INVINCIBILITY_BTN,Invincibility,Unverwundbarkeit
+INVERT_ZOOMING,Invert zooming,Zoomen invertieren
+HELP_BTN,Help,Hilfe
+DEBUG_INFO_BTN,Debug,Debug
+RELOAD_BTN,Reload,Nachladen
 GAME,Game,Spiel
 HISCORE_GOT_RESET,Highscore has been reset!,Der Highscore wurde zurückgesetzt!
 CREDITS,Credits,Credits

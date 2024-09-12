@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=2]
@@ -10,6 +10,18 @@
 [ext_resource path="res://Sprites/UI/speaker_disabled.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/UI/speaker.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/UI/MainMenuTheme.tres" type="Theme" id=10]
+[ext_resource path="res://Scenes/UI/SettingsScreen/FullscreenToggle.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/UI/SettingsScreen/VsyncToggle.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/UI/SettingsScreen/RebindButton.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/UI/SettingsScreen/InvertZooming.gd" type="Script" id=14]
+[ext_resource path="res://Scenes/UI/SettingsScreen/GameSettings.gd" type="Script" id=15]
+[ext_resource path="res://Scenes/UI/SettingsScreen/ControlSettings.gd" type="Script" id=16]
+[ext_resource path="res://Scenes/UI/SettingsScreen/UISettings.gd" type="Script" id=17]
+[ext_resource path="res://Scenes/UI/SettingsScreen/SoundSettings.gd" type="Script" id=18]
+[ext_resource path="res://Scenes/UI/SettingsScreen/CountryFlag.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Sprites/UI/Flag_of_the_United_Kingdom.svg.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/UI/Deutschland_Flagge.jpg" type="Texture" id=21]
+[ext_resource path="res://Scenes/UI/SettingsScreen/LanguageSettings.gd" type="Script" id=22]
 
 [sub_resource type="DynamicFont" id=2]
 size = 90
@@ -22,6 +34,16 @@ extra_spacing_char = 1
 font_data = ExtResource( 2 )
 
 [sub_resource type="Theme" id=11]
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0, 0, 0, 0 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="Theme" id=13]
+Panel/styles/panel = SubResource( 12 )
 
 [sub_resource type="DynamicFont" id=10]
 size = 42
@@ -67,6 +89,7 @@ size_flags_vertical = 3
 tab_align = 0
 
 [node name="Game" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
+unique_name_in_owner = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 7.0
@@ -74,6 +97,7 @@ margin_top = 31.0
 margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
+script = ExtResource( 15 )
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game"]
 anchor_right = 1.0
@@ -88,7 +112,7 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer"]
 margin_right = 156.0
-margin_bottom = 70.0
+margin_bottom = 108.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
@@ -131,12 +155,228 @@ text = "OPTIONS_GOT_RESET"
 [node name="Timer" type="Timer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/OptionsResetAnnouncement"]
 one_shot = true
 
-[node name="Sound" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
+[node name="MaxEnemyCount" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
+margin_top = 74.0
+margin_right = 156.0
+margin_bottom = 88.0
+text = "MAX_ENEMY_COUNT"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer"]
+margin_top = 92.0
+margin_right = 156.0
+margin_bottom = 108.0
+
+[node name="SliderMin" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_top = 1.0
+margin_bottom = 15.0
+
+[node name="EnemyCountSlider" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 4.0
+margin_right = 152.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+min_value = 50.0
+max_value = 500.0
+step = 5.0
+value = 300.0
+rounded = true
+
+[node name="SliderMax" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 156.0
+margin_top = 1.0
+margin_right = 156.0
+margin_bottom = 15.0
+
+[node name="Controls" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
+unique_name_in_owner = true
 visible = false
-margin_top = 665.0
-margin_right = 1496.0
-margin_bottom = 693.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.0
+margin_top = 31.0
+margin_right = -7.0
+margin_bottom = -7.0
 tab_align = 0
+script = ExtResource( 16 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer"]
+margin_right = 1472.0
+margin_bottom = 645.0
+columns = 2
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
+margin_top = 8.0
+margin_right = 1365.0
+margin_bottom = 22.0
+text = "INVERT_ZOOMING"
+
+[node name="CheckBox" type="CheckBox" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+margin_left = 1442.0
+margin_right = 1472.0
+margin_bottom = 30.0
+size_flags_horizontal = 8
+script = ExtResource( 14 )
+
+[node name="RebindLabelUp" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
+margin_top = 41.0
+margin_right = 1365.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+text = "MOVE_UP"
+
+[node name="RebindButton" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
+margin_left = 1369.0
+margin_top = 34.0
+margin_right = 1472.0
+margin_bottom = 62.0
+size_flags_horizontal = 9
+
+[node name="RebindLabelDown" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
+margin_top = 73.0
+margin_right = 1365.0
+margin_bottom = 87.0
+size_flags_horizontal = 3
+text = "MOVE_DOWN"
+
+[node name="RebindButton2" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
+margin_left = 1369.0
+margin_top = 66.0
+margin_right = 1472.0
+margin_bottom = 94.0
+size_flags_horizontal = 9
+rebind_action = "move_down"
+
+[node name="RebindLabelLeft" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
+margin_top = 105.0
+margin_right = 1365.0
+margin_bottom = 119.0
+size_flags_horizontal = 3
+text = "MOVE_LEFT"
+
+[node name="RebindButton3" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
+margin_left = 1369.0
+margin_top = 98.0
+margin_right = 1472.0
+margin_bottom = 126.0
+size_flags_horizontal = 9
+rebind_action = "move_left"
+
+[node name="RebindLabelRight" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
+margin_top = 137.0
+margin_right = 1365.0
+margin_bottom = 151.0
+size_flags_horizontal = 3
+text = "MOVE_RIGHT"
+
+[node name="RebindButton4" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
+margin_left = 1369.0
+margin_top = 130.0
+margin_right = 1472.0
+margin_bottom = 158.0
+size_flags_horizontal = 9
+rebind_action = "move_right"
+
+[node name="RebindLabelReload" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
+margin_top = 169.0
+margin_right = 1365.0
+margin_bottom = 183.0
+size_flags_horizontal = 3
+text = "RELOAD_BTN"
+
+[node name="RebindButton8" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
+margin_left = 1369.0
+margin_top = 162.0
+margin_right = 1472.0
+margin_bottom = 190.0
+size_flags_horizontal = 9
+rebind_action = "reload"
+
+[node name="RebindLabelLocking" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
+margin_top = 201.0
+margin_right = 1365.0
+margin_bottom = 215.0
+size_flags_horizontal = 3
+text = "LOCK_WEAPON"
+
+[node name="RebindButton5" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
+margin_left = 1369.0
+margin_top = 194.0
+margin_right = 1472.0
+margin_bottom = 222.0
+size_flags_horizontal = 9
+rebind_action = "lock_weapon"
+
+[node name="RebindLabelHelp" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
+margin_top = 233.0
+margin_right = 1365.0
+margin_bottom = 247.0
+size_flags_horizontal = 3
+text = "HELP_BTN"
+
+[node name="RebindButton6" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
+margin_left = 1369.0
+margin_top = 226.0
+margin_right = 1472.0
+margin_bottom = 254.0
+size_flags_horizontal = 9
+rebind_action = "help"
+
+[node name="RebindLabelDebug" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
+margin_top = 265.0
+margin_right = 1365.0
+margin_bottom = 279.0
+size_flags_horizontal = 3
+text = "DEBUG_INFO_BTN"
+
+[node name="RebindButton7" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
+margin_left = 1369.0
+margin_top = 258.0
+margin_right = 1472.0
+margin_bottom = 286.0
+size_flags_horizontal = 9
+rebind_action = "show_debug_info"
+
+[node name="RebindLabelInvincibility" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
+margin_top = 297.0
+margin_right = 1365.0
+margin_bottom = 311.0
+size_flags_horizontal = 3
+text = "INVINCIBILITY_BTN"
+
+[node name="RebindButton9" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
+margin_left = 1369.0
+margin_top = 290.0
+margin_right = 1472.0
+margin_bottom = 318.0
+size_flags_horizontal = 9
+rebind_action = "toggle_debug_invincibility"
+
+[node name="Sound" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
+unique_name_in_owner = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.0
+margin_top = 31.0
+margin_right = -7.0
+margin_bottom = -7.0
+tab_align = 0
+script = ExtResource( 18 )
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Sound"]
 anchor_right = 1.0
@@ -150,28 +390,227 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Sound/MarginContainer"]
-margin_right = 1486.0
-margin_bottom = 60.0
+margin_right = 1472.0
+margin_bottom = 645.0
 alignment = 1
 
 [node name="SFXSlider" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer" instance=ExtResource( 7 )]
 unique_name_in_owner = true
-margin_left = 701.0
-margin_right = 741.0
-margin_bottom = 60.0
+margin_left = 694.0
+margin_right = 734.0
+margin_bottom = 645.0
 button_texture = ExtResource( 9 )
 audio_channel = "SFX"
 button_texture_disabled = ExtResource( 8 )
 
 [node name="MusicSlider" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer" instance=ExtResource( 7 )]
 unique_name_in_owner = true
-margin_left = 745.0
-margin_right = 785.0
-margin_bottom = 60.0
+margin_left = 738.0
+margin_right = 778.0
+margin_bottom = 645.0
 theme = SubResource( 11 )
 button_texture = ExtResource( 6 )
 audio_channel = "Music"
 button_texture_disabled = ExtResource( 5 )
+
+[node name="Graphics" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.0
+margin_top = 31.0
+margin_right = -7.0
+margin_bottom = -7.0
+tab_align = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer"]
+margin_right = 1472.0
+margin_bottom = 645.0
+columns = 2
+
+[node name="WindowModeLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
+margin_top = 16.0
+margin_right = 1390.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+text = "WINDOW_FULLSCREEN"
+
+[node name="FullscreenToggle" type="CheckButton" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
+margin_left = 1394.0
+margin_right = 1472.0
+margin_bottom = 46.0
+script = ExtResource( 11 )
+
+[node name="VsyncModeLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
+margin_top = 66.0
+margin_right = 1390.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+text = "WINDOW_VSYNC"
+
+[node name="VsyncToggle" type="CheckButton" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
+margin_left = 1394.0
+margin_top = 50.0
+margin_right = 1472.0
+margin_bottom = 96.0
+script = ExtResource( 12 )
+
+[node name="UI" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
+unique_name_in_owner = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.0
+margin_top = 31.0
+margin_right = -7.0
+margin_bottom = -7.0
+tab_align = 0
+script = ExtResource( 17 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer"]
+margin_right = 1472.0
+margin_bottom = 645.0
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer"]
+margin_right = 1472.0
+margin_bottom = 30.0
+columns = 2
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer"]
+margin_top = 8.0
+margin_right = 1438.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+text = "TOGGLE_BLOOD_ON_SCREEN_EFFECT"
+
+[node name="BloodOnScreenToggle" type="CheckBox" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+margin_left = 1442.0
+margin_right = 1472.0
+margin_bottom = 30.0
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer"]
+margin_top = 34.0
+margin_right = 1472.0
+margin_bottom = 48.0
+text = "CROSSHAIR"
+align = 1
+
+[node name="GridContainer2" type="GridContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer"]
+margin_top = 52.0
+margin_right = 1472.0
+margin_bottom = 134.0
+columns = 2
+
+[node name="Label3" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer2"]
+margin_top = 8.0
+margin_right = 734.0
+margin_bottom = 22.0
+text = "DYNAMIC"
+
+[node name="CrosshairDynamicToggle" type="CheckBox" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer2"]
+unique_name_in_owner = true
+margin_left = 1442.0
+margin_right = 1472.0
+margin_bottom = 30.0
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer2"]
+margin_top = 41.0
+margin_right = 734.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+text = "COLOR"
+
+[node name="CrosshairColorPicker" type="ColorPickerButton" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer2"]
+unique_name_in_owner = true
+margin_left = 738.0
+margin_top = 34.0
+margin_right = 1472.0
+margin_bottom = 62.0
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer2"]
+margin_top = 67.0
+margin_right = 734.0
+margin_bottom = 81.0
+text = "SIZE"
+
+[node name="CrosshairSize" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer2"]
+unique_name_in_owner = true
+margin_left = 738.0
+margin_top = 66.0
+margin_right = 1472.0
+margin_bottom = 82.0
+min_value = 0.1
+max_value = 2.0
+step = 0.1
+value = 0.1
+
+[node name="Language" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
+unique_name_in_owner = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7.0
+margin_top = 31.0
+margin_right = -7.0
+margin_bottom = -7.0
+tab_align = 0
+script = ExtResource( 22 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Language"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Language/MarginContainer"]
+margin_right = 1472.0
+margin_bottom = 645.0
+columns = 4
+
+[node name="CountryFlag" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Language/MarginContainer/GridContainer" instance=ExtResource( 19 )]
+margin_left = 0.0
+margin_right = 367.0
+size_flags_vertical = 3
+theme = SubResource( 13 )
+flag = ExtResource( 21 )
+language_name = "Deutsch"
+language_id = "de"
+
+[node name="CountryFlag2" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Language/MarginContainer/GridContainer" instance=ExtResource( 19 )]
+size_flags_vertical = 3
+flag = ExtResource( 20 )
+language_name = "English"
+language_id = "en"
 
 [node name="ExitButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
 margin_left = 659.0
@@ -182,8 +621,16 @@ size_flags_horizontal = 4
 custom_fonts/font = SubResource( 10 )
 text = "RETURN"
 
-[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetHighscore" to="." method="_on_ResetHighscore_pressed"]
-[connection signal="timeout" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HighscoreResetAnnouncement/Timer" to="." method="_on_Timer_timeout"]
-[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetOptions" to="." method="_on_ResetOptions_pressed"]
-[connection signal="timeout" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/OptionsResetAnnouncement/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetHighscore" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game" method="_on_ResetHighscore_pressed"]
+[connection signal="timeout" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HighscoreResetAnnouncement/Timer" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game" method="_on_Timer_timeout_hs"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetOptions" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game" method="_on_ResetOptions_pressed"]
+[connection signal="timeout" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/OptionsResetAnnouncement/Timer" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game" method="_on_Timer_timeout_op"]
+[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HBoxContainer/EnemyCountSlider" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game" method="_on_EnemyCounSlider_value_changed"]
+[connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer/CheckBox" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer/CheckBox" method="_on_CheckBox_toggled"]
+[connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/FullscreenToggle" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/FullscreenToggle" method="_on_FullscreenToggle_toggled"]
+[connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/VsyncToggle" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/VsyncToggle" method="_on_VsyncToggle_toggled"]
+[connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer/BloodOnScreenToggle" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI" method="_on_BloodOnScreenToggle_toggled"]
+[connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer2/CrosshairDynamicToggle" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI" method="_on_CrosshairDynamicToggle_toggled"]
+[connection signal="color_changed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer2/CrosshairColorPicker" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI" method="_on_CrosshairColorPicker_color_changed"]
+[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer2/CrosshairSize" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI" method="_on_CrosshairSize_value_changed"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]

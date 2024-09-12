@@ -62,6 +62,7 @@ func _ready() -> void:
 	connect("spawned_enemy",debug_gui,"_on_enemy_count_changed")
 	connect("difficulty_changed",debug_gui,"_on_difficulty_changed")
 	connect("spawned_enemy",game,"_on_enemy_spawned")
+	EventBus.connect("max_enemy_count_change",self,"_on_max_enemy_count_change")
 
 func _process(delta) -> void:
 	if !game_alive:
@@ -69,7 +70,8 @@ func _process(delta) -> void:
 	handle_enemy_spawning(delta)
 	handle_item_spawning(delta)
 
-
+func _on_max_enemy_count_change(new_count:int)->void:
+	max_enemys=new_count
 
 #-----------Spawning Routine-------------
 ##Handles the automatic spawning of items on the map

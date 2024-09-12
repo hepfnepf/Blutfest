@@ -27,10 +27,11 @@ func _ready()-> void:
 	get_tree().paused = false
 
 
-	#Retrieve volume settings
+	#Retrieve settings
 	var sg = SaveManager.get_options_save()
 	gui.pause_menu.sfx_slider.value_change_code(sg["sfx_volume"])
 	gui.pause_menu.music_slider.value_change_code(sg["music_volume"])
+	player.camera.invert_zooming = sg["zooming_inverted"]
 
 
 func _on_player_death()->void:
