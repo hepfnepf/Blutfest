@@ -34,7 +34,8 @@ const new_save_options_dict = {
 	"crosshair_color":Color(0.25,0.54,0.81,0.95),
 	"crosshair_size":0.3,
 	"max_enemy_count":250,
-	"language":""
+	"language":"",
+	"key_bindings":{}
 	}
 
 onready var current_save_game= read_savegame()
@@ -65,8 +66,65 @@ func set_options_save(options_save:Dictionary)->void:
 	write_save_options_to_file(current_save_options)
 
 """
-The rest of this script is not meant to be acessed directly from other scripts!
+								The rest of this script is not meant to be acessed directly from other scripts!
 """
+
+func _ready() -> void:
+	load_key_binding(current_save_options["key_bindings"])
+
+func load_key_binding(bindings:Dictionary)->void:
+	for action in bindings:
+		if not bindings[action].empty():#since currently only keyboard keys are getting stored, some things like the click for fire do net get saved and are storead as an empty dict
+			InputMap.action_erase_events(action)
+			for event_dict in bindings[action]:#currently, can only be one event per action, so loop not really neccessary yet
+				var event = deserialize_key_event(bindings[action])
+				if event.scancode != 0:
+					InputMap.action_add_event(action,event)
+
+
+
+func deserialize_key_event(event_dict:Dictionary)->InputEventKey:
+	if event_dict["type"] == "InputEventKey":
+			var event = InputEventKey.new()
+			event.device = event_dict["device"]
+			event.alt = event_dict["alt"]
+			event.command = event_dict["command"]
+			event.control = event_dict["control"]
+			event.meta = event_dict["meta"]
+			event.shift = event_dict["shift"]
+			event.echo = event_dict["echo"]
+			event.pressed = event_dict["pressed"]
+			event.scancode = event_dict["scancode"]
+			event.unicode = event_dict["unicode"]
+			return event
+	return InputEventKey.new()
+
+#Currently, only keyboard events are possibile to serialize and an action can also only have one
+#If no event was found, an empty dict gets returned
+func serialize_action(action:String)->Dictionary:
+	var event_dict = {}
+	for event in InputMap.get_action_list(action):
+		if event is InputEventKey:
+			return serialize_key_event(event)
+
+	return event_dict
+
+func serialize_key_event(event:InputEventKey)->Dictionary:
+	var toStore ={
+		"type":"InputEventKey",
+		"device":event.device,
+		"alt":event.alt,
+		"command":event.command,
+		"control":event.control,
+		"meta":event.meta,
+		"shift":event.shift,
+		"echo":event.echo,
+		"pressed":event.pressed,
+		"scancode":event.scancode,
+		"unicode":event.unicode
+	}
+	return toStore
+
 
 """
 Create new save files with base values.

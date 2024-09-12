@@ -48,5 +48,6 @@ func store_settings()->void:
 	sg["crosshair_size"] = ui_tab.crosshair_size.value
 	sg["max_enemy_count"] = game_tab.max_enemy_count_slider.value
 	sg["language"] = TranslationServer.get_locale()
+	sg["key_bindings"] = controls_tab.get_key_binding_dict()
 
 	SaveManager.set_options_save(sg)
