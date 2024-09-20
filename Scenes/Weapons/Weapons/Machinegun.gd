@@ -19,10 +19,12 @@ func _ready() -> void:
 
 func add_to_player() -> void:
 	player.get_node("Sprites/torso").visible = false
+	.add_to_player()
 
 func remove_from_player() -> void:
 	player.get_node("Sprites/torso").visible = true
 	player.weapon_movement_speed_multi = 1.0
+	.remove_from_player()
 
 
 func check_for_input():

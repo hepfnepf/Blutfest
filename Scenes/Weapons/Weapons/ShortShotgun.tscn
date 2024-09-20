@@ -40,7 +40,7 @@ scale = Vector2( 0.2, 0.2 )
 position = Vector2( 136.024, 0 )
 
 [node name="BulletDirection" parent="." index="4"]
-position = Vector2( 167.624, 0.353546 )
+position = Vector2( 167.624, 0 )
 
 [node name="Shotgun" type="Sprite" parent="." index="7"]
 position = Vector2( 130.124, 0.054224 )

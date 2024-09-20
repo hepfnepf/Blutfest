@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/Player/cone_crosshair_2.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/ConeCrosshair.gd" type="Script" id=2]
+
+[sub_resource type="Shader" id=12]
+code = "shader_type canvas_item;
+
+//uniform vec2 direction = vec2(1,0);
+uniform float spread = 0.3;
+uniform vec4 color : hint_color;
+
+void fragment(){
+	if(UV.x <0.5){
+		COLOR.a=0.0;
+	}
+	else{
+		//float angle_direction = asin(direction.y);
+		float local_angle = asin(abs(UV.y-0.5)/(sqrt( pow(abs(UV.y-0.5),2) + pow(abs(UV.x-0.5),2))));
+		COLOR = texture(TEXTURE,UV);
+	
+	if (local_angle < spread){
+		COLOR.a = texture(TEXTURE,UV).a*color.a;
+	}
+	else{
+		COLOR.a = 0.0;
+	}
+	
+	COLOR.rgb = color.rgb;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=13]
+shader = SubResource( 12 )
+shader_param/spread = 0.3
+shader_param/color = Color( 0.862745, 0.121569, 0.121569, 1 )
+
+[node name="ConeCrosshair" type="Sprite"]
+material = SubResource( 13 )
+scale = Vector2( 10, 10 )
+z_index = -1
+texture = ExtResource( 1 )
+script = ExtResource( 2 )

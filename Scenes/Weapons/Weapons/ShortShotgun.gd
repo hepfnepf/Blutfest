@@ -4,9 +4,11 @@ export (int) var projectile_nmbr = 4
 
 func add_to_player() -> void:
 	player.get_node("Sprites/torso").visible = false
+	.add_to_player()
 
 func remove_from_player() -> void:
 	player.get_node("Sprites/torso").visible = true
+	.remove_from_player()
 
 func shoot_bullet() -> void:
 	for _i in range(projectile_nmbr):
@@ -24,18 +26,3 @@ func _shoot_bullet() -> void:
 	bullet.p_range = max_range*player.range_multi
 	bullet.damage = damage
 	bullet.timer.start(float(max_range*player.range_multi)/speed)#??, yes max_range already is a float, but without this conversion it did not work
-
-
-#The spread function gets overwritten, because the crosshair would get to big else
-func increase_spread():
-	spread *= 1+spread_inc
-	if spread > max_spread:
-		spread = max_spread
-	emit_signal("spread_changed", spread/10)
-
-func decrease_spread(delta:float):
-	if !is_reloading:
-		spread -= spread_dec*delta
-		if spread < base_spread:
-			spread = base_spread
-	emit_signal("spread_changed", spread/10)
