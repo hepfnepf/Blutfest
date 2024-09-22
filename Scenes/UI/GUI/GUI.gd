@@ -130,7 +130,7 @@ func time_to_str(time:int) -> String:
 	return str_time
 
 func set_cursor(cursor_type:int) -> void:
-	Globals.cursor_manager.set_crosshair(crosshair)
+#	Globals.cursor_manager.set_crosshair(crosshair)
 	Globals.cursor_manager.set_cursor(cursor_type)
 
 func _unhandled_input(_event):

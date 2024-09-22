@@ -13,18 +13,20 @@ var size:float = 1.0
 func _ready() -> void:
 	init_values()
 	EventBus.connect("crosshair_color_change",self,"_on_crosshair_color_change")
-	EventBus.connect("crosshair_is_dynamic",self,"_on_crosshair_is_dynamic_change")
-	EventBus.connect("crosshair_size_change",self,"_on_crosshair_size_change")
+	EventBus.connect("cone_crosshair_is_dynamic",self,"_on_crosshair_is_dynamic_change")
+	EventBus.connect("cone_crosshair_size_change",self,"_on_crosshair_size_change")
 	EventBus.connect("settings_reset",self,"init_values")
+	EventBus.connect("crosshair_type_changed",self,"_on_crosshair_type_change")
 
 
 func init_values()->void:
 	var color = SaveManager.current_save_options["crosshair_color"]
-	dynamic = SaveManager.current_save_options["crosshair_is_dynamic"]
-	size = SaveManager.current_save_options["crosshair_size"]
+	dynamic = SaveManager.current_save_options["cone_crosshair_is_dynamic"]
+	size = SaveManager.current_save_options["cone_crosshair_size"]
 
 	_on_crosshair_color_change(color)
 	_on_crosshair_is_dynamic_change(dynamic)
+	_on_crosshair_type_change(SaveManager.current_save_options["crosshair_type"])
 
 #send and connected from the weapon
 func _on_spread_change(spread:float)->void:
@@ -53,3 +55,9 @@ func set_cone_range(length:float)->void:
 		var _scale = length/texture.get_size().x*2.0*1.12*get_parent().range_multi
 		scale = Vector2(_scale,_scale)
 	max_range = length
+
+func _on_crosshair_type_change(new_crosshair_type:int)->void:
+	if new_crosshair_type in [Globals.CrosshairType.CONE,Globals.CrosshairType.BOTH]:
+		visible = true
+	else:
+		visible = false

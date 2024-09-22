@@ -19,7 +19,9 @@ MAX_ENEMY_COUNT,Max. Enemys: %d,Max. Gegneranzahl: %d
 WINDOW_FULLSCREEN,Fullscreen,Vollbild
 WINDOW_VSYNC,V-Sync,V-Sync
 TOGGLE_BLOOD_ON_SCREEN_EFFECT,Blood effect on screen,Bildschirmbluteffekt
+CONE,Kreissektor,Cone
 CROSSHAIR,Crosshair,Fadenkreuz
+BOTH,Beides,Both
 DYNAMIC,Dynamic,Dynamisch
 COLOR,Color,Farbe
 SIZE,Size,Größe
