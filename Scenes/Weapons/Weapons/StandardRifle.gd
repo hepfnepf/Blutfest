@@ -5,6 +5,7 @@ var effect_todo:bool=false
 
 func add_to_player() -> void:
 	effect_todo = true #cant directly call the effect since the spawner might does not exist yet
+	.add_to_player()
 
 func _process(delta) -> void:
 	._process(delta)
@@ -14,3 +15,4 @@ func _process(delta) -> void:
 
 func remove_from_player():
 	game.spawner.mult_all_weapon_probs(1/weapon_spawn_rate_multi)
+	.remove_from_player()

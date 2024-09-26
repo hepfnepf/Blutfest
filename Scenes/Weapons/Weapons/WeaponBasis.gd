@@ -7,7 +7,6 @@ signal reload_percent_change
 
 signal spread_changed(new_spread)
 
-
 export (int) var max_ammo = 15
 export (int) var damage = 20
 export (float) var max_range = 300
@@ -68,10 +67,11 @@ func _ready():
 	emit_signal("spread_changed", spread)
 
 func add_to_player():
-	pass
+	connect("spread_changed",player.coneCrosshair,"_on_spread_change")
+	player.coneCrosshair.max_range = max_range
 
 func remove_from_player():
-	pass
+	disconnect("spread_changed",player.coneCrosshair,"_on_spread_change")
 
 
 func _process(delta):

@@ -27,6 +27,12 @@ func load_settings()->void:
 	ui_tab.crosshair_dynamic_toggle.pressed=sg["crosshair_is_dynamic"]
 	ui_tab.crosshair_color_picker.color= sg["crosshair_color"]
 	ui_tab.crosshair_size.value= sg["crosshair_size"]
+	ui_tab.current_crosshair=sg["crosshair_type"]
+	ui_tab.crosshair_cone_dynamic_toggle.pressed=sg["cone_crosshair_is_dynamic"]
+	ui_tab.crosshair_cone_color_picker.color=sg["crosshair_color"]
+	ui_tab.crosshair_cone_size.value=sg["cone_crosshair_size"]
+
+
 	game_tab.max_enemy_count_slider.value = sg["max_enemy_count"]
 	game_tab.set_enemy_count_label(sg["max_enemy_count"])
 
@@ -44,11 +50,16 @@ func store_settings()->void:
 	sg["zooming_inverted"]=controls_tab.zoom_inverted_toggle_button.pressed
 
 	sg["blood_overlay_enabled"]=ui_tab.blood_on_screen_toggle.pressed
+	sg["crosshair_type"] = ui_tab.current_crosshair
 	sg["crosshair_is_dynamic"]=ui_tab.crosshair_dynamic_toggle.pressed
 	sg["crosshair_color"] = ui_tab.crosshair_color_picker.color
 	sg["crosshair_size"] = ui_tab.crosshair_size.value
+	sg["cone_crosshair_is_dynamic"] = ui_tab.crosshair_cone_dynamic_toggle.pressed
+	sg["cone_crosshair_size"] = ui_tab.crosshair_cone_size.value
+
 	sg["max_enemy_count"] = game_tab.max_enemy_count_slider.value
 	sg["language"] = TranslationServer.get_locale()
 	sg["key_bindings"] = controls_tab.get_key_binding_dict()
+
 
 	SaveManager.set_options_save(sg)

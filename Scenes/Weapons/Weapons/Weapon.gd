@@ -4,6 +4,7 @@ signal weapon_switch(new_weapon)
 
 
 onready var current_weapon = null setget set_weapon
+onready var cone_crosshair=null
 
 #for statistics
 var weapon_time_used={}
@@ -23,7 +24,9 @@ func set_weapon(weapon):
 	var new_weapon = weapon.instance()
 	add_child(new_weapon)
 	current_weapon = new_weapon
+	cone_crosshair.global_position=current_weapon.bullet_spawn_direction.global_position
 	current_weapon.add_to_player()
+
 	emit_signal("weapon_switch",current_weapon)
 
 func add_weapon_to_stats(weapon=current_weapon):

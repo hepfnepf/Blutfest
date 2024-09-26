@@ -62,6 +62,7 @@ shader_param/color = Color( 0.25098, 0.541176, 0.819608, 0.956863 )
 script = ExtResource( 1 )
 max_size = 7.0
 min_size = 0.7
+SIZE_SCALER = 0.5
 spread_scaler = 30.0
 
 [node name="OuterCrosshair" type="Sprite" parent="."]

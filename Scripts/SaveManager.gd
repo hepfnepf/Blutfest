@@ -1,6 +1,7 @@
 extends Node
 
 const VERSION :int=2
+
 """
 Manages the save game. Stores and reads data.
 
@@ -30,9 +31,12 @@ const new_save_options_dict = {
 	"vsync_enabled":true,
 	"zooming_inverted":false,
 	"blood_overlay_enabled":true,
+	"crosshair_type":Globals.CrosshairType.CROSSHAIR,
 	"crosshair_is_dynamic":true,
+	"cone_crosshair_is_dynamic":true,
 	"crosshair_color":Color(0.25,0.54,0.81,0.95),
-	"crosshair_size":0.3,
+	"crosshair_size":1.0,
+	"cone_crosshair_size":1.0,
 	"max_enemy_count":250,
 	"language":"",
 	"key_bindings":{}

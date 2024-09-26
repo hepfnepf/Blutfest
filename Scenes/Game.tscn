@@ -79,7 +79,7 @@ position = Vector2( 3431.24, 2370.76 )
 
 [node name="Spawner" parent="." instance=ExtResource( 8 )]
 enemy_spawn_rate_increase = 0.1
-item_spawn_rate = 0.294
+item_spawn_rate = 0.3
 max_enemys = 300
 enemy_speed_increase = 0.01
 enemy_health_increase = 0.012

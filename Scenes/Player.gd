@@ -95,6 +95,7 @@ onready var regenerationTimer:Timer = $RegenerationTimer
 onready var camera:Camera2D = $Camera2D
 onready var gui = get_node_or_null("/root/Game/GUI")
 onready var shockWave=get_node_or_null("/root/Game/ShockWaveLayer/ShockWave")
+onready var coneCrosshair = $ConeCrosshair
 
 #Movement
 var velocity:Vector2 = Vector2.ZERO #needed for movement inaccuracy of player
@@ -104,6 +105,7 @@ var is_standing:bool = true #used for perks and statistics
 
 # Called when the node enters the scene tree for the first time.
 func _ready()->void:
+	weapon.cone_crosshair = $ConeCrosshair
 	if start_weapon != null:
 		weapon.set_weapon(start_weapon)
 	regenerationTimer.wait_time = seconds_to_start_regeneration
