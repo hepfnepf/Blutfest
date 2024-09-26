@@ -281,7 +281,7 @@ margin_right = 1472.0
 margin_bottom = 162.0
 columns = 2
 
-[node name="Label3" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairGrid"]
+[node name="DynamicLabelCrosshair" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairGrid"]
 margin_top = 8.0
 margin_right = 734.0
 margin_bottom = 22.0
@@ -325,6 +325,57 @@ min_value = 0.1
 max_value = 2.0
 step = 0.1
 value = 0.1
+
+[node name="CrosshairCone" type="GridContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer"]
+margin_top = 166.0
+margin_right = 1472.0
+margin_bottom = 248.0
+columns = 2
+
+[node name="DynamicLabelCrosshair" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairCone"]
+margin_top = 8.0
+margin_right = 734.0
+margin_bottom = 22.0
+text = "DYNAMIC"
+
+[node name="CrosshairDynamicConeToggle" type="CheckBox" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairCone"]
+unique_name_in_owner = true
+margin_left = 1442.0
+margin_right = 1472.0
+margin_bottom = 30.0
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairCone"]
+margin_top = 41.0
+margin_right = 734.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+text = "COLOR"
+
+[node name="CrosshairConeColorPicker" type="ColorPickerButton" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairCone"]
+unique_name_in_owner = true
+margin_left = 738.0
+margin_top = 34.0
+margin_right = 1472.0
+margin_bottom = 62.0
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairCone"]
+margin_top = 67.0
+margin_right = 734.0
+margin_bottom = 81.0
+text = "SIZE"
+
+[node name="CrosshairConeSize" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairCone"]
+unique_name_in_owner = true
+margin_left = 738.0
+margin_top = 66.0
+margin_right = 1472.0
+margin_bottom = 82.0
+min_value = 0.1
+max_value = 2.0
+step = 0.1
+value = 0.2
 
 [node name="Game" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
 unique_name_in_owner = true
@@ -763,6 +814,9 @@ text = "RETURN"
 [connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairGrid/CrosshairDynamicToggle" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI" method="_on_CrosshairDynamicToggle_toggled"]
 [connection signal="color_changed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairGrid/CrosshairColorPicker" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI" method="_on_CrosshairColorPicker_color_changed"]
 [connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairGrid/CrosshairSize" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI" method="_on_CrosshairSize_value_changed"]
+[connection signal="toggled" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairCone/CrosshairDynamicConeToggle" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI" method="_on_CrosshairDynamicConeToggle_toggled"]
+[connection signal="color_changed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairCone/CrosshairConeColorPicker" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI" method="_on_CrosshairConeColorPicker_color_changed"]
+[connection signal="value_changed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairCone/CrosshairConeSize" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI" method="_on_CrosshairConeSize_value_changed"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetHighscore" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game" method="_on_ResetHighscore_pressed"]
 [connection signal="timeout" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HighscoreResetAnnouncement/Timer" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game" method="_on_Timer_timeout_hs"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetOptions" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game" method="_on_ResetOptions_pressed"]
