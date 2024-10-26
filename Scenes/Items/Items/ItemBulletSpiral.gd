@@ -30,7 +30,6 @@ func _process(delta):
 		time+=delta
 
 		rotation_degrees += rot_speed * delta
-
 		while(time >= 1/bullet_rate):
 			shoot_bullet()
 			time -= 1/bullet_rate
