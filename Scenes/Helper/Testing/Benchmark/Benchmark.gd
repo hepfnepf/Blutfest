@@ -1,20 +1,33 @@
 extends "res://Scenes/Main.gd"
+##
+## This is a helping scene for benchmarking the game.
+##
+## @desc:
+##      This benchmarking scene should be useful, to test performance on different devices, to undestand the perfomance implication of changes,
+##      optimize performance, identify performance regressions and test different graphic settings.
+##      For that, this scene works like a state machine, that performce a couple of becnhmarks(stages) after each other and writes the finings in to the console.
+##      Usally, these stages increase an performance aspect (likes enemeies rendered on screen), until the fps is lower that PERFORMANCE_TARGET for PUFFER time.
+##      Currently, this scene is meant to run within the editor, and can not be accessed in-game.
+##
+##
+
+export (float)var PUFFER = 5.0 #how many seconds it has to be under the perfomance targets, for the test to end
+export (float)var PERFORMANCE_TARGET = 60.0 #how many FPS are targeted
 
 export (PackedScene) var zombie_animation_only
 export (PackedScene) var zombie_ai
 export (PackedScene) var bullet_spiral_scene
 
-enum STAGES {RENDER_TEST,AI_TEST, BULLET_TEST, BULLET_ENEMY_TEST, OFF}
+enum STAGES {RENDER_TEST,AI_TEST, BULLET_TEST, BULLET_ENEMY_TEST, END, OFF}
 var current_stage:int = STAGES.OFF
 
-var last_spawn:int = 0
+#helpers for  stages
+var last_spawn:int = 0 #used in calculating, if PUFFER time has been reched
 var first_dip:int = 0
 
-var PUFFER:float = 5.0 #how many seconds it has to be under the perfomance targets, for the test to end
-var PERFORMANCE_TARGET:float = 60.0 #how many FPS are targeted
 
-#helpers for individual stages
-#stage 3
+#stage BULLET_TEST and BULLET_ENEMY_TEST
+var ENEMY_COUNT:int = 500
 var bullet_spiral = null
 var shooting_start:int = 0
 var SHOOTING_RATE_MULTI:float = 1.0 #shooting_rate = seconds_since_begin_of_stage *SHOOTING_RATE_MULTI
@@ -32,14 +45,12 @@ func _ready() -> void:
 
 	yield(get_tree().create_timer(5), "timeout")
 	last_spawn = Time.get_ticks_msec()
-	start_stage(STAGES.RENDER_TEST)
-
+	switch_to_stage(STAGES.RENDER_TEST)
 
 func _process(delta: float) -> void:
 	debug_gui._on_enemy_count_changed()
 	var fps = Performance.get_monitor(Performance.TIME_FPS)
 
-	# Test 1: Testing rendering of how many fps at MANY_ZOMBIEZ zombiez, no ai but animation
 	if current_stage == STAGES.RENDER_TEST:
 		perform_stage_render()
 	if current_stage == STAGES.AI_TEST:
@@ -54,7 +65,7 @@ func display_introduction()->void:
 	print("Performance Target: ", PERFORMANCE_TARGET)
 	print("Puffer: ", PUFFER)
 
-func start_stage(stage:int)->void:
+func switch_to_stage(stage:int)->void:
 	print("Stopings stage: ", STAGES.keys()[current_stage])
 	clear_enemies()
 	if is_instance_valid(bullet_spiral):
@@ -72,10 +83,19 @@ func start_stage(stage:int)->void:
 	if stage == STAGES.OFF:
 		yield(get_tree().create_timer(5), "timeout")
 
+	if stage == STAGES.END:
+		yield(get_tree().create_timer(5), "timeout")
+		get_tree().quit()
+
+
+#
+# Indivisual stages
+#
+
+# Tests the rendering of enemies. Spawnes animated zombies, until the performance falls below the targeted performance.
 func perform_stage_render()->void:
 	var fps = Performance.get_monitor(Performance.TIME_FPS)
 
-	# Test 1: Testing rendering of how many fps at MANY_ZOMBIEZ zombiez, no ai but animation
 	if fps >= PERFORMANCE_TARGET:
 		spawner.spawn_at(zombie_animation_only,spawner.random_position_in_map())
 		last_spawn = Time.get_ticks_msec()
@@ -84,12 +104,13 @@ func perform_stage_render()->void:
 			first_dip = get_tree().get_nodes_in_group("ENEMIES").size()
 	if Time.get_ticks_msec() > last_spawn + PUFFER * 1000:
 		display_stage_render(get_tree().get_nodes_in_group("ENEMIES").size())
-		start_stage(STAGES.AI_TEST)
+		switch_to_stage(STAGES.AI_TEST)
 
 func display_stage_render(enemy_count:int)->void:
 	print("Max. enemy count to sustain perfromance target for puffer time: ", enemy_count)
-	print("Enemy count at first dipped below performance target: ",first_dip)
+	print("Enemy count at first dip below performance target: ",first_dip)
 
+# Tests the ai of enemies. Spawnes animated zombiez with AI, until the performance falls below the targeted performance
 func perform_stage_ai()->void:
 	var fps = Performance.get_monitor(Performance.TIME_FPS)
 
@@ -102,11 +123,12 @@ func perform_stage_ai()->void:
 			first_dip = get_tree().get_nodes_in_group("ENEMIES").size()
 	if Time.get_ticks_msec() > last_spawn + PUFFER * 1000:
 		display_stage_ai(get_tree().get_nodes_in_group("ENEMIES").size())
-		start_stage(STAGES.BULLET_TEST)
+		switch_to_stage(STAGES.BULLET_TEST)
 
 func display_stage_ai(enemy_count:int)->void:
 	display_stage_render(enemy_count)
 
+# Tests how many bullets van be handled, by spawning bullets until the performance falls below the targeted performance.
 func perform_stage_bullet()->void:
 	var fps = Performance.get_monitor(Performance.TIME_FPS)
 
@@ -127,17 +149,18 @@ func perform_stage_bullet()->void:
 			first_dip = BulletPool.bullets_active
 	if Time.get_ticks_msec() > last_spawn + PUFFER * 1000:
 		display_stage_bullet(BulletPool.bullets_active)
-		start_stage(STAGES.BULLET_ENEMY_TEST)
+		switch_to_stage(STAGES.BULLET_ENEMY_TEST)
 
 func display_stage_bullet(bullet_count:int)->void:
 	print("Max. active bullets to sustain perfromance target for puffer time: ", bullet_count)
-	print("Bullet  count at first dipped below performance target: ",first_dip)
+	print("Bullet count at first dip below performance target: ",first_dip)
 
+# Test the physic interaction of bullets and enemys, by first spawning a relevant amount of enemys, and than keep spawning bullets, until the performance falls below the targeted performance.
 func perform_stage_bullet_enemies()->void:
 	var fps = Performance.get_monitor(Performance.TIME_FPS)
 
 	# Test 4:
-	while zombiez_spawned < 500:
+	while zombiez_spawned < ENEMY_COUNT:
 		spawner.spawn_at(zombie_animation_only,spawner.random_position_in_map())
 		zombiez_spawned+=1
 
@@ -159,11 +182,13 @@ func perform_stage_bullet_enemies()->void:
 			first_dip = BulletPool.bullets_active
 	if Time.get_ticks_msec() > last_spawn + PUFFER * 1000:
 		display_stage_bullet_enemies(BulletPool.bullets_active)
-		start_stage(STAGES.OFF)
+		switch_to_stage(STAGES.END)
 
 func display_stage_bullet_enemies(bullet_count:int)->void:
 	display_stage_bullet(bullet_count)
 
+
+# Helpers
 func disable_node(node)->void:
 	node.set_physics_process(false)
 	node.set_process(false)
