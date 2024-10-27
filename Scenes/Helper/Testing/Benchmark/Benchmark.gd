@@ -114,7 +114,6 @@ func display_stage_render(enemy_count:int)->void:
 func perform_stage_ai()->void:
 	var fps = Performance.get_monitor(Performance.TIME_FPS)
 
-	# Test 2:
 	if fps >= PERFORMANCE_TARGET:
 		spawner.spawn_at(zombie_ai,spawner.random_position_in_map())
 		last_spawn = Time.get_ticks_msec()
@@ -163,7 +162,6 @@ func perform_stage_bullet_enemies()->void:
 	while zombiez_spawned < ENEMY_COUNT:
 		spawner.spawn_at(zombie_animation_only,spawner.random_position_in_map())
 		zombiez_spawned+=1
-
 
 	if fps >= PERFORMANCE_TARGET:
 		if not is_instance_valid(bullet_spiral):
