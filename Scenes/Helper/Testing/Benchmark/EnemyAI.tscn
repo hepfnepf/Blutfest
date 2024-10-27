@@ -1,0 +1,175 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Scenes/Enemys/Actor.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Helper/Testing/Benchmark/AIAnimationOnly.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Enemys/AI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Helper/Team.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Helper/Movement.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Helper/Health.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/Items/Effects/icleblock.jpg" type="Texture" id=10]
+[ext_resource path="res://Sounds/SFX/EnemyHurt76965__michel88__painb.wav" type="AudioStream" id=11]
+[ext_resource path="res://Sprites/Enemys/Standard/zom2Full.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/Enemys/ProgressBar.gd" type="Script" id=13]
+
+[sub_resource type="Shader" id=6]
+code = "shader_type canvas_item;
+
+void fragment(){
+	vec4 color = texture(TEXTURE, UV);
+	color.a = 0.5;
+	color.b += 0.5;
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
+
+[sub_resource type="Animation" id=11]
+resource_name = "Attack"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 41, 72 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AI")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "attack_2"
+} ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Death"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 73, 93 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "halt"
+length = 0.2
+
+[sub_resource type="Animation" id=4]
+length = 0.75
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1, 39 ]
+}
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 116.115
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.992157, 0.0509804, 0.0509804, 1 )
+
+[sub_resource type="Theme" id=10]
+ProgressBar/styles/bg = SubResource( 8 )
+ProgressBar/styles/fg = SubResource( 9 )
+
+[node name="EnemyAI" type="KinematicBody2D" groups=["ENEMIES"]]
+position = Vector2( 1952.3, -2013.41 )
+scale = Vector2( 0.6, 0.6 )
+z_index = 2
+collision_layer = 4
+script = ExtResource( 1 )
+speed = 200
+max_health = 50
+drop_rate = 0.07
+
+[node name="Ice" type="Sprite" parent="."]
+visible = false
+material = SubResource( 7 )
+position = Vector2( 28.2847, -1.90735e-05 )
+scale = Vector2( 4.65339, 5.18372 )
+z_index = 2
+texture = ExtResource( 10 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 3, 3 )
+z_index = 1
+texture = ExtResource( 12 )
+flip_h = true
+hframes = 10
+vframes = 10
+frame = 53
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Attack = SubResource( 11 )
+anims/Death = SubResource( 12 )
+anims/halt = SubResource( 3 )
+anims/walk = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 5 )
+
+[node name="Health" parent="." instance=ExtResource( 8 )]
+
+[node name="AI" parent="." instance=ExtResource( 3 )]
+script = ExtResource( 2 )
+patrol_range = 7000.0
+
+[node name="Team" parent="." instance=ExtResource( 6 )]
+team = 1
+
+[node name="Movement" parent="." instance=ExtResource( 7 )]
+
+[node name="TimeUntilFading" type="Timer" parent="."]
+one_shot = true
+
+[node name="FadeOut" type="Tween" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+volume_db = 1.914
+bus = "SFX"
+
+[node name="Healthbar" type="ProgressBar" parent="."]
+visible = false
+margin_left = -189.786
+margin_top = -312.147
+margin_right = 210.214
+margin_bottom = -272.147
+theme = SubResource( 10 )
+step = 1.0
+value = 100.0
+percent_visible = false
+script = ExtResource( 13 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="TimeUntilFading" to="." method="_on_TimeUntilFading_timeout"]
+[connection signal="tween_completed" from="FadeOut" to="." method="_on_FadeOut_tween_completed"]
