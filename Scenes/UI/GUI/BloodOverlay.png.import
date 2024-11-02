@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BloodOverlay.png-9f4e80f9346edf1e68436bd262d0e834.stex"
+path="res://.import/BloodOverlay.png-68fd32fadd8d20911fb3125eed273f9d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Helper/Testing/BloodOverlay.png"
-dest_files=[ "res://.import/BloodOverlay.png-9f4e80f9346edf1e68436bd262d0e834.stex" ]
+source_file="res://Scenes/UI/GUI/BloodOverlay.png"
+dest_files=[ "res://.import/BloodOverlay.png-68fd32fadd8d20911fb3125eed273f9d.stex" ]
 
 [params]
 

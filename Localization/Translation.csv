@@ -63,7 +63,7 @@ RARITY_COMMON,Common,Häufig
 RARITY_NORMAL,Normal,Normal
 RARITY_RARE,Rare,Selten
 RARITY_LEGENDARY,Legendary,Legendär
-PERK_HEAL_UP,Heal Up, Heilung
+PERK_HEAL_UP,Heal Up,Heilung
 PERK_HEAL_UP_DESC,Increases player health by %d points.,Heilt dich um %d Lebenspunkte.
 MORE_DMG_PERK,More Damage,Mehr Schaden
 MORE_DMG_PERK_DESC,Increases the players damage by %d%%.,Erhöht deinen Schaden um %d%%.
@@ -77,7 +77,7 @@ PERK_EXPLOSION_ON_LEVEL_UP,To much energy,Platzen vor Freude
 PERK_EXPLOSION_ON_LEVEL_UP_DESC,After gaining that much Exp you just need to show unleash your power. So you explode.,"Aus Freude über deinen Level Up, fliegst du einfach in die Luft."
 PERK_SPIKE_BALLS_EXPLODE,Boom Balls,Bumm Bälle
 PERK_SPIKE_BALLS_EXPLODE_DESC,The spike balls are spicy now. Which means they explode.,Die Stachelbälle böllern böß.
-PERK_SPIKE_BALLS_EXPLODE_2,Boom Balls II, Bumm Bälle II
+PERK_SPIKE_BALLS_EXPLODE_2,Boom Balls II,Bumm Bälle II
 PERK_SPIKE_BALLS_EXPLODE_2_DESC,"Now, the spike balls even explode if they don't hit anything.","Die Bälle ballern noch böser, sogar wenn sie nichts treffen."
 PERK_ACCURACY_BOOST,Accuracy Reward,Guter Schütze
 PERK_ACCURACY_BOOST_DESC,Multiply your damage by 2x the accuracy.,Dein Schaden wird mit dem doppelten der Trefferrate multipliziert.
@@ -134,4 +134,3 @@ PERK_RANGE_EXTENDER,Range Extender,Reichweitenerweiterer
 PERK_RANGE_EXTENDER_DESC,Extends the range by %d%%,Erweitert die Reichweite um %d%%
 PERK_INCREASE_DAMAGE_WHILE_NOT_MOVING,Stop right now!,Stillgestanden!
 PERK_INCREASE_DAMAGE_WHILE_NOT_MOVING_DESC,Your damage while not moving increases by %d%%,"Während du stillstehst, erhöht sich dein Schaden um %d%%"
-
