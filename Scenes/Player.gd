@@ -26,7 +26,8 @@ var score:int = 0 setget set_score
 var alive:bool = true
 var elapsed_time=0 #get increased by 1 sec every time the time counter returns
 var locked:bool = false #can the player pick up new guns
-var damage_multi:float=1.0#will mosty influenced by perks
+var damage_multi:float=1.0#gets dynamicaly calculated from all the other multipliers, will mosty influenced by perks
+var dmg_base_multi:float=1.0
 var dmg_multi_not_moving:float=1.0 #will be influenced only by increased damage while not moving perk
 var level:int=1
 var weapon_movement_speed_multi:float = 1.0 setget set_weapon_movement_speed_multi
@@ -264,7 +265,8 @@ func calculate_damage_multiplier()->void:
 	if(is_standing == true):
 		not_moving_bonus = dmg_multi_not_moving
 
-	damage_multi = 1.0 * accuracy_boni * tit_for_tat_good_multi * not_moving_bonus
+	damage_multi = 1.0* dmg_base_multi * accuracy_boni * tit_for_tat_good_multi * not_moving_bonus
+	weapon.current_weapon.emit_signal("updated_weapon_stats",weapon.current_weapon)
 
 func add_enemy_death()->void:
 	enemies_killed+=1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scenes/UI/GUI/InstructionsPopup.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UI/GUI/Expbar2.tscn" type="PackedScene" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://Scenes/UI/GUI/Healthbar2.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Fonts/help_titles.tres" type="DynamicFont" id=12]
 [ext_resource path="res://Scenes/UI/GUI/BloodOverlay.png" type="Texture" id=13]
+[ext_resource path="res://Scenes/UI/MainMenuTheme.tres" type="Theme" id=14]
+[ext_resource path="res://Scenes/UI/GUI/WeaponAttributes.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Theme" id=3]
 
@@ -204,15 +206,15 @@ margin_bottom = 199.0
 [node name="Seperator" type="HBoxContainer" parent="HUD/VBoxContainer"]
 margin_top = 203.0
 margin_right = 1516.0
-margin_bottom = 756.0
+margin_bottom = 742.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer"]
-margin_top = 760.0
+margin_top = 746.0
 margin_right = 1516.0
-margin_bottom = 760.0
+margin_bottom = 746.0
 alignment = 2
 
 [node name="EffectContainer" type="HBoxContainer" parent="HUD/VBoxContainer/HBoxContainer"]
@@ -235,19 +237,20 @@ expand = true
 stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/VBoxContainer"]
-margin_top = 764.0
+margin_top = 750.0
 margin_right = 1516.0
 margin_bottom = 880.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer/VBoxContainer"]
 margin_right = 1516.0
-margin_bottom = 116.0
+margin_bottom = 130.0
 mouse_filter = 2
 size_flags_vertical = 4
 
 [node name="CenterContainer" type="CenterContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer"]
+margin_top = 14.0
 margin_right = 440.0
-margin_bottom = 116.0
+margin_bottom = 130.0
 mouse_filter = 2
 size_flags_horizontal = 9
 size_flags_vertical = 8
@@ -272,21 +275,35 @@ margin_right = 440.0
 margin_bottom = 116.0
 
 [node name="CenterContainer2" type="CenterContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer"]
-margin_left = 1468.0
+margin_left = 1361.0
 margin_right = 1516.0
-margin_bottom = 116.0
+margin_bottom = 130.0
 mouse_filter = 2
 size_flags_horizontal = 10
+size_flags_vertical = 8
 
-[node name="AmmoWidget" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2" instance=ExtResource( 3 )]
+[node name="VBoxContainer2" type="VBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2"]
+margin_right = 155.0
+margin_bottom = 130.0
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2/VBoxContainer2"]
+margin_right = 155.0
+margin_bottom = 100.0
+theme = ExtResource( 14 )
+
+[node name="WeaponAttributes" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2/VBoxContainer2/PanelContainer" instance=ExtResource( 15 )]
+margin_right = 148.0
+margin_bottom = 93.0
+
+[node name="AmmoWidget" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2/VBoxContainer2" instance=ExtResource( 3 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 45.0
-margin_right = 48.0
-margin_bottom = 71.0
+margin_top = 104.0
+margin_right = 155.0
+margin_bottom = 130.0
 size_flags_vertical = 9
 alignment = 2
 

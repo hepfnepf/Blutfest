@@ -7,6 +7,7 @@ This is meant to inherit from. Not to be used directly.
 var direction := Vector2.ZERO
 var template:PackedScene = null #gets set when instanced, needed for bullet pool is the packed scene the bullet is an instance of
 var player:Player = null
+var damage_type = Globals.DamageType.PROJECTILE
 
 #For exploding bullets
 #A bullet explodes, if exp_dmg != 0
@@ -53,7 +54,7 @@ func _on_Bullet_body_entered(body):
 	die()
 
 	if body.has_method("handle_hit"):
-		body.handle_hit(damage, Globals.DamageType.PROJECTILE)
+		body.handle_hit(damage, damage_type)
 		if (is_instance_valid(player) and direct):
 			player.enemies_hit +=1
 	if exp_dmg != 0.0 and !body.is_in_group("Border"):

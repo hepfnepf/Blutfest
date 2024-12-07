@@ -4,7 +4,7 @@ signal perk_selected
 
 onready var health_widget = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/HealthWidget
 onready var exp_widget = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/ExpbarWidget
-onready var ammo_widget = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2/AmmoWidget
+onready var ammo_widget = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2/VBoxContainer2/AmmoWidget
 onready var score = $HUD/VBoxContainer/HBoxContainer3/ScoreWidget/Score
 onready var time = $HUD/VBoxContainer/HBoxContainer3/TimeWidget/Time
 onready var debug_info = $HUD/VBoxContainer/DebugLayout
@@ -16,6 +16,7 @@ onready var pause_menu =$PauseMenu
 onready var card_holder = $CardHolder
 onready var instructions = $HUD/InstructionsPopup
 onready var blood= $ScreenBlood
+onready var weapon_attributes = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2/VBoxContainer2/PanelContainer/WeaponAttributes
 
 
 var player:Player=null
@@ -51,13 +52,15 @@ func set_player(player:Player)->void:
 	player.connect("time_changed",self,"set_time")
 	player.connect("lock_changed",self,"set_lock")
 
-func reset_weapon(weapon)->void:
+func reset_weapon(weapon:Weapon)->void:
 	set_ammo(weapon.ammo)
 	set_max_ammo(weapon.max_ammo)
 	weapon.connect("ammo_changed",self,"set_ammo")
 	weapon.connect("max_ammo_changed",self,"set_max_ammo")
 	weapon.connect("reload_percent_change", self, "set_reload_progress")
 	weapon.connect("spread_changed",crosshair,"set_spread")
+	weapon.connect("updated_weapon_stats",weapon_attributes,"set_attributes")
+	weapon_attributes.set_attributes(weapon)
 
 func set_health(new_health:int)->void:
 	health_widget.set_health(new_health)

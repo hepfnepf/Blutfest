@@ -4,6 +4,7 @@ class_name Weapon
 signal ammo_changed
 signal max_ammo_changed
 signal reload_percent_change
+signal updated_weapon_stats(weapon)
 
 signal spread_changed(new_spread)
 
@@ -21,7 +22,6 @@ export (float) var max_spread = 0.5
 export (float) var spread_inc = 0.05#per shot
 export (float) var spread_dec = 0.04#per second
 
-#export (bool) var does_explode = false
 export (float) var explosion_damage = 0.0
 
 export (PackedScene) var Bullet

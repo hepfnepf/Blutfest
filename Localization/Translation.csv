@@ -30,6 +30,7 @@ MOVE_DOWN,Down,Unten
 MOVE_LEFT,Left,Links
 MOVE_RIGHT,Right,Rechts
 LOCK_WEAPON,Lock weapn,Waffe sperren
+LOCK_WEAPON,Lock weapn,Waffe sperren
 INVINCIBILITY_BTN,Invincibility,Unverwundbarkeit
 INVERT_ZOOMING,Invert zooming,Zoomen invertieren
 HELP_BTN,Help,Hilfe
@@ -156,3 +157,8 @@ WEAPON_MACHINEZOOKA,Machinezooka,Maschinenzooka
 WEAPON_PISTOL,Pistol,Pistole
 WEAPON_SHORT_SHOTGUN,Short shotgun,Kurzläufiges Schrotgewehr
 ITEM_SPEED_UP,Speed Up,Geschwindigkeitsbonus
+DAMAGE,Damage:,Schaden:
+FIRE_RATE,Fire rate:,Schussrate:
+RANGE,Range:,Reichweite:
+EXPLOSION_DAMAGE,Explosion damage,Explosionsschaden:
+DAMAGE_TYPE,Damage typ:,Schadensart:
