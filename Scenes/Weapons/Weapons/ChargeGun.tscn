@@ -17,6 +17,7 @@
 
 [node name="Charge gun" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
+gun_name = "WEAPON_CHARGE_GUN"
 max_ammo = 1
 damage = 200
 max_range = 20000.0

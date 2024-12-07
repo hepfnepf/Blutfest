@@ -7,3 +7,4 @@
 [node name="SpeedUp" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 icon_texture = ExtResource( 3 )
+speed_multiplyer = 1.3

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scenes/Items/Helper/ItemBasisWeapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Items/Helper/WeaponItemBasis.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Weapons/Weapons/TrapCanon.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Weapons/canon.png" type="Texture" id=3]
 
@@ -30,6 +30,7 @@ shader_param/blink_speed = 1.5
 shader_param/starded_blinking = 0.0
 
 [node name="ItemTrapCanon" instance=ExtResource( 1 )]
+item_name = "WEAPON_TRAP_CANON"
 weapon = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="0"]

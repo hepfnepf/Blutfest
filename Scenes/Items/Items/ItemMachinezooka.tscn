@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sprites/Weapons/Machine_zooka.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Items/Helper/ItemBasisWeapon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Items/Helper/WeaponItemBasis.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Weapons/Weapons/MachineZooka.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -30,6 +30,7 @@ shader_param/blink_speed = 1.5
 shader_param/starded_blinking = 0.0
 
 [node name="MachinezookaItem" instance=ExtResource( 2 )]
+item_name = "WEAPON_MACHINEZOOKA"
 weapon = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="0"]

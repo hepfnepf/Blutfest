@@ -31,6 +31,7 @@ shader_param/starded_blinking = 0.0
 
 [node name="ItemAddTimeToItems" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
+item_name = "ITEM_ADD_TIME_TO_ITEMS"
 time = 10.0
 
 [node name="CollisionShape2D" parent="." index="0"]

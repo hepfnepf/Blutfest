@@ -14,6 +14,7 @@
 [node name="Bazooka" instance=ExtResource( 3 )]
 z_index = 1
 script = ExtResource( 6 )
+gun_name = "WEAPON_BAZOOKA"
 max_ammo = 6
 damage = 0
 max_range = 9000.0

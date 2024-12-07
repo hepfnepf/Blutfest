@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/Items/Helper/EffectBasis.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Items/Effects/InfinteAmmo.png" type="Texture" id=3]
 
-[node name="EffectBasis" instance=ExtResource( 2 )]
+[node name="InfinitAmmo" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 icon_texture = ExtResource( 3 )
 fire_rate_multiplyer = 3.0

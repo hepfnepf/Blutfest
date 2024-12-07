@@ -53,7 +53,7 @@ STANDING_TIME,Longest standing:,Längstes Stillstehen:
 POWERUPS_COLLECTED,PowerUps collected:,Gesammelte PowerUps:
 PERKS_COOLECTED_CNT,Perks collected:,Gesammelte Perks:
 FAVORITE_WEAPON,Favorite weapon:,Lieblings Waffe:
-FAVORITE_POWERUPS,Favorite PowerUp:,Lieblings PowerUp:
+FAVORITE_POWERUPS,Favorite Item:,Lieblings Item:
 OPTIONS_GOT_RESET,Opstions have been reset!,Die Einstellungen wurden zurückgesetzt!
 RESET_OPTIONS,Reset Options,Optionen zurücksetzen
 CURRENT_DIFFICULTY,Difficulty,Schwierigkeit
@@ -134,3 +134,25 @@ PERK_RANGE_EXTENDER,Range Extender,Reichweitenerweiterer
 PERK_RANGE_EXTENDER_DESC,Extends the range by %d%%,Erweitert die Reichweite um %d%%
 PERK_INCREASE_DAMAGE_WHILE_NOT_MOVING,Stop right now!,Stillgestanden!
 PERK_INCREASE_DAMAGE_WHILE_NOT_MOVING_DESC,Your damage while not moving increases by %d%%,"Während du stillstehst, erhöht sich dein Schaden um %d%%"
+WEAPON_AK,Ak,Ak
+WEAPON_BAZOOKA,Bazooka,Bazooka
+ITEM_BOMB,Bomb,Bombe
+WEAPON_CHARGE_GUN,Orb gun,Orbgewehr
+ITEM_ICE,Freeze Area,Areal gefrieren
+ITEM_ADD_TIME_TO_ITEMS,Prolong item life,Lebenszeitboost für Items
+ITEM_AMMO_INFITY,Infinit ammo,Unendlich Schuss
+ITEM_BULLET_SPIRAL,Bullet spiral,Kugelspirale
+ITEM_DROP_SPIKE_BALLS,Spike balls,Kugelbälle
+ITEM_HEAL_UP,Heal up,Extraleben
+WEAPON_ICICLE_GUN,Icicle gun,Eiszapfengewehr
+ITEM_INVINCIBILITY,Invincibility,Unsterblichkeit
+WEAPON_LONG_SHOTGUN,Long shotgun,Langlauf-Schrotgewehr
+ITEM_POINTS,Points,Punkte
+ITEM_SLOW_DOWN_TIME,Bullet time,Zeitlupe
+WEAPON_STANDARD_RIFLE,Rifle,Gewehr
+WEAPON_TRAP_CANON,Trap canon,Kugelkanone
+WEAPON_MACHINEGUN,Machinegun,Maschinengewehr
+WEAPON_MACHINEZOOKA,Machinezooka,Maschinenzooka
+WEAPON_PISTOL,Pistol,Pistole
+WEAPON_SHORT_SHOTGUN,Short shotgun,Kurzläufiges Schrotgewehr
+ITEM_SPEED_UP,Speed Up,Geschwindigkeitsbonus
