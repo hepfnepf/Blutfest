@@ -29,6 +29,7 @@ shader_param/blink_speed = 1.5
 shader_param/starded_blinking = 0.0
 
 [node name="ItemPoints250" instance=ExtResource( 1 )]
+item_name = "ITEM_POINTS"
 points = 250
 
 [node name="CollisionShape2D" parent="." index="0"]

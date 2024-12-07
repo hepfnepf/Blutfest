@@ -28,6 +28,7 @@ shader_param/is_blinking = false
 shader_param/blink_speed = 1.5
 
 [node name="ItemDropSpikeBalls" instance=ExtResource( 3 )]
+item_name = "ITEM_DROP_SPIKE_BALLS"
 effect_node = ExtResource( 1 )
 
 [node name="CollisionShape2D" parent="." index="0"]

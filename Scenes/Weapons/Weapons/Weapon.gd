@@ -31,8 +31,8 @@ func set_weapon(weapon):
 
 func add_weapon_to_stats(weapon=current_weapon):
 	if weapon:
-		if weapon_time_used.has(weapon.get_script().get_path()):
-			weapon_time_used[weapon.get_script().get_path()]+=OS.get_ticks_usec()-last_time
+		if weapon_time_used.has(weapon.gun_name):
+			weapon_time_used[weapon.gun_name]+=OS.get_ticks_usec()-last_time
 		else:
-			weapon_time_used[weapon.get_script().get_path()] = OS.get_ticks_usec()-last_time
+			weapon_time_used[weapon.gun_name] = OS.get_ticks_usec()-last_time
 		last_time = OS.get_ticks_usec()

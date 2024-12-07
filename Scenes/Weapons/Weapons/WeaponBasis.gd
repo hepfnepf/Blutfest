@@ -7,6 +7,7 @@ signal reload_percent_change
 
 signal spread_changed(new_spread)
 
+export (String) var gun_name=""
 export (int) var max_ammo = 15
 export (int) var damage = 20
 export (float) var max_range = 300

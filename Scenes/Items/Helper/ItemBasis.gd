@@ -9,6 +9,7 @@ class_name Item
 ##
 ##
 ##
+export (String) var item_name = ""
 export (float) var pop_up_time = 1.0
 export (float) var time_to_despawn = 30.0
 
@@ -49,6 +50,7 @@ func increase_lifetime(time):
 
 func pick_up(player:Player):
 	explode_if_enabled(player)
+	player.stats_add_powerup(item_name)
 	queue_free()
 
 func explode_if_enabled(player:Player)->void:

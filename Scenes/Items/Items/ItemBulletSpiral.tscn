@@ -33,6 +33,7 @@ shader_param/starded_blinking = 0.0
 
 [node name="ItemBulletSpiral" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+item_name = "ITEM_BULLET_SPIRAL"
 bullet_rate = 15.0
 rot_speed = 90.0
 duration = 7.0

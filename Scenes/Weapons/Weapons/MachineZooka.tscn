@@ -12,6 +12,7 @@
 
 [node name="MachineZooka" instance=ExtResource( 2 )]
 script = ExtResource( 7 )
+gun_name = "WEAPON_MACHINEZOOKA"
 max_ammo = 19
 damage = 25
 max_range = 2700.0

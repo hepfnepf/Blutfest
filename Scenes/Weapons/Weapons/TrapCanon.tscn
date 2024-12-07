@@ -15,6 +15,7 @@ resource_name = "shot"
 
 [node name="TrapCanon" instance=ExtResource( 1 )]
 script = ExtResource( 7 )
+gun_name = "WEAPON_TRAP_CANON"
 max_ammo = 17
 damage = 45
 max_range = 1700.0

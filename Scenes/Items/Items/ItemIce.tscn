@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Items/Helper/ItemBasis.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Items/Effects/ice-cube.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Items/Items/IceItem.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Items/Items/ItemIce.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Items/EffectNodes/EnemyEffectIce.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sprites/Items/Effects/circle.png" type="Texture" id=5]
 
@@ -37,6 +37,7 @@ radius = 4000.0
 
 [node name="IceItem" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
+item_name = "ITEM_ICE"
 effect_node = ExtResource( 4 )
 blast_time = 1.0
 

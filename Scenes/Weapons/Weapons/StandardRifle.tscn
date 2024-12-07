@@ -13,6 +13,7 @@
 
 [node name="StandardRifle" instance=ExtResource( 1 )]
 script = ExtResource( 10 )
+gun_name = "WEAPON_STANDARD_RIFLE"
 max_ammo = 20
 damage = 49
 max_range = 7500.0
