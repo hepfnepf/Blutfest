@@ -114,6 +114,7 @@ func _on_card_selected(card:PerkCard)->void:
 	player.add_child(card.perk.instance())
 	player.perkManager._on_Perk_selected(card.perk)
 	card_holder.clear_cards(card)
+	print_debug( "%s: %s"%[card.title, card.desc])
 	yield(card_holder,"cards_cleared")
 
 	set_cursor(Globals.cursor_manager.CURSOR_TYPE.CROSSHAIR)
