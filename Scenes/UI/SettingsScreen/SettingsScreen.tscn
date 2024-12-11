@@ -656,6 +656,21 @@ margin_bottom = 318.0
 size_flags_horizontal = 9
 rebind_action = "toggle_debug_invincibility"
 
+[node name="RebindWeaponInfo" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
+margin_top = 297.0
+margin_right = 1365.0
+margin_bottom = 311.0
+size_flags_horizontal = 3
+text = "WEAPON_INFO_BTN"
+
+[node name="RebindButton10" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
+margin_left = 1369.0
+margin_top = 290.0
+margin_right = 1472.0
+margin_bottom = 318.0
+size_flags_horizontal = 9
+rebind_action = "toggle_weapon_info"
+
 [node name="Sound" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
 unique_name_in_owner = true
 visible = false

@@ -16,7 +16,7 @@ onready var pause_menu =$PauseMenu
 onready var card_holder = $CardHolder
 onready var instructions = $HUD/InstructionsPopup
 onready var blood= $ScreenBlood
-onready var weapon_attributes = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2/VBoxContainer2/PanelContainer/WeaponAttributes
+onready var weapon_info = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2/VBoxContainer2/WeaponInfo
 
 
 var player:Player=null
@@ -59,8 +59,8 @@ func reset_weapon(weapon:Weapon)->void:
 	weapon.connect("max_ammo_changed",self,"set_max_ammo")
 	weapon.connect("reload_percent_change", self, "set_reload_progress")
 	weapon.connect("spread_changed",crosshair,"set_spread")
-	weapon.connect("updated_weapon_stats",weapon_attributes,"set_attributes")
-	weapon_attributes.set_attributes(weapon)
+	weapon.connect("updated_weapon_stats",weapon_info,"set_attributes")
+	weapon_info.set_attributes(weapon)
 
 func set_health(new_health:int)->void:
 	health_widget.set_health(new_health)
@@ -139,3 +139,5 @@ func set_cursor(cursor_type:int) -> void:
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("show_debug_info"):
 		debug_info.set_alive(!debug_info.alive)
+	if Input.is_action_just_pressed("toggle_weapon_info"):
+		weapon_info.visible = !weapon_info.visible

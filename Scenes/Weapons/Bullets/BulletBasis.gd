@@ -84,6 +84,7 @@ func _on_trail_faded():
 func reset():
 	alive = true
 	visible = true
+	direct = true
 	set_process(true)
 	set_physics_process(true)
 	set_process_input(true)

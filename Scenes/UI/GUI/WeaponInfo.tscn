@@ -1,0 +1,107 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/UI/PauseMenue/PauseMenuTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Scenes/UI/GUI/WeaponInfo.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/UI/MainMenuTheme.tres" type="Theme" id=3]
+
+[node name="WeaponInfo" type="PanelContainer"]
+margin_right = 155.0
+margin_bottom = 100.0
+theme = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 148.0
+margin_bottom = 93.0
+theme = ExtResource( 1 )
+alignment = 1
+
+[node name="WeaponName" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+margin_right = 141.0
+margin_bottom = 14.0
+text = "Name"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 141.0
+margin_bottom = 32.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_right = 57.0
+margin_bottom = 14.0
+text = "DAMAGE"
+
+[node name="Damage" type="Label" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 61.0
+margin_right = 61.0
+margin_bottom = 14.0
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 36.0
+margin_right = 141.0
+margin_bottom = 50.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer5"]
+margin_right = 137.0
+margin_bottom = 14.0
+text = "EXPLOSION_DAMAGE"
+
+[node name="ExplosionDamage" type="Label" parent="VBoxContainer/HBoxContainer5"]
+unique_name_in_owner = true
+margin_left = 141.0
+margin_right = 141.0
+margin_bottom = 14.0
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+margin_top = 36.0
+margin_right = 141.0
+margin_bottom = 50.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer4"]
+margin_right = 92.0
+margin_bottom = 14.0
+text = "DAMAGE_TYPE"
+
+[node name="DamageType" type="Label" parent="VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+margin_left = 96.0
+margin_right = 96.0
+margin_bottom = 14.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 54.0
+margin_right = 141.0
+margin_bottom = 68.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+margin_right = 64.0
+margin_bottom = 14.0
+text = "FIRE_RATE"
+
+[node name="Rate" type="Label" parent="VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+margin_left = 68.0
+margin_right = 68.0
+margin_bottom = 14.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 72.0
+margin_right = 141.0
+margin_bottom = 86.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
+margin_right = 44.0
+margin_bottom = 14.0
+text = "RANGE"
+
+[node name="Range" type="Label" parent="VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+margin_left = 48.0
+margin_right = 48.0
+margin_bottom = 14.0
