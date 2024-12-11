@@ -24,5 +24,5 @@ func _shoot_bullet() -> void:
 	bullet.direction = Vector2.RIGHT.rotated(rot)
 	bullet.speed = speed
 	bullet.p_range = max_range*player.range_multi
-	bullet.damage = damage
+	bullet.damage = damage*player.damage_multi
 	bullet.timer.start(float(max_range*player.range_multi)/speed)#??, yes max_range already is a float, but without this conversion it did not work

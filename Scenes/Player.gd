@@ -26,7 +26,8 @@ var score:int = 0 setget set_score
 var alive:bool = true
 var elapsed_time=0 #get increased by 1 sec every time the time counter returns
 var locked:bool = false #can the player pick up new guns
-var damage_multi:float=1.0#will mosty influenced by perks
+var damage_multi:float=1.0#gets dynamicaly calculated from all the other multipliers, will mosty influenced by perks
+var dmg_base_multi:float=1.0
 var dmg_multi_not_moving:float=1.0 #will be influenced only by increased damage while not moving perk
 var level:int=1
 var weapon_movement_speed_multi:float = 1.0 setget set_weapon_movement_speed_multi
@@ -122,6 +123,8 @@ func _physics_process(delta)->void:
 
 	if Input.is_action_just_pressed("toggle_debug_invincibility") and  OS.is_debug_build():
 		debug_invincible=!debug_invincible
+
+
 	#Movement
 	var move_vec = Vector2()
 	if Input.is_action_pressed("move_up"):
@@ -164,6 +167,7 @@ func _physics_process(delta)->void:
 
 	#self.look_at(get_global_mouse_position()-self.position)
 	look_at(get_global_mouse_position())
+	calculate_damage_multiplier()
 
 #Health related, maybe should be outsourced to its own node
 func set_health(new_health:int)->void:
@@ -264,7 +268,8 @@ func calculate_damage_multiplier()->void:
 	if(is_standing == true):
 		not_moving_bonus = dmg_multi_not_moving
 
-	damage_multi = 1.0 * accuracy_boni * tit_for_tat_good_multi * not_moving_bonus
+	damage_multi = 1.0* dmg_base_multi * accuracy_boni * tit_for_tat_good_multi * not_moving_bonus
+	weapon.current_weapon.emit_signal("updated_weapon_stats",weapon.current_weapon)
 
 func add_enemy_death()->void:
 	enemies_killed+=1
@@ -314,8 +319,8 @@ func set_experience(new_exp:int)->void:
 			yield(gui, "perk_selected")
 
 func level_up():
-	if !alive:
-		return
+	#if !alive:
+	#	return
 	experience -= experience_limit
 	level+=1
 	print("Level UP")
@@ -332,6 +337,8 @@ func level_up():
 	if explosion_on_level_up:
 		create_explosion(exp_damage,exp_size)
 
+	if !alive:
+		return
 	perkManager.new_perk_selection()
 	emit_signal("exp_changed",experience)
 	next_exp_limit()

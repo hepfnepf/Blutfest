@@ -33,6 +33,7 @@ margin_bottom = 19.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 1 )
 text = "10"
+align = 2
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
 margin_left = 22.0

@@ -1,0 +1,118 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fonts/help_titles.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/UI/GUI/InstructionsPopup.gd" type="Script" id=2]
+
+[sub_resource type="Theme" id=3]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color( 0.494118, 0.0901961, 0.0901961, 1 )
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 9
+shadow_size = 6
+
+[sub_resource type="Theme" id=5]
+Label/colors/font_color = Color( 1, 1, 1, 1 )
+PanelContainer/styles/panel = SubResource( 4 )
+
+[node name="InstructionsPopup" type="Popup"]
+pause_mode = 2
+margin_left = 758.0
+margin_top = 440.0
+margin_right = 758.0
+margin_bottom = 440.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource( 2 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 3 )
+use_top_left = true
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+margin_left = -7.0
+margin_top = -7.0
+margin_right = 7.0
+margin_bottom = 7.0
+theme = SubResource( 5 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 209.0
+margin_bottom = 177.0
+
+[node name="InstructionsTitle" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+margin_right = 202.0
+margin_bottom = 38.0
+custom_colors/font_color = Color( 0.494118, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "HELP_TITLE1"
+align = 1
+
+[node name="GameplayInstruction" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 42.0
+margin_right = 202.0
+margin_bottom = 56.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "HELP_DESCRIPTION"
+
+[node name="MovementTitle" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 60.0
+margin_right = 202.0
+margin_bottom = 98.0
+custom_colors/font_color = Color( 0.494118, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "HELP_TITLE2"
+align = 1
+
+[node name="Movement" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 102.0
+margin_right = 202.0
+margin_bottom = 116.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "HELP_MOVEMENT"
+align = 1
+
+[node name="Shooting" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 120.0
+margin_right = 202.0
+margin_bottom = 134.0
+text = "HELP_SHOOTING"
+align = 1
+
+[node name="Locking" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 138.0
+margin_right = 202.0
+margin_bottom = 152.0
+text = "HELP_LOCKING"
+align = 1
+
+[node name="WeaponInfo" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "HELP_WEAPON_INFO"
+align = 1
+
+[node name="Help" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+margin_top = 156.0
+margin_right = 202.0
+margin_bottom = 170.0
+text = "HELP_HELP"
+align = 1
+
+[connection signal="about_to_show" from="." to="." method="_on_InstructionsPopup_about_to_show"]
+[connection signal="popup_hide" from="." to="." method="_on_InstructionsPopup_popup_hide"]

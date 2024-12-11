@@ -30,7 +30,9 @@ MOVE_DOWN,Down,Unten
 MOVE_LEFT,Left,Links
 MOVE_RIGHT,Right,Rechts
 LOCK_WEAPON,Lock weapn,Waffe sperren
+LOCK_WEAPON,Lock weapn,Waffe sperren
 INVINCIBILITY_BTN,Invincibility,Unverwundbarkeit
+WEAPON_INFO_BTN,Weapon info,Waffeninformation
 INVERT_ZOOMING,Invert zooming,Zoomen invertieren
 HELP_BTN,Help,Hilfe
 DEBUG_INFO_BTN,Debug,Debug
@@ -66,7 +68,7 @@ RARITY_LEGENDARY,Legendary,Legendär
 PERK_HEAL_UP,Heal Up,Heilung
 PERK_HEAL_UP_DESC,Increases player health by %d points.,Heilt dich um %d Lebenspunkte.
 MORE_DMG_PERK,More Damage,Mehr Schaden
-MORE_DMG_PERK_DESC,Increases the players damage by %d%%.,Erhöht deinen Schaden um %d%%.
+MORE_DMG_PERK_DESC,Increases the player's standard damage by %d%%.,Erhöht deinen Standardschaden um %d%%.
 PERK_INC_MAX_HEALTH,Increase max. Health,Mehr max. Lebenspunkte
 PERK_INC_MAX_HEALTH_DESC,Increases your max health by %d points.,Erhöhe deine max. LP um %d LP.
 PERK_SPEED_UP,Speed Up,Schneller
@@ -129,6 +131,7 @@ HELP_TITLE2,Movement,Steuerung
 HELP_MOVEMENT,"W, A,S,D - move around","W, A, S, D - Bewegung"
 HELP_SHOOTING,Mouse & Left click - aim & shoot,Maus und Linksclick - Zielen & Schießen
 HELP_LOCKING,L - lock your current weapon,L - fixiere deine aktuelle Waffe
+HELP_WEAPON_INFO,K - show weapon info,K- Waffeninformationen ansehen
 HELP_HELP,H - toggle this help,H - Öffne/Schließe diese Hilfe
 PERK_RANGE_EXTENDER,Range Extender,Reichweitenerweiterer
 PERK_RANGE_EXTENDER_DESC,Extends the range by %d%%,Erweitert die Reichweite um %d%%
@@ -156,3 +159,8 @@ WEAPON_MACHINEZOOKA,Machinezooka,Maschinenzooka
 WEAPON_PISTOL,Pistol,Pistole
 WEAPON_SHORT_SHOTGUN,Short shotgun,Kurzläufiges Schrotgewehr
 ITEM_SPEED_UP,Speed Up,Geschwindigkeitsbonus
+DAMAGE,Damage:,Schaden:
+FIRE_RATE,Fire rate:,Schussrate:
+RANGE,Range:,Reichweite:
+EXPLOSION_DAMAGE,Explosion damage,Explosionsschaden:
+DAMAGE_TYPE,Damage typ:,Schadensart:
