@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/UI/PerkSelection/PerkCard.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Perks/PerkHpIncreasesMaxhp.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Perks/PerkExplodingItems.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/UI/SettingsScreen/CountryFlag.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/UI/Deutschland_Flagge.jpg" type="Texture" id=4]
 [ext_resource path="res://Sprites/UI/Flag_of_the_United_Kingdom.svg.png" type="Texture" id=5]

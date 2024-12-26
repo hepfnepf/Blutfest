@@ -94,7 +94,7 @@ PERK_TIT_FOT_TAT_DESC,"Your damage will get doubled for the rest of the game, bu
 PERK_ITEMS_EXPLODE,Exploding items,Explodierende Items
 PERK_ITEMS_EXPLODE_DESC,"When collecting an item, you will leave an explosion.","Du erzeugst eine Explosion, beim Einsammeln von Items."
 PERK_VAMPIRE,Vampire,Vampire
-PERK_VAMPIRE_DESC,You gain %d%% of the damage you deal as health. Blocks perk 'Health-is-Healthy'.,Du erhältst %d%% des ausgeteilten Schadens als Leben. Blockiert den 'Leben ist gesund'-Perk.
+PERK_VAMPIRE_DESC,You gain %d%% of the damage you deal as health. Blocks Health-is-Healthy perk.,Du erhältst %d%% des ausgeteilten Schadens als Leben. Blockiert den Leben ist gesund Perk.
 PERK_PYROMANIC,Pyromanic,Pyromane
 PERK_PYROMANIC_DESC,Every explosion increases the size of explosions. Up to %dx.!,Jede Explosion erhöht die Explosionsgröße! bis zu %dx.
 PERK_INC_PYROMANIAC,Pyromaniac II,Pyromane II
@@ -102,7 +102,7 @@ PERK_INC_PYROMANIAC_DESC,Increase you maximum pyromaniac multiplier to %1f.,Erh�
 PERK_XRAY_VSION,X-Ray vision,Röntgenblick
 PERK_XRAY_VSION_DESC,See how much HP enemies have left.,"Du kannst sehen, wieviele LP deine Gegner haben."
 HP_INC_INC_MAX_HP,Health is healthy,Leben ist gesund
-HP_INC_INC_MAX_HP_DESC,"If you gain health, while being fully healed, you gain half of it as max HP. Blocks the perk 'vampire'.","Falls du volles Leben hast und geheilt wirst, erhältst du die Hälfte des Labens als max LP. Blockiert den Perk 'Vampir'."
+HP_INC_INC_MAX_HP_DESC,"If you gain health, while being fully healed, you gain half of it as max HP. Blocks the vampire perk!","Falls du volles Leben hast und geheilt wirst, erhältst du die Hälfte des Labens als max LP. Blockiert den Perk Vampir."
 HP_INC_INC_MAX_HP_2,Health is healthy II,Leben ist gesund II
 HP_INC_INC_MAX_HP_2_DESC,"If you gain health overstepping your max HP, your max HP will be increased by half of the difference and your HP will be filled.","Wenn du über deine max LP hinaus geheilt wirst, wird die Hälfte der Differenz zu deinen max LP hinzugefügt und du wirst vollständig geheilt."
 PERK_EXTRA_CARDS,Extra Card,Bonuskarte
