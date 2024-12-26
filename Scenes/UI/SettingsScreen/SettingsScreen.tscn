@@ -134,7 +134,7 @@ Tabs/styles/tab_fg = ExtResource( 25 )
 
 [sub_resource type="Theme" id=11]
 
-[sub_resource type="StyleBoxFlat" id=18]
+[sub_resource type="StyleBoxFlat" id=24]
 bg_color = Color( 0, 0, 0, 0 )
 border_width_left = 1
 border_width_top = 1
@@ -142,7 +142,7 @@ border_width_right = 1
 border_width_bottom = 1
 
 [sub_resource type="Theme" id=19]
-Panel/styles/panel = SubResource( 18 )
+Panel/styles/panel = SubResource( 24 )
 
 [sub_resource type="DynamicFont" id=10]
 size = 42

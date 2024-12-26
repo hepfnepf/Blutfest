@@ -1,6 +1,7 @@
 extends Node
 ##
 ## This is a helping scene for spotting issues with translation.
+## See below, to find out, what errors are being searched for
 ##
 
 onready var file = 'res://Localization/Translation.csv'
