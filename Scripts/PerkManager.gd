@@ -134,9 +134,9 @@ func _on_Perk_selected(perk:PackedScene) -> void:
 			_blocked_perks.append_array(state.get_node_property_value(0,i))
 		if state.get_node_property_name(0,i)=="one_time":
 			_blocked_perks.append(perk.resource_path)
-	for perk in _blocked_perks:
-		blocked_perks.append(perk.resource_path)
-		remove_perk(perk)
+	for perk_path in _blocked_perks:
+		blocked_perks.append(perk_path)
+		#remove_perk(perk)
 	#Update arrays
 	update_current_arrays()
 	update_probs()
