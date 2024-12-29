@@ -7,7 +7,7 @@ export (Texture) var icon= null
 export (bool) var one_time = false
 
 export (Array,PackedScene) var required
-export (Array,PackedScene) var blocks
+export (Array,String) var blocks
 export (int)var min_level = 0
 
 onready var player:Player = get_parent()

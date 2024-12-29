@@ -34,7 +34,7 @@ export(float) var rarity_legendary
 var current_perks:Array = []
 var current_likelihoods:Array=[]
 var active_perks:Array=[]
-var blocked_perks:Array=[] #cant be chosen anymore
+var blocked_perks:Array=[] #resource_path of perks, that cant be chosen anymore
 var perk_probs:Array = [] #Gets calculated from item_likelihood. Actual probability.
 
 export(int)var perk_selection_amount=2
@@ -44,6 +44,7 @@ func _ready()->void:
 	assert(rarity_normal>rarity_rare and rarity_rare>rarity_legendary,"Exported rarity steppings are not increasing.")
 	update_current_arrays() #creates current_perks and _likeliehoods
 	update_probs()
+	#print_debug(perk_name_from_scene(current_perks[0]))
 
 ## Draws perk_selection_amount perks of the currently available ones
 func new_perk_selection()->void:
@@ -80,7 +81,7 @@ func update_current_arrays() -> void:
 	while changed:
 		changed = false
 		for i in range(perks.size()):
-			if !(perks[i] in temp_perks) and !(perks[i] in blocked_perks) and requirements_satisfied(perks[i],active_perks):
+			if !(perks[i] in temp_perks) and !(perks[i].resource_path in blocked_perks) and requirements_satisfied(perks[i],active_perks):
 				temp_perks.append(perks[i])
 				temp_likeliehoods.append(likelihoods[i])
 				changed=true
@@ -132,10 +133,10 @@ func _on_Perk_selected(perk:PackedScene) -> void:
 		if state.get_node_property_name(0,i)=="blocks":
 			_blocked_perks.append_array(state.get_node_property_value(0,i))
 		if state.get_node_property_name(0,i)=="one_time":
-			_blocked_perks.append(perk)
-	for perk in _blocked_perks:
-		blocked_perks.append(perk)
-		remove_perk(perk)
+			_blocked_perks.append(perk.resource_path)
+	for perk_path in _blocked_perks:
+		blocked_perks.append(perk_path)
+		#remove_perk(perk)
 	#Update arrays
 	update_current_arrays()
 	update_probs()
@@ -169,6 +170,7 @@ func compute_percentages(perks,likelihoods)->Array:
 		start +=prob
 
 	return new_perk_probs
+
 
 func sum(int_array:Array)-> int:
 	var res:int = 0

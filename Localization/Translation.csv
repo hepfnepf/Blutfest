@@ -65,6 +65,7 @@ RARITY_COMMON,Common,Häufig
 RARITY_NORMAL,Normal,Normal
 RARITY_RARE,Rare,Selten
 RARITY_LEGENDARY,Legendary,Legendär
+BLOCKING,Blocks the following perks: ,Blockiert die folgenden Perks: 
 PERK_HEAL_UP,Heal Up,Heilung
 PERK_HEAL_UP_DESC,Increases player health by %d points.,Heilt dich um %d Lebenspunkte.
 MORE_DMG_PERK,More Damage,Mehr Schaden
