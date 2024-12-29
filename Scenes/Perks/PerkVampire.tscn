@@ -8,4 +8,5 @@ script = ExtResource( 1 )
 title = "PERK_VAMPIRE"
 desc = "PERK_VAMPIRE_DESC"
 one_time = true
+blocks = [ "res://Scenes/Perks/PerkHpIncreasesMaxhp.tscn" ]
 vampire_percent = 2.0
