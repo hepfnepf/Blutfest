@@ -91,6 +91,16 @@ grow_vertical = 2
 text = "THIS IS THE DESCRIPTION"
 autowrap = true
 
+[node name="BlockingLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 872.0
+margin_right = 1522.0
+margin_bottom = 886.0
+size_flags_vertical = 10
+text = "test blockiert Ramson, brunde, target zwae"
+valign = 2
+autowrap = true
+
 [node name="Button" type="Button" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 7.0

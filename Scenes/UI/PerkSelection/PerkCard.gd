@@ -11,6 +11,7 @@ onready var nameLabel:Label = $"%NameLabel"
 onready var rarityLabel:Label=$"%RarityLabel"
 onready var icon:TextureRect=$"%Icon"
 onready var descLabel:Label=$"%DescriptionLabel"
+onready var blockingLabel:Label = $"%BlockingLabel"
 
 export (float) var hover_size = 1.3
 export (float) var up_speed = 3.0
@@ -55,11 +56,25 @@ func display_perk()->void:
 	desc = _perk.get_desc()
 
 	nameLabel.text = title
-	descLabel.text= desc
+	descLabel.text= desc	
+	blockingLabel.text= blocked_node_text(_perk)	
+	
 	apply_rarity()
 	rarityLabel.text = get_rarity_string(rarity)
 
 	_perk.queue_free()
+
+
+func blocked_node_text(perk:Perk)->String:
+	var text:String = "Blocks the following perks: "
+	for node_path in perk.blocks:
+		var scene:PackedScene = load(node_path)
+		var index= scene._bundled["names"].find("title")
+		var title =scene._bundled["variants"][index]
+		text += "\'%s\', "%tr(title)
+	
+	text.erase(text.length()-2,2)
+	return text  + "."
 
 
 func get_rarity_string(rarity:int)->String:
@@ -96,6 +111,7 @@ func _apply_rarity_color(color:Color) -> void:
 	nameLabel.add_color_override("font_color",color)
 	rarityLabel.add_color_override("font_color",color)
 	descLabel.add_color_override("font_color",color)
+	blockingLabel.add_color_override("font_color",color)
 
 
 func _on_Button_button_up()->void:
