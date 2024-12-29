@@ -66,7 +66,7 @@ func display_perk()->void:
 
 
 func blocked_node_text(perk:Perk)->String:
-	var text:String = "Blocks the following perks: "
+	var text:String = tr("BLOCKING")
 	for node_path in perk.blocks:
 		var scene:PackedScene = load(node_path)
 		var index= scene._bundled["names"].find("title")
