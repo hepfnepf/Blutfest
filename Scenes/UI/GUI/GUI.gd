@@ -89,8 +89,7 @@ func set_lock(new_lock:bool)->void:
 ##Opens the perk selection screen
 func _on_new_perk_selection(perks, raritys):
 	get_tree().paused = true
-	stored_time_scale = Engine.time_scale
-	Engine.time_scale=1.0
+	TimeManager.set_time_scale(1.0,true)
 	card_holder.visible=true
 
 	var cards = []
@@ -119,7 +118,7 @@ func _on_card_selected(card:PerkCard)->void:
 
 	set_cursor(Globals.cursor_manager.CURSOR_TYPE.CROSSHAIR)
 	get_tree().paused = false
-	Engine.time_scale = stored_time_scale
+	TimeManager.restore_from_stored_time()
 	card_holder.visible=false
 	emit_signal("perk_selected")
 

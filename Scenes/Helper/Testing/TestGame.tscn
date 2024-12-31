@@ -140,11 +140,5 @@ position = Vector2( -2942.42, 718.569 )
 
 [node name="GUI" parent="." instance=ExtResource( 7 )]
 
-[node name="ItemBulletSpiral" parent="." instance=ExtResource( 26 )]
-position = Vector2( -468.41, -474.113 )
-
 [node name="ItemSlowDownTime" parent="." instance=ExtResource( 27 )]
-position = Vector2( -1368.85, -453.764 )
-
-[node name="ChargeGunItem" parent="." instance=ExtResource( 36 )]
-position = Vector2( -757.911, 270.308 )
+position = Vector2( -255.752, 88.5143 )
