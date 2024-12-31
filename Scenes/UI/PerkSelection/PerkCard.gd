@@ -66,6 +66,9 @@ func display_perk()->void:
 
 
 func blocked_node_text(perk:Perk)->String:
+	if perk.blocks.empty():
+		return ""
+	
 	var text:String = tr("BLOCKING")
 	for node_path in perk.blocks:
 		var scene:PackedScene = load(node_path)
