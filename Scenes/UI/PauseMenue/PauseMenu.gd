@@ -8,7 +8,10 @@ onready var music_slider = $CenterContainer/VBoxContainer/HBoxContainer/MusicSli
 
 var debug_info = null
 
+var enabled := false
+var stored_cursor_state:int = 0
 var blocked := false
+
 
 func _ready() -> void:
 	options.sound_tab.connect("changed_sound",self,"_on_reset_sound")
@@ -16,7 +19,7 @@ func _ready() -> void:
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("Escape") and !blocked:
-		switch_state()
+		switch_state(!enabled)
 	if Input.is_action_just_pressed("show_debug_info") and visible:
 		if is_instance_valid(debug_info):
 			debug_info.set_alive(!debug_info.alive)
@@ -24,18 +27,24 @@ func _unhandled_input(_event):
 func set_debug_info(_debug_info)->void:
 	debug_info = _debug_info
 
-func switch_state():
+func switch_state(state:bool):
+	enabled=state
+
+
 	if !get_parent().card_holder.visible:
-		get_tree().paused = !get_tree().paused
-	visible = !visible
+		get_tree().paused = enabled
+
+	visible = enabled
 	if credits.visible:
 		credits.visible = false
 
 	#Change Cursor
-	if Globals.cursor_manager.cursor == Cursor.CURSOR_TYPE.CROSSHAIR:
+	if enabled:
+		stored_cursor_state = Globals.cursor_manager.cursor
 		Globals.cursor_manager.set_cursor(Cursor.CURSOR_TYPE.DEFAULT)
+
 	else:
-		Globals.cursor_manager.set_cursor(Cursor.CURSOR_TYPE.CROSSHAIR)
+		Globals.cursor_manager.set_cursor(stored_cursor_state)
 
 	#Save new volume setting in linear between 0 and 1
 	if sfx_slider.has_chagend or music_slider.has_chagend:
@@ -50,7 +59,7 @@ func save_volume() -> void:
 	SaveManager.set_options_save(sg)
 
 func _on_ReturnButton_pressed():
-	switch_state()
+	switch_state(false)
 
 
 func _on_OptionsButton_pressed():
@@ -89,5 +98,5 @@ func _on_Restart_pressed():
 	if sfx_slider.has_chagend or music_slider.has_chagend:
 		save_volume()
 
-	switch_state()
+	switch_state(false)
 	Globals.game.restart()
