@@ -116,8 +116,12 @@ func _on_card_selected(card:PerkCard)->void:
 	print_debug( "%s: %s"%[card.title, card.desc])
 	yield(card_holder,"cards_cleared")
 
-	set_cursor(Globals.cursor_manager.CURSOR_TYPE.CROSSHAIR)
-	get_tree().paused = false
+	if !pause_menu.enabled:
+		get_tree().paused = false
+		set_cursor(Globals.cursor_manager.CURSOR_TYPE.CROSSHAIR)
+	else:
+		pause_menu.stored_cursor_state = Cursor.CURSOR_TYPE.CROSSHAIR
+
 	TimeManager.restore_from_stored_time()
 	card_holder.visible=false
 	emit_signal("perk_selected")
