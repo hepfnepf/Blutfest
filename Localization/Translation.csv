@@ -129,11 +129,12 @@ PERK_THORNS_EQUAL_DESC,"When hit, the enemy takes as much damage as you do.","De
 HELP_TITLE1,How to play,Wie geht's?
 HELP_DESCRIPTION,"Survive as long as possible, while evil monsters try to kill you! Use power ups and weapons to your advantage and select the right perks to stay alive.",Überlebe solange es geht! Verschaffe dir dabei einen Vorteil durch die Nutzung von Items und Waffen. Sowie der richtigen Perks!
 HELP_TITLE2,Movement,Steuerung
-HELP_MOVEMENT,"W, A,S,D - move around","W, A, S, D - Bewegung"
+HELP_MOVEMENT,"move around","Bewegung"
 HELP_SHOOTING,Mouse & Left click - aim & shoot,Maus und Linksclick - Zielen & Schießen
-HELP_LOCKING,L - lock your current weapon,L - fixiere deine aktuelle Waffe
-HELP_WEAPON_INFO,K - show weapon info,K- Waffeninformationen ansehen
-HELP_HELP,H - toggle this help,H - Öffne/Schließe diese Hilfe
+HELP_RELOAD,Reload,Nachladen
+HELP_LOCKING,lock your current weapon,Fixiere deine aktuelle Waffe
+HELP_WEAPON_INFO,show weapon info,Waffeninformationen ansehen
+HELP_HELP,toggle this help,Öffne/Schließe diese Hilfe
 PERK_RANGE_EXTENDER,Range Extender,Reichweitenerweiterer
 PERK_RANGE_EXTENDER_DESC,Extends the range by %d%%,Erweitert die Reichweite um %d%%
 PERK_INCREASE_DAMAGE_WHILE_NOT_MOVING,Stop right now!,Stillgestanden!
