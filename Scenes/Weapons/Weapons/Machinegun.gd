@@ -16,6 +16,7 @@ func _ready() -> void:
 	sound_tween = get_tree().create_tween()
 	sound_tween.connect("finished",self,"_on_fade_out_finished")
 	sound_tween.stop()
+	player.connect("dead",self,"_on_player_death")
 
 func add_to_player() -> void:
 	player.get_node("Sprites/torso").visible = false
@@ -26,6 +27,8 @@ func remove_from_player() -> void:
 	player.weapon_movement_speed_multi = 1.0
 	.remove_from_player()
 
+func _on_player_death()->void:
+	set_is_shooting(false)
 
 func check_for_input():
 	if Input.is_action_just_pressed("fire"):
@@ -73,7 +76,7 @@ func set_is_shooting(new_is_shooting):
 		if sound_tween:
 			sound_tween.kill()
 		sound_tween = create_tween()
-		sound_tween.tween_property(stream,"volume_db",linear2db(0.01),0.3)
+		sound_tween.tween_property(stream,"volume_db",linear2db(0.00),0.3)
 		sound_tween.set_trans(Tween.TRANS_QUINT)
 		sound_tween.set_ease(Tween.EASE_OUT)
 		sound_tween.play()

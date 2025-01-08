@@ -56,9 +56,9 @@ func display_perk()->void:
 	desc = _perk.get_desc()
 
 	nameLabel.text = title
-	descLabel.text= desc	
-	blockingLabel.text= blocked_node_text(_perk)	
-	
+	descLabel.text= desc
+	blockingLabel.text= blocked_node_text(_perk)
+
 	apply_rarity()
 	rarityLabel.text = get_rarity_string(rarity)
 
@@ -68,14 +68,14 @@ func display_perk()->void:
 func blocked_node_text(perk:Perk)->String:
 	if perk.blocks.empty():
 		return ""
-	
+
 	var text:String = tr("BLOCKING")
 	for node_path in perk.blocks:
 		var scene:PackedScene = load(node_path)
 		var index= scene._bundled["names"].find("title")
 		var title =scene._bundled["variants"][index]
 		text += "\'%s\', "%tr(title)
-	
+
 	text.erase(text.length()-2,2)
 	return text  + "."
 
