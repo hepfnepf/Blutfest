@@ -26,7 +26,7 @@ const new_save_options_dict = {
 	"sfx_volume":0.5,
 	"sfx_disabled":false,
 	"music_volume":0.5,
-	"music_disabled":true,
+	"music_disabled":false,
 	"fullscreen_enabled":false,
 	"vsync_enabled":true,
 	"zooming_inverted":false,
@@ -298,6 +298,8 @@ func import_save_game(save_game:Dictionary):
 				new_save_game[key]=save_game[key]
 			else:
 				needed_change=true
+		else:
+			needed_change=true
 	return [needed_change,new_save_game]
 
 
@@ -311,6 +313,8 @@ func import_save_options(save_options:Dictionary):
 				new_save_options[key]=save_options[key]
 			else:
 				needed_change = true
+		else:
+			needed_change = true
 	return [needed_change,new_save_options]
 
 """
