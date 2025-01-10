@@ -80,9 +80,6 @@ move_speed_base = 500
 health = 100
 start_weapon = ExtResource( 18 )
 
-[node name="IceItem" parent="." instance=ExtResource( 16 )]
-position = Vector2( -214.659, -300.747 )
-
 [node name="Zombie" parent="." instance=ExtResource( 29 )]
 position = Vector2( 467.068, -87.3807 )
 scale = Vector2( 0.54, 0.54 )
@@ -140,5 +137,8 @@ position = Vector2( -2942.42, 718.569 )
 
 [node name="GUI" parent="." instance=ExtResource( 7 )]
 
-[node name="ItemSlowDownTime" parent="." instance=ExtResource( 27 )]
-position = Vector2( -255.752, 88.5143 )
+[node name="ShortShotgunItem" parent="." instance=ExtResource( 25 )]
+position = Vector2( -617.336, 221.005 )
+
+[node name="MachinezookaItem" parent="." instance=ExtResource( 31 )]
+position = Vector2( 374.463, 408.899 )

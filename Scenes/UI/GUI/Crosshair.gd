@@ -4,9 +4,13 @@ onready var outer_crosshair = $OuterCrosshair
 onready var inner_crosshair = $InnerCrosshair
 
 export (float)var max_size = 1.0
-export (float)var min_size = 0.5
+#export (float)var min_size = 0.5
 export (float)var SIZE_SCALER = 0.2
 export (float)var spread_scaler = 50.0
+
+
+export (float)var STEEPNES:float = 3.0
+export (float)var SCALER:float = 5
 
 var dynamic:bool = true
 var size:float = 1.0
@@ -40,9 +44,9 @@ func init_values()->void:
 
 func set_spread(new_spread) -> void:
 	if dynamic:
-		var _spread =new_spread*spread_scaler*size
-		_spread = sqrt(_spread)+(1/pow((_spread+1),2))*1/8
-		_spread = clamp(_spread*1.1,min_size,max_size)
+		var _spread =new_spread#*size*spread_scaler
+		_spread = log(STEEPNES* (_spread +1/STEEPNES)) *SCALER
+		_spread = clamp(_spread,0,max_size)
 		outer_crosshair.scale = Vector2(_spread,_spread)
 
 func set_static()->void:
@@ -58,7 +62,7 @@ func _on_crosshair_is_dynamic_change(is_dynamic:bool)->void:
 		set_static()
 
 func _on_crosshair_size_change(_size:float)->void:
-	size = clamp(_size*SIZE_SCALER,min_size,max_size)
+	size = clamp(_size*SIZE_SCALER,0,max_size)
 	scale = Vector2(size,size)
 
 func _on_crosshair_type_change(new_crosshair_type:int)->void:

@@ -23,7 +23,7 @@ func add_card(card:PerkCard)->void:
 	card.modulate = Color(0,0,0,0)#turn card invisible, but not using the visible var beacause that messes with the placement of UI elements
 
 	if player.perkManager.perk_selection_amount < $HBoxContainer.get_child_count():
-		#For some reason, probably due to concurrency, to many cards get spawned.
+		#For some reason, prowabably due to concurrency, to many cards get spawned.
 		#This code path only exists for the debugger breakpoint
 		print_debug("To many cards.")
 
