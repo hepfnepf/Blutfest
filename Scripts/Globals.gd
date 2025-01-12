@@ -6,6 +6,9 @@ enum DamageType{PROJECTILE,EXPLOSION}
 enum Rarity{COMMON,NORMAL,RARE,LEGENDARY}
 enum CrosshairType{CROSSHAIR,CONE,BOTH}
 
+var first_start:bool=false
+
+
 var cursor_manager = null
 var music_player = null setget set_music_player #this var gets set by the background music node using set_music_player
 var game = null
