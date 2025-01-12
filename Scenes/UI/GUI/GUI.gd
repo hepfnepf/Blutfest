@@ -30,6 +30,9 @@ func _ready() -> void:
 	EventBus.connect("blood_overlay_enabled",self,"_on_blood_overlay_toggle")
 	blood.visible = SaveManager.current_save_options["blood_overlay_enabled"]
 
+	if Globals.first_start:
+		instructions.call_deferred("popup")
+
 func set_player(player:Player)->void:
 	self.player = player
 	card_holder.player=player

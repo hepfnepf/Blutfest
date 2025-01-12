@@ -213,6 +213,7 @@ func read_savegame()->Dictionary:
 	if not savegame.file_exists(save_game_path):
 		alert_player("No save game found. Creating a new one.")
 		create_empty_save_game_file()
+		Globals.first_start = true
 		return new_save_game_dict
 
 	savegame.open(save_game_path, File.READ) #open the file
