@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/UI/CreditsScreen/CreditsScreen.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Fonts/smallUIFont.tres" type="DynamicFont" id=4]
 
 [sub_resource type="DynamicFont" id=2]
 size = 90
@@ -55,7 +56,8 @@ margin_right = 1496.0
 margin_bottom = 800.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "loooo"
+custom_fonts/normal_font = ExtResource( 4 )
+bbcode_enabled = true
 
 [node name="ExitButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
 margin_left = 706.0
@@ -66,4 +68,5 @@ size_flags_horizontal = 4
 custom_fonts/font = SubResource( 1 )
 text = "Exit"
 
+[connection signal="meta_clicked" from="ColorRect/MarginContainer/VBoxContainer/RichTextLabel" to="." method="_on_RichTextLabel_meta_clicked"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
