@@ -73,9 +73,8 @@ func restart()->void:
 	BulletPool.clear_all_bullets()
 	get_tree().reload_current_scene()
 
-func _on_enemy_killed(points) -> void:
+func _on_enemy_killed() -> void:
 	enemys_alive -=1
-	player.add_points(points)
 	#player.set_score(player.score + points)
 	emit_signal("killed_enemy")
 

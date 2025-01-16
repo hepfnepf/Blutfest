@@ -36,16 +36,16 @@ var move_speed:float = move_speed_base#gets recalced in ready
 #For statistics and some percs
 var enemies_hit:int = 0 setget set_enemies_hit
 var shots_fired:int = 0 setget set_shots_fired
-var accuracy:float = 0
+var accuracy:float = 1.0
 var health_gained:int=0
 var health_lost:int=0
 var enemies_killed:int=0
-var distance_covered:float=0
+var distance_covered:float=0.0
 var powerups_collected_amnt:int=0
 #var perks_collected_amnt:int=0 can be gotten from PerkManager.active_perks.length
 var damage_caused:int=0 setget set_damage_caused
-var max_standing_time:float=0
-var current_standing_time:float=0
+var max_standing_time:float=0.0
+var current_standing_time:float=0.0
 #var weapon_time_used={} can be gotten from weapon.weapon_time_used
 var power_ups_collected={}
 var explosion_amnt:int=0 setget set_explosion_amnt
@@ -88,6 +88,10 @@ var ice_damage_mult:float = 1.0
 var thorn_damage:int = 0
 var thorn_damage_equal_fac:float = 0.0
 var range_multi:float = 1.0
+
+#weapon effect
+var standard_rifle_multi:float = 1.0
+var standard_rifle_multi_enabled:bool=true
 
 onready var weapon = $Weapon
 onready var hurt:AudioStreamPlayer = $Hurt
@@ -203,8 +207,8 @@ func set_max_health(new_max_health:int)->void:
 	emit_signal("max_health_changed",max_health)
 
 func add_points(points:int)->void:
-	set_score(score+points)
-	set_experience(experience+points)
+	set_score(int(score+points*standard_rifle_multi))
+	set_experience(int(experience+points*standard_rifle_multi))
 
 func set_score(new_score)->void:
 	if !alive:
@@ -241,6 +245,10 @@ func calculate_accuracy()->void:
 			accuracy = clamp(float(enemies_hit)/float(shots_fired-_shots_fired_modi),0.0,1.0)
 	else:
 		accuracy = float(enemies_hit)/float(shots_fired-_shots_fired_modi)
+
+	if accuracy < 1.0:
+		standard_rifle_multi=1.0
+		standard_rifle_multi_enabled = false
 	calculate_damage_multiplier()
 
 func set_boost_accuracy_dmg_level(level)->void:

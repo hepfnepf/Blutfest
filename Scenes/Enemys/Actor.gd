@@ -86,9 +86,11 @@ func start_death_animation():
 	movement.alive=false
 	collision_shape.queue_free()
 	z_index = -4
-	emit_signal("enemy_dead",points)
+
+	emit_signal("enemy_dead")
 	game.spawner.spawn_rand_item_at_prob(drop_rate,global_position)
 	player.add_enemy_death()
+	player.add_points(points)
 
 	animation_player.stop()
 	animation_player.play("Death")
