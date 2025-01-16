@@ -1,85 +1,98 @@
-Repository: https://github.com/hepfnepf/Blutfest
+[center]
 
-Sprites
-Player - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player - CC-BY 3.0
+THANK YOU FOR PLAYING BLUTFEST!
+Repository: [color=#46a0af]https://github.com/hepfnepf/Blutfest[/color]
 
-Wapons top-down:
-Pistol - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player CC-BY 3.0
-Pistol icon - rgs_dev - https://opengameart.org/content/gun-glock-26-gen5-9mm-vector
-Standard Rifle - knik1985 - https://opengameart.org/content/guns-wwii
-Ak Rifle - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player - CC BY 3.0
-Short Shotgun based on - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player - CC BY 3.0
-Icicle Gun based on Xavier4321 - https://opengameart.org/content/gun-mine - CC BY 3.0
-Longrange Shotgun based on - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player - CC BY 3.0
-Trap Canon based on - richtaur - https://opengameart.org/content/bomb-party - CC BY 3.0
-Spiked Ball - dravenx - https://opengameart.org/content/spikey-stuff - CC BY 3.0
+CODE
+[color=#46a0af][url=https://github.com/hepfnepf]hepfnepf[/url][/color] - 308 commits
+[color=#46a0af][url=https://github.com/lukstarleb]kermon5[/url][/color] - 1 commit
+[color=#46a0af][url=https://github.com/kermon5]lukstarleb[/url][/color] - 1 commit
+
+SPRITES
+
+Player - rileygombart - [color=#46a0af][url]https://opengameart.org/content/animated-top-down-survivor-player[/url][/color] - CC-BY 3.0
+
+Weapons top-down
+Pistol - rileygombart - [color=#46a0af][url]https://opengameart.org/content/animated-top-down-survivor-player[/url][/color] - CC-BY 3.0
+Pistol icon - rgs_dev - [color=#46a0af][url]https://opengameart.org/content/gun-glock-26-gen5-9mm-vector[/url][/color] - CC0
+Standard Rifle - knik1985 - [color=#46a0af][url]https://opengameart.org/content/guns-wwii[/url][/color] - CC BY 3.0
+Ak Rifle - rileygombart - [color=#46a0af][url]https://opengameart.org/content/animated-top-down-survivor-player[/url][/color] - CC BY 3.0
+Short Shotgun based on - rileygombart - [color=#46a0af][url]https://opengameart.org/content/animated-top-down-survivor-player[/url][/color] - CC BY 3.0
+Icicle Gun based on Xavier4321 - [color=#46a0af][url]https://opengameart.org/content/gun-mine[/url][/color] - CC BY 3.0
+Longrange Shotgun based on - rileygombart - [color=#46a0af][url]https://opengameart.org/content/animated-top-down-survivor-player[/url][/color] - CC BY 3.0
+Trap Canon based on - richtaur - [color=#46a0af][url]https://opengameart.org/content/bomb-party[/url][/color] - CC BY 3.0
+Spiked Ball - dravenx - [color=#46a0af][url]https://opengameart.org/content/spikey-stuff[/url][/color] - CC BY 3.0
 Bazooka - hepfnepf - CC0
 Machine gun - hepfnepf - CC0
 
-Ammo:
-Icicle - ? - https://proofmart.com/product/icicles-png-images-transparent-background-free-download/ - CC BY 4.0
-Missle based on - Mystic Mike (Mike Hosker) - https://opengameart.org/content/agm-65-maverick-missile - GPL 2.0,
-removed background, rotated 31.12.2022
-Charge gun Orb based on - "Hansjörg Malthaner" Varkalandar http://opengameart.org/users/varkalandar - https://opengameart.org/content/200-magic-orbs-psionic-dew - CC-BY 3.0
+Ammo
+Icicle - ? - [color=#46a0af][url]https://proofmart.com/product/icicles-png-images-transparent-background-free-download/[/url][/color] - CC BY 4.0
+Missle based on - Mystic Mike (Mike Hosker) - [color=#46a0af][url]https://opengameart.org/content/agm-65-maverick-missile[/url][/color] - GPL 2.0, removed background, rotated 31.12.2022
+Charge gun Orb based on - "Hansjörg Malthaner" Varkalandar [color=#46a0af][url]http://opengameart.org/users/varkalandar[/url][/color] -[color=#46a0af][url] https://opengameart.org/content/200-magic-orbs-psionic-dew[/url][/color] - CC-BY 3.0
 
 Pick-Up items
-SpeedUp - Delapouite - https://game-icons.net/1x1/delapouite/running-shoe.html - CC BY 3.0
-Shiled - Lorc - https://game-icons.net/1x1/lorc/checked-shield.html -CC BY 3.0
-Reflect - Lorc - https://game-icons.net/1x1/lorc/shield-reflect.html - CC BY 3.0
-ExtraAmmo - Delapouite - https://game-icons.net/1x1/delapouite/heavy-bullets.html - CC BY 3.0
-Infnity - Various artists - https://game-icons.net/1x1/various-artists/infinity.html - CC BY 3.0
-Penetrating Bullet - lorc - https://game-icons.net/1x1/lorc/supersonic-bullet.html - CC BY 3.0
-Critical Bullet - Delapouite - https://game-icons.net/1x1/delapouite/silver-bullet.html - CC BY 3.0
-Explosion - Lorc - https://game-icons.net/1x1/lorc/grenade.html - CC BY 3.0
-Ak Rifle - Game Developer Studio - https://opengameart.org/content/ak-47-icon - CC BY 3.0
-Short Shotgun - clayster2012 - https://opengameart.org/content/weapon-set-0 - CC BY 3.0
-Ice - https://game-icons.net/1x1/lorc/ice-cube.html#download
-Icicle Gun based on Xavier4321 - https://opengameart.org/content/gun-mine - CC BY 3.0
-Longrange Shotgun based on - rileygombart - https://opengameart.org/content/animated-top-down-survivor-player
-Bullet Spiral - https://game-icons.net/1x1/lorc/bullets.html
-Bazooka -Robert Brooks- https://opengameart.org/content/bazooka - CC BY 3.0
+SpeedUp - Delapouite - [color=#46a0af][url]https://game-icons.net/1x1/delapouite/running-shoe.html[/url][/color] - CC BY 3.0
+Shiled - Lorc - [color=#46a0af][url]https://game-icons.net/1x1/lorc/checked-shield.html[/url][/color] -CC BY 3.0
+Reflect - Lorc - [color=#46a0af][url]https://game-icons.net/1x1/lorc/shield-reflect.html[/url][/color] - CC BY 3.0
+ExtraAmmo - Delapouite - [color=#46a0af][url]https://game-icons.net/1x1/delapouite/heavy-bullets.html[/url][/color] - CC BY 3.0
+Infnity - Various artists - [color=#46a0af][url]https://game-icons.net/1x1/various-artists/infinity.html[/url][/color] - CC BY 3.0
+Penetrating Bullet - lorc - [color=#46a0af][url]https://game-icons.net/1x1/lorc/supersonic-bullet.html[/url][/color] - CC BY 3.0
+Critical Bullet - Delapouite - [color=#46a0af][url]https://game-icons.net/1x1/delapouite/silver-bullet.html[/url][/color] - CC BY 3.0
+Explosion - Lorc - [color=#46a0af][url]https://game-icons.net/1x1/lorc/grenade.html[/url][/color] - CC BY 3.0
+Ak Rifle - Game Developer Studio - [color=#46a0af][url]https://opengameart.org/content/ak-47-icon[/url][/color] - CC BY 3.0
+Short Shotgun - clayster2012 - [color=#46a0af][url]https://opengameart.org/content/weapon-set-0[/url][/color] - CC BY 3.0
+Ice - [color=#46a0af][url]https://game-icons.net/1x1/lorc/ice-cube.html#download[/url][/color] - CC BY 3.0
+Icicle Gun based on Xavier4321 - [color=#46a0af][url]https://opengameart.org/content/gun-mine[/url][/color] - CC BY 3.0
+Longrange Shotgun based on - rileygombart - [color=#46a0af][url]https://opengameart.org/content/animated-top-down-survivor-player[/url][/color] - CC BY 3.0
+Bullet Spiral - [color=#46a0af][url]https://game-icons.net/1x1/lorc/bullets.html[/url][/color] - CC BY 3.0
+Bazooka -Robert Brooks- [color=#46a0af][url]https://opengameart.org/content/bazooka[/url][/color] - CC BY 3.0
 
-Languages:
-German - SKopp, Madden, and others -https://kiwithek.wien/images/Deutschland_Flagge.jpg - CC0 1.0
+Flags
+German - SKopp, Madden, and others - [color=#46a0af][url]https://kiwithek.wien/images/Deutschland_Flagge.jpg[/url][/color] - CC0 1.0
 
 Effects
-Ice - digit1024 - https://opengameart.org/content/ice-block - CC BY 3.0
+Ice - digit1024 - [color=#46a0af][url]https://opengameart.org/content/ice-block[/url][/color] - CC BY 3.0
 
 GUI
-Padlock - https://game-icons.net/1x1/lorc/padlock.html#download - CC BY 3.0
-Health/Exp Bar - StumpyStrust - https://opengameart.org/content/loading-bar - CC0
-Blood on screen - 1up Indie - https://opengameart.org/content/blood-overlay - CC0
+Padlock - [color=#46a0af][url]https://game-icons.net/1x1/lorc/padlock.html#download[/url][/color] - CC BY 3.0
+Health/Exp Bar - StumpyStrust - [color=#46a0af][url]https://opengameart.org/content/loading-bar[/url][/color] - CC0
+Blood on screen - 1up Indie - [color=#46a0af][url]https://opengameart.org/content/blood-overlay[/url][/color] - CC0
 
-Sounds
-Standard Rifle/Ak Shot - KuraiWolf - https://opengameart.org/content/light-machine-gun -  CC BY 4.0
-Standard Rifle/AK Reload - zer0_sol - https://opengameart.org/content/handgun-reload-sound-effect
-Standard Rifle/Ak Empty - Independent.nu - https://opengameart.org/content/16-button-clicks
-Pistol Reload - SpringySpringo - https://opengameart.org/content/gun-reload-sounds
-Pistol Shot -Michel Baradari apollo-music.de - https://opengameart.org/content/chaingun-pistol-rifle-shotgun-shots -  CC BY 3.0
-Pistol Empty - Independent.nu - https://opengameart.org/content/16-button-clicks
-Shotgun shot - Michel Baradari - https://opengameart.org/content/chaingun-pistol-rifle-shotgun-shots
-Shotgun reload - Mike Koenig (Soundbible) - https://opengameart.org/content/shotgun-shoot-reload - CC BY 3.0
-Shotgun empty- Mike Koenig (Soundbible) - https://opengameart.org/content/shotgun-shoot-reload - CC BY 3.0
-Icicle Gun shot - leohpaz - https://opengameart.org/content/8-magic-attacks -  CC BY 4.0
-Icicle Gun reload - IgnasD - https://opengameart.org/content/ice-breakingshattering - CC0
-Explosion1 - dustyroomgames - https://dustyroom.com/free-casual-game-sounds/ - CC0
-Explosion2 - DustyWind - https://freesound.org/people/DustyWind/sounds/692923/ - CC0
-UI swing - artisticdude - https://opengameart.org/content/rpg-sound-pack - CC0
-Shock Wave - SubspaceAudio - https://opengameart.org/content/512-sound-effects-8-bit-style - CC0
-Machine gun - Beck15 - https://freesound.org/people/Beck15/sounds/514986/ - CC BY 4.0, slightly cut by hepfnepf
-Machine gun reload - hepfnaepf based on Yin_Yang_Jak... - https://freesound.org/people/Yin_Yang_Jake007/sounds/406108/ - CC0
-Charge gun charging - bernhoftbret - https://freesound.org/people/bernhoftbret/sounds/716426/ - CC0
-Charge gun orb wobble - mazk1985 - https://freesound.org/people/mazk1985/sounds/187405/ - CC0
+SOUNDS
+
+Standard Rifle/Ak Shot - KuraiWolf - [color=#46a0af][url]https://opengameart.org/content/light-machine-gun[/url][/color] -  CC BY 4.0
+Standard Rifle/AK Reload - zer0_sol - [color=#46a0af][url]https://opengameart.org/content/handgun-reload-sound-effect[/url][/color] - CC0
+Standard Rifle/Ak Empty - Independent.nu - [color=#46a0af][url]https://opengameart.org/content/16-button-clicks[/url][/color] - CC0
+Pistol Reload - SpringySpringo - [color=#46a0af][url]https://opengameart.org/content/gun-reload-sounds[/url][/color] - CC0
+Pistol Shot -Michel Baradari apollo-music.de - [color=#46a0af][url]https://opengameart.org/content/chaingun-pistol-rifle-shotgun-shots[/url][/color] -  CC BY 3.0
+Pistol Empty - Independent.nu - [color=#46a0af][url]https://opengameart.org/content/16-button-clicks[/url][/color] - CC0
+Shotgun shot - Michel Baradari - [color=#46a0af][url]https://opengameart.org/content/chaingun-pistol-rifle-shotgun-shots[/url][/color] CC BY 3.0
+Shotgun reload - Mike Koenig (Soundbible) - [color=#46a0af][url]https://opengameart.org/content/shotgun-shoot-reload[/url][/color] - CC BY 3.0
+Shotgun empty- Mike Koenig (Soundbible) - [color=#46a0af][url]https://opengameart.org/content/shotgun-shoot-reload[/url][/color] - CC BY 3.0
+Icicle Gun shot - leohpaz - [color=#46a0af][url]https://opengameart.org/content/8-magic-attacks[/url][/color] -  CC BY 4.0
+Icicle Gun reload - IgnasD - [color=#46a0af][url]https://opengameart.org/content/ice-breakingshattering[/url][/color] - CC0
+Explosion1 - dustyroomgames - [color=#46a0af][url]https://dustyroom.com/free-casual-game-sounds/[/url][/color] - CC0
+Explosion2 - DustyWind - [color=#46a0af][url]https://freesound.org/people/DustyWind/sounds/692923/[/url][/color] - CC0
+UI swing - artisticdude - [color=#46a0af][url]https://opengameart.org/content/rpg-sound-pack[/url][/color] - CC0
+Shock Wave - SubspaceAudio - [color=#46a0af][url]https://opengameart.org/content/512-sound-effects-8-bit-style[/url][/color] - CC0
+Machine gun - Beck15 - [color=#46a0af][url]https://freesound.org/people/Beck15/sounds/514986/[/url][/color] - CC BY 4.0, slightly cut by hepfnepf
+Machine gun reload - hepfnaepf based on Yin_Yang_Jak... - [color=#46a0af][url]https://freesound.org/people/Yin_Yang_Jake007/sounds/406108/[/url][/color] - CC0
+Charge gun charging - bernhoftbret - [color=#46a0af][url]https://freesound.org/people/bernhoftbret/sounds/716426/[/url][/color] - CC0
+Charge gun orb wobble - mazk1985 - [color=#46a0af][url]https://freesound.org/people/mazk1985/sounds/187405/[/url][/color] - CC0
 
 
-Music
-Beyond - part 2 -Alexander Nakarada - https://freepd.commusicBeyond%20-%20part%202.mp3
-Construction - Alexander Nakarada - https://freepd.commusicConstruction.mp3
-Deck the Halls - Alexander Nakarada - https://freepd.commusicDeck%20the%20Halls.mp3
-Hit n Smash - Rafael Krux - https://freepd.commusicHit%20n%20Smash.mp3
-Murder On The Bayou - Bryan Teoh - https://freepd.commusicMurder%20On%20The%20Bayou.mp3
-One Destination - Two Journeys - Alexander Nakarada - https://freepd.commusicOne%20Destination%20-%20Two%20Journeys.mp3
+MUSIC
+Beyond - part 2 -Alexander Nakarada - [color=#46a0af][url]https://freepd.commusicBeyond%20-%20part%202.mp3[/url][/color]
+Construction - Alexander Nakarada - [color=#46a0af][url]https://freepd.commusicConstruction.mp3[/url][/color]
+Deck the Halls - Alexander Nakarada - [color=#46a0af][url]https://freepd.commusicDeck%20the%20Halls.mp3[/url][/color]
+Hit n Smash - Rafael Krux - [color=#46a0af][url]https://freepd.commusicHit%20n%20Smash.mp3[/url][/color]
+Murder On The Bayou - Bryan Teoh - [color=#46a0af][url]https://freepd.commusicMurder%20On%20The%20Bayou.mp3[/url][/color]
+One Destination - Two Journeys - Alexander Nakarada - [color=#46a0af][url]https://freepd.commusicOne%20Destination%20-%20Two%20Journeys.mp3[/url][/color]
 
-CC-by 4.0 : https://creativecommons.org/licenses/by/4.0/legalcode
-CC BY 3.0: http://creativecommons.org/licenses/by/3.0/
-CC0: https://creativecommons.org/publicdomain/zero/1.0/
+LICENSES
+CC-by 4.0 : [color=#46a0af][url]https://creativecommons.org/licenses/by/4.0/legalcode[/url][/color]
+CC BY 3.0: [color=#46a0af][url]http://creativecommons.org/licenses/by/3.0/[/url][/color]
+CC0: [color=#46a0af][url]https://creativecommons.org/publicdomain/zero/1.0/[/url][/color]
+
+[/center]
+

@@ -1,11 +1,11 @@
 extends MarginContainer
 
-onready var credits = $ColorRect/MarginContainer/VBoxContainer/RichTextLabel
+onready var credits = $ColorRect/MarginContainer/VBoxContainer/MarginContainer/RichTextLabel
 
 onready var file = 'res://Credits.txt'
 
 func _ready():
-	credits.text=load_file(file)
+	credits.bbcode_text=load_file(file)
 
 func load_file(file) -> String:
 	var f = File.new()
@@ -24,3 +24,8 @@ func hide_background_color():
 
 func _on_ExitButton_pressed():
 	visible = false
+
+#when clicking on al link
+func _on_RichTextLabel_meta_clicked(meta) -> void:
+	print_debug(meta)
+	OS.shell_open(str(meta))
