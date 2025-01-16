@@ -1,6 +1,6 @@
 [center]
 
-THANK YOU FOR PLAYING BLUTFEST
+THANK YOU FOR PLAYING BLUTFEST!
 Repository: [color=#46a0af]https://github.com/hepfnepf/Blutfest[/color]
 
 CODE

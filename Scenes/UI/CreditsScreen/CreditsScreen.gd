@@ -1,6 +1,6 @@
 extends MarginContainer
 
-onready var credits = $ColorRect/MarginContainer/VBoxContainer/RichTextLabel
+onready var credits = $ColorRect/MarginContainer/VBoxContainer/MarginContainer/RichTextLabel
 
 onready var file = 'res://Credits.txt'
 
