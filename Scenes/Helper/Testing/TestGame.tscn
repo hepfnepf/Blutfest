@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Items/Items/ItemHealUp.tscn" type="PackedScene" id=2]
@@ -28,7 +28,6 @@
 [ext_resource path="res://Scenes/Items/Items/ItemBulletSpiral.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Scenes/Items/Items/ItemSlowDownTime.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Scenes/Items/Items/ItemBomb.tscn" type="PackedScene" id=28]
-[ext_resource path="res://Scenes/Enemys/defaultEnemy.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Scenes/Items/Items/ItemBazooka.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Scenes/Items/Items/ItemMachinezooka.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Scenes/Items/Items/ItemAddTimeToItems.tscn" type="PackedScene" id=32]
@@ -82,26 +81,6 @@ start_weapon = ExtResource( 18 )
 
 [node name="IceItem" parent="." instance=ExtResource( 16 )]
 position = Vector2( -214.659, -300.747 )
-
-[node name="Zombie" parent="." instance=ExtResource( 29 )]
-position = Vector2( 467.068, -87.3807 )
-scale = Vector2( 0.54, 0.54 )
-speed = 0
-
-[node name="Zombie2" parent="." instance=ExtResource( 29 )]
-position = Vector2( 509.783, 1215.42 )
-scale = Vector2( 0.54, 0.54 )
-speed = 0
-
-[node name="Zombie3" parent="." instance=ExtResource( 29 )]
-position = Vector2( 432.574, -589.439 )
-scale = Vector2( 0.54, 0.54 )
-speed = 0
-
-[node name="Zombie4" parent="." instance=ExtResource( 29 )]
-position = Vector2( -202.806, -671.872 )
-scale = Vector2( 0.54, 0.54 )
-speed = 0
 
 [node name="Spawner" parent="." instance=ExtResource( 8 )]
 enemy_spawn_rate_increase = 0.1
