@@ -32,7 +32,8 @@ func set_alive(new_alive:bool):
 		child.visible = new_alive
 
 	alive = new_alive
-	game.enemy_hpbars_enabled = new_alive
+	if is_instance_valid(game):
+		game.enemy_hpbars_enabled = new_alive
 
 func _on_bullet_count_changed(new_bullet_count,new_bullet_active_count):
 	var txt= "%s/%s/%s" % [new_bullet_count, new_bullet_active_count, new_bullet_count-new_bullet_active_count]
