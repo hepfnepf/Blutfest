@@ -25,7 +25,7 @@ func load_settings()->void:
 
 	ui_tab.blood_on_screen_toggle.pressed = sg["blood_overlay_enabled"]
 	ui_tab.crosshair_dynamic_toggle.pressed=sg["crosshair_is_dynamic"]
-	ui_tab.crosshair_color_picker.color= sg["crosshair_color"]
+	ui_tab.crosshair_color_picker.color= Color(sg["crosshair_color"])
 	ui_tab.crosshair_size.value= sg["crosshair_size"]
 	ui_tab.current_crosshair=sg["crosshair_type"]
 	ui_tab.crosshair_cone_dynamic_toggle.pressed=sg["cone_crosshair_is_dynamic"]
@@ -52,7 +52,7 @@ func store_settings()->void:
 	sg["blood_overlay_enabled"]=ui_tab.blood_on_screen_toggle.pressed
 	sg["crosshair_type"] = ui_tab.current_crosshair
 	sg["crosshair_is_dynamic"]=ui_tab.crosshair_dynamic_toggle.pressed
-	sg["crosshair_color"] = ui_tab.crosshair_color_picker.color
+	sg["crosshair_color"] = ui_tab.crosshair_color_picker.color.to_html()
 	sg["crosshair_size"] = ui_tab.crosshair_size.value
 	sg["cone_crosshair_is_dynamic"] = ui_tab.crosshair_cone_dynamic_toggle.pressed
 	sg["cone_crosshair_size"] = ui_tab.crosshair_cone_size.value

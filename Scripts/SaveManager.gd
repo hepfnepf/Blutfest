@@ -34,7 +34,7 @@ const new_save_options_dict = {
 	"crosshair_type":Globals.CrosshairType.CROSSHAIR,
 	"crosshair_is_dynamic":true,
 	"cone_crosshair_is_dynamic":true,
-	"crosshair_color":Color(0.25,0.54,0.81,0.95),
+	"crosshair_color":"#ff408acf",
 	"crosshair_size":1.0,
 	"cone_crosshair_size":1.0,
 	"max_enemy_count":250,
@@ -184,26 +184,24 @@ func serialize_key_event(event:InputEventKey)->Dictionary:
 Create new save files with base values.
 """
 func create_empty_save_game_file()->void:
-	savegame.open(save_game_path,File.WRITE)
-	savegame.store_var(new_save_game_dict)
-	savegame.close()
+	write_save_game_to_file(new_save_game_dict)
 
 func create_empty_save_options_file()->void:
-	savegame.open(save_options_path,File.WRITE)
-	savegame.store_var(new_save_options_dict)
-	savegame.close()
+	write_save_options_to_file(new_save_options_dict)
 
 """
 Store a dict in the save files. Create file if it not yet exists.
 """
 func write_save_game_to_file(_save_game_dict)->void:
 	savegame.open(save_game_path, File.WRITE)
-	savegame.store_var(_save_game_dict)
+	var json_string = JSON. print(_save_game_dict)
+	savegame.store_string(json_string)
 	savegame.close()
 
 func write_save_options_to_file(_save_options_dict)->void:
 	saveOptions.open(save_options_path, File.WRITE)
-	saveOptions.store_var(_save_options_dict)
+	var json_string = JSON.print(_save_options_dict)
+	saveOptions.store_string(json_string)
 	saveOptions.close()
 
 """
@@ -217,7 +215,13 @@ func read_savegame()->Dictionary:
 		return new_save_game_dict
 
 	savegame.open(save_game_path, File.READ) #open the file
-	var _save_game_dict = savegame.get_var() #get the dict
+	var _save_game_dict = null
+	var json_result:JSONParseResult = JSON.parse(savegame.get_as_text())
+	if !json_result.error == OK:
+		print_debug("JSON parsing error in save game: %s\nin Line: %s"%[json_result.error_string,json_result.error_line])
+		_save_game_dict = new_save_game_dict.duplicate()
+	else:
+		_save_game_dict = json_result.result
 	savegame.close()
 
 	if _save_game_dict == null or typeof(_save_game_dict)!= TYPE_DICTIONARY :
@@ -256,7 +260,13 @@ func read_saveOptions()->Dictionary:
 		return new_save_options_dict
 
 	saveOptions.open(save_options_path, File.READ)
-	var _save_options_dict = saveOptions.get_var()
+	var _save_options_dict = null
+	var json_result:JSONParseResult = JSON.parse(saveOptions.get_as_text())
+	if !json_result.error == OK:
+		print_debug("JSON parsing error in options save: %s\nin Line: %s"%[json_result.error_string,json_result.error_line])
+		_save_options_dict = new_save_game_dict.duplicate()
+	else:
+		_save_options_dict = json_result.result
 	saveOptions.close()
 
 	if _save_options_dict == null or typeof(_save_options_dict)!= TYPE_DICTIONARY:

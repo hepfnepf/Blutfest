@@ -26,7 +26,7 @@ func _process(delta) -> void:
 	global_position = get_viewport().get_mouse_position()
 
 func init_values()->void:
-	var color = SaveManager.current_save_options["crosshair_color"]
+	var color = Color(SaveManager.current_save_options["crosshair_color"])
 	dynamic = SaveManager.current_save_options["crosshair_is_dynamic"]
 	size = SaveManager.current_save_options["crosshair_size"]
 	outer_crosshair.material.set("shader_param/color",color)
