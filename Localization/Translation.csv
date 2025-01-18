@@ -1,169 +1,107 @@
-,en,de
-TIME,Time:,Zeit:
-SCORE,Score:,Punkte:
-ENEMY,Enemy:,Gegner:
-YOU_DIED,You Died,Du bist gestorben
-DEATH_RESTART,Press 'Enter' to try again,Drücke 'Enter' für einen neuen Versuch
-DEATH_QUIT,Press 'ESC' to quit the Game,Drücke 'ESC' um das Spiel zu beenden
-DEATH_RETURN,Press 'ESC' to return to the main menu,Drücke 'ESC' um zum Hauptmenü zurückzukehren
-MAIN_MENU,Main Menu,Hauptmenü
-PAUSE_MENU,Pause Menu,Menü
-PLAY,Play,Spielen
-RETURN,Return,Zurück
-OPTIONS,Options,Optionen
-RESTART,Restart,Neustart
-EXIT,Exit,Beenden
-OPTIONS,Options,Optionen
-RESET_HIGHSCORE,Reset Highscore,Highscore zurücksetzen
-MAX_ENEMY_COUNT,Max. Enemys: %d,Max. Gegneranzahl: %d
-WINDOW_FULLSCREEN,Fullscreen,Vollbild
-WINDOW_VSYNC,V-Sync,V-Sync
-TOGGLE_BLOOD_ON_SCREEN_EFFECT,Blood effect on screen,Bildschirmbluteffekt
-CONE,Kreissektor,Cone
-CROSSHAIR,Crosshair,Fadenkreuz
-BOTH,Beides,Both
-DYNAMIC,Dynamic,Dynamisch
-COLOR,Color,Farbe
-SIZE,Size,Größe
-MOVE_UP,Up,Oben
-MOVE_DOWN,Down,Unten
-MOVE_LEFT,Left,Links
-MOVE_RIGHT,Right,Rechts
-LOCK_WEAPON,Lock weapon,Waffe sperren
-LOCK_WEAPON,Lock weapon,Waffe sperren
-INVINCIBILITY_BTN,Invincibility,Unverwundbarkeit
-WEAPON_INFO_BTN,Weapon info,Waffeninformation
-INVERT_ZOOMING,Invert zooming,Zoomen invertieren
-HELP_BTN,Help,Hilfe
-DEBUG_INFO_BTN,Debug,Debug
-RELOAD_BTN,Reload,Nachladen
-GAME,Game,Spiel
-HISCORE_GOT_RESET,Highscore has been reset!,Der Highscore wurde zurückgesetzt!
-CREDITS,Credits,Credits
-BEFORE,Before:,Vorher:
-NEW_HIGHSCORE,New highscore,Neuer Highscore
-NEW_BEST_TIME,New best time,Neue Bestzeit
-STATS,STATISTICS,STATISTIKEN
-HEALTH_GAINED,Health gained:,Leben gesammelt:
-HEALTH_LOST,Health lost:,Leben verloren:
-SHOTS_FIRED,Shots fired:,Schüsse:
-ACCURACY,Accuracy:,Trefferquote:
-ENEMIES_KILLED,Enemies killed:,Getötete Gegner:
-DMG_CAUSED,Damage dealt:,Ausgeteilter Schaden:
-DISTANCE_COVERED,Distance covered:,Zurückgelegter Weg:
-STANDING_TIME,Longest standing:,Längstes Stillstehen:
-POWERUPS_COLLECTED,PowerUps collected:,Gesammelte PowerUps:
-PERKS_COOLECTED_CNT,Perks collected:,Gesammelte Perks:
-FAVORITE_WEAPON,Favorite weapon:,Lieblings Waffe:
-FAVORITE_POWERUPS,Favorite Item:,Lieblings Item:
-OPTIONS_GOT_RESET,Options have been reset!,Die Einstellungen wurden zurückgesetzt!
-RESET_OPTIONS,Reset Options,Optionen zurücksetzen
-CURRENT_DIFFICULTY,Difficulty,Schwierigkeit
-HEALT_DAMAGE_SPEED_VIEWRANGE,HP/DMG/Speed/Vision-Multi.,Leben/Schaden/Geschw./Sicht-Multi
-ENEMY_SPAWN_RATE,Enemy Spawn Rate,Gegner Spawnrate
-RARITY_COMMON,Common,Häufig
-RARITY_NORMAL,Normal,Normal
-RARITY_RARE,Rare,Selten
-RARITY_LEGENDARY,Legendary,Legendär
-BLOCKING,Blocks the following perks: ,Blockiert die folgenden Perks: 
-PERK_HEAL_UP,Heal Up,Heilung
-PERK_HEAL_UP_DESC,Increases player health by %d points.,Heilt dich um %d Lebenspunkte.
-MORE_DMG_PERK,More Damage,Mehr Schaden
-MORE_DMG_PERK_DESC,Increases the player's standard damage by %d%%.,Erhöht deinen Standardschaden um %d%%.
-PERK_INC_MAX_HEALTH,Increase max. Health,Mehr max. Lebenspunkte
-PERK_INC_MAX_HEALTH_DESC,Increases your max health by %d points.,Erhöhe deine max. LP um %d LP.
-PERK_SPEED_UP,Speed Up,Schneller
-PERK_SPEED_UP_DESC,Increases the player's speed by %d%%.,Erhöht deine Geschw. um %d%%.
-PERK_HEAL_UP_ON_LEVEL_UP,Refreshment,Erfrischung
-PERK_HEAL_UP_ON_LEVEL_UP_DESC,Heals the player by %d hp on level up.,Heilt dich um %d LP bei jedem Level Up.
-PERK_EXPLOSION_ON_LEVEL_UP,To much energy,Platzen vor Freude
-PERK_EXPLOSION_ON_LEVEL_UP_DESC,After gaining that much Exp you just need to unleash your power. So you explode.,"Aus Freude über deinen Level Up, fliegst du einfach in die Luft."
-PERK_SPIKE_BALLS_EXPLODE,Boom Balls,Bumm Bälle
-PERK_SPIKE_BALLS_EXPLODE_DESC,The spike balls are spicy now. Which means they explode.,Die Stachelbälle böllern böß.
-PERK_SPIKE_BALLS_EXPLODE_2,Boom Balls II,Bumm Bälle II
-PERK_SPIKE_BALLS_EXPLODE_2_DESC,"Now, the spike balls even explode if they don't hit anything.","Die Bälle ballern noch böser, sogar wenn sie nichts treffen."
-PERK_ACCURACY_BOOST,Accuracy Reward,Guter Schütze
-PERK_ACCURACY_BOOST_DESC,Multiply your damage by 2x the accuracy.,Dein Schaden wird mit dem doppelten der Trefferrate multipliziert.
-PERK_ACCURACY_BOOST_2,Accuracy Reward II,Guter Schütze II
-PERK_ACCURACY_BOOST_2_DESC,"Your damage gets doubled if your accuracy is above 0.7, but multiplied with the current accuracy. (If accuracy is above 1.0, your damage will be multiplied by 2x of the accuracy.)","Falls deine Trefferquote über 0.7 liegt, wird dein Schaden verdoppelt. Andernfalls wird er jedoch mit deiner Trefferquote multipliziert.(Falls deine Trefferquote über 1.0 liegt, wird der Schaden mit 2x deiner Trefferquote multipliziert.)"
-PERK_MAX_ACCURACY,Overperformer,Überflieger
-PERK_MAX_ACCURACY_DESC,Your accuracy can go above 1.0.,Deine Trefferquote kann 1.0 überschreiten.
-PERK_BAD_AIMER,Shaky fingers,Schlechter Schütze
-PERK_BAD_AIMER_DESC,Badass with bad aim. All damage taken will be multiplied with your accuracy.,Erleideter Schaden wird mit deiner Trefferquote multipliziert.
-PERK_TIT_FOT_TAT,Tit for Tat,Risiko
-PERK_TIT_FOT_TAT_DESC,"Your gun damage will get doubled for the rest of the game, but until the next level, all damage received will be multiplied by 4.","Dein Waffenschaden wird dauerhaft verdoppelt, aber bis zum nächsten Level, erhälts du 4x Schaden von Gegnern."
-PERK_ITEMS_EXPLODE,Exploding items,Explodierende Items
-PERK_ITEMS_EXPLODE_DESC,"When collecting an item, you will leave an explosion.","Du erzeugst eine Explosion, beim Einsammeln von Items."
-PERK_VAMPIRE,Vampire,Vampir
-PERK_VAMPIRE_DESC,You gain %d%% of the damage you deal as health.,Du erhältst %d%% des ausgeteilten Schadens als Leben.
-PERK_PYROMANIC,Pyromanic,Pyromane
-PERK_PYROMANIC_DESC,Every explosion increases the size of explosions. Up to %dx.!,Jede Explosion erhöht die Explosionsgröße! bis zu %dx.
-PERK_INC_PYROMANIAC,Pyromaniac II,Pyromane II
-PERK_INC_PYROMANIAC_DESC,Increase you maximum pyromaniac multiplier to %1f.,Erhöhe deinen maximalen Pyromanenmultiplikator auf %.1f.
-PERK_XRAY_VISION,X-Ray vision,Röntgenblick
-PERK_XRAY_VISION_DESC,See how much HP enemies have left.,"Du kannst sehen, wieviele LP deine Gegner haben."
-HP_INC_INC_MAX_HP,Health is healthy,Leben ist gesund
-HP_INC_INC_MAX_HP_DESC,"If you gain health, while being fully healed, you gain half of it as max HP.","Falls du volles Leben hast und geheilt wirst, erhältst du die Hälfte der Lebenspunkte als maximale Lebenspunkte."
-HP_INC_INC_MAX_HP_2,Health is healthy II,Leben ist gesund II
-HP_INC_INC_MAX_HP_2_DESC,"If you gain health overstepping your max HP, your max HP will be increased by half of the difference and your HP will be filled.","Wenn du über deine max LP hinaus geheilt wirst, wird die Hälfte der Differenz zu deinen max LP hinzugefügt und du wirst vollständig geheilt."
-PERK_EXTRA_CARDS,Extra Card,Bonuskarte
-PERK_EXTRA_CARDS_DESC,You will get one additional card in the selection.,Du hast eine weitere Karte zur Auswahl.
-PERK_MANUEL_RELOADING,Manuel reloading,Manuelles nachladen
-PERK_MANUEL_RELOADING_DESC,"You reload %d%% faster, if you trigger the relaod manually.","Du lädst %d%% schneller nach, solltest du manuell nachladen."
-PERK_LAZY_RELOAD,Lazy reload,Faules Nachladen
-PERK_LAZY_RELOAD_DESC,You only have to reload the missing bullets.,Du lädst lediglich die fehlenden Kugeln nach.
-PERK_REGENERATION,Regeneration,Regenaration
-PERK_REGENERATION_DESC,"If you don't get hit for %ds, your health will slowly replenish by %d per second.","Falls du %ds lang nicht getroffen wirst, regenerierst du langsam Leben. (%dLP pro Sekunde.)"
-PERK_MEDIC,Medic,Medizinier
-PERK_MEDIC_DESC,Regain %.1fx the health from health items.,Heilungsitems geben %.1fx soviel Heilung.
-PERK_SNIPER,Sniper,Scharfschütze
-PERK_SNIPER_DESC,You increase your viewing range.,Du erhöhst deine Sichweite
-PERK_ICE_DAMAGES,Freezer burn ,Gefrierbrand
-PERK_ICE_DAMAGES_DESC,Frozen enemies get %d damage every second.,Gefrorene Gegner erhalten %d Schaden jede Sekunde.
-PERK_ICE_DAMAGE_INC,Frozen and fragile,Frostbeulen
-PERK_ICE_DAMAGE_INC_DESC,Frozen enemys receive %.1fx times the damage.,Gefrorene Gegner erhalten %.1fx so viel schaden.
-PERK_THORNS,Thorns,Dornen
-PERK_THORNS_DESC,You deal %d damage to enemies that hit you.,"Du fügst Gegnern %d Schaden zu, wenn sie dich treffen."
-PERK_THORNS_EQUAL,Thorns of justice,"Wie du mir, so ich dir"
-PERK_THORNS_EQUAL_DESC,"When hit, the enemy takes as much damage as you do.","Der Gegner kriegt genau so viel Schaden wie du, wenn er dich angreift."
-HELP_TITLE1,How to play,Wie geht's?
-HELP_DESCRIPTION,"Survive as long as possible, while evil monsters try to kill you! Use power ups and weapons to your advantage and select the right perks to stay alive.",Überlebe solange es geht! Verschaffe dir dabei einen Vorteil durch die Nutzung von Items und Waffen. Sowie der richtigen Perks!
-HELP_WEB_WARNING,"Note: Playing the web browser version of the game, results in a subpar experience, due to performance constraints. For the best experience run the desktop application version of this game!","Achtung! Die Webbrowser-Variante dieses Spiels stellt nicht die optimale Konfiguration dar. Um das beste Spielerlebnis zu erhalten, nutze die Desktopanwendung!"
-HELP_TITLE2,Movement,Steuerung
-HELP_MOVEMENT,"move around","Bewegung"
-HELP_SHOOTING,Mouse & Left click - aim & shoot,Maus und Linksclick - Zielen & Schießen
-HELP_RELOAD,Reload,Nachladen
-HELP_LOCKING,lock your current weapon,Fixiere deine aktuelle Waffe
-HELP_WEAPON_INFO,show weapon info,Waffeninformationen ansehen
-HELP_HELP,toggle this help,Öffne/Schließe diese Hilfe
-PERK_RANGE_EXTENDER,Range Extender,Reichweitenerweiterer
-PERK_RANGE_EXTENDER_DESC,Extends the range by %d%%,Erweitert die Reichweite um %d%%
-PERK_INCREASE_DAMAGE_WHILE_NOT_MOVING,Stop right now!,Stillgestanden!
-PERK_INCREASE_DAMAGE_WHILE_NOT_MOVING_DESC,Your damage while not moving increases by %d%%,"Während du stillstehst, erhöht sich dein Schaden um %d%%"
-WEAPON_AK,Ak,Ak
-WEAPON_BAZOOKA,Bazooka,Bazooka
-ITEM_BOMB,Bomb,Bombe
-WEAPON_CHARGE_GUN,Orb gun,Orbgewehr
-ITEM_ICE,Freeze Area,Areal gefrieren
-ITEM_ADD_TIME_TO_ITEMS,Prolong item life,Lebenszeitboost für Items
-ITEM_AMMO_INFITY,Infinit ammo,Unendlich Schuss
-ITEM_BULLET_SPIRAL,Bullet spiral,Kugelspirale
-ITEM_DROP_SPIKE_BALLS,Spike balls,Kugelbälle
-ITEM_HEAL_UP,Heal up,Extraleben
-WEAPON_ICICLE_GUN,Icicle gun,Eiszapfengewehr
-ITEM_INVINCIBILITY,Invincibility,Unsterblichkeit
-WEAPON_LONG_SHOTGUN,Long shotgun,Langlauf-Schrotgewehr
-ITEM_POINTS,Points,Punkte
-ITEM_SLOW_DOWN_TIME,Bullet time,Zeitlupe
-WEAPON_STANDARD_RIFLE,Rifle,Gewehr
-WEAPON_TRAP_CANON,Trap canon,Kugelkanone
-WEAPON_MACHINEGUN,Machinegun,Maschinengewehr
-WEAPON_MACHINEZOOKA,Machinezooka,Maschinenzooka
-WEAPON_PISTOL,Pistol,Pistole
-WEAPON_SHORT_SHOTGUN,Short shotgun,Kurzläufiges Schrotgewehr
-ITEM_SPEED_UP,Speed Up,Geschwindigkeitsbonus
-DAMAGE,Damage:,Schaden:
-FIRE_RATE,Fire rate:,Schussrate:
-RANGE,Range:,Reichweite:
-EXPLOSION_DAMAGE,Explosion damage,Explosionsschaden:
-DAMAGE_TYPE,Damage typ:,Schadensart:
+,en,de,fr,es,ru
+TIME,Time:,Zeit:,Temps :,Tiempo:,Время:
+SCORE,Score:,Punkte:,Score :,Puntaje:,Очки:
+ENEMY,Enemy:,Gegner:,Ennemi :,Enemigo:,Враг:
+YOU_DIED,You Died,Du bist gestorben,Tu es mort,Has muerto,Вы погибли:
+DEATH_RESTART,Press 'Enter' to try again,Drücke 'Enter' für einen neuen Versuch,Appuyez sur 'Entrée' pour réessayer,Presiona 'Enter' para intentarlo de nuevo,Нажмите 'Enter', чтобы попробовать снова
+DEATH_QUIT,Press 'ESC' to quit the Game,Drücke 'ESC' um das Spiel zu beenden,Appuyez sur 'ESC' pour quitter le jeu,Presiona 'ESC' para salir del juego,Нажмите 'ESC', чтобы выйти из игры
+DEATH_RETURN,Press 'ESC' to return to the main menu,Drücke 'ESC' um zum Hauptmenü zurückzukehren,Appuyez sur 'ESC' pour revenir au menu principal,Presiona 'ESC' para volver al menú principal,Нажмите 'ESC', чтобы вернуться в главное меню
+MAIN_MENU,Main Menu,Hauptmenü,Menu principal,Menú principal,Главное меню
+PAUSE_MENU,Pause Menu,Menü,Menu de pause,Menú de pausa,Меню паузы
+PLAY,Play,Spielen,Jouer,Jugar,Играть
+RETURN,Return,Zurück,Retour,Volver,Возврат
+OPTIONS,Options,Optionen,Options,Opciones,Опции
+RESTART,Restart,Neustart,Redémarrer,Reiniciar,Перезапуск
+EXIT,Exit,Beenden,Quitter,Salir,Выход
+OPTIONS,Options,Optionen,Options,Opciones,Опции
+RESET_HIGHSCORE,Reset Highscore,Highscore zurücksetzen,Réinitialiser le meilleur score,Restablecer el puntaje más alto,Сбросить рекорд
+MAX_ENEMY_COUNT,Max. Enemys: %d,Max. Gegneranzahl: %d,Nombre max. d'ennemis : %d,Max. Enemigos: %d,Макс. врагов: %d
+WINDOW_FULLSCREEN,Fullscreen,Vollbild,Mode plein écran,Pantalla completa,На весь экран
+WINDOW_VSYNC,V-Sync,V-Sync,V-Sync,V-Sync,V-Sync
+TOGGLE_BLOOD_ON_SCREEN_EFFECT,Blood effect on screen,Bildschirmbluteffekt,Effet de sang à l'écran,Efecto de sangre en pantalla,Эффект крови на экране
+CONE,Kreissektor,Cone,Cones,Cono,Конус
+CROSSHAIR,Crosshair,Fadenkreuz,Réticule,Puntería,Прицел
+BOTH,Beides,Both,Les deux,Ambos,Оба
+DYNAMIC,Dynamic,Dynamisch,Dynamique,Dinámico,Динамичный
+COLOR,Color,Farbe,Couleur,Color,Цвет
+SIZE,Size,Größe,Taille,Tamaño,Размер
+MOVE_UP,Up,Oben,Haut,Arriba,Вверх
+MOVE_DOWN,Down,Unten,Bas,Abajo,Вниз
+MOVE_LEFT,Left,Links,Gauche,Izquierda,Влево
+MOVE_RIGHT,Right,Rechts,Droite,Derecha,Вправо
+LOCK_WEAPON,Lock weapon,Waffe sperren,Verrouiller l'arme,Bloquear arma,Заблокировать оружие
+INVINCIBILITY_BTN,Invincibility,Unverwundbarkeit,Invincibilité,Invulnerabilidad,Неуязвимость
+WEAPON_INFO_BTN,Weapon info,Waffeninformation,Infos sur les armes,Información sobre armas,Информация об оружии
+INVERT_ZOOMING,Invert zooming,Zoomen invertieren,Inverser le zoom,Invertir zoom,Инвертировать увеличение
+HELP_BTN,Help,Hilfe,Aide,Ayuda,Помощь
+DEBUG_INFO_BTN,Debug,Debug,Débogage,Depuración,Отладка
+RELOAD_BTN,Reload,Nachladen,Recharger,Recargar,Перезарядка
+GAME,Game,Spiel,Jeu,Juego,Игра
+HISCORE_GOT_RESET,Highscore has been reset!,Der Highscore wurde zurückgesetzt!,Le meilleur score a été réinitialisé !,¡El puntaje más alto ha sido restablecido!,Рекорд был сброшен!
+CREDITS,Credits,Credits,Générique,Créditos,Титры
+BEFORE,Before:,Vorher:,Avant :,Antes:,До:
+NEW_HIGHSCORE,New highscore,Neuer Highscore,Nouveau meilleur score,Nuevo puntaje más alto,Новый рекорд
+NEW_BEST_TIME,New best time,Neue Bestzeit,Nouveau meilleur temps,Nuevo mejor tiempo,Новое лучшее время
+STATS,STATISTICS,STATISTIKEN,STATISTIQUES,ESTADÍSTICAS,СТАТИСТИКА
+HEALTH_GAINED,Health gained:,Leben gesammelt:,Vie gagnée :,Salud ganada:,Здоровье получено:
+HEALTH_LOST,Health lost:,Leben verloren:,Vie perdue :,Salud perdida:,Здоровье потеряно:
+SHOTS_FIRED,Shots fired:,Schüsse:,Tirs effectués :,Tiros realizados:,Выстрелов:
+ACCURACY,Accuracy:,Trefferquote:,Précision :,Precisión:,Точность:
+ENEMIES_KILLED,Enemies killed:,Getötete Gegner:,Ennemis tués :,Enemigos muertos:,Убито врагов:
+DMG_CAUSED,Damage dealt:,Ausgeteilter Schaden:,Dégâts infligés :,Daño causado:,Нанесено урона:
+DISTANCE_COVERED,Distance covered:,Zurückgelegter Weg:,Distance parcourue :,Distancia recorrida:,Пройдено расстояние:
+STANDING_TIME,Longest standing:,Längstes Stillstehen:,Temps de survie le plus long :,Tiempo de pie más largo:,Самое долгое время стоя:
+POWERUPS_COLLECTED,PowerUps collected:,Gesammelte PowerUps:,Power-ups collectés :,Power-ups recolectados:,Собрано усилителей:
+PERKS_COOLECTED_CNT,Perks collected:,Gesammelte Perks:,Avantages collectés :,Ventajas recolectadas:,Собрано улучшений:
+FAVORITE_WEAPON,Favorite weapon:,Lieblings Waffe:,Arme préférée :,Arma favorita:,Любимое оружие:
+FAVORITE_POWERUPS,Favorite Item:,Lieblings Item:,Objet préféré :,Ítem favorito:,Любимый предмет:
+OPTIONS_GOT_RESET,Options have been reset!,Die Einstellungen wurden zurückgesetzt!,Les options ont été réinitialisées !,¡Las opciones han sido restablecidas!,Настройки были сброшены!
+RESET_OPTIONS,Reset Options,Optionen zurücksetzen,Réinitialiser les options,Restablecer opciones,Сбросить настройки
+CURRENT_DIFFICULTY,Difficulty,Schwierigkeit,Difficulté,Dificultad,Сложность
+HEALT_DAMAGE_SPEED_VIEWRANGE,HP/DMG/Speed/Vision-Multi.,Leben/Schaden/Geschw./Sicht-Multi,HP/Dégâts/Vitesse/Portée-Multi,HP/DMG/Vel./Alcance-Vario.,HP/Урон/Скорость/Обзор
+ENEMY_SPAWN_RATE,Enemy Spawn Rate,Gegner Spawnrate,Taux d'apparition des ennemis,Tasa de aparición de enemigos,Частота появления врагов
+RARITY_COMMON,Common,Häufig,Commun,Común,Обычный
+RARITY_NORMAL,Normal,Normal,Normal,Normal,Нормальный
+RARITY_RARE,Rare,Selten,Rare,Raro,Редкий
+RARITY_LEGENDARY,Legendary,Legendär,Légendaire,Lendario,Легендарный
+BLOCKING,Blocks the following perks:,Blockiert die folgenden Perks:,Bloque les avantages suivants :,Bloque las siguientes ventajas:,Блокирует следующие улучшения:
+PERK_HEAL_UP,Heal Up,Heilung,Soin,Curación,Лечение
+PERK_HEAL_UP_DESC,Increases player health by %d points.,Heilt dich um %d Lebenspunkte.,Augmente la santé du joueur de %d points.,Aumenta la salud del jugador en %d puntos.,Увеличивает здоровье игрока на %d очков.
+MORE_DMG_PERK,More Damage,Mehr Schaden,Plus de dégâts,Más daño,Больше урона
+MORE_DMG_PERK_DESC,Increases the player's standard damage by %d%%.,Erhöht deinen Standardschaden um %d%%.,Augmente les dégâts de base du joueur de %d%%.,Aumenta el daño base del jugador en %d%%.,Увеличивает стандартный урон игрока на %d%%.
+PERK_INC_MAX_HEALTH,Increase max. Health,Mehr max. Lebenspunkte,Augmenter la santé max.,Aumentar la salud máxima,Увеличить макс. здоровье
+PERK_INC_MAX_HEALTH_DESC,Increases your max health by %d points.,Erhöhe deine max. LP um %d LP.,Augmente ta santé max de %d points.,Aumenta tu salud máxima en %d puntos.,Увеличивает ваше максимальное здоровье на %d очков.
+PERK_SPEED_UP,Speed Up,Schneller,Vitesse accrue,Veloz,Ускорение
+PERK_SPEED_UP_DESC,Increases the player's speed by %d%%.,Erhöht deine Geschw. um %d%%.,Augmente la vitesse du joueur de %d%%.,Aumenta la velocidad del jugador en %d%%.,Увеличивает скорость игрока на %d%%.
+PERK_HEAL_UP_ON_LEVEL_UP,Refreshment,Erfrischung,Renouvellement,Renovación,Оживление
+PERK_HEAL_UP_ON_LEVEL_UP_DESC,Heals the player by %d hp on level up.,Heilt dich um %d LP bei jedem Level Up.,Soigne le joueur de %d PV à chaque montée de niveau.,Sana al jugador por %d puntos de vida al subir de nivel.,Лечит игрока на %d очков здоровья при повышении уровня.
+PERK_EXPLOSION_ON_LEVEL_UP,Too much energy,Platzen vor Freude,Trop d'énergie,Demasiada energía,Слишком много энергии
+PERK_EXPLOSION_ON_LEVEL_UP_DESC,After gaining that much Exp you just need to unleash your power. So you explode.,"Aus Freude über deinen Level Up, fliegst du einfach in die Luft.",Après avoir acquis autant d'EXP, tu dois libérer ton pouvoir. Alors tu exploses.,Después de obtener tanta experiencia, necesitas liberar tu poder. Así que explotas.,После получения такого количества опыта, вам просто нужно выпустить свою энергию. И вы взрываетесь.
+PERK_SPIKE_BALLS_EXPLODE,Boom Balls,Bumm Bälle,Balles explosives,Bolas explosivas,Взрывные шары
+PERK_SPIKE_BALLS_EXPLODE_DESC,The spike balls are spicy now. Which means they explode.,Die Stachelbälle böllern böse.,Les boules épineuses sont maintenant épicées, ce qui signifie qu'elles explosent.,Las bolas con pinchos ahora están picantes. Lo que significa que explotan.,Шипованные шары теперь взрываются.
+PERK_SPIKE_BALLS_EXPLODE_2,Boom Balls II,Bumm Bälle II,Balles explosives II,Bolas explosivas II,Взрывные шары II
+PERK_SPIKE_BALLS_EXPLODE_2_DESC,"Now, the spike balls even explode if they don't hit anything.","Die Bälle ballern noch böser, sogar wenn sie nichts treffen.","Maintenant, les boules épineuses explosent même si elles ne frappent rien.","Ahora, las bolas con pinchos explotan incluso si no golpean nada.",Теперь шипованные шары взрываются, даже если они никого не задели.
+PERK_ACCURACY_BOOST,Accuracy Reward,Guter Schütze,Récompense précision,Recompensa de precisión,Награда за точность
+PERK_ACCURACY_BOOST_DESC,Multiply your damage by 2x the accuracy.,Dein Schaden wird mit dem doppelten der Trefferrate multipliziert.,Multiplie tes dégâts par deux fois la précision.,Multiplica tu daño por 2x la precisión.,Умножьте ваш урон на 2x точность.
+PERK_ACCURACY_BOOST_2,Accuracy Reward II,Guter Schütze II,Récompense précision II,Recompensa de precisión II,Награда за точность II
+PERK_ACCURACY_BOOST_2_DESC,"Your damage gets doubled if your accuracy is above 0.7, but multiplied with the current accuracy. (If accuracy is above 1.0, your damage will be multiplied by 2x of the accuracy.)","Falls deine Trefferquote über 0.7 liegt, wird dein Schaden verdoppelt. Andernfalls wird er jedoch mit deiner Trefferquote multipliziert.(Falls deine Trefferquote über 1.0 liegt, wird der Schaden mit 2x deiner Trefferquote multipliziert.),Si ta précision est supérieure à 0.7, tes dégâts seront doublés, mais multipliés par la précision actuelle. (Si la précision est supérieure à 1.0, tes dégâts seront multipliés par 2 fois la précision.)"
+PERK_MAX_ACCURACY,Overperformer,Überflieger,Performant exceptionnel,Rendimiento excepcional,Перфекционист
+PERK_MAX_ACCURACY_DESC,Your accuracy can go above 1.0.,Deine Trefferquote kann 1.0 überschreiten.,Ta précision peut dépasser 1.0.,Tu precisión puede superar 1.0.,Ваша точность может превысить 1.0.
+PERK_BAD_AIMER,Shaky fingers,Schlechter Schütze,Visée tremblante,Mala puntería,Трепещущие пальцы
+PERK_BAD_AIMER_DESC,Badass with bad aim. All damage taken will be multiplied by your accuracy.,Erleideter Schaden wird mit deiner Trefferquote multipliziert.,Mauvais tireur, tout dommage subi sera multiplié par ta précision.,Mal tirador, todo daño recibido será multiplicado por tu precisión.,Отличный игрок, но с плохим прицеливанием. Весь полученный урон будет умножен на вашу точность.
+PERK_TIT_FOT_TAT,Tit for Tat,Risiko,Œil pour œil,Ojo por ojo,Око за око
+PERK_TIT_FOT_TAT_DESC,"Your gun damage will get doubled for the rest of the game, but until the next level, all damage received will be multiplied by 4.","Dein Waffenschaden wird dauerhaft verdoppelt, aber bis zum nächsten Level, erhälts du 4x Schaden von Gegnern.","Les dégâts de ton arme seront doublés pour le reste du jeu, mais jusqu'au prochain niveau, tous les dégâts reçus seront multipliés par 4.","El daño de tu arma se duplicará durante el resto del juego, pero hasta el siguiente nivel, todo el daño recibido será multiplicado por 4.","Ваш урон от оружия будет удвоен на остальную часть игры, но до следующего уровня весь получаемый урон будет умножен на 4."
+PERK_ITEMS_EXPLODE,Exploding items,Explodierende Items,Objets explosifs,Objetos explosivos,Взрывные предметы
+PERK_ITEMS_EXPLODE_DESC,"When collecting an item, you will leave an explosion.","Du erzeugst eine Explosion, beim Einsammeln von Items.","Lorsque tu collectes un objet, tu laisses une explosion.",Cuando recojas un objeto, dejarás una explosión.,Когда вы собираете предмет, вы оставляете взрыв.
+PERK_VAMPIRE,Vampire,Vampir,Vampire,Vampiro,Вампир
+PERK_VAMPIRE_DESC,You gain %d%% of the damage you deal as health.,Du erhältst %d%% des ausgeteilten Schadens als Leben.,Tu récupères %d%% des dégâts infligés sous forme de santé.,Recibes %d%% del daño infligido como salud.,Вы получаете %d%% урона, который вы наносите, как здоровье.
+PERK_PYROMANIC,Pyromanic,Pyromane,Pyromane,Piromaniaco,Пироман
+PERK_PYROMANIC_DESC,Every explosion increases the size of explosions. Up to %dx.!,Jede Explosion erhöht die Explosionsgröße! bis zu %dx.,Chaque explosion augmente la taille des explosions. Jusqu'à %dx !,¡Cada explosión aumenta el tamaño de las explosiones! ¡Hasta %dx!,Каждый взрыв увеличивает размер взрывов. До %dx!
+PERK_INC_PYROMANIAC,Pyromaniac II,Pyromane II,Pyromane II,Piromaniaco II,Пироман II
+PERK_INC_PYROMANIAC_DESC,Increase your maximum pyromaniac multiplier to %1f.,Erhöhe deinen maximalen Pyromanenmultiplikator auf %.1f.,Augmente ton multiplicateur pyromane maximum à %.1f.,Aumenta tu multiplicador máximo de piromanía a %.1f.,Увеличьте ваш максимальный множитель пиромании до %.1f.
+PERK_XRAY_VSION,X-Ray vision,Röntgenblick,Vision X-ray,Visión de rayos X,Рентгеновское зрение
+PERK_XRAY_VSION_DESC,See how much HP enemies have left.,Du kannst sehen, wieviele LP deine Gegner haben.,Tu peux voir combien de PV il reste à tes ennemis.,Puedes ver cuántos PV les quedan a los enemigos.,Вы можете увидеть, сколько здоровья осталось у врагов.
+HP_INC_INC_MAX_HP,Health is healthy,Leben ist gesund,La santé est saine,La salud es saludable,Здоровье здорово
+HP_INC_INC_MAX_HP_DESC,"If you gain health, while being fully healed, you gain half of it as max HP.","Falls du volles Leben hast und geheilt wirst, erhältst du die Hälfte des Labens als max LP.","Si tu vie est au maximum et que tu es soigné, tu obtiens la moitié de tes PV en max HP.",Si obtienes salud, estando completamente curado, obtienes la mitad de ella como HP máximo.,Если вы получаете здоровье, будучи полностью исцеленным, вы получаете половину этого как максимальное здоровье.
+CLOSE,Close,Schließen,Fermer,Cerrar,Закрыть
+HELP,Help,Hilfe,Aide,Ayuda,Помощь
