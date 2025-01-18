@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Flag_of_the_United_Kingdom.svg.png-4062aa862053b921117bda6bc05e241f.stex"
+path="res://.import/Flag_of_Spain_(civil).svg.png-90b1827e0a925788ee2b7afae91abe7e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Flag_of_the_United_Kingdom.svg.png"
-dest_files=[ "res://.import/Flag_of_the_United_Kingdom.svg.png-4062aa862053b921117bda6bc05e241f.stex" ]
+source_file="res://Sprites/UI/Flags/Flag_of_Spain_(civil).svg.png"
+dest_files=[ "res://.import/Flag_of_Spain_(civil).svg.png-90b1827e0a925788ee2b7afae91abe7e.stex" ]
 
 [params]
 

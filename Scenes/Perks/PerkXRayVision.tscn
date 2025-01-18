@@ -5,6 +5,6 @@
 
 [node name="PerkXRayVision" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-title = "PERK_XRAY_VSION"
-desc = "PERK_XRAY_VSION_DESC"
+title = "PERK_XRAY_VISION"
+desc = "PERK_XRAY_VISION_DESC"
 one_time = true

@@ -12,19 +12,26 @@ script = ExtResource( 2 )
 
 [node name="TextureButton" type="TextureButton" parent="."]
 margin_right = 367.0
-margin_bottom = 320.0
+margin_bottom = 311.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
 expand = true
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="."]
-margin_top = 324.0
+[node name="LabelOwnName" type="Label" parent="."]
+margin_top = 315.0
 margin_right = 367.0
-margin_bottom = 645.0
+margin_bottom = 329.0
 size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 1
+align = 1
+
+[node name="LabelTranslatedName" type="Label" parent="."]
+margin_top = 333.0
+margin_right = 367.0
+margin_bottom = 347.0
+size_flags_vertical = 2
 align = 1
 
 [connection signal="toggled" from="TextureButton" to="." method="_on_TextureButton_toggled"]
