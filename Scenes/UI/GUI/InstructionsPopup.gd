@@ -1,12 +1,16 @@
 extends Popup
 
-
+onready var web_warning = $"%WebWarning"
 onready var movement_label = $"%Movement"
 onready var locking_label = $"%Locking"
 onready var reloading_label = $"%Reloading"
 onready var weapon_info_label =  $"%WeaponInfo"
 onready var help_label = $"%Help"
 
+
+func _ready() -> void:
+	if OS.get_name()=="HTML5":
+		web_warning.visible=true
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("help") and visible:
