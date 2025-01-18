@@ -50,8 +50,8 @@ func initial_spawning()->void:
 			i+=1
 
 func _on_player_death()->void:
-	var death_screen = death_screen_prefab.instance()
-	add_child(death_screen)
+	var death_screen = gui.death_screen #death_screen_prefab.instance()
+	#add_child(death_screen)
 	spawner.game_alive = false
 	Globals.cursor_manager.set_cursor(Cursor.CURSOR_TYPE.DEFAULT)
 	var save_dict= SaveManager.get_game_save()

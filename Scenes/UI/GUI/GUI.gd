@@ -17,6 +17,7 @@ onready var card_holder = $CardHolder
 onready var instructions = $HUD/InstructionsPopup
 onready var blood= $ScreenBlood
 onready var weapon_info = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2/VBoxContainer2/WeaponInfo
+onready var death_screen = $DeathScreen
 
 
 var player:Player=null
@@ -52,6 +53,7 @@ func set_player(player:Player)->void:
 	player.connect("exp_limit_changed",self,"set_max_exp")
 	player.connect("score_changed",self,"set_score")
 	player.connect("dead",pause_menu,"_on_Player_Death")
+	player.connect("dead",self,"_on_player_death")
 	player.connect("time_changed",self,"set_time")
 	player.connect("lock_changed",self,"set_lock")
 
@@ -138,6 +140,9 @@ func time_to_str(time:int) -> String:
 	var seconds = time % 60
 	var str_time = "%02d:%02d" % [minutes, seconds]
 	return str_time
+
+func _on_player_death()->void:
+	death_screen.visible=true
 
 func set_cursor(cursor_type:int) -> void:
 #	Globals.cursor_manager.set_crosshair(crosshair)
