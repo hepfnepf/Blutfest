@@ -49,6 +49,10 @@ Bazooka -Robert Brooks- [color=#46a0af][url]https://opengameart.org/content/bazo
 
 Flags
 German - SKopp, Madden, and others - [color=#46a0af][url]https://kiwithek.wien/images/Deutschland_Flagge.jpg[/url][/color] - CC0 1.0
+English - Stefan-Xp,Yaddah - [color=#46a0af][url]https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg[/url][/color] - Public domain
+French - SKopp - [color=#46a0af][url]https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/640px-Flag_of_France.svg.png[/url][/color] - Public domain
+Spanish - Vzb83 - [color=#46a0af][url]https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Flag_of_Spain_%28civil%29.svg/750px-Flag_of_Spain_%28civil%29.svg.png[/url][/color] - Public domain
+Russian - D4pnv4a - [color=#46a0af][url]https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/%D0%A0%D0%B5%D1%81%D1%83%D1%80%D1%81_2%404x1.png/640px-%D0%A0%D0%B5%D1%81%D1%83%D1%80%D1%81_2%404x1.png[/url][/color] - Public domain
 
 Effects
 Ice - digit1024 - [color=#46a0af][url]https://opengameart.org/content/ice-block[/url][/color] - CC BY 3.0

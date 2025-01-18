@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=2]
@@ -19,12 +19,14 @@
 [ext_resource path="res://Scenes/UI/SettingsScreen/UISettings.gd" type="Script" id=17]
 [ext_resource path="res://Scenes/UI/SettingsScreen/SoundSettings.gd" type="Script" id=18]
 [ext_resource path="res://Scenes/UI/SettingsScreen/CountryFlag.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Sprites/UI/Flag_of_the_United_Kingdom.svg.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/UI/Deutschland_Flagge.jpg" type="Texture" id=21]
+[ext_resource path="res://Sprites/UI/Flags/Flag_of_the_United_Kingdom.svg.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/UI/Flags/Deutschland_Flagge.jpg" type="Texture" id=21]
 [ext_resource path="res://Scenes/UI/SettingsScreen/LanguageSettings.gd" type="Script" id=22]
 [ext_resource path="res://Sprites/UI/triangle_right.png" type="Texture" id=23]
 [ext_resource path="res://Sprites/UI/triangle_left.png" type="Texture" id=24]
 [ext_resource path="res://Scenes/UI/MainMenu/ButtonStyleNormal1.tres" type="StyleBox" id=25]
+[ext_resource path="res://Sprites/UI/Flags/Flag_of_Spain_(civil).svg.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/UI/Flags/Flag_of_France.svg.png" type="Texture" id=27]
 
 [sub_resource type="DynamicFont" id=2]
 size = 90
@@ -657,17 +659,17 @@ size_flags_horizontal = 9
 rebind_action = "toggle_debug_invincibility"
 
 [node name="RebindWeaponInfo" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
-margin_top = 297.0
+margin_top = 329.0
 margin_right = 1365.0
-margin_bottom = 311.0
+margin_bottom = 343.0
 size_flags_horizontal = 3
 text = "WEAPON_INFO_BTN"
 
 [node name="RebindButton10" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
 margin_left = 1369.0
-margin_top = 290.0
+margin_top = 322.0
 margin_right = 1472.0
-margin_bottom = 318.0
+margin_bottom = 350.0
 size_flags_horizontal = 9
 rebind_action = "toggle_weapon_info"
 
@@ -799,20 +801,46 @@ margin_right = 1472.0
 margin_bottom = 645.0
 columns = 4
 
-[node name="CountryFlag" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Language/MarginContainer/GridContainer" instance=ExtResource( 19 )]
+[node name="CountryFlagGermany" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Language/MarginContainer/GridContainer" instance=ExtResource( 19 )]
 margin_left = 0.0
-margin_right = 367.0
+margin_right = 365.0
+margin_bottom = 321.0
 size_flags_vertical = 3
 theme = SubResource( 19 )
 flag = ExtResource( 21 )
 language_name = "Deutsch"
+language_name_translated = "LANG_DE"
 language_id = "de"
 
-[node name="CountryFlag2" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Language/MarginContainer/GridContainer" instance=ExtResource( 19 )]
+[node name="CountryFlag2English" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Language/MarginContainer/GridContainer" instance=ExtResource( 19 )]
+margin_left = 369.0
+margin_right = 734.0
+margin_bottom = 321.0
 size_flags_vertical = 3
 flag = ExtResource( 20 )
 language_name = "English"
+language_name_translated = "LANG_EN"
 language_id = "en"
+
+[node name="CountryFlag3French" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Language/MarginContainer/GridContainer" instance=ExtResource( 19 )]
+margin_left = 738.0
+margin_right = 1103.0
+margin_bottom = 321.0
+size_flags_vertical = 3
+flag = ExtResource( 27 )
+language_name = "Français (IA)"
+language_name_translated = "LANG_FR"
+language_id = "fr"
+
+[node name="CountryFlag4Spanish" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Language/MarginContainer/GridContainer" instance=ExtResource( 19 )]
+margin_left = 1107.0
+margin_right = 1472.0
+margin_bottom = 321.0
+size_flags_vertical = 3
+flag = ExtResource( 26 )
+language_name = "Español (AI)"
+language_name_translated = "LANG_ES"
+language_id = "es"
 
 [node name="ExitButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
 margin_left = 659.0

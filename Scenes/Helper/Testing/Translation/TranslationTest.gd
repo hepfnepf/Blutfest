@@ -9,6 +9,7 @@ onready var locales = TranslationServer.get_loaded_locales()
 
 func _ready() -> void:
 	test_file()
+	print("done!")
 
 func test_file()->void:
 	var f = File.new()
@@ -36,7 +37,9 @@ func test_line(line:String,number:int)->void:
 func check_translation(key:String,translation:String,number:int)->void:
 	if key==translation:
 		print("Issue detected: Translation equals key. Line: %d"%number)
-		print("	-> ",key,translation)
+		print("	-> ",key)
+		print("	-> ", TranslationServer.get_locale() )
 	if translation[0]== " ":
 		print("Issue detected: Translation begins with whitespace. Line: %d"%number)
 		print("	-> ",key,translation)
+		print("	-> ", TranslationServer.get_locale() )

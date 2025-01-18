@@ -6,10 +6,16 @@ signal new_language_selected(new_language,flag)
 
 export(Texture) var flag setget set_flag
 export(String) var language_name = "" setget set_language
+export(String) var language_name_translated = "" setget set_translated_language
 export(String) var language_id = ""
+
+
+onready var own_name = $LabelOwnName
+onready var translated_name = $LabelTranslatedName
 
 func _ready() -> void:
 	assert(language_id!="","Langauge ID should not be empty!")
+	print_debug(TranslationServer.get_loaded_locales())
 
 
 func set_flag(_flag:Texture)->void:
@@ -18,8 +24,11 @@ func set_flag(_flag:Texture)->void:
 
 func set_language(new_langauge)->void:
 	language_name=new_langauge
-	$Label.text=new_langauge
+	$LabelOwnName.text=new_langauge
 
+func set_translated_language(new_langauge)->void:
+	language_name_translated = new_langauge
+	$LabelTranslatedName.text = new_langauge
 
 func _on_TextureButton_toggled(button_pressed: bool) -> void:
 	TranslationServer.set_locale(language_id)
