@@ -128,6 +128,7 @@ PERK_THORNS_EQUAL,Thorns of justice,"Wie du mir, so ich dir"
 PERK_THORNS_EQUAL_DESC,"When hit, the enemy takes as much damage as you do.","Der Gegner kriegt genau so viel Schaden wie du, wenn er dich angreift."
 HELP_TITLE1,How to play,Wie geht's?
 HELP_DESCRIPTION,"Survive as long as possible, while evil monsters try to kill you! Use power ups and weapons to your advantage and select the right perks to stay alive.",Überlebe solange es geht! Verschaffe dir dabei einen Vorteil durch die Nutzung von Items und Waffen. Sowie der richtigen Perks!
+HELP_WEB_WARNING,"Note: Playing the web browser version of the game, results in a subpar experience, due to performance constraints. For the best experience run the desktop application version of this game!","Achtung! Die Webbrowser-Variante dieses Spiels stellt nicht die optimale Konfiguration dar. Um das beste Spielerlebnis zu erhalten, nutze die Desktopanwendung!"
 HELP_TITLE2,Movement,Steuerung
 HELP_MOVEMENT,"move around","Bewegung"
 HELP_SHOOTING,Mouse & Left click - aim & shoot,Maus und Linksclick - Zielen & Schießen
