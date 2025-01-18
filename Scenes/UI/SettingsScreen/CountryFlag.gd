@@ -15,7 +15,6 @@ onready var translated_name = $LabelTranslatedName
 
 func _ready() -> void:
 	assert(language_id!="","Langauge ID should not be empty!")
-	print_debug(TranslationServer.get_loaded_locales())
 
 
 func set_flag(_flag:Texture)->void:
