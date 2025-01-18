@@ -29,8 +29,8 @@ MOVE_UP,Up,Oben
 MOVE_DOWN,Down,Unten
 MOVE_LEFT,Left,Links
 MOVE_RIGHT,Right,Rechts
-LOCK_WEAPON,Lock weapn,Waffe sperren
-LOCK_WEAPON,Lock weapn,Waffe sperren
+LOCK_WEAPON,Lock weapon,Waffe sperren
+LOCK_WEAPON,Lock weapon,Waffe sperren
 INVINCIBILITY_BTN,Invincibility,Unverwundbarkeit
 WEAPON_INFO_BTN,Weapon info,Waffeninformation
 INVERT_ZOOMING,Invert zooming,Zoomen invertieren
@@ -41,7 +41,7 @@ GAME,Game,Spiel
 HISCORE_GOT_RESET,Highscore has been reset!,Der Highscore wurde zurückgesetzt!
 CREDITS,Credits,Credits
 BEFORE,Before:,Vorher:
-NEW_HIGHSCORE,New highscoe,Neuer Highscore
+NEW_HIGHSCORE,New highscore,Neuer Highscore
 NEW_BEST_TIME,New best time,Neue Bestzeit
 STATS,STATISTICS,STATISTIKEN
 HEALTH_GAINED,Health gained:,Leben gesammelt:
@@ -56,7 +56,7 @@ POWERUPS_COLLECTED,PowerUps collected:,Gesammelte PowerUps:
 PERKS_COOLECTED_CNT,Perks collected:,Gesammelte Perks:
 FAVORITE_WEAPON,Favorite weapon:,Lieblings Waffe:
 FAVORITE_POWERUPS,Favorite Item:,Lieblings Item:
-OPTIONS_GOT_RESET,Opstions have been reset!,Die Einstellungen wurden zurückgesetzt!
+OPTIONS_GOT_RESET,Options have been reset!,Die Einstellungen wurden zurückgesetzt!
 RESET_OPTIONS,Reset Options,Optionen zurücksetzen
 CURRENT_DIFFICULTY,Difficulty,Schwierigkeit
 HEALT_DAMAGE_SPEED_VIEWRANGE,HP/DMG/Speed/Vision-Multi.,Leben/Schaden/Geschw./Sicht-Multi
@@ -77,7 +77,7 @@ PERK_SPEED_UP_DESC,Increases the player's speed by %d%%.,Erhöht deine Geschw. u
 PERK_HEAL_UP_ON_LEVEL_UP,Refreshment,Erfrischung
 PERK_HEAL_UP_ON_LEVEL_UP_DESC,Heals the player by %d hp on level up.,Heilt dich um %d LP bei jedem Level Up.
 PERK_EXPLOSION_ON_LEVEL_UP,To much energy,Platzen vor Freude
-PERK_EXPLOSION_ON_LEVEL_UP_DESC,After gaining that much Exp you just need to show unleash your power. So you explode.,"Aus Freude über deinen Level Up, fliegst du einfach in die Luft."
+PERK_EXPLOSION_ON_LEVEL_UP_DESC,After gaining that much Exp you just need to unleash your power. So you explode.,"Aus Freude über deinen Level Up, fliegst du einfach in die Luft."
 PERK_SPIKE_BALLS_EXPLODE,Boom Balls,Bumm Bälle
 PERK_SPIKE_BALLS_EXPLODE_DESC,The spike balls are spicy now. Which means they explode.,Die Stachelbälle böllern böß.
 PERK_SPIKE_BALLS_EXPLODE_2,Boom Balls II,Bumm Bälle II
@@ -85,7 +85,7 @@ PERK_SPIKE_BALLS_EXPLODE_2_DESC,"Now, the spike balls even explode if they don't
 PERK_ACCURACY_BOOST,Accuracy Reward,Guter Schütze
 PERK_ACCURACY_BOOST_DESC,Multiply your damage by 2x the accuracy.,Dein Schaden wird mit dem doppelten der Trefferrate multipliziert.
 PERK_ACCURACY_BOOST_2,Accuracy Reward II,Guter Schütze II
-PERK_ACCURACY_BOOST_2_DESC,"Your damage gets doubled if your acuraccy is above 0.7, but multiplied with the current accuracy. (If accuracy is above 1.0, your damage wil be multiplied by 2x of the accuracy.)","Falls deine Trefferquote über 0.7 liegt, wird dein Schaden verdoppelt. Andernfalls wird er jedoch mit deiner Trefferquote multipliziert.(Falls deine Trefferquote über 1.0 liegt, wird der Schaden mit 2x deiner Trefferquote multipliziert.)"
+PERK_ACCURACY_BOOST_2_DESC,"Your damage gets doubled if your accuracy is above 0.7, but multiplied with the current accuracy. (If accuracy is above 1.0, your damage will be multiplied by 2x of the accuracy.)","Falls deine Trefferquote über 0.7 liegt, wird dein Schaden verdoppelt. Andernfalls wird er jedoch mit deiner Trefferquote multipliziert.(Falls deine Trefferquote über 1.0 liegt, wird der Schaden mit 2x deiner Trefferquote multipliziert.)"
 PERK_MAX_ACCURACY,Overperformer,Überflieger
 PERK_MAX_ACCURACY_DESC,Your accuracy can go above 1.0.,Deine Trefferquote kann 1.0 überschreiten.
 PERK_BAD_AIMER,Shaky fingers,Schlechter Schütze
@@ -99,11 +99,11 @@ PERK_VAMPIRE_DESC,You gain %d%% of the damage you deal as health.,Du erhältst %
 PERK_PYROMANIC,Pyromanic,Pyromane
 PERK_PYROMANIC_DESC,Every explosion increases the size of explosions. Up to %dx.!,Jede Explosion erhöht die Explosionsgröße! bis zu %dx.
 PERK_INC_PYROMANIAC,Pyromaniac II,Pyromane II
-PERK_INC_PYROMANIAC_DESC,Increase you maximum pyromaniac multiplier to %1f.,Erhöhe deinen maximalen Pyromanenmultiplicator auf %.1f.
-PERK_XRAY_VSION,X-Ray vision,Röntgenblick
-PERK_XRAY_VSION_DESC,See how much HP enemies have left.,"Du kannst sehen, wieviele LP deine Gegner haben."
+PERK_INC_PYROMANIAC_DESC,Increase you maximum pyromaniac multiplier to %1f.,Erhöhe deinen maximalen Pyromanenmultiplikator auf %.1f.
+PERK_XRAY_VISION,X-Ray vision,Röntgenblick
+PERK_XRAY_VISION_DESC,See how much HP enemies have left.,"Du kannst sehen, wieviele LP deine Gegner haben."
 HP_INC_INC_MAX_HP,Health is healthy,Leben ist gesund
-HP_INC_INC_MAX_HP_DESC,"If you gain health, while being fully healed, you gain half of it as max HP.","Falls du volles Leben hast und geheilt wirst, erhältst du die Hälfte des Labens als max LP."
+HP_INC_INC_MAX_HP_DESC,"If you gain health, while being fully healed, you gain half of it as max HP.","Falls du volles Leben hast und geheilt wirst, erhältst du die Hälfte der Lebenspunkte als maximale Lebenspunkte."
 HP_INC_INC_MAX_HP_2,Health is healthy II,Leben ist gesund II
 HP_INC_INC_MAX_HP_2_DESC,"If you gain health overstepping your max HP, your max HP will be increased by half of the difference and your HP will be filled.","Wenn du über deine max LP hinaus geheilt wirst, wird die Hälfte der Differenz zu deinen max LP hinzugefügt und du wirst vollständig geheilt."
 PERK_EXTRA_CARDS,Extra Card,Bonuskarte
@@ -113,7 +113,7 @@ PERK_MANUEL_RELOADING_DESC,"You reload %d%% faster, if you trigger the relaod ma
 PERK_LAZY_RELOAD,Lazy reload,Faules Nachladen
 PERK_LAZY_RELOAD_DESC,You only have to reload the missing bullets.,Du lädst lediglich die fehlenden Kugeln nach.
 PERK_REGENERATION,Regeneration,Regenaration
-PERK_REGENERATION_DESC,"If you don't get hit for %ds, your health will slowly replenish by %d per second.","Falls du %ds lang nicht getroffen wirst, regnerierst du langsam Leben. (%dLP pro Sekunde.)"
+PERK_REGENERATION_DESC,"If you don't get hit for %ds, your health will slowly replenish by %d per second.","Falls du %ds lang nicht getroffen wirst, regenerierst du langsam Leben. (%dLP pro Sekunde.)"
 PERK_MEDIC,Medic,Medizinier
 PERK_MEDIC_DESC,Regain %.1fx the health from health items.,Heilungsitems geben %.1fx soviel Heilung.
 PERK_SNIPER,Sniper,Scharfschütze
