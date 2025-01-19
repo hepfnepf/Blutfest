@@ -368,13 +368,13 @@ func check_key_constraints_options_save(key,value)->bool:
 
 func performe_upgrade_steps_save_game(save_game):
 	#var new_save_game = save_game
-	for i in range(save_game["version"],VERSION):
+	for _i in range(save_game["version"],VERSION):
 		perform_save_game_upgrade_step(save_game)
 	#return new_save_game
 
 func performe_upgrade_steps_save_options(save_options):
 	#var new_save_option = save_options
-	for i in range(save_options["version"],VERSION):
+	for _i in range(save_options["version"],VERSION):
 		perform_save_options_upgrade_step(save_options)
 	#return new_save_option
 

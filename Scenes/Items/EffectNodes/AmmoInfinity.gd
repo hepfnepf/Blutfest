@@ -18,7 +18,7 @@ func add_effect():
 		weapon.ammo_infinity_stack += 1
 
 		#Increase fire rate
-		var new_fire_rate = int(weapon.fire_rate*fire_rate_multiplyer)
+		var new_fire_rate = int(weapon.fire_rate*fire_rate_multiplyer*player.fire_rate_multi)
 		fire_rate_delta = new_fire_rate - weapon.fire_rate
 		weapon.fire_rate_delta += fire_rate_delta
 		weapon.set_fire_rate(new_fire_rate)

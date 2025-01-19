@@ -11,8 +11,8 @@ signal spread_changed(new_spread)
 export (String) var gun_name=""
 export (int) var max_ammo = 15
 export (int) var damage = 20
-export (float) var max_range = 300
-export (float) var speed = 100#of bullet
+export (float) var max_range = 300.0
+export (float) var speed = 100.0#of bullet
 export (float) var reload_time = 1.0
 export (float) var fire_rate = 10.0 setget set_fire_rate
 

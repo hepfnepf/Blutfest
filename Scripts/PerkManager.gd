@@ -142,9 +142,9 @@ func _on_Perk_selected(perk:PackedScene) -> void:
 	update_probs()
 
 func remove_perk(perk, perks_array=self.current_perks,likelihood_array=self.current_likelihoods) -> void:
-	var ind:int = current_perks.find(perk)
-	current_perks.remove(ind)
-	current_likelihoods.remove(ind)
+	var ind:int = perks_array.find(perk)
+	perks_array.remove(ind)
+	likelihood_array.remove(ind)
 
 func get_random_perk(perks=self.current_perks,probs=self.perk_probs) -> PackedScene:
 	if probs == []:

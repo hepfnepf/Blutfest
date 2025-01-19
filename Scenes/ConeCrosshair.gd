@@ -3,7 +3,7 @@ extends Sprite
 #Here dynamic referes to the length. The cone always portrays the right spread, because its useless otherwise
 
 
-export(float) var STATIC_LENGTH = 10
+export(float) var STATIC_LENGTH = 10.0
 
 var dynamic:bool = true
 var max_range:float = 10 setget set_cone_range #gets set from the weapon when added to player

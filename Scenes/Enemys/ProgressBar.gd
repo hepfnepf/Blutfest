@@ -31,7 +31,7 @@ func _ready() -> void:
 	show_if_appropiate()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	rect_global_position = parent.global_position + offset_position
 	if skip_frame:
 		skip_frame=false

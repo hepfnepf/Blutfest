@@ -1,7 +1,7 @@
 tool
 extends VBoxContainer
 
-signal new_language_selected(new_language,flag)
+signal new_language_selected(flag)
 
 
 export(Texture) var flag setget set_flag
@@ -31,7 +31,7 @@ func set_translated_language(new_langauge)->void:
 
 func _on_TextureButton_toggled(button_pressed: bool) -> void:
 	TranslationServer.set_locale(language_id)
-	emit_signal("new_language_selected",language_id,self)
+	emit_signal("new_language_selected",self)
 
 func detoggle()->void:
 	$TextureButton.pressed=false

@@ -21,7 +21,7 @@ func _ready() -> void:
 	set_to_current_volume()
 	set_to_current_mute()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	set_to_current_volume()
 	set_to_current_mute()
 
