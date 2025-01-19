@@ -197,3 +197,7 @@ func clear_enemies()->void:
 	for enemy in enemys:
 		enemy.queue_free()
 	pass
+
+#Remove main class function
+func initial_spawning()->void:
+	pass
