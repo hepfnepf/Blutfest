@@ -13,10 +13,6 @@ var stored_cursor_state:int = 0
 var blocked := false
 
 
-func _ready() -> void:
-	options.sound_tab.connect("changed_sound",self,"_on_reset_sound")
-
-
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("Escape") and !blocked:
 		switch_state(!enabled)

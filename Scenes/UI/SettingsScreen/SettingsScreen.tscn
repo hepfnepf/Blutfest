@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=2]
@@ -17,7 +17,6 @@
 [ext_resource path="res://Scenes/UI/SettingsScreen/GameSettings.gd" type="Script" id=15]
 [ext_resource path="res://Scenes/UI/SettingsScreen/ControlSettings.gd" type="Script" id=16]
 [ext_resource path="res://Scenes/UI/SettingsScreen/UISettings.gd" type="Script" id=17]
-[ext_resource path="res://Scenes/UI/SettingsScreen/SoundSettings.gd" type="Script" id=18]
 [ext_resource path="res://Scenes/UI/SettingsScreen/CountryFlag.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Sprites/UI/Flags/Flag_of_the_United_Kingdom.svg.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/UI/Flags/Deutschland_Flagge.jpg" type="Texture" id=21]
@@ -683,7 +682,6 @@ margin_top = 31.0
 margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
-script = ExtResource( 18 )
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Sound"]
 anchor_right = 1.0

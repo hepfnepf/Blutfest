@@ -2,7 +2,7 @@ extends Weapon
 
 
 export(float)var charge_rate = 1.0
-export(float)var min_range = 500
+export(float)var min_range = 500.0
 
 var is_charging:bool=false setget set_is_charging
 var charge_start:int=0

@@ -48,6 +48,3 @@ func _on_Timer_timeout_op() -> void:
 func _on_EnemyCounSlider_value_changed(value: int) -> void:
 	EventBus.emit_signal("max_enemy_count_change",value)
 	set_enemy_count_label(value)
-
-func _on_new_langauge_selected(new_language_id:String)->void:
-	pass

@@ -34,13 +34,13 @@ func time_to_str(time:int) -> String:
 	var str_time = "%02d:%02d" % [minutes, seconds]
 	return str_time
 
-func akn_new_highscore(former_score:int,new_score:int) -> void:
+func akn_new_highscore(former_score:int) -> void:
 	akn_score.visible = true
 	before_cont.show_score(former_score)
 	before_cont.visible = true
 
 
-func akn_new_besttime(former_time:int,new_time:int) -> void:
+func akn_new_besttime(former_time:int) -> void:
 	akn_time.visible=true
 	before_cont.show_time(former_time)
 	before_cont.visible = true
@@ -49,9 +49,9 @@ func handle_score_display(former_score:int,new_score:int,former_time:int,new_tim
 	set_score(new_score)
 	set_time(new_time)
 	if new_score > former_score:
-		akn_new_highscore(former_score,new_score)
+		akn_new_highscore(former_score)
 	if new_time > former_time:
-		akn_new_besttime(former_time,new_time)
+		akn_new_besttime(former_time)
 
 # warning-ignore:unused_argument
 func _process(delta):

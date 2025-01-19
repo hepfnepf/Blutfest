@@ -88,6 +88,7 @@ var ice_damage_mult:float = 1.0
 var thorn_damage:int = 0
 var thorn_damage_equal_fac:float = 0.0
 var range_multi:float = 1.0
+var fire_rate_multi:float = 1.0 setget set_fire_rate_multi
 
 #weapon effect
 var standard_rifle_multi:float = 1.0
@@ -226,7 +227,7 @@ func set_damage_caused(new_damage)->void:
 	damage_caused=new_damage
 
 func set_explosion_amnt(new_amt)->void:
-	explosion_amnt+=1
+	explosion_amnt=new_amt
 	explosion_amt_size_multi= clamp(explosion_amt_size_multi+explosion_amt_size_multi_inc,1.0,max_explosion_amt_size_multi)
 
 func set_shots_fired(new_amnt)->void:
@@ -279,6 +280,9 @@ func calculate_damage_multiplier()->void:
 	damage_multi = 1.0* dmg_base_multi * accuracy_boni * tit_for_tat_good_multi * not_moving_bonus
 	weapon.current_weapon.emit_signal("updated_weapon_stats",weapon.current_weapon)
 
+func set_fire_rate_multi(new_multi:float)->void:
+	fire_rate_multi=new_multi
+
 func add_enemy_death()->void:
 	enemies_killed+=1
 
@@ -297,7 +301,7 @@ func take_damage(damage:int,entity=null)->void:
 	if !alive or invincible or debug_invincible:
 		return
 
-	damage=damage*tit_for_tat_bad_multi
+	damage=int(damage*tit_for_tat_bad_multi)
 
 	if shaky_finger:
 		set_health(health - damage * accuracy)

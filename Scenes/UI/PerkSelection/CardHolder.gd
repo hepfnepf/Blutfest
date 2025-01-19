@@ -11,7 +11,7 @@ func _ready() -> void:
 	if animation_duration<sound_effect.get_length():
 		printerr("Card drawing sound longer than animation")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#see death functions below
 	if player and !player.alive:
 		cancel_perk_selection()

@@ -1,5 +1,6 @@
 extends Node
 
+# warning-ignore-all:UNUSED_SIGNAL
 signal zooming_inverted(zooming_inv)
 signal blood_overlay_enabled(enabled)
 signal hide_crosshair(hidden)

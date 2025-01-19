@@ -10,7 +10,8 @@ func _ready() -> void:
 	for child in language_grid.get_children():
 		child.connect("new_language_selected",self,"_new_language_selected")
 
-func _new_language_selected(new_language:String,flag)->void:
+func _new_language_selected(flag)->void:
+	#Actual language gets set in the flags code
 	for child in language_grid.get_children():
 		if child != flag:
 			child.detoggle()

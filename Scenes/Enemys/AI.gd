@@ -53,7 +53,7 @@ func _process(delta):
 			#print("stop")
 			movementNode.stop_movement()
 			if ready_to_attack:
-				attack(target_player)
+				attack()
 		else:
 			movementNode.set_destination(target_player.global_position)
 	else:#state patrol
@@ -79,7 +79,7 @@ func create_random_patrol_location() -> Vector2:
 		return game.spawner.random_position_in_map()
 
 
-func attack(player:Player)->void:
+func attack()->void:
 	get_parent().animation_player.play("Attack")#triggers actual attack_2
 	ready_to_attack = false
 	cooldown_timer.start()
