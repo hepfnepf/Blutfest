@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scenes/UI/DeathScreen/BeforeContainer.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UI/DeathScreen/DeathScreen.gd" type="Script" id=2]
@@ -26,17 +26,9 @@ void fragment()
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
-shader_param/color = Color( 0.356863, 0, 0, 1 )
+shader_param/color = Color( 0, 0, 0, 1 )
 shader_param/multiplier = 4.455
 shader_param/softness = 3.0
-
-[sub_resource type="DynamicFont" id=12]
-size = 128
-outline_size = 3
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-extra_spacing_char = 1
-font_data = ExtResource( 9 )
 
 [sub_resource type="Theme" id=6]
 default_font = ExtResource( 5 )
@@ -45,20 +37,20 @@ default_font = ExtResource( 5 )
 default_font = ExtResource( 5 )
 
 [sub_resource type="StyleBoxFlat" id=10]
-bg_color = Color( 0, 0, 0, 0 )
+bg_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="StyleBoxFlat" id=9]
-bg_color = Color( 0, 0, 0, 0 )
+bg_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [sub_resource type="StyleBoxFlat" id=11]
-bg_color = Color( 0, 0, 0, 0 )
+bg_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 54
-outline_size = 2
+outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 extra_spacing_char = 1
@@ -118,9 +110,9 @@ size_flags_horizontal = 3
 margin_left = 400.0
 margin_right = 1116.0
 margin_bottom = 163.0
-custom_colors/font_color = Color( 0.333333, 0.105882, 0.105882, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 0.494118, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_shadow = Color( 0.12549, 0.121569, 0.121569, 1 )
+custom_fonts/font = ExtResource( 5 )
 text = "YOU_DIED"
 align = 1
 valign = 1
@@ -153,7 +145,7 @@ size_flags_horizontal = 4
 
 [node name="acknowledge_score" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/AcknowledgementContainer"]
 visible = false
-margin_right = 601.0
+margin_right = 615.0
 margin_bottom = 82.0
 custom_colors/font_color = Color( 0.494118, 0.0901961, 0.0901961, 1 )
 custom_fonts/font = ExtResource( 6 )
@@ -163,7 +155,7 @@ uppercase = true
 
 [node name="acknowledge_time" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/AcknowledgementContainer"]
 visible = false
-margin_right = 547.0
+margin_right = 580.0
 margin_bottom = 82.0
 custom_colors/font_color = Color( 0.494118, 0.0901961, 0.0901961, 1 )
 custom_fonts/font = ExtResource( 6 )
@@ -190,7 +182,6 @@ columns = 2
 margin_right = 283.0
 margin_bottom = 103.0
 theme = SubResource( 6 )
-custom_colors/font_color = Color( 0.333333, 0.105882, 0.105882, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "SCORE"
 align = 1
@@ -200,7 +191,6 @@ margin_left = 293.0
 margin_right = 442.0
 margin_bottom = 103.0
 theme = SubResource( 7 )
-custom_colors/font_color = Color( 0.333333, 0.105882, 0.105882, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "1000"
 align = 2
@@ -210,7 +200,6 @@ margin_top = 103.0
 margin_right = 283.0
 margin_bottom = 206.0
 theme = SubResource( 7 )
-custom_colors/font_color = Color( 0.333333, 0.105882, 0.105882, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "TIME"
 align = 1
@@ -221,7 +210,6 @@ margin_top = 103.0
 margin_right = 442.0
 margin_bottom = 206.0
 theme = SubResource( 7 )
-custom_colors/font_color = Color( 0.333333, 0.105882, 0.105882, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "3:04"
 align = 2
@@ -292,9 +280,6 @@ margin_top = 214.0
 margin_right = 442.0
 margin_bottom = 283.0
 theme = SubResource( 4 )
-custom_colors/icon_color_pressed = Color( 0.333333, 0.105882, 0.105882, 1 )
-custom_colors/font_color_focus = Color( 0.333333, 0.105882, 0.105882, 1 )
-custom_colors/font_color = Color( 0.333333, 0.105882, 0.105882, 1 )
 text = "STATS"
 script = ExtResource( 8 )
 
@@ -311,5 +296,6 @@ margin_left = 694.0
 margin_right = 821.0
 
 [node name="StatsScreen" parent="." instance=ExtResource( 10 )]
+visible = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/StatsButton" to="." method="_on_StatsButton_pressed"]
