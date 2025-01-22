@@ -46,12 +46,11 @@ func initial_spawning()->void:
 
 		var pos = Vector2((randf()*2-1) *MAX_DISTANCE,(randf()*2-1) *MAX_DISTANCE)
 		if pos.length()>MIN_DISTANCE:
-			spawner.spawn_at(spawner.default_enemy,pos)
+			spawner.spawn_at(spawner.default_enemy,pos,true,true)
 			i+=1
 
 func _on_player_death()->void:
-	var death_screen = gui.death_screen #death_screen_prefab.instance()
-	#add_child(death_screen)
+	var death_screen = gui.death_screen
 	spawner.game_alive = false
 	Globals.cursor_manager.set_cursor(Cursor.CURSOR_TYPE.DEFAULT)
 	var save_dict= SaveManager.get_game_save()
@@ -75,9 +74,6 @@ func restart()->void:
 
 func _on_enemy_killed() -> void:
 	enemys_alive -=1
-	#player.set_score(player.score + points)
 	emit_signal("killed_enemy")
 
-func _on_enemy_spawned() -> void:
-	enemys_alive +=1
 
