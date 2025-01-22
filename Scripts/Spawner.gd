@@ -61,7 +61,7 @@ onready var map:Map = get_node_or_null("/root/Game/Map")
 func _ready() -> void:
 	connect("spawned_enemy",debug_gui,"_on_enemy_count_changed")
 	connect("difficulty_changed",debug_gui,"_on_difficulty_changed")
-	connect("spawned_enemy",game,"_on_enemy_spawned")
+	#connect("spawned_enemy",game,"_on_enemy_spawned")
 	EventBus.connect("max_enemy_count_change",self,"_on_max_enemy_count_change")
 
 func _process(delta) -> void:
@@ -106,12 +106,12 @@ func handle_enemy_spawning(delta)->void:
 	while (enemy_spawn_value >= 1):
 		enemy_spawn_value -= 1
 		spawn_at(default_enemy,random_position_out_map(),true)
-		emit_signal("spawned_enemy")
 		if game.enemys_alive >= max_enemys:
 			return
 
 func spawn_at(scene,pos,apply_difficulty=false):
 	call_deferred("_spawn_at",scene,pos,apply_difficulty)
+	game.enemys_alive+=1
 
 func _spawn_at(scene,pos,apply_difficulty=false):
 	var _obj = scene.instance()
@@ -121,6 +121,7 @@ func _spawn_at(scene,pos,apply_difficulty=false):
 		_obj.set_damage(_obj.damage * enemy_damage_mult)
 		_obj.set_speed(_obj.speed * enemy_speed_mult)
 		_obj.set_max_health(_obj.max_health * enemy_speed_mult)
+	emit_signal("spawned_enemy")
 
 func spawn(scene):
 	var _obj = scene.instance()
