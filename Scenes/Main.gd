@@ -37,17 +37,16 @@ func _ready()-> void:
 
 #spawns some enemys around the player at the start of the game
 func initial_spawning()->void:
-	var MAX_DISTANCE:int= 5000
-	var MIN_DISTANCE:float = 600.0
+	var RING_WIDTH:int= 3000
+	var MIN_DISTANCE:float = 1250.0
 	var INITIAL_ENEMY_COUNT:int = 25
 
 	var i:int = 0
 	while i < INITIAL_ENEMY_COUNT:
 
-		var pos = Vector2((randf()*2-1) *MAX_DISTANCE,(randf()*2-1) *MAX_DISTANCE)
-		if pos.length()>MIN_DISTANCE:
-			spawner.spawn_at(spawner.default_enemy,pos,true,true)
-			i+=1
+		var pos = Vector2((randf()*2-1),(randf()*2-1)).normalized() * (MIN_DISTANCE + randf()*RING_WIDTH)
+		spawner.spawn_at(spawner.default_enemy,pos,true,true)
+		i+=1
 
 func _on_player_death()->void:
 	var death_screen = gui.death_screen
