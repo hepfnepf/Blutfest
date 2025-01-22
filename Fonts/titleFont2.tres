@@ -5,7 +5,7 @@ font_path = "res://Fonts/IMFellEnglishSC-Regular.ttf"
 
 [resource]
 size = 80
-outline_size = 2
+outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 extra_spacing_char = 1
