@@ -4,7 +4,7 @@ THANK YOU FOR PLAYING BLUTFEST!
 Repository: [color=#46a0af]https://github.com/hepfnepf/Blutfest[/color]
 
 CODE
-[color=#46a0af][url=https://github.com/hepfnepf]hepfnepf[/url][/color] - 322 commits
+[color=#46a0af][url=https://github.com/hepfnepf]hepfnepf[/url][/color] - 330 commits
 [color=#46a0af][url=https://github.com/lukstarleb]kermon5[/url][/color] - 1 commit
 [color=#46a0af][url=https://github.com/kermon5]lukstarleb[/url][/color] - 1 commit
 
