@@ -46,7 +46,7 @@ func initial_spawning()->void:
 
 		var pos = Vector2((randf()*2-1) *MAX_DISTANCE,(randf()*2-1) *MAX_DISTANCE)
 		if pos.length()>MIN_DISTANCE:
-			spawner.spawn_at(spawner.default_enemy,pos)
+			spawner.spawn_at(spawner.default_enemy,pos,true,true)
 			i+=1
 
 func _on_player_death()->void:

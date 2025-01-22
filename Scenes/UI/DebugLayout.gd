@@ -19,6 +19,7 @@ func _process(delta):
 		return
 	fps.text = str(Performance.get_monitor(Performance.TIME_FPS))
 	nodes.text = str(Performance.get_monitor(Performance.OBJECT_NODE_COUNT))
+	enemys.text = str(game.enemys_alive)
 
 func _on_enemy_count_changed():
 	var enemy_count = game.enemys_alive

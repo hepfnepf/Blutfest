@@ -59,10 +59,9 @@ onready var debug_gui =get_node_or_null("/root/Game/GUI/HUD/VBoxContainer/DebugL
 onready var map:Map = get_node_or_null("/root/Game/Map")
 
 func _ready() -> void:
-	connect("spawned_enemy",debug_gui,"_on_enemy_count_changed")
 	connect("difficulty_changed",debug_gui,"_on_difficulty_changed")
-	#connect("spawned_enemy",game,"_on_enemy_spawned")
 	EventBus.connect("max_enemy_count_change",self,"_on_max_enemy_count_change")
+	max_enemys = SaveManager.current_save_options["max_enemy_count"]
 
 func _process(delta) -> void:
 	if !game_alive:
@@ -105,13 +104,16 @@ func handle_enemy_spawning(delta)->void:
 		return
 	while (enemy_spawn_value >= 1):
 		enemy_spawn_value -= 1
-		spawn_at(default_enemy,random_position_out_map(),true)
+		#game.enemys_alive+=1
+		spawn_at(default_enemy,random_position_out_map(),true,true)
 		if game.enemys_alive >= max_enemys:
 			return
 
-func spawn_at(scene,pos,apply_difficulty=false):
+func spawn_at(scene:PackedScene,pos:Vector2,is_enemy:bool=false,apply_difficulty:bool=false)->void:
+	if is_enemy:
+		game.enemys_alive+=1
 	call_deferred("_spawn_at",scene,pos,apply_difficulty)
-	game.enemys_alive+=1
+
 
 func _spawn_at(scene,pos,apply_difficulty=false):
 	var _obj = scene.instance()

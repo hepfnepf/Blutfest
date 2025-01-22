@@ -62,7 +62,7 @@ health = 100
 [node name="GUI" parent="." instance=ExtResource( 7 )]
 
 [node name="Spawner" parent="." instance=ExtResource( 8 )]
-enemy_spawn_rate_increase = 0.1
+enemy_spawn_rate_increase = 0.01
 item_spawn_rate = 0.3
 max_enemys = 300
 enemy_speed_increase = 0.01
