@@ -30,7 +30,7 @@ empty_sfx = ExtResource( 9 )
 shoot_db = 0.35
 reload_db = 0.25
 empty_db = 0.2
-weapon_spawn_rate_multi = 100.0
+weapon_spawn_rate_multi = 2.5
 
 [node name="muzzle_flash_02" parent="." index="0"]
 position = Vector2( 196.265, 29.3107 )

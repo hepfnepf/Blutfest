@@ -54,34 +54,14 @@ death_screen_prefab = ExtResource( 9 )
 
 [node name="ShockWave" parent="ShockWaveLayer" instance=ExtResource( 22 )]
 
-[node name="ItemStandardRifle" parent="." instance=ExtResource( 14 )]
-position = Vector2( -53.9392, 593.33 )
-
-[node name="PistolItem" parent="." instance=ExtResource( 10 )]
-position = Vector2( -512.421, -779.12 )
-
-[node name="ItemHealUp" parent="." instance=ExtResource( 2 )]
-position = Vector2( 466.538, -805.663 )
-scale = Vector2( 0.27, 0.27 )
-
-[node name="ItemHealUp2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1184.96, 1075.24 )
-scale = Vector2( 0.27, 0.27 )
-
-[node name="MachinegunItem" parent="." instance=ExtResource( 35 )]
-position = Vector2( -694.285, -121.897 )
-scale = Vector2( 0.27, 0.27 )
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -62.5314, -126.433 )
 move_speed_base = 500
 health = 100
 
-[node name="IceItem" parent="." instance=ExtResource( 16 )]
-position = Vector2( -214.659, -300.747 )
-
 [node name="Spawner" parent="." instance=ExtResource( 8 )]
-enemy_spawn_rate_increase = 0.1
+enemy_spawn_rate = 2.0
+enemy_spawn_rate_increase = 0.01
 item_spawn_rate = 0.5
 max_enemys = 300
 enemy_speed_increase = 0.01
@@ -99,23 +79,4 @@ pause_mode = 2
 volume_db = 0.0
 autoplay = false
 
-[node name="EffectItemBasis3" parent="." instance=ExtResource( 13 )]
-position = Vector2( -1184.63, 443.997 )
-time_to_despawn = 15.0
-
-[node name="ItemPoints250" parent="." instance=ExtResource( 5 )]
-position = Vector2( -503.447, 8.77588 )
-
-[node name="ItemPoints1000" parent="." instance=ExtResource( 19 )]
-position = Vector2( -956.506, -667.038 )
-
-[node name="ItemPoints500" parent="." instance=ExtResource( 20 )]
-position = Vector2( -2130.69, -508.467 )
-
-[node name="ItemPoints5000" parent="." instance=ExtResource( 21 )]
-position = Vector2( -2942.42, 718.569 )
-
 [node name="GUI" parent="." instance=ExtResource( 7 )]
-
-[node name="ItemSlowDownTime" parent="." instance=ExtResource( 27 )]
-position = Vector2( -255.752, 88.5143 )
