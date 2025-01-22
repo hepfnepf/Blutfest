@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Items/Items/ItemHealUp.tscn" type="PackedScene" id=2]
@@ -17,7 +17,6 @@
 [ext_resource path="res://Scenes/BackgroundMusic.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Items/Items/ItemIce.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Items/Items/ItemTrapCanon.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scenes/Weapons/Weapons/Pistol.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Items/Items/ItemPoints1000.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Items/Items/ItemPoints500.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/Items/Items/ItemPoints5000.tscn" type="PackedScene" id=21]
@@ -77,7 +76,6 @@ scale = Vector2( 0.27, 0.27 )
 position = Vector2( -62.5314, -126.433 )
 move_speed_base = 500
 health = 100
-start_weapon = ExtResource( 18 )
 
 [node name="IceItem" parent="." instance=ExtResource( 16 )]
 position = Vector2( -214.659, -300.747 )

@@ -133,9 +133,7 @@ func spawn(scene):
 ##Needed for effect fo standard rifle
 func mult_all_weapon_probs(factor:float) -> void:
 	for item in item_array:
-		var state: SceneState = item.get_state()
-		var c:int = state.get_node_property_count(0)
-		if c > 0 and "weapon" == state.get_node_property_name(0,0):
+		if "weapon" in item._bundled["names"][2]:
 			var lh:float = get_item_spawn_lh(item)
 			#inefficient for many items because calc_item_probs get called after every change
 			set_item_spawn_prob(item,lh*factor)
