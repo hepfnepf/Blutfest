@@ -15,7 +15,6 @@ var enemy_hpbars_enabled:bool=false #gets set by debug menu
 
 func _ready()-> void:
 	randomize()
-	initial_spawning()
 	player.connect("dead",self,"_on_player_death")
 	connect("killed_enemy",debug_gui,"_on_enemy_count_changed")
 	BulletPool.connect("bullet_count_changed", debug_gui,"_on_bullet_count_changed")
@@ -35,8 +34,13 @@ func _ready()-> void:
 	player.camera.invert_zooming = sg["zooming_inverted"]
 
 
+	#Init enemys and items
+	initial_spawning_enemies()
+	initial_spawning_items()
+
+
 #spawns some enemys around the player at the start of the game
-func initial_spawning()->void:
+func initial_spawning_enemies()->void:
 	var RING_WIDTH:int= 3000
 	var MIN_DISTANCE:float = 1250.0
 	var INITIAL_ENEMY_COUNT:int = 25
@@ -46,6 +50,13 @@ func initial_spawning()->void:
 
 		var pos = Vector2((randf()*2-1),(randf()*2-1)).normalized() * (MIN_DISTANCE + randf()*RING_WIDTH)
 		spawner.spawn_at(spawner.default_enemy,pos,true,true)
+		i+=1
+
+func initial_spawning_items()->void:
+	var INITIAL_ITEM_COUNT:int = 20
+	var i:int = 0
+	while i < INITIAL_ITEM_COUNT:
+		spawner.spawn_rand_item_at(spawner.random_position_in_map())
 		i+=1
 
 func _on_player_death()->void:
