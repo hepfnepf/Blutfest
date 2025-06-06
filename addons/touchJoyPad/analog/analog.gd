@@ -48,9 +48,6 @@ func need2ChangeActivePointer(event): #touch down inside analog
 			return AnalogTapToShowContainer.get_global_rect().has_point(Vector2(event.position.x, event.position.y))
 		else:
 			var length = (global_position - Vector2(get_global_event_position(event.position).x, get_global_event_position(event.position).y)).length_squared();
-#			get_canvas_transform().affine_inverse().xform(position)
-#			print_debug(squaredHalfSizeLength)
-#			print_debug(length)
 			return length < squaredHalfSizeLength
 	else:
 		return false
@@ -76,6 +73,9 @@ func process_input(event):
 	calculateForce(get_global_event_position(event.position).x - global_position.x, get_global_event_position(event.position).y - global_position.y)
 	updateBallPos()
 
+	if isPressed(event):
+		Input.action_press("fire")
+		
 	var isReleased = isReleased(event)
 	if isReleased:
 		reset()
@@ -84,6 +84,8 @@ func process_input(event):
 func reset():
 	currentPointerIDX = INACTIVE_IDX
 	calculateForce(0, 0)
+	sendSignal2Listener()
+	Input.action_release("fire")
 
 	if AnalogTapToShow:
 		hide()
@@ -105,7 +107,7 @@ func updateBallPos():
 
 func isPressed(event):
 	if event is InputEventMouseMotion:
-		return (InputEventMouse.button_mask == 1)
+		return (event.button_mask == 1)
 	elif event is InputEventScreenTouch:
 		return event.is_pressed()
 
@@ -142,7 +144,7 @@ func get_global_event_position(event_position:Vector2)->Vector2:
 	return get_canvas_transform().affine_inverse().xform(event_position)
 
 func sendSignal2Listener():
-	get_tree().call_group("JoyStick", "analog_signal_change", currentForce, self.get_name())
+	#get_tree().call_group("JoyStick", "analog_signal_change", currentForce, self.get_name())
 	#Input.action_press()
 	
 	if mapAnalogToDpad:
@@ -157,7 +159,8 @@ func map_analog_dpad():
 	Input.action_press("move_up") if currentForce.y > 0.2 else Input.action_release("move_up")
 
 func map_anlog_to_joystick():
+#	print_debug(currentForce)
 	Input.action_press("move_left",abs(currentForce.x)) if currentForce.x < -0.2  else Input.action_release("move_left")
-	Input.action_press("move_right",abs(currentForce.x)) if currentForce.x > -0.2  else Input.action_release("move_right")
+	Input.action_press("move_right",abs(currentForce.x)) if currentForce.x > 0.2  else Input.action_release("move_right")
 	Input.action_press("move_down",abs(currentForce.y)) if currentForce.y < -0.2  else Input.action_release("move_down")
-	Input.action_press("move_up",abs(currentForce.y)) if currentForce.y > -0.2  else Input.action_release("move_up")
+	Input.action_press("move_up",abs(currentForce.y)) if currentForce.y > 0.2  else Input.action_release("move_up")
