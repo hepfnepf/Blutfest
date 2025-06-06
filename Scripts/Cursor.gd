@@ -15,7 +15,7 @@ var cursor=CURSOR_TYPE.DEFAULT
 
 func set_cursor(cursor_type:int) -> void:
 	if cursor_type == CURSOR_TYPE.CROSSHAIR:
-		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		cursor=CURSOR_TYPE.CROSSHAIR
 		EventBus.emit_signal("hide_crosshair",false)
 		#if crosshair != null:
