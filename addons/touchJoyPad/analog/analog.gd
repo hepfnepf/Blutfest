@@ -9,11 +9,11 @@ onready var ball = $ball
 onready var animation_player = $AnimationPlayer
 onready var halfSize = $bg.texture.get_size()/2
 
-var centerPoint = Vector2(0,0)
-var currentForce = Vector2(0,0)
+var centerPoint:Vector2 = Vector2(0,0)
+var currentForce:Vector2 = Vector2(0,0)
 var ballPos = Vector2()
-var squaredHalfSizeLength = 0
-var currentPointerIDX = INACTIVE_IDX;
+var squaredHalfSizeLength:float = 0
+var currentPointerIDX:int = INACTIVE_IDX;
 
 
 func _ready():
@@ -28,7 +28,6 @@ func get_force():
 	return currentForce
 
 func _input(event):
-	#print_debug(event)
 	var incomingPointer = extractPointerIdx(event)
 	if incomingPointer == INACTIVE_IDX:
 		return
@@ -72,9 +71,6 @@ func process_input(event):
 	
 	calculateForce(get_global_event_position(event.position).x - global_position.x, get_global_event_position(event.position).y - global_position.y)
 	updateBallPos()
-
-	if isPressed(event):
-		Input.action_press("fire")
 		
 	var isReleased = isReleased(event)
 	if isReleased:
@@ -85,7 +81,6 @@ func reset():
 	currentPointerIDX = INACTIVE_IDX
 	calculateForce(0, 0)
 	sendSignal2Listener()
-	Input.action_release("fire")
 
 	if AnalogTapToShow:
 		hide()
@@ -145,7 +140,6 @@ func get_global_event_position(event_position:Vector2)->Vector2:
 
 func sendSignal2Listener():
 	#get_tree().call_group("JoyStick", "analog_signal_change", currentForce, self.get_name())
-	#Input.action_press()
 	
 	if mapAnalogToDpad:
 		map_analog_dpad()

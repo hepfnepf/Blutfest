@@ -8,3 +8,4 @@ mapAnalogToDpad = false
 
 [node name="JoyStickLeft" parent="leftPad" index="0"]
 script = ExtResource( 2 )
+min_force = 0.1
