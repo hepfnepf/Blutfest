@@ -28,7 +28,7 @@ font_data = ExtResource( 3 )
 size = 32
 font_data = ExtResource( 3 )
 
-[node name="GUI" type="CanvasLayer"]
+[node name="GUIAndoid" type="CanvasLayer"]
 script = ExtResource( 2 )
 
 [node name="ScreenBlood" type="TextureRect" parent="."]
