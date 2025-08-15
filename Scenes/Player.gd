@@ -176,7 +176,7 @@ func _physics_process(delta)->void:
 	  Input.get_action_strength("looking_right") - Input.get_action_strength("looking_left"),
 	  Input.get_action_strength("looking_down") - Input.get_action_strength("looking_up"))
 	look_at(global_position + looking_direction)
-	#look_at(get_global_mouse_position())
+	look_at(get_global_mouse_position())
 	
 	
 	calculate_damage_multiplier()

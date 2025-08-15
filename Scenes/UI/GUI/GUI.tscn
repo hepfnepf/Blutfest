@@ -59,28 +59,10 @@ margin_right = 1516.0
 margin_bottom = 38.0
 size_flags_horizontal = 3
 
-[node name="TimeWidget" type="HBoxContainer" parent="HUD/VBoxContainer/HBoxContainer3"]
-margin_right = 165.0
-margin_bottom = 38.0
-
-[node name="Label" type="Label" parent="HUD/VBoxContainer/HBoxContainer3/TimeWidget"]
-margin_right = 77.0
-margin_bottom = 38.0
-custom_fonts/font = SubResource( 1 )
-text = "TIME"
-
-[node name="Time" type="Label" parent="HUD/VBoxContainer/HBoxContainer3/TimeWidget"]
-margin_left = 81.0
-margin_right = 165.0
-margin_bottom = 38.0
-custom_fonts/font = SubResource( 1 )
-text = "00:00"
-
 [node name="ScoreWidget" type="HBoxContainer" parent="HUD/VBoxContainer/HBoxContainer3"]
-margin_left = 1336.0
-margin_right = 1516.0
+margin_right = 180.0
 margin_bottom = 38.0
-size_flags_horizontal = 10
+size_flags_horizontal = 2
 
 [node name="Label" type="Label" parent="HUD/VBoxContainer/HBoxContainer3/ScoreWidget"]
 margin_right = 104.0
@@ -94,6 +76,25 @@ margin_right = 180.0
 margin_bottom = 38.0
 custom_fonts/font = SubResource( 2 )
 text = "1000"
+
+[node name="TimeWidget" type="HBoxContainer" parent="HUD/VBoxContainer/HBoxContainer3"]
+margin_left = 1351.0
+margin_right = 1516.0
+margin_bottom = 38.0
+size_flags_vertical = 5
+
+[node name="Label" type="Label" parent="HUD/VBoxContainer/HBoxContainer3/TimeWidget"]
+margin_right = 77.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 1 )
+text = "TIME"
+
+[node name="Time" type="Label" parent="HUD/VBoxContainer/HBoxContainer3/TimeWidget"]
+margin_left = 81.0
+margin_right = 165.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 1 )
+text = "00:00"
 
 [node name="DebugLayout" parent="HUD/VBoxContainer" instance=ExtResource( 6 )]
 margin_top = 42.0
@@ -216,7 +217,9 @@ mouse_filter = 1
 visible = false
 
 [node name="GamePadLooking" parent="." instance=ExtResource( 16 )]
+visible = false
 position = Vector2( 1445, 675 )
 
 [node name="GamePad" parent="." instance=ExtResource( 15 )]
+visible = false
 position = Vector2( 103, 675 )

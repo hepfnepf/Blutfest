@@ -2,22 +2,25 @@ extends CanvasLayer
 
 signal perk_selected
 
-onready var health_widget = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/HealthWidget
-onready var exp_widget = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/ExpbarWidget
-onready var ammo_widget = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2/VBoxContainer2/AmmoWidget
-onready var score = $HUD/VBoxContainer/HBoxContainer3/ScoreWidget/Score
-onready var time = $HUD/VBoxContainer/HBoxContainer3/TimeWidget/Time
-onready var debug_info = $HUD/VBoxContainer/DebugLayout
-onready var lock_texture = $HUD/VBoxContainer/HBoxContainer/LockSymbol
-onready var crosshair = $Crosshair
-onready var effect_container = $HUD/VBoxContainer/HBoxContainer/EffectContainer
-onready var credits = $PauseMenu/CreditsScreen
-onready var pause_menu =$PauseMenu
-onready var card_holder = $CardHolder
-onready var instructions = $HUD/InstructionsPopup
-onready var blood= $ScreenBlood
-onready var weapon_info = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2/VBoxContainer2/WeaponInfo
-onready var death_screen = $DeathScreen
+
+#dynamically set in set_variables because different node path in regular gui and android gui
+var health_widget = null
+var exp_widget = null
+var ammo_widget=null
+var score=null
+var time=null
+var debug_info = null
+var lock_texture  = null
+var crosshair = null
+var effect_container = null
+var credits = null
+var pause_menu =null
+var card_holder = null
+var instructions = null
+var blood= null
+var weapon_info = null
+var death_screen  = null
+
 
 
 var player:Player=null
@@ -27,12 +30,31 @@ var stored_time_scale:float=1.0#used to reset timescale after perk selection
 
 
 func _ready() -> void:
+	set_variables()#in an extra function so I can share the code with the android UI
 	pause_menu.set_debug_info(debug_info)
 	EventBus.connect("blood_overlay_enabled",self,"_on_blood_overlay_toggle")
 	blood.visible = SaveManager.current_save_options["blood_overlay_enabled"]
 
 	if Globals.first_start:
 		instructions.call_deferred("popup")
+
+func set_variables()->void:
+	health_widget = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/HealthWidget
+	exp_widget = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer/ExpbarWidget
+	ammo_widget = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2/VBoxContainer2/AmmoWidget
+	score = $HUD/VBoxContainer/HBoxContainer3/ScoreWidget/Score
+	time = $HUD/VBoxContainer/HBoxContainer3/TimeWidget/Time
+	debug_info = $HUD/VBoxContainer/DebugLayout
+	lock_texture  = $HUD/VBoxContainer/HBoxContainer/LockSymbol
+	crosshair = $Crosshair
+	effect_container = $HUD/VBoxContainer/HBoxContainer/EffectContainer
+	credits = $PauseMenu/CreditsScreen
+	pause_menu =$PauseMenu
+	card_holder = $CardHolder
+	instructions = $HUD/InstructionsPopup
+	blood= $ScreenBlood
+	weapon_info = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2/VBoxContainer2/WeaponInfo
+	death_screen  = $DeathScreen
 
 func set_player(player:Player)->void:
 	self.player = player
