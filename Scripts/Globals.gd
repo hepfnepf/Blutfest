@@ -7,6 +7,7 @@ enum Rarity{COMMON,NORMAL,RARE,LEGENDARY}
 enum CrosshairType{CROSSHAIR,CONE,BOTH}
 
 var first_start:bool=false
+var andoid:bool=false
 
 
 var cursor_manager = null

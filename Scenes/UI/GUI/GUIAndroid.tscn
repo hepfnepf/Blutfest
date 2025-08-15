@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://addons/touchJoyPad/touchjoypads/GamePadLooking.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/GUI/GUIAndroid.gd" type="Script" id=2]
@@ -16,8 +16,7 @@
 [ext_resource path="res://Scenes/UI/GUI/Ammo.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/UI/GUI/Crosshair.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/UI/PauseMenue/PauseMenu.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Sprites/UI/pause-button.png" type="Texture" id=17]
-[ext_resource path="res://Scenes/UI/MainMenuTheme.tres" type="Theme" id=18]
+[ext_resource path="res://Scenes/UI/GUI/PauseButton.tscn" type="PackedScene" id=17]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -76,23 +75,19 @@ margin_bottom = 250.0
 size_flags_horizontal = 5
 size_flags_vertical = 9
 
-[node name="EffectContainer" type="HBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
-size_flags_horizontal = 0
-
 [node name="HealthWidget" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer" instance=ExtResource( 10 )]
-margin_top = 4.0
 margin_right = 440.0
-margin_bottom = 58.0
+margin_bottom = 54.0
 
 [node name="ExpbarWidget" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer" instance=ExtResource( 12 )]
-margin_top = 62.0
+margin_top = 58.0
 margin_right = 440.0
-margin_bottom = 116.0
+margin_bottom = 112.0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 120.0
+margin_top = 116.0
 margin_right = 155.0
-margin_bottom = 250.0
+margin_bottom = 246.0
 size_flags_horizontal = 2
 size_flags_vertical = 3
 
@@ -110,6 +105,11 @@ margin_bottom = 130.0
 size_flags_vertical = 9
 alignment = 2
 
+[node name="EffectContainer" type="HBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+margin_top = 250.0
+margin_bottom = 250.0
+size_flags_horizontal = 0
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2"]
 margin_left = 1336.0
 margin_right = 1516.0
@@ -118,34 +118,7 @@ size_flags_horizontal = 10
 size_flags_vertical = 2
 alignment = 2
 
-[node name="Button" type="Button" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
-margin_left = 100.0
-margin_right = 180.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 80, 80 )
-rect_clip_content = true
-size_flags_horizontal = 12
-size_flags_vertical = 4
-theme = ExtResource( 18 )
-icon = ExtResource( 17 )
-icon_align = 1
-expand_icon = true
-
-[node name="TextureRect" type="TextureRect" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/Button"]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -21.0
-margin_right = 20.0
-margin_bottom = 21.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = ExtResource( 17 )
-expand = true
-stretch_mode = 1
+[node name="PauseButton" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer2" instance=ExtResource( 17 )]
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
 margin_top = 84.0

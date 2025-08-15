@@ -1,5 +1,6 @@
 extends "res://Scenes/UI/GUI/GUI.gd"
 
+
 func set_variables()->void:
 	health_widget = $HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HealthWidget
 	exp_widget = $HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/ExpbarWidget
@@ -17,3 +18,4 @@ func set_variables()->void:
 	blood= $ScreenBlood
 	weapon_info = $HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer2/WeaponInfo
 	death_screen  = $DeathScreen
+
