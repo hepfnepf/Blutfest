@@ -112,7 +112,8 @@ func set_score(new_score:int)->void:
 func set_time(new_time:int)->void:
 	time.text = time_to_str(new_time)
 func set_lock(new_lock:bool)->void:
-	lock_texture.visible = new_lock
+	if is_instance_valid(lock_texture):
+		lock_texture.visible = new_lock
 ##Opens the perk selection screen
 func _on_new_perk_selection(perks, raritys):
 	get_tree().paused = true

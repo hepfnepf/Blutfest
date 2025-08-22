@@ -3,7 +3,7 @@
 [ext_resource path="res://addons/touchJoyPad/touchjoypads/GamePadLooking.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/GUI/GUIAndroid.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Sprites/Items/padlock.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/UI/GUI/LockButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/UI/GUI/BloodOverlay.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/UI/DebugLayout.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/UI/DeathScreen/DeathScreen.tscn" type="PackedScene" id=7]
@@ -84,16 +84,20 @@ margin_top = 58.0
 margin_right = 440.0
 margin_bottom = 112.0
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
 margin_top = 116.0
-margin_right = 155.0
+margin_right = 440.0
 margin_bottom = 246.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
+margin_right = 155.0
+margin_bottom = 130.0
+
+[node name="WeaponInfo" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2" instance=ExtResource( 8 )]
 size_flags_horizontal = 2
-size_flags_vertical = 3
+size_flags_vertical = 2
 
-[node name="WeaponInfo" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer2" instance=ExtResource( 8 )]
-
-[node name="AmmoWidget" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/VBoxContainer2" instance=ExtResource( 14 )]
+[node name="AmmoWidget" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2" instance=ExtResource( 14 )]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -104,6 +108,8 @@ margin_right = 155.0
 margin_bottom = 130.0
 size_flags_vertical = 9
 alignment = 2
+
+[node name="LockButton" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" instance=ExtResource( 4 )]
 
 [node name="EffectContainer" type="HBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
 margin_top = 250.0
@@ -166,43 +172,17 @@ custom_fonts/font = SubResource( 1 )
 text = "00:00"
 
 [node name="DebugLayout" parent="HUD/VBoxContainer" instance=ExtResource( 6 )]
-visible = false
-margin_top = 250.0
-margin_right = 1516.0
-margin_bottom = 407.0
-
-[node name="Seperator" type="HBoxContainer" parent="HUD/VBoxContainer"]
 margin_top = 254.0
 margin_right = 1516.0
-margin_bottom = 876.0
+margin_bottom = 411.0
+
+[node name="Seperator" type="HBoxContainer" parent="HUD/VBoxContainer"]
+margin_top = 415.0
+margin_right = 1516.0
+margin_bottom = 880.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer"]
-margin_top = 880.0
-margin_right = 1516.0
-margin_bottom = 880.0
-alignment = 2
-
-[node name="EffectContainer" type="HBoxContainer" parent="HUD/VBoxContainer/HBoxContainer"]
-
-[node name="Seperator" type="HBoxContainer" parent="HUD/VBoxContainer/HBoxContainer"]
-margin_left = 4.0
-margin_right = 1516.0
-size_flags_horizontal = 3
-
-[node name="LockSymbol" type="TextureRect" parent="HUD/VBoxContainer/HBoxContainer"]
-visible = false
-margin_left = 1476.0
-margin_right = 1516.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 40, 40 )
-rect_clip_content = true
-size_flags_vertical = 9
-texture = ExtResource( 4 )
-expand = true
-stretch_mode = 5
 
 [node name="Crosshair" parent="." instance=ExtResource( 15 )]
 visible = false

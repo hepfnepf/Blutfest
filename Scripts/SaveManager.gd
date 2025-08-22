@@ -113,6 +113,7 @@ func init_game()->void:
 	#Set to android mode
 	if OS.get_name()=="Android":
 		Globals.andoid=true
+		current_save_options["crosshair_type"] = Globals.CrosshairType.CONE
 
 
 func reset_key_bindings()->void:
