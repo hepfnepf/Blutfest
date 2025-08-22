@@ -30,4 +30,11 @@ Just open the repo's project.godot in Godot 3.6. See godot export documentation 
 ### Direct
 You can download the game in the [releases section](https://github.com/hepfnepf/Blutfest/releases).
 ### Linux app stores
-[![Get it from the Snap Store](https://snapcraft.io/en/dark/install.svg)](https://snapcraft.io/blutfest)
+
+<a href="https://flathub.org/de/apps/io.github.hepfnepf.blutfest">
+<img width='145' alt='Download on Flathub' src='https://flathub.org/api/badge?locale=en'/>
+</a>
+
+<a href="https://snapcraft.io/blutfest">
+<img width='155' alt='Download on Snap Store' src='https://snapcraft.io/en/dark/install.svg'/>
+</a>
