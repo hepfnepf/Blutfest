@@ -17,7 +17,7 @@ func set_variables()->void:
 	instructions = $HUD/InstructionsPopup
 	blood= $ScreenBlood
 	weapon_info = $HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2/WeaponInfo
-	death_screen  = $DeathScreen
+	death_screen  = $DeathScreenAndroid
 
 func set_lock(new_lock:bool)->void:
 	lock_button.switch_to_lockstate(new_lock)
