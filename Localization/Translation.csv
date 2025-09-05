@@ -134,6 +134,7 @@ HELP_SHOOTING,"Mouse & Left click - aim & shoot","Maus und Linksclick - Zielen &
 HELP_RELOAD,"Reload","Nachladen","Recharger","Recargar"
 HELP_LOCKING,"lock your current weapon","Fixiere deine aktuelle Waffe","verrouiller votre arme actuelle","bloquear tu arma actual"
 HELP_WEAPON_INFO,"show weapon info","Waffeninformationen ansehen","afficher les informations sur l'arme","mostrar información sobre el arma"
+HELP_ANDROID_WARNING,"Warning: The Andoid version of Blutfest currently is experimental. Keep that in mind and report bugs!","Achtung: Die Androidversion von Blutfest befindet sich noch in einer experimentellen Phase. Bitte reporte Bugs.",,
 HELP_HELP,"toggle this help","Öffne/Schließe diese Hilfe","afficher/fermer cette aide","abrir/cerrar esta ayuda"
 PERK_RANGE_EXTENDER,Range Extender,Reichweitenerweiterer,Extenseur de portée,Extensor de alcance
 PERK_RANGE_EXTENDER_DESC,Extends the range by %d%%,Erweitert die Reichweite um %d%%,Étend la portée de %d%%,Extiende el rango en %d%%
