@@ -51,10 +51,12 @@ size_flags_horizontal = 3
 [node name="InstructionsPopup" parent="HUD" instance=ExtResource( 11 )]
 
 [node name="GamePadLooking" parent="HUD" instance=ExtResource( 1 )]
-position = Vector2( 1431, 778 )
+position = Vector2( 1250, 700 )
+DebugName = "Right"
 
 [node name="GamePad" parent="HUD" instance=ExtResource( 9 )]
-position = Vector2( 89, 778 )
+position = Vector2( 250, 700 )
+DebugName = "Left"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
 margin_right = 1516.0
@@ -175,6 +177,12 @@ text = "00:00"
 margin_top = 254.0
 margin_right = 1516.0
 margin_bottom = 411.0
+
+[node name="TouchDebugOutput" type="Label" parent="HUD/VBoxContainer"]
+visible = false
+margin_top = 415.0
+margin_right = 1516.0
+margin_bottom = 429.0
 
 [node name="Seperator" type="HBoxContainer" parent="HUD/VBoxContainer"]
 margin_top = 415.0

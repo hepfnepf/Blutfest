@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://addons/touchJoyPad/analog/analog.gd" type="Script" id=1]
+[ext_resource path="res://addons/touchJoyPad/analog/AnalogOriginal.gd" type="Script" id=1]
 [ext_resource path="res://addons/touchJoyPad/analog/big_circle.png" type="Texture" id=2]
 [ext_resource path="res://addons/touchJoyPad/analog/small_circle.png" type="Texture" id=3]
 

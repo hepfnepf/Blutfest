@@ -1,4 +1,4 @@
-extends Button
+extends "res://TouchableButton.gd"
 
 
 # This Button is for the android GUI so that players can trigger the lock in the UI
@@ -11,6 +11,7 @@ extends Button
 
 
 export(Color) var locked_color = Color(1,1,1,0)
+
 
 func _on_Button_pressed()->void:
 	var lockEvent:InputEventAction = InputEventAction.new()
@@ -31,5 +32,3 @@ func switch_to_lockstate(new_state:bool)->void:
 		modulate = locked_color;
 	else:
 		modulate = Color(1,1,1,1)
-
-

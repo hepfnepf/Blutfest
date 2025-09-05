@@ -2,13 +2,11 @@ extends "res://addons/touchJoyPad/analog/analog.gd"
 
 export(float) var min_force = 0.0#deadzone
 
-func process_input(event):
-	
-	.process_input(event)
-
-	if isPressed(event):
+func handle_possible_state_change(event:InputEvent)->void:
+	var was_inactive = state == input_state.INACTIVE
+	.handle_possible_state_change(event)
+	if was_inactive and state != input_state.INACTIVE:
 		Input.action_press("fire")
-
 
 func reset():
 	.reset()
@@ -18,10 +16,7 @@ func reset():
 func sendSignal2Listener():
 	#get_tree().call_group("JoyStick", "analog_signal_change", currentForce, self.get_name())
 	if currentForce.length_squared() > min_force*min_force:
-		if mapAnalogToDpad:
-			map_analog_dpad()
-		else:
-			map_anlog_to_joystick()
+		map_anlog_to_joystick()
 
 func map_analog_dpad():
 	Input.action_press("looking_left") if currentForce.x < -0.2 else Input.action_release("looking_left")
