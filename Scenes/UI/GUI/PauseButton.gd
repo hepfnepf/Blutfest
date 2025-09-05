@@ -1,4 +1,4 @@
-extends "res://TouchableButton.gd"
+extends "res://Scenes/UI/GUI/TouchableButton.gd"
 
 
 #Since pausing is already handled using the escape action, this simply triggers the action

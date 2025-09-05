@@ -1,4 +1,4 @@
-extends "res://TouchableButton.gd"
+extends  "res://Scenes/UI/GUI/TouchableButton.gd"
 
 
 # This Button is for the android GUI so that players can trigger the lock in the UI

@@ -60,6 +60,7 @@ func clear_cards(selected_card:PerkCard)->void:
 
 func draw_cards()->void:
 	yield(get_tree(), "idle_frame")
+	EventBus.emit_signal("reset_touch_pads")
 
 	#see death functions below
 	if player and !player.alive:

@@ -18,7 +18,7 @@ var touch_id:int = 0#makes it able to see if multiple touch event belong to the 
 func _ready()-> void:
 	set_process_input(true)
 	squaredHalfSizeLength = halfSize.x * halfSize.y
-
+	EventBus.connect("reset_touch_pads", self, "reset")
 func get_force():
 	return currentForce
 

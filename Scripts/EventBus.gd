@@ -20,3 +20,4 @@ signal weapon_rate_changed()
 signal weapon_range_changed()
 signal difficulty_changed(health, damage, speed, view_range,enemy_spawn_rate)#emmiter: spawner; consumer:debug-panel
 signal touch_debug_output(text)
+signal reset_touch_pads()#emmiter: GUI scenes like pause and card selection; consumer: touchpads;
