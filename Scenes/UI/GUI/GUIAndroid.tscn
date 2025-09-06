@@ -198,6 +198,7 @@ scale = Vector2( 0.3, 0.3 )
 
 [node name="CardHolder" parent="." instance=ExtResource( 13 )]
 visible = false
+card_scale = 2.0
 
 [node name="PauseMenu" parent="." instance=ExtResource( 16 )]
 pause_mode = 2

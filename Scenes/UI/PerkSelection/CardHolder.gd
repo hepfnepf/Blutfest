@@ -4,6 +4,7 @@ signal cards_cleared
 
 export(AudioStream)var sound_effect = null
 export(float) var animation_duration = .5
+export(float) var card_scale = 1.0
 
 var player:Player=null
 
@@ -21,6 +22,7 @@ func add_card(card:PerkCard)->void:
 	$HBoxContainer.add_child(card)
 	card.disabled = true
 	card.modulate = Color(0,0,0,0)#turn card invisible, but not using the visible var beacause that messes with the placement of UI elements
+	card.card_scale(2)
 
 	if player.perkManager.perk_selection_amount < $HBoxContainer.get_child_count():
 		#For some reason, probably due to concurrency, to many cards get spawned.
