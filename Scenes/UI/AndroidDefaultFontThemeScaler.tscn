@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+# Scales the default_font properties font in the thme of the the parent control note
+# which will change the font size everywhere that uses this theme
+#
+
+export(float) var font_scale = 1.0
+
+func _ready():
+	if Globals.android:
+		var parent:Control = get_parent()
+		var font :DynamicFont = parent.get_font(\"default_font\")#
+		var size :float  =font.get_size()
+		font.set_size(size*font_scale)
+		print_debug(OS.get_screen_size())
+		print_debug(OS.get_screen_dpi())
+"
+
+[node name="AndoidFontThemeScaler" type="Node"]
+script = SubResource( 1 )

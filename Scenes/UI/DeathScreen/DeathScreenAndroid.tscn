@@ -100,6 +100,26 @@ margin_top = 20.0
 margin_right = -20.0
 margin_bottom = -20.0
 
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer"]
+margin_right = 1496.0
+margin_bottom = 860.0
+mouse_filter = 1
+alignment_horizontal = 0
+alignment_vertical = 2
+
+[node name="BackButton" type="Button" parent="MarginContainer/AspectRatioContainer"]
+margin_top = 780.0
+margin_right = 80.0
+margin_bottom = 860.0
+rect_min_size = Vector2( 80, 80 )
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme = ExtResource( 11 )
+icon = ExtResource( 7 )
+align = 0
+icon_align = 1
+expand_icon = true
+
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_right = 1496.0
 margin_bottom = 860.0
@@ -299,27 +319,8 @@ icon = ExtResource( 13 )
 icon_align = 1
 expand_icon = true
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer"]
-margin_right = 1496.0
-margin_bottom = 860.0
-alignment_horizontal = 0
-alignment_vertical = 2
-
-[node name="BackButton" type="Button" parent="MarginContainer/AspectRatioContainer"]
-margin_top = 780.0
-margin_right = 80.0
-margin_bottom = 860.0
-rect_min_size = Vector2( 80, 80 )
-size_flags_horizontal = 0
-size_flags_vertical = 8
-theme = ExtResource( 11 )
-icon = ExtResource( 7 )
-align = 0
-icon_align = 1
-expand_icon = true
-
 [node name="StatsScreen" parent="." instance=ExtResource( 10 )]
 
+[connection signal="pressed" from="MarginContainer/AspectRatioContainer/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/StatsButton" to="." method="_on_StatsButton_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/CenterContainer2/MarginContainer/VBoxContainer/RestartButton" to="." method="_on_RestartButton_pressed"]
-[connection signal="pressed" from="MarginContainer/AspectRatioContainer/BackButton" to="." method="_on_BackButton_pressed"]

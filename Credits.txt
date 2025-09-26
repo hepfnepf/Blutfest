@@ -63,6 +63,7 @@ Health/Exp Bar - StumpyStrust - [color=#46a0af][url]https://opengameart.org/cont
 Blood on screen - 1up Indie - [color=#46a0af][url]https://opengameart.org/content/blood-overlay[/url][/color] - CC0
 Touchscreen Joypad - shinneider - [color=#46a0af][url] https://github.com/shinneider/godot_touchJoyPad - MIT[/url][/color] - CC0
 Restart - Lorc - [color=#46a0af][url] https://game-icons.net/1x1/lorc/cycle.html#download[/url][/color] - CC BY 3.0
+Reload - [color=#46a0af][url]https://game-icons.net/1x1/sbed/ammo-box.html#download[/url][/color] - CC BY 3.0
 
 SOUNDS
 

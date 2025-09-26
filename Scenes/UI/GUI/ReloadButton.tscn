@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/UI/MainMenuTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Sprites/UI/reload_ammo-box.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/UI/GUI/ReloadButton.gd" type="Script" id=3]
+
+[node name="ReloadButton" type="Button"]
+margin_left = 159.0
+margin_top = 5.0
+margin_right = 279.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 120, 120 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource( 1 )
+icon = ExtResource( 2 )
+icon_align = 1
+expand_icon = true
+script = ExtResource( 3 )
+
+[connection signal="pressed" from="." to="." method="_on_Button_pressed"]

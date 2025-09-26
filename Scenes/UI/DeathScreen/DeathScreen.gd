@@ -62,6 +62,7 @@ func _process(delta):
 
 func restart()->void:
 	Globals.game.restart()
+	print_debug("restart")
 
 func backToMenu()->void:
 	get_tree().paused = false
