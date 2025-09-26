@@ -104,15 +104,15 @@ margin_bottom = 199.0
 [node name="Seperator" type="HBoxContainer" parent="HUD/VBoxContainer"]
 margin_top = 203.0
 margin_right = 1516.0
-margin_bottom = 742.0
+margin_bottom = 692.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer"]
-margin_top = 746.0
+margin_top = 696.0
 margin_right = 1516.0
-margin_bottom = 746.0
+margin_bottom = 696.0
 alignment = 2
 
 [node name="EffectContainer" type="HBoxContainer" parent="HUD/VBoxContainer/HBoxContainer"]
@@ -135,20 +135,20 @@ expand = true
 stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/VBoxContainer"]
-margin_top = 750.0
+margin_top = 700.0
 margin_right = 1516.0
 margin_bottom = 880.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer/VBoxContainer"]
 margin_right = 1516.0
-margin_bottom = 130.0
+margin_bottom = 180.0
 mouse_filter = 2
 size_flags_vertical = 4
 
 [node name="CenterContainer" type="CenterContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer"]
-margin_top = 14.0
+margin_top = 64.0
 margin_right = 440.0
-margin_bottom = 130.0
+margin_bottom = 180.0
 mouse_filter = 2
 size_flags_horizontal = 9
 size_flags_vertical = 8
@@ -173,18 +173,20 @@ margin_right = 440.0
 margin_bottom = 116.0
 
 [node name="CenterContainer2" type="CenterContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer"]
-margin_left = 1361.0
+margin_left = 1301.0
 margin_right = 1516.0
-margin_bottom = 130.0
+margin_bottom = 180.0
 mouse_filter = 2
 size_flags_horizontal = 10
 size_flags_vertical = 8
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2"]
-margin_right = 155.0
-margin_bottom = 130.0
+margin_right = 215.0
+margin_bottom = 180.0
 
 [node name="WeaponInfo" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2/VBoxContainer2" instance=ExtResource( 14 )]
+margin_right = 215.0
+margin_bottom = 150.0
 
 [node name="AmmoWidget" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2/VBoxContainer2" instance=ExtResource( 3 )]
 anchor_left = 0.0
@@ -192,9 +194,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 104.0
-margin_right = 155.0
-margin_bottom = 130.0
+margin_top = 154.0
+margin_right = 215.0
+margin_bottom = 180.0
 size_flags_vertical = 9
 alignment = 2
 

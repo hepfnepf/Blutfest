@@ -112,7 +112,7 @@ func init_game()->void:
 	
 	#Set to android mode
 	if OS.get_name()=="Android":
-		Globals.andoid=true
+		Globals.android=true
 		current_save_options["crosshair_type"] = Globals.CrosshairType.CONE
 
 

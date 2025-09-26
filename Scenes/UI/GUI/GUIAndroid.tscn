@@ -65,15 +65,15 @@ mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/VBoxContainer"]
 margin_right = 1516.0
-margin_bottom = 250.0
+margin_bottom = 300.0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="HUD/VBoxContainer/VBoxContainer"]
 margin_right = 1516.0
-margin_bottom = 250.0
+margin_bottom = 300.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2"]
 margin_right = 440.0
-margin_bottom = 250.0
+margin_bottom = 300.0
 size_flags_horizontal = 5
 size_flags_vertical = 9
 
@@ -89,13 +89,15 @@ margin_bottom = 112.0
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
 margin_top = 116.0
 margin_right = 440.0
-margin_bottom = 246.0
+margin_bottom = 296.0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
-margin_right = 155.0
-margin_bottom = 130.0
+margin_right = 215.0
+margin_bottom = 180.0
 
 [node name="WeaponInfo" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2" instance=ExtResource( 8 )]
+margin_right = 215.0
+margin_bottom = 150.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 
@@ -105,17 +107,22 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 104.0
-margin_right = 155.0
-margin_bottom = 130.0
+margin_top = 154.0
+margin_right = 215.0
+margin_bottom = 180.0
 size_flags_vertical = 9
 alignment = 2
 
 [node name="LockButton" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" instance=ExtResource( 4 )]
+margin_left = 219.0
+margin_top = 0.0
+margin_right = 339.0
+margin_bottom = 120.0
+size_flags_vertical = 0
 
 [node name="EffectContainer" type="HBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 250.0
-margin_bottom = 250.0
+margin_top = 300.0
+margin_bottom = 300.0
 size_flags_horizontal = 0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2"]
@@ -174,9 +181,9 @@ custom_fonts/font = SubResource( 1 )
 text = "00:00"
 
 [node name="DebugLayout" parent="HUD/VBoxContainer" instance=ExtResource( 6 )]
-margin_top = 254.0
+margin_top = 304.0
 margin_right = 1516.0
-margin_bottom = 411.0
+margin_bottom = 461.0
 
 [node name="TouchDebugOutput" type="Label" parent="HUD/VBoxContainer"]
 visible = false
@@ -185,7 +192,7 @@ margin_right = 1516.0
 margin_bottom = 429.0
 
 [node name="Seperator" type="HBoxContainer" parent="HUD/VBoxContainer"]
-margin_top = 415.0
+margin_top = 465.0
 margin_right = 1516.0
 margin_bottom = 880.0
 size_flags_horizontal = 3

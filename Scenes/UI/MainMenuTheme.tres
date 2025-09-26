@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=8 format=2]
+[gd_resource type="Theme" load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/UI/MainMenu/ButtonStyleNormal1.tres" type="StyleBox" id=1]
+[ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="StyleBoxFlat" id=13]
 bg_color = Color( 0, 0, 0, 1 )
@@ -77,7 +78,12 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_detail = 20
 
+[sub_resource type="DynamicFont" id=17]
+size = 24
+font_data = ExtResource( 2 )
+
 [resource]
+default_font = SubResource( 17 )
 Button/colors/font_color = Color( 0.494118, 0.0901961, 0.0901961, 1 )
 Button/colors/font_color_focus = Color( 0.494118, 0.0901961, 0.0901961, 1 )
 Button/styles/focus = SubResource( 13 )

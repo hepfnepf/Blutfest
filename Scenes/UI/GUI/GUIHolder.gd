@@ -3,7 +3,7 @@ extends Node
 onready var gui = null
 
 func _ready()->void:
-	if Globals.andoid:
+	if Globals.android:
 		gui = $GUIAndoid
 		$GUI.queue_free()
 		gui.visible=true

@@ -16,8 +16,8 @@ onready var blockingLabel:Label = $"%BlockingLabel"
 export (float) var hover_size = 1.3
 export (float) var up_speed = 3.0
 export (float) var down_speed = 5.0
+export (Vector2) var android_min_size = Vector2(150,300)
 var min_size:Vector2 = Vector2(0,0)
-onready var base_size:Vector2
 
 var rarity:int = 0#gets set by gui when adding cards to cardholder
 var player:Player=null#gets set by gui when adding cards to cardholder
@@ -33,8 +33,11 @@ var color_legendary:Color = Color.darkmagenta
 
 func _ready()->void:
 	display_perk()
+	if Globals.android:
+		rect_min_size=android_min_size
+	
 	min_size = rect_min_size
-	base_size = rect_min_size
+	
 
 func _process(delta: float) -> void:
 	if disabled:
@@ -46,14 +49,6 @@ func _process(delta: float) -> void:
 
 	weight=clamp(weight,0,1)
 	rect_min_size=min_size.linear_interpolate(min_size*Vector2(hover_size,hover_size), weight)
-
-func card_scale(scale:float)->void:
-	set_min_card_size(base_size*scale)
-
-func set_min_card_size(size:Vector2)->void:
-	min_size = size
-	rect_min_size=min_size.linear_interpolate(min_size*Vector2(hover_size,hover_size), weight)
-	
 
 func display_perk()->void:
 	if perk == null:
