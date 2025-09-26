@@ -1,7 +1,8 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/UI/SettingsScreen/Graphics.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/UI/SettingsScreen/SettingsScreen.gd" type="Script" id=4]
 [ext_resource path="res://Sprites/UI/double-quaver_disabled.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/UI/double-quaver.png" type="Texture" id=6]
@@ -189,6 +190,7 @@ tab_align = 0
 
 [node name="Game" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
 unique_name_in_owner = true
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 7.0
@@ -287,11 +289,10 @@ margin_bottom = 29.0
 
 [node name="UI" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
 unique_name_in_owner = true
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 7.0
-margin_top = 41.0
+margin_top = 46.0
 margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
@@ -310,17 +311,17 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer"]
 margin_right = 1472.0
-margin_bottom = 635.0
+margin_bottom = 630.0
 
 [node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer"]
 margin_right = 1472.0
-margin_bottom = 38.0
+margin_bottom = 43.0
 columns = 2
 
 [node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer"]
 margin_top = 7.0
 margin_right = 1438.0
-margin_bottom = 31.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 text = "TOGGLE_BLOOD_ON_SCREEN_EFFECT"
 
@@ -328,27 +329,28 @@ text = "TOGGLE_BLOOD_ON_SCREEN_EFFECT"
 unique_name_in_owner = true
 margin_left = 1442.0
 margin_right = 1472.0
-margin_bottom = 38.0
+margin_bottom = 43.0
 
 [node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer"]
-margin_top = 42.0
+margin_top = 47.0
 margin_right = 1472.0
-margin_bottom = 66.0
+margin_bottom = 76.0
 text = "CROSSHAIR"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer"]
-margin_left = 658.0
-margin_top = 70.0
-margin_right = 813.0
-margin_bottom = 104.0
+margin_left = 652.0
+margin_top = 80.0
+margin_right = 819.0
+margin_bottom = 119.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = SubResource( 17 )
 
 [node name="CrosshairSwitchButtonLeft" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 margin_right = 20.0
-margin_bottom = 34.0
+margin_bottom = 39.0
 rect_min_size = Vector2( 20, 20 )
 size_flags_horizontal = 5
 icon = ExtResource( 24 )
@@ -358,16 +360,17 @@ expand_icon = true
 
 [node name="CrosshairTypeLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 24.0
-margin_top = 5.0
-margin_right = 131.0
-margin_bottom = 29.0
+margin_top = 6.0
+margin_right = 143.0
+margin_bottom = 33.0
 text = "CROSSHAIR"
 align = 1
 
 [node name="CrosshairSwitchButtonRight" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 135.0
-margin_right = 155.0
-margin_bottom = 34.0
+unique_name_in_owner = true
+margin_left = 147.0
+margin_right = 167.0
+margin_bottom = 39.0
 rect_min_size = Vector2( 20, 20 )
 size_flags_horizontal = 5
 icon = ExtResource( 23 )
@@ -375,102 +378,102 @@ align = 2
 expand_icon = true
 
 [node name="CrosshairGrid" type="GridContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer"]
-margin_top = 108.0
+margin_top = 123.0
 margin_right = 1472.0
-margin_bottom = 216.0
+margin_bottom = 246.0
 columns = 2
 
 [node name="DynamicLabelCrosshair" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairGrid"]
 margin_top = 7.0
 margin_right = 734.0
-margin_bottom = 31.0
+margin_bottom = 36.0
 text = "DYNAMIC"
 
 [node name="CrosshairDynamicToggle" type="CheckBox" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairGrid"]
 unique_name_in_owner = true
 margin_left = 1442.0
 margin_right = 1472.0
-margin_bottom = 38.0
+margin_bottom = 43.0
 size_flags_horizontal = 8
 
 [node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairGrid"]
-margin_top = 49.0
+margin_top = 54.0
 margin_right = 734.0
-margin_bottom = 73.0
+margin_bottom = 83.0
 size_flags_horizontal = 3
 text = "COLOR"
 
 [node name="CrosshairColorPicker" type="ColorPickerButton" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairGrid"]
 unique_name_in_owner = true
 margin_left = 738.0
-margin_top = 42.0
+margin_top = 47.0
 margin_right = 1472.0
-margin_bottom = 80.0
+margin_bottom = 90.0
 size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairGrid"]
-margin_top = 84.0
+margin_top = 94.0
 margin_right = 734.0
-margin_bottom = 108.0
+margin_bottom = 123.0
 text = "SIZE"
 
 [node name="CrosshairSize" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairGrid"]
 unique_name_in_owner = true
 margin_left = 738.0
-margin_top = 84.0
+margin_top = 94.0
 margin_right = 1472.0
-margin_bottom = 100.0
+margin_bottom = 110.0
 min_value = 0.1
 max_value = 2.0
 step = 0.1
 value = 0.1
 
 [node name="CrosshairCone" type="GridContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer"]
-margin_top = 220.0
+margin_top = 250.0
 margin_right = 1472.0
-margin_bottom = 328.0
+margin_bottom = 373.0
 columns = 2
 
 [node name="DynamicLabelCrosshair" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairCone"]
 margin_top = 7.0
 margin_right = 734.0
-margin_bottom = 31.0
+margin_bottom = 36.0
 text = "DYNAMIC"
 
 [node name="CrosshairDynamicConeToggle" type="CheckBox" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairCone"]
 unique_name_in_owner = true
 margin_left = 1442.0
 margin_right = 1472.0
-margin_bottom = 38.0
+margin_bottom = 43.0
 size_flags_horizontal = 8
 
 [node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairCone"]
-margin_top = 49.0
+margin_top = 54.0
 margin_right = 734.0
-margin_bottom = 73.0
+margin_bottom = 83.0
 size_flags_horizontal = 3
 text = "COLOR"
 
 [node name="CrosshairConeColorPicker" type="ColorPickerButton" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairCone"]
 unique_name_in_owner = true
 margin_left = 738.0
-margin_top = 42.0
+margin_top = 47.0
 margin_right = 1472.0
-margin_bottom = 80.0
+margin_bottom = 90.0
 size_flags_horizontal = 3
 
 [node name="Label2" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairCone"]
-margin_top = 84.0
+margin_top = 94.0
 margin_right = 734.0
-margin_bottom = 108.0
+margin_bottom = 123.0
 text = "SIZE"
 
 [node name="CrosshairConeSize" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairCone"]
 unique_name_in_owner = true
 margin_left = 738.0
-margin_top = 84.0
+margin_top = 94.0
 margin_right = 1472.0
-margin_bottom = 100.0
+margin_bottom = 110.0
 min_value = 0.1
 max_value = 2.0
 step = 0.1
@@ -722,6 +725,7 @@ margin_top = 41.0
 margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
+script = ExtResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics"]
 anchor_right = 1.0

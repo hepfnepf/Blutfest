@@ -2,6 +2,10 @@ extends Tabs
 
 onready var zoom_inverted_toggle_button = $"%CheckBox"
 
+func _ready():
+	if Globals.android:
+		queue_free()
+
 func get_key_binding_dict()->Dictionary:
 	var bindings = {}
 	var actions = InputMap.get_actions()

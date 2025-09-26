@@ -44,11 +44,6 @@ func store_settings()->void:
 	sg["sfx_disabled"] = AudioServer.is_bus_mute(AudioServer.get_bus_index("SFX"))
 	sg["music_disabled"] = AudioServer.is_bus_mute(AudioServer.get_bus_index("Music"))
 
-	sg["fullscreen_enabled"] = OS.window_fullscreen
-	sg["vsync_enabled"]= OS.vsync_enabled
-
-	sg["zooming_inverted"]=controls_tab.zoom_inverted_toggle_button.pressed
-
 	sg["blood_overlay_enabled"]=ui_tab.blood_on_screen_toggle.pressed
 	sg["crosshair_type"] = ui_tab.current_crosshair
 	sg["crosshair_is_dynamic"]=ui_tab.crosshair_dynamic_toggle.pressed
@@ -58,8 +53,14 @@ func store_settings()->void:
 	sg["cone_crosshair_size"] = ui_tab.crosshair_cone_size.value
 
 	sg["max_enemy_count"] = game_tab.max_enemy_count_slider.value
-	sg["language"] = TranslationServer.get_locale()
-	sg["key_bindings"] = controls_tab.get_key_binding_dict()
+	sg["language"] = TranslationServer.get_locale()	
+	
+	#The according tabs are removed in android because none of the included settings make sense
+	if !Globals.android:
+		sg["fullscreen_enabled"] = OS.window_fullscreen
+		sg["vsync_enabled"]= OS.vsync_enabled
+		sg["zooming_inverted"]=controls_tab.zoom_inverted_toggle_button.pressed
+		sg["key_bindings"] = controls_tab.get_key_binding_dict()
 
 
 	SaveManager.set_options_save(sg)

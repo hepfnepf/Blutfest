@@ -17,6 +17,8 @@ var current_crosshair:int = Globals.CrosshairType.CROSSHAIR setget set_crosshair
 func _ready() -> void:
 	EventBus.connect("crosshair_color_change",self,"_on_crosshair_color_change")
 	EventBus.connect("cone_crosshair_is_dynamic",self,"_on_cone_crosshair_dynamic_change")
+	if Globals.android:
+		removeNonAndroidFeatures()
 
 func _on_CrosshairColorPicker_color_changed(color: Color) -> void:
 	EventBus.emit_signal("crosshair_color_change",color)
@@ -51,6 +53,12 @@ func switch_crosshair_type(c:int)->void:
 		crosshair_grid.visible=true
 		cone_grid.visible=true
 
+func removeNonAndroidFeatures() -> void:
+	$"%CrosshairSwitchButtonLeft".visible=false
+	$"%CrosshairSwitchButtonRight".visible=false
+	switch_crosshair_type(Globals.CrosshairType.CONE)
+	
+	
 func _on_CrosshairSwitchButtonLeft_pressed() -> void:
 	if current_crosshair > 0:
 		set_crosshair(current_crosshair-1)
