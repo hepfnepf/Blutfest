@@ -80,3 +80,6 @@ volume_db = 0.0
 autoplay = false
 
 [node name="GUIHolder" parent="." instance=ExtResource( 7 )]
+
+[node name="PistolItem" parent="GUIHolder" instance=ExtResource( 10 )]
+position = Vector2( -468, 440 )
