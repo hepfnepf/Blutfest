@@ -34,6 +34,7 @@ func switch_state(state:bool):
 	if credits.visible:
 		credits.visible = false
 
+	EventBus.emit_signal("reset_touch_pads")
 	#Change Cursor
 	if enabled:
 		stored_cursor_state = Globals.cursor_manager.cursor

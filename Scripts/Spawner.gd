@@ -14,7 +14,6 @@ class_name Spawner
 ##
 
 signal spawned_enemy
-signal difficulty_changed
 
 #Modify automatic spawning
 export (float)var enemy_spawn_rate= 1.0
@@ -55,11 +54,9 @@ var item_probs:Array = [] #Gets calculated from item_likelihood. Actual probabil
 export (PackedScene) var explosion
 
 onready var game = get_node_or_null("/root/Game")
-onready var debug_gui =get_node_or_null("/root/Game/GUI/HUD/VBoxContainer/DebugLayout")
 onready var map:Map = get_node_or_null("/root/Game/Map")
 
 func _ready() -> void:
-	connect("difficulty_changed",debug_gui,"_on_difficulty_changed")
 	EventBus.connect("max_enemy_count_change",self,"_on_max_enemy_count_change")
 	max_enemys = SaveManager.current_save_options["max_enemy_count"]
 
@@ -96,7 +93,7 @@ func handle_enemy_spawning(delta)->void:
 	enemy_damage_mult += delta*enemy_damage_increase
 	enemy_health_mult += delta*enemy_health_increase
 	enemy_speed_mult += delta*enemy_speed_increase
-	emit_signal("difficulty_changed",enemy_health_mult,enemy_damage_mult,enemy_speed_mult,enemy_view_range_mult,enemy_spawn_rate)
+	EventBus.emit_signal("difficulty_changed",enemy_health_mult,enemy_damage_mult,enemy_speed_mult,enemy_view_range_mult,enemy_spawn_rate)
 
 	#decides how many enemys are supposed to spawn
 	enemy_spawn_value+= enemy_spawn_rate*delta

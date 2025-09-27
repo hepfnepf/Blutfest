@@ -4,6 +4,7 @@ signal cards_cleared
 
 export(AudioStream)var sound_effect = null
 export(float) var animation_duration = .5
+export(float) var card_scale = 1.0
 
 var player:Player=null
 
@@ -60,6 +61,7 @@ func clear_cards(selected_card:PerkCard)->void:
 
 func draw_cards()->void:
 	yield(get_tree(), "idle_frame")
+	EventBus.emit_signal("reset_touch_pads")
 
 	#see death functions below
 	if player and !player.alive:

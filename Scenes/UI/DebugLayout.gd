@@ -12,6 +12,7 @@ var alive = true
 
 func _ready():
 	set_alive(false)
+	EventBus.connect("difficulty_changed",self,"_on_difficulty_changed")
 
 # warning-ignore:unused_argument
 func _process(delta):

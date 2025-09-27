@@ -56,12 +56,26 @@ func handle_score_display(former_score:int,new_score:int,former_time:int,new_tim
 # warning-ignore:unused_argument
 func _process(delta):
 	if Input.is_action_pressed("Escape") and visible:
-		get_tree().paused = false
-		TimeManager.set_time_scale(1.0)
-		get_tree().change_scene("res://Scenes/UI/MainMenu/MainMenu.tscn")
+		backToMenu()
 	if Input.is_action_pressed("Enter"):
-		Globals.game.restart()
+		restart()
 
+func restart()->void:
+	print_debug("restart")
+	Globals.game.restart()
+
+func backToMenu()->void:
+	get_tree().paused = false
+	TimeManager.set_time_scale(1.0)
+	get_tree().change_scene("res://Scenes/UI/MainMenu/MainMenu.tscn")
 
 func _on_StatsButton_pressed() -> void:
 	statsScreen.popup_centered()
+
+
+func _on_RestartButton_pressed():
+	restart()
+
+
+func _on_BackButton_pressed():
+	backToMenu()

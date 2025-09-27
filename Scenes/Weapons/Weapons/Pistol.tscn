@@ -17,6 +17,7 @@ gun_name = "WEAPON_PISTOL"
 damage = 40
 max_range = 4000.0
 speed = 3000.0
+fire_rate = 1.5
 base_spread = 0.02
 max_spread = 0.055
 spread_inc = 0.15

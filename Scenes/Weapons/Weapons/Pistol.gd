@@ -1,18 +1,25 @@
 extends Weapon
 
+# The pistol has the unique abiliity that it only does single shoots
+# and its damage increases every 5 shots
+# Since single shooting does not make much sense for android/joystick
+#we need a different solution here
 
 var shots_fired:int = 0 setget set_shots_fired
 var damage_boost:int = 0
 
 func check_for_input():#the pistol shuld only not fire as long as butten is pressed but only on just pressed
-	if Input.is_action_just_pressed("fire"):
-		if !cooldown  && !is_reloading:
-			if ammo > 0:
-				shoot()
-			else:
-				play_sound(SOUNDS.EMPTY)
-	if Input.is_action_just_released("reload"):# && ammo!= max_ammo:
-		reload()
+	if !Globals.android:	
+		if Input.is_action_just_pressed("fire"):
+			if !cooldown  && !is_reloading:
+				if ammo > 0:
+					shoot()
+				else:
+					play_sound(SOUNDS.EMPTY)
+		if Input.is_action_just_released("reload"):# && ammo!= max_ammo:
+			reload()
+	else:
+		.check_for_input()
 
 func shoot():
 	player.shots_fired+=1
@@ -22,6 +29,11 @@ func shoot():
 	play_sound(SOUNDS.SHOT)
 	#initiate bullet
 	shoot_bullet()
+	
+	if Globals.android:
+		#limit fire speed
+		shot_timer.start()
+		cooldown = true
 
 	#handle ammo
 	if ammo_infinity_stack == 0:
@@ -46,4 +58,7 @@ func shoot_bullet():
 
 func set_shots_fired(new_shots_fired)->void:
 	shots_fired=new_shots_fired
-	damage_boost = shots_fired/5
+	if Globals.android:
+		damage_boost = shots_fired
+	else:
+		damage_boost = shots_fired/5

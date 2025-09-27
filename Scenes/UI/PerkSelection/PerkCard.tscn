@@ -10,12 +10,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-rect_min_size = Vector2( 200, 300 )
+rect_min_size = Vector2( 300, 400 )
+rect_scale = Vector2( 5, 5 )
 mouse_filter = 1
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource( 2 )
 script = ExtResource( 3 )
+android_min_size = Vector2( 400, 600 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_left = 7.0
@@ -35,23 +37,23 @@ grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_right = 1522.0
-margin_bottom = 14.0
+margin_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-margin_right = 75.0
-margin_bottom = 14.0
+margin_right = 113.0
+margin_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "PERK_NAME"
 
 [node name="RarityLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-margin_left = 1478.0
+margin_left = 1456.0
 margin_right = 1522.0
-margin_bottom = 14.0
+margin_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 10
@@ -59,9 +61,9 @@ text = "RARITY"
 align = 2
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
-margin_top = 18.0
+margin_top = 28.0
 margin_right = 1522.0
-margin_bottom = 22.0
+margin_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -83,9 +85,9 @@ stretch_mode = 1
 
 [node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 26.0
+margin_top = 36.0
 margin_right = 1522.0
-margin_bottom = 40.0
+margin_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "THIS IS THE DESCRIPTION"
@@ -93,7 +95,7 @@ autowrap = true
 
 [node name="BlockingLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 872.0
+margin_top = 862.0
 margin_right = 1522.0
 margin_bottom = 886.0
 size_flags_vertical = 10

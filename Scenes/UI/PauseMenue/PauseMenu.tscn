@@ -125,9 +125,9 @@ margin_bottom = 900.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 312.0
-margin_top = 110.0
+margin_top = 105.0
 margin_right = 1224.0
-margin_bottom = 789.0
+margin_bottom = 794.0
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_right = 912.0
@@ -145,13 +145,13 @@ rect_min_size = Vector2( 0, 10 )
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 181.0
 margin_right = 912.0
-margin_bottom = 679.0
+margin_bottom = 689.0
 alignment = 1
 
 [node name="SFXSlider" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
 margin_left = 216.0
 margin_right = 256.0
-margin_bottom = 498.0
+margin_bottom = 508.0
 theme = SubResource( 12 )
 button_texture = ExtResource( 7 )
 audio_channel = "SFX"
@@ -160,7 +160,7 @@ button_texture_disabled = ExtResource( 9 )
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 margin_left = 260.0
 margin_right = 652.0
-margin_bottom = 498.0
+margin_bottom = 508.0
 size_flags_horizontal = 4
 size_flags_vertical = 5
 
@@ -208,14 +208,14 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 470.0
 margin_right = 392.0
-margin_bottom = 498.0
+margin_bottom = 508.0
 size_flags_vertical = 3
 theme = SubResource( 18 )
 
 [node name="MusicSlider" parent="CenterContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
 margin_left = 656.0
 margin_right = 696.0
-margin_bottom = 498.0
+margin_bottom = 508.0
 theme = SubResource( 12 )
 button_texture = ExtResource( 6 )
 audio_channel = "Music"

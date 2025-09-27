@@ -1,0 +1,228 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://addons/touchJoyPad/touchjoypads/GamePadLooking.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/UI/GUI/GUIAndroid.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scenes/UI/GUI/LockButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/UI/GUI/BloodOverlay.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/UI/DebugLayout.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/UI/DeathScreen/DeathScreenAndroid.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/UI/GUI/WeaponInfo.tscn" type="PackedScene" id=8]
+[ext_resource path="res://addons/touchJoyPad/touchjoypads/GamePadMovement.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/UI/GUI/Healthbar2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/UI/InstructionsPopupAndroid.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/UI/GUI/Expbar2.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/UI/PerkSelection/CardHolder.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/UI/GUI/Ammo.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/UI/GUI/Crosshair.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/UI/PauseMenue/PauseMenu.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/UI/GUI/PauseButton.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/UI/GUI/ReloadButton.tscn" type="PackedScene" id=18]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+use_filter = true
+extra_spacing_char = 1
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 3 )
+
+[node name="GUIAndoid" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="ScreenBlood" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+stretch_mode = 1
+
+[node name="HUD" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="InstructionsPopup" parent="HUD" instance=ExtResource( 11 )]
+
+[node name="GamePadLooking" parent="HUD" instance=ExtResource( 1 )]
+position = Vector2( 1250, 700 )
+DebugName = "Right"
+
+[node name="GamePad" parent="HUD" instance=ExtResource( 9 )]
+position = Vector2( 250, 700 )
+DebugName = "Left"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
+margin_right = 1516.0
+margin_bottom = 880.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/VBoxContainer"]
+margin_right = 1516.0
+margin_bottom = 325.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HUD/VBoxContainer/VBoxContainer"]
+margin_right = 1516.0
+margin_bottom = 325.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2"]
+margin_right = 505.0
+margin_bottom = 325.0
+size_flags_horizontal = 5
+size_flags_vertical = 9
+
+[node name="HealthWidget" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer" instance=ExtResource( 10 )]
+margin_right = 505.0
+margin_bottom = 54.0
+
+[node name="ExpbarWidget" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer" instance=ExtResource( 12 )]
+margin_top = 58.0
+margin_right = 505.0
+margin_bottom = 112.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+margin_top = 116.0
+margin_right = 505.0
+margin_bottom = 321.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer"]
+margin_right = 257.0
+margin_bottom = 205.0
+
+[node name="WeaponInfo" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2" instance=ExtResource( 8 )]
+margin_right = 257.0
+margin_bottom = 175.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="AmmoWidget" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer/VBoxContainer2" instance=ExtResource( 14 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 179.0
+margin_right = 257.0
+margin_bottom = 205.0
+size_flags_vertical = 9
+alignment = 2
+
+[node name="LockButton" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" instance=ExtResource( 4 )]
+margin_left = 261.0
+margin_top = 0.0
+margin_right = 381.0
+margin_bottom = 120.0
+size_flags_vertical = 0
+
+[node name="LockButton2" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer" instance=ExtResource( 18 )]
+margin_left = 385.0
+margin_top = 0.0
+margin_right = 505.0
+margin_bottom = 120.0
+size_flags_vertical = 0
+
+[node name="EffectContainer" type="HBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+margin_top = 325.0
+margin_bottom = 325.0
+size_flags_horizontal = 0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 1336.0
+margin_right = 1516.0
+margin_bottom = 164.0
+size_flags_horizontal = 10
+size_flags_vertical = 2
+alignment = 2
+
+[node name="PauseButton" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer2" instance=ExtResource( 17 )]
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+margin_top = 84.0
+margin_right = 180.0
+margin_bottom = 122.0
+size_flags_horizontal = 10
+
+[node name="ScoreWidget" type="HBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer3"]
+margin_right = 180.0
+margin_bottom = 38.0
+size_flags_horizontal = 2
+
+[node name="Label" type="Label" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer3/ScoreWidget"]
+margin_right = 104.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 1 )
+text = "SCORE"
+
+[node name="Score" type="Label" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/HBoxContainer3/ScoreWidget"]
+margin_left = 108.0
+margin_right = 180.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 2 )
+text = "1000"
+
+[node name="TimeWidget" type="HBoxContainer" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+margin_left = 96.0
+margin_top = 126.0
+margin_right = 180.0
+margin_bottom = 164.0
+size_flags_horizontal = 8
+size_flags_vertical = 9
+
+[node name="Label" type="Label" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/TimeWidget"]
+visible = false
+margin_right = 77.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 1 )
+text = "TIME"
+
+[node name="Time" type="Label" parent="HUD/VBoxContainer/VBoxContainer/HBoxContainer2/VBoxContainer2/TimeWidget"]
+margin_right = 84.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 1 )
+text = "00:00"
+
+[node name="DebugLayout" parent="HUD/VBoxContainer" instance=ExtResource( 6 )]
+margin_top = 329.0
+margin_right = 1516.0
+margin_bottom = 486.0
+
+[node name="TouchDebugOutput" type="Label" parent="HUD/VBoxContainer"]
+visible = false
+margin_top = 415.0
+margin_right = 1516.0
+margin_bottom = 429.0
+
+[node name="Seperator" type="HBoxContainer" parent="HUD/VBoxContainer"]
+margin_top = 490.0
+margin_right = 1516.0
+margin_bottom = 880.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+
+[node name="Crosshair" parent="." instance=ExtResource( 15 )]
+visible = false
+scale = Vector2( 0.3, 0.3 )
+
+[node name="CardHolder" parent="." instance=ExtResource( 13 )]
+visible = false
+card_scale = 2.0
+
+[node name="PauseMenu" parent="." instance=ExtResource( 16 )]
+pause_mode = 2
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1536.0
+margin_bottom = 900.0
+mouse_filter = 1
+
+[node name="DeathScreenAndroid" parent="." instance=ExtResource( 7 )]
+visible = false

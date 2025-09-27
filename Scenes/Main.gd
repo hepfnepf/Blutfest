@@ -3,23 +3,28 @@ signal killed_enemy
 
 export (PackedScene) var death_screen_prefab
 
-onready var gui = $GUI
 onready var map = $Map
 onready var player:Player = $Player
 onready var spawner:Spawner = $Spawner
-onready var debug_gui = $GUI/HUD/VBoxContainer/DebugLayout
 onready var time_manager = get_node("/root/TimeManager")
+onready var gui_holder = $GUIHolder
+
+var gui = null
 
 var enemys_alive:int = 0
 var enemy_hpbars_enabled:bool=false #gets set by debug menu
 
 func _ready()-> void:
 	randomize()
-	player.connect("dead",self,"_on_player_death")
-	connect("killed_enemy",debug_gui,"_on_enemy_count_changed")
-	BulletPool.connect("bullet_count_changed", debug_gui,"_on_bullet_count_changed")
+	
+	gui = gui_holder.gui
 	gui.set_player(player)
 	gui.set_cursor(Cursor.CURSOR_TYPE.CROSSHAIR)
+	
+	player.connect("dead",self,"_on_player_death")
+	connect("killed_enemy",gui.debug_info,"_on_enemy_count_changed")
+	BulletPool.connect("bullet_count_changed", gui.debug_info,"_on_bullet_count_changed")	
+	
 	time_manager.set_time_scale(1.0)
 	var map_size:Vector2 = map.get_map_size()
 	spawner.set_map_size(map_size[0],map_size[1])

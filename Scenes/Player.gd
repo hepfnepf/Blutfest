@@ -133,15 +133,16 @@ func _physics_process(delta)->void:
 	#Movement
 	var move_vec = Vector2()
 	if Input.is_action_pressed("move_up"):
-		move_vec.y -=1
+		move_vec.y -= Input.get_action_strength("move_up")
 	if Input.is_action_pressed("move_down"):
-		move_vec.y +=1
+		move_vec.y +=Input.get_action_strength("move_down")
 	if Input.is_action_pressed("move_left"):
-		move_vec.x -=1
+		move_vec.x -=Input.get_action_strength("move_left")
 	if Input.is_action_pressed("move_right"):
-		move_vec.x +=1
+		move_vec.x +=Input.get_action_strength("move_right")
 
 	move_vec = move_vec.normalized()
+
 	#animateWalk(move_vec)
 	#velocity = move_vec.length() * move_speed
 	if move_vec.length() > 0:
@@ -170,8 +171,16 @@ func _physics_process(delta)->void:
 
 		is_standing=false
 
-	#self.look_at(get_global_mouse_position()-self.position)
-	look_at(get_global_mouse_position())
+	
+	var looking_direction = Vector2(
+	  Input.get_action_strength("looking_right") - Input.get_action_strength("looking_left"),
+	  Input.get_action_strength("looking_down") - Input.get_action_strength("looking_up"))
+	look_at(global_position + looking_direction)
+	
+	if !Globals.android:
+		look_at(get_global_mouse_position())
+	
+	
 	calculate_damage_multiplier()
 
 #Health related, maybe should be outsourced to its own node

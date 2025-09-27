@@ -109,6 +109,11 @@ func init_game()->void:
 	AudioServer.set_bus_volume_db(music_index, music_db_value)
 	AudioServer.set_bus_mute(sfx_index,sfx_muted)
 	AudioServer.set_bus_mute(music_index,music_muted)
+	
+	#Set to android mode
+	if OS.get_name()=="Android":
+		Globals.android=true
+		current_save_options["crosshair_type"] = Globals.CrosshairType.CONE
 
 
 func reset_key_bindings()->void:

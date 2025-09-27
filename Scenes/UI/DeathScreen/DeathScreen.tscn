@@ -37,16 +37,16 @@ default_font = ExtResource( 5 )
 default_font = ExtResource( 5 )
 
 [sub_resource type="StyleBoxFlat" id=10]
-bg_color = Color( 0, 0, 0, 1 )
+bg_color = Color( 0, 0, 0, 0 )
 
 [sub_resource type="StyleBoxFlat" id=9]
-bg_color = Color( 0, 0, 0, 1 )
+bg_color = Color( 0, 0, 0, 0 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [sub_resource type="StyleBoxFlat" id=11]
-bg_color = Color( 0, 0, 0, 1 )
+bg_color = Color( 0, 0, 0, 0 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 54
@@ -65,7 +65,6 @@ Button/styles/normal = SubResource( 3 )
 Button/styles/pressed = SubResource( 11 )
 
 [sub_resource type="Animation" id=5]
-resource_name = "Blink"
 length = 3.5
 loop = true
 tracks/0/type = "value"

@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/UI/GUI/GUI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/UI/GUI/GUIAndroid.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/UI/GUI/GUIHolder.gd" type="Script" id=3]
+
+[node name="GUIHolder" type="Node"]
+script = ExtResource( 3 )
+
+[node name="GUIAndoid" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="GUI" parent="." instance=ExtResource( 1 )]
