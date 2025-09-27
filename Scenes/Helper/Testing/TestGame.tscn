@@ -54,6 +54,8 @@ death_screen_prefab = ExtResource( 9 )
 
 [node name="ShockWave" parent="ShockWaveLayer" instance=ExtResource( 22 )]
 
+[node name="GUIHolder" parent="." instance=ExtResource( 7 )]
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -62.5314, -126.433 )
 move_speed_base = 500
@@ -79,4 +81,5 @@ pause_mode = 2
 volume_db = 0.0
 autoplay = false
 
-[node name="GUIHolder" parent="." instance=ExtResource( 7 )]
+[node name="ItemPoints5000" parent="." instance=ExtResource( 21 )]
+position = Vector2( -247, 213 )

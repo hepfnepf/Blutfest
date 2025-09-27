@@ -32,6 +32,7 @@ var dmg_multi_not_moving:float=1.0 #will be influenced only by increased damage 
 var level:int=1
 var weapon_movement_speed_multi:float = 1.0 setget set_weapon_movement_speed_multi
 var move_speed:float = move_speed_base#gets recalced in ready
+var level_up_lock:bool=false
 
 #For statistics and some percs
 var enemies_hit:int = 0 setget set_enemies_hit
@@ -99,7 +100,7 @@ onready var hurt:AudioStreamPlayer = $Hurt
 onready var perkManager:PerkManager = $PerkManager
 onready var regenerationTimer:Timer = $RegenerationTimer
 onready var camera:Camera2D = $Camera2D
-onready var gui = get_node_or_null("/root/Game/GUI")
+onready var gui = get_node_or_null("/root/Game/GUIHolder").gui
 onready var shockWave=get_node_or_null("/root/Game/ShockWaveLayer/ShockWave")
 onready var coneCrosshair = $ConeCrosshair
 
@@ -333,15 +334,14 @@ func set_experience(new_exp:int)->void:
 		return
 	experience = new_exp
 	emit_signal("exp_changed",experience)
-	while experience >= experience_limit:
-		level_up()
-		#important so that the perk selection does not get called multiple time before a single perk gets selected
-		if is_instance_valid(gui):
-			yield(gui, "perk_selected")
+	while experience >= experience_limit :
+		if !level_up_lock:
+			level_up()
+		
+		yield(gui, "perk_selected")
 
 func level_up():
-	#if !alive:
-	#	return
+	level_up_lock=true
 	experience -= experience_limit
 	level+=1
 	print("Level UP")
@@ -353,16 +353,19 @@ func level_up():
 		shockWave.start(1.0)
 		yield(shockWave,"wave_finished")#removing this line will make the wave appear after perk card selection
 
+	if !alive:
+		return
+
 	if heal_up_on_level_up:
 		set_health(health+heal_up_on_level_up)
 	if explosion_on_level_up:
 		create_explosion(exp_damage,exp_size)
 
-	if !alive:
-		return
+	
 	perkManager.new_perk_selection()
 	emit_signal("exp_changed",experience)
 	next_exp_limit()
+	level_up_lock=false
 
 func next_exp_limit():
 	if !alive:
