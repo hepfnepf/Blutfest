@@ -370,9 +370,11 @@ func level_up():
 func next_exp_limit():
 	if !alive:
 		return
-	experience_limit = experience_limit*2
+	if experience_limit < 6_400:
+		experience_limit = experience_limit*2
+	else:
+		experience_limit = experience_limit*1.5
 	emit_signal("exp_limit_changed",experience_limit)
-	pass
 
 func change_invincibility(change:int):#function to be used from effect to turn the player invincible, it handles stacking of the effect
 	invincible_count += change
