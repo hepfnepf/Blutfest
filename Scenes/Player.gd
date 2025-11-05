@@ -176,11 +176,13 @@ func _physics_process(delta)->void:
 	var looking_direction = Vector2(
 	  Input.get_action_strength("looking_right") - Input.get_action_strength("looking_left"),
 	  Input.get_action_strength("looking_down") - Input.get_action_strength("looking_up"))
-	look_at(global_position + looking_direction)
 	
-	if !Globals.android:
+	
+	if !Globals.android and !Globals.last_input_mode==Globals.InputMode.CONTROLLER:
 		look_at(get_global_mouse_position())
-	
+	else:
+		look_at(global_position + looking_direction)
+		
 	
 	calculate_damage_multiplier()
 

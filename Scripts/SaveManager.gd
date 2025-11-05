@@ -139,7 +139,6 @@ func load_key_binding(bindings:Dictionary)->void:
 		if not bindings[action].empty():
 			InputMap.action_erase_events(action)
 			for event_dict in bindings[action]:
-				print_debug(bindings[action][event_dict])
 				var event = deserialize_event(bindings[action][event_dict])
 				if  not event is InputEventKey or event.scancode != 0:
 					InputMap.action_add_event(action,event)
@@ -147,16 +146,15 @@ func load_key_binding(bindings:Dictionary)->void:
 
 # gets an dict like {button_index:0, device:0, type:InputEventJoypadButton}
 func deserialize_event(event_dict:Dictionary)->InputEvent:
-	var event:InputEvent = null
 	if event_dict["type"]=="InputEventKey":
 		return deserialize_key_event(event_dict)
 	if event_dict["type"]=="InputEventJoypadButton":
 		return deserialize_controller_button_event(event_dict)
 	if event_dict["type"]=="InputEventJoypadMotion":
 		return deserialize_controller_joystick_event(event_dict)
-	
-	#print_debug(event_dict)
-	return event
+	if event_dict["type"]=="InputEventMouseButton":
+		return deserialize_mouse_button(event_dict)
+	return null
 
 func deserialize_key_event(event_dict:Dictionary)->InputEventKey:
 	assert(event_dict["type"] == "InputEventKey")
@@ -178,7 +176,6 @@ func deserialize_controller_button_event(event_dict:Dictionary)->InputEventJoypa
 	var event:InputEventJoypadButton = InputEventJoypadButton.new()
 	event.device = event_dict["device"]
 	event.button_index = event_dict["button_index"]	
-	print_debug(event_dict, event)
 	return event
 
 func deserialize_controller_joystick_event(event_dict:Dictionary)->InputEventJoypadMotion:
@@ -187,7 +184,13 @@ func deserialize_controller_joystick_event(event_dict:Dictionary)->InputEventJoy
 	event.axis=event_dict["axis"]
 	event.device=event_dict["device"]
 	event.axis_value=event_dict["direction"]
-	print_debug(event_dict, event)
+	return event
+
+func deserialize_mouse_button(event_dict:Dictionary)->InputEventMouseButton:
+	assert(event_dict["type"]=="InputEventMouseButton")
+	var event:InputEventMouseButton = InputEventMouseButton.new()
+	event.device=event_dict["device"]
+	event.button_index=event_dict["index"]
 	return event
 
 #Only max. one binding of each type per action
@@ -201,6 +204,8 @@ func serialize_action(action:String)->Dictionary:
 			event_dict["InputEventJoypadButton"]=serialize_controller_button_event(event)
 		if event is InputEventJoypadMotion:
 			event_dict["InputEventJoypadMotion"]= serialize_controller_joystick_event(event)
+		if event is InputEventMouseButton:
+			event_dict["InputEventMouseButton"]=serialize_mouse_button(event)
 	return event_dict
 
 func get_serialized_inputmap()->Dictionary:
@@ -243,6 +248,15 @@ func serialize_controller_joystick_event(event:InputEventJoypadMotion)->Dictiona
 		"direction":event.axis_value
 	}
 	
+	return toStore
+
+func serialize_mouse_button(event:InputEventMouseButton)->Dictionary:
+	var toStore= {
+		"type":"InputEventMouseButton",
+		"device":event.device,
+		"index":event.button_index,
+	}
+	print_debug(toStore)
 	return toStore
 
 """
