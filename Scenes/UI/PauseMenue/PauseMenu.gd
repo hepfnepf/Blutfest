@@ -13,7 +13,7 @@ var stored_cursor_state:int = 0
 var blocked := false
 
 
-func _unhandled_input(_event):
+func _unhandled_input(_event)->void:
 	if Input.is_action_just_pressed("Escape") and !blocked:
 		switch_state(!enabled)
 	if Input.is_action_just_pressed("show_debug_info") and visible:
@@ -22,6 +22,7 @@ func _unhandled_input(_event):
 
 func set_debug_info(_debug_info)->void:
 	debug_info = _debug_info
+	
 
 func switch_state(state:bool):
 	enabled=state

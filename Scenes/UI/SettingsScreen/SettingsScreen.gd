@@ -60,7 +60,7 @@ func store_settings()->void:
 		sg["fullscreen_enabled"] = OS.window_fullscreen
 		sg["vsync_enabled"]= OS.vsync_enabled
 		sg["zooming_inverted"]=controls_tab.zoom_inverted_toggle_button.pressed
-		sg["key_bindings"] = controls_tab.get_key_binding_dict()
+		sg["key_bindings"] = SaveManager.get_serialized_inputmap()#controls_tab.get_key_binding_dict()
 
 
 	SaveManager.set_options_save(sg)
