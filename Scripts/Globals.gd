@@ -16,6 +16,9 @@ var cursor_manager = null
 var music_player = null setget set_music_player #this var gets set by the background music node using set_music_player
 var game = null
 
+#Controller focus management
+var controller_focus_stack = []
+
 func _ready() -> void:
 	cursor_manager = load("res://Scripts/Cursor.gd").new()
 
@@ -35,4 +38,14 @@ func set_last_input_mode(mode:int)->void:
 	if last_input_mode != mode:
 		last_input_mode = mode
 		print_debug("New input mode: ", last_input_mode)
-	
+
+#Handling controller focus
+func get_super_focus():
+	controller_focus_stack.pop_back() # this is the calling element, it should be removed and its superor focus object returned
+	var super = null
+	while not is_instance_valid(super):
+		super = controller_focus_stack.pop_back()
+	return super
+
+func add_focus_element(element):
+	controller_focus_stack.push_back(element)

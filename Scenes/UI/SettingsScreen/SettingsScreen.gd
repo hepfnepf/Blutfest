@@ -12,6 +12,10 @@ func _ready() -> void:
 	load_settings()
 	EventBus.connect("settings_reset",self,"load_settings")
 
+func manage_focus()->void:
+	pass
+
+
 func _on_ExitButton_pressed()->void:
 	visible = false
 	store_settings()
