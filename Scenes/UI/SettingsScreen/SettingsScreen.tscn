@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Scenes/UI/SettingsScreen/GameSettings.gd" type="Script" id=15]
 [ext_resource path="res://Scenes/UI/SettingsScreen/ControlSettings.gd" type="Script" id=16]
 [ext_resource path="res://Scenes/UI/SettingsScreen/UISettings.gd" type="Script" id=17]
+[ext_resource path="res://Scenes/UI/GUI/ControllerFocusManagement.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/UI/SettingsScreen/CountryFlag.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Sprites/UI/Flags/Flag_of_the_United_Kingdom.svg.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/UI/Flags/Deutschland_Flagge.jpg" type="Texture" id=21]
@@ -182,6 +183,7 @@ text = "OPTIONS"
 align = 1
 
 [node name="TabContainer" type="TabContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 margin_top = 99.0
 margin_right = 1496.0
 margin_bottom = 792.0
@@ -848,6 +850,10 @@ size_flags_horizontal = 4
 custom_fonts/font = SubResource( 10 )
 text = "RETURN"
 
+[node name="ControllerFocusManagement" parent="." instance=ExtResource( 18 )]
+overwrite_focus_object = NodePath("../ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetHighscore")
+
+[connection signal="tab_selected" from="ColorRect/MarginContainer/VBoxContainer/TabContainer" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game" method="_on_TabContainer_tab_selected"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetHighscore" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game" method="_on_ResetHighscore_pressed"]
 [connection signal="timeout" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/HighscoreResetAnnouncement/Timer" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game" method="_on_Timer_timeout_hs"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetOptions" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game" method="_on_ResetOptions_pressed"]

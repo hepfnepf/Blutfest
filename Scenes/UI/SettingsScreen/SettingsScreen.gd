@@ -6,23 +6,35 @@ onready var ui_tab = $"%UI"
 onready var controls_tab = $"%Controls"
 onready var sound_tab = $"%Sound"
 onready var language_tab = $"%Language"
-
+onready var main_focus_manager = $ControllerFocusManagement
+onready var tab_container:TabContainer=$"%TabContainer"
 
 func _ready() -> void:
 	load_settings()
 	EventBus.connect("settings_reset",self,"load_settings")
 
-func manage_focus()->void:
-	pass
-
 
 func _on_ExitButton_pressed()->void:
 	visible = false
 	store_settings()
+	main_focus_manager.return_focus()
+	 #the individual tabs grap the focus manual via grab_focus() on a button when shown
+	# Otherwise this would cause issues with the focus controller, because the exit-button 
+	# would remove the current tab but not the setting menu
 
 func hide_background_color():
 	$ColorRect.color = Color(0,0,0,0)
 
+func show()->void:
+	visible=true
+	main_focus_manager.receive_focus()
+
+func _unhandled_input(event):
+	if visible:
+		if Input.is_action_just_pressed("ui_switch_tab_next"):
+			tab_container.current_tab= clamp(tab_container.current_tab+1,0,tab_container.get_tab_count()-1)
+		elif Input.is_action_just_pressed("ui_switch_tab_previous"):
+			tab_container.current_tab= clamp(tab_container.current_tab-1,0,tab_container.get_tab_count()-1)
 
 func load_settings()->void:
 	var sg = SaveManager.get_options_save()
