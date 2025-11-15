@@ -35,6 +35,9 @@ func value_change_code(value:float)->void:#wrapper  in case the vslider value ge
 	changed_by_code = true
 	slider.value = value
 
+func grab_focus()->void:
+	toggle_button.grab_focus()
+
 func _on_VSlider_value_changed(value:float):#gets linear value
 	var db_value = linear2db(value)
 

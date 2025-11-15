@@ -43,15 +43,24 @@ func switch_crosshair_type(c:int)->void:
 		crosshair_type.text=tr("CROSSHAIR")
 		crosshair_grid.visible=true
 		cone_grid.visible=false
+		$"%CrosshairSwitchButtonLeft".focus_neighbour_bottom=crosshair_dynamic_toggle.get_path()
+		$"%CrosshairSwitchButtonRight".focus_neighbour_bottom=crosshair_dynamic_toggle.get_path()
+		
 	elif c == Globals.CrosshairType.CONE:
 		crosshair_type.text=tr("CONE")
 		crosshair_grid.visible=false
 		cone_grid.visible=true
+		$"%CrosshairSwitchButtonLeft".focus_neighbour_bottom=crosshair_cone_dynamic_toggle.get_path()
+		$"%CrosshairSwitchButtonRight".focus_neighbour_bottom=crosshair_cone_dynamic_toggle.get_path()
+		crosshair_cone_dynamic_toggle.focus_neighbour_top=$"%CrosshairSwitchButtonLeft".get_path()
 
 	else:
 		crosshair_type.text=tr("BOTH")
 		crosshair_grid.visible=true
 		cone_grid.visible=true
+		$"%CrosshairSwitchButtonLeft".focus_neighbour_bottom=crosshair_dynamic_toggle.get_path()
+		$"%CrosshairSwitchButtonRight".focus_neighbour_bottom=crosshair_dynamic_toggle.get_path()
+		crosshair_cone_dynamic_toggle.focus_neighbour_top=crosshair_size.get_path()
 
 func removeNonAndroidFeatures() -> void:
 	$"%CrosshairSwitchButtonLeft".visible=false

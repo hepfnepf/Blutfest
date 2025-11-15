@@ -13,9 +13,9 @@ export(String) var language_id = ""
 onready var own_name = $LabelOwnName
 onready var translated_name = $LabelTranslatedName
 
+
 func _ready() -> void:
 	assert(language_id!="","Langauge ID should not be empty!")
-
 
 func set_flag(_flag:Texture)->void:
 	$TextureButton.texture_normal = _flag
@@ -28,6 +28,9 @@ func set_language(new_langauge)->void:
 func set_translated_language(new_langauge)->void:
 	language_name_translated = new_langauge
 	$LabelTranslatedName.text = new_langauge
+
+func grab_focus()->void:
+	$"%TextureButton".grab_focus()
 
 func _on_TextureButton_toggled(button_pressed: bool) -> void:
 	TranslationServer.set_locale(language_id)

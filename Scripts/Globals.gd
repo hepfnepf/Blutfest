@@ -26,7 +26,7 @@ func set_music_player(_music_player:AudioStreamPlayer)->void:
 	music_player = _music_player
 	emit_signal("music_player_set")
 
-func _input(event):
+func _input(event)->void:
 	if event.get_class() in ["InputEventJoypadButton","InputEventJoypadMotion"]:
 		set_last_input_mode(InputMode.CONTROLLER)
 	elif event.get_class() in ["InputEventScreenTouch", "InputEventScreenDrag"]:
@@ -40,12 +40,14 @@ func set_last_input_mode(mode:int)->void:
 		print_debug("New input mode: ", last_input_mode)
 
 #Handling controller focus
-func get_super_focus():
-	controller_focus_stack.pop_back() # this is the calling element, it should be removed and its superor focus object returned
+func get_super_focus()->Node:
+	controller_focus_stack.pop_back() # this is the calling element, it should be removed and its superior focus object returned
 	var super = null
 	while not is_instance_valid(super):
 		super = controller_focus_stack.pop_back()
+		if super==null:
+			break
 	return super
 
-func add_focus_element(element):
+func add_focus_element(element)->void:
 	controller_focus_stack.push_back(element)

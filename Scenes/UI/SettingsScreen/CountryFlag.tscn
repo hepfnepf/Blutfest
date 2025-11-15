@@ -11,6 +11,7 @@ size_flags_vertical = 0
 script = ExtResource( 2 )
 
 [node name="TextureButton" type="TextureButton" parent="."]
+unique_name_in_owner = true
 margin_right = 367.0
 margin_bottom = 311.0
 size_flags_horizontal = 3
