@@ -208,6 +208,7 @@ tab_align = 0
 
 [node name="Game" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
 unique_name_in_owner = true
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 7.0
@@ -746,11 +747,10 @@ audio_channel = "Music"
 button_texture_disabled = ExtResource( 5 )
 
 [node name="Graphics" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 7.0
-margin_top = 41.0
+margin_top = 46.0
 margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
@@ -769,13 +769,13 @@ __meta__ = {
 
 [node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer"]
 margin_right = 1472.0
-margin_bottom = 635.0
+margin_bottom = 630.0
 columns = 2
 
 [node name="WindowModeLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
-margin_top = 11.0
+margin_top = 8.0
 margin_right = 1390.0
-margin_bottom = 35.0
+margin_bottom = 37.0
 size_flags_horizontal = 3
 text = "WINDOW_FULLSCREEN"
 
@@ -786,9 +786,9 @@ margin_bottom = 46.0
 script = ExtResource( 11 )
 
 [node name="VsyncModeLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
-margin_top = 61.0
+margin_top = 58.0
 margin_right = 1390.0
-margin_bottom = 85.0
+margin_bottom = 87.0
 size_flags_horizontal = 3
 text = "WINDOW_VSYNC"
 
@@ -805,7 +805,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 7.0
-margin_top = 41.0
+margin_top = 46.0
 margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
@@ -824,13 +824,13 @@ __meta__ = {
 
 [node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Language/MarginContainer"]
 margin_right = 1472.0
-margin_bottom = 635.0
+margin_bottom = 630.0
 columns = 4
 
 [node name="CountryFlagGermany" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Language/MarginContainer/GridContainer" instance=ExtResource( 19 )]
 margin_left = 0.0
 margin_right = 365.0
-margin_bottom = 635.0
+margin_bottom = 630.0
 size_flags_vertical = 3
 theme = SubResource( 19 )
 flag = ExtResource( 21 )
@@ -841,7 +841,7 @@ language_id = "de"
 [node name="CountryFlag2English" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Language/MarginContainer/GridContainer" instance=ExtResource( 19 )]
 margin_left = 369.0
 margin_right = 734.0
-margin_bottom = 635.0
+margin_bottom = 630.0
 size_flags_vertical = 3
 flag = ExtResource( 20 )
 language_name = "English"
@@ -851,7 +851,7 @@ language_id = "en"
 [node name="CountryFlag3French" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Language/MarginContainer/GridContainer" instance=ExtResource( 19 )]
 margin_left = 738.0
 margin_right = 1103.0
-margin_bottom = 635.0
+margin_bottom = 630.0
 size_flags_vertical = 3
 flag = ExtResource( 27 )
 language_name = "Français (IA)"
@@ -861,7 +861,7 @@ language_id = "fr"
 [node name="CountryFlag4Spanish" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Language/MarginContainer/GridContainer" instance=ExtResource( 19 )]
 margin_left = 1107.0
 margin_right = 1472.0
-margin_bottom = 635.0
+margin_bottom = 630.0
 size_flags_vertical = 3
 flag = ExtResource( 26 )
 language_name = "Español (AI)"
