@@ -14,8 +14,8 @@ func hide_background_color()->void:
 
 func _unhandled_input(event)->void:
 	if Input.is_action_just_pressed("Escape") or Input.is_action_just_pressed("ui_cancel"):
-		print_debug(event)
-		_on_ExitButton_pressed()
+		if visible:
+			_on_ExitButton_pressed()
 	
 
 func _on_ExitButton_pressed()->void:

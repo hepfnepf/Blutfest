@@ -5,6 +5,7 @@ onready var credits = $CreditsScreen
 onready var options = $SettingsScreen
 onready var sfx_slider = $CenterContainer/VBoxContainer/HBoxContainer/SFXSlider
 onready var music_slider = $CenterContainer/VBoxContainer/HBoxContainer/MusicSlider
+onready var focus_controller:ControllerFocusManagement = $ControllerFocusManagement
 
 var debug_info = null
 
@@ -40,9 +41,11 @@ func switch_state(state:bool):
 	if enabled:
 		stored_cursor_state = Globals.cursor_manager.cursor
 		Globals.cursor_manager.set_cursor(Cursor.CURSOR_TYPE.DEFAULT)
+		focus_controller.receive_focus()
 
 	else:
 		Globals.cursor_manager.set_cursor(stored_cursor_state)
+		focus_controller.return_focus()
 
 	#Save new volume setting in linear between 0 and 1
 	if sfx_slider.has_chagend or music_slider.has_chagend:

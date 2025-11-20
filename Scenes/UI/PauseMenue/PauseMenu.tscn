@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Fonts/standardUIFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Scenes/UI/SettingsScreen/SettingsScreen.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/UI/MainMenuTheme.tres" type="Theme" id=12]
 [ext_resource path="res://Scenes/UI/MainMenu/ButtonStyleNormal1.tres" type="StyleBox" id=13]
+[ext_resource path="res://Scenes/UI/GUI/ControllerFocusManagement.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Theme" id=12]
 
@@ -234,6 +235,9 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1536.0
 margin_bottom = 900.0
+
+[node name="ControllerFocusManagement" parent="." instance=ExtResource( 14 )]
+overwrite_focus_object = NodePath("../CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/ReturnButton")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/ReturnButton" to="." method="_on_ReturnButton_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]

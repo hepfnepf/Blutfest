@@ -20,5 +20,5 @@ func _ready():
 	
 
 
-func language_changed(_new_language,_flag):
+func language_changed(flag):
 	card.display_perk()

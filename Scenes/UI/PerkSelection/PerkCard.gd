@@ -1,5 +1,5 @@
 #tool
-extends PanelContainer
+extends Button
 class_name PerkCard
 
 signal card_selected
@@ -9,7 +9,7 @@ var desc:String= ""
 
 onready var nameLabel:Label = $"%NameLabel"
 onready var rarityLabel:Label=$"%RarityLabel"
-onready var icon:TextureRect=$"%Icon"
+#onready var icon:TextureRect=$"%Icon"
 onready var descLabel:Label=$"%DescriptionLabel"
 onready var blockingLabel:Label = $"%BlockingLabel"
 
@@ -23,7 +23,6 @@ var rarity:int = 0#gets set by gui when adding cards to cardholder
 var player:Player=null#gets set by gui when adding cards to cardholder
 var is_hovered:bool = false
 var weight:float = 0.0
-var disabled:bool = false
 
 ## rarity colors
 var color_common:Color = Color.gray
@@ -37,7 +36,6 @@ func _ready()->void:
 		rect_min_size=android_min_size
 	
 	min_size = rect_min_size
-	
 
 func _process(delta: float) -> void:
 	if disabled:
@@ -110,9 +108,10 @@ func apply_rarity() -> void:
 		_apply_rarity_color(color_legendary)
 
 func _apply_rarity_color(color:Color) -> void:
-
-	var stylebox:StyleBoxFlat =  theme.get_stylebox("panel","PanelContainer").duplicate()#StyleBoxFlat.new()
-	add_stylebox_override("panel",stylebox)
+	var stylebox:StyleBoxFlat =  theme.get_stylebox("normal","Button").duplicate()
+	add_stylebox_override("disabled",stylebox)
+	add_stylebox_override("normal",stylebox)
+	add_stylebox_override("focus",stylebox)
 	stylebox.border_color=color
 
 	nameLabel.add_color_override("font_color",color)
@@ -121,13 +120,20 @@ func _apply_rarity_color(color:Color) -> void:
 	blockingLabel.add_color_override("font_color",color)
 
 
-func _on_Button_button_up()->void:
-	if disabled:
-		return
-	emit_signal("card_selected",self)
-
 func _on_Button_mouse_entered() -> void:
 	is_hovered=true
 
 func _on_Button_mouse_exited() -> void:
 	is_hovered=false
+
+
+func _on_Button_focus_entered():
+	pass # Replace with function body.
+
+
+func _on_Button_focus_exited():
+	pass # Replace with function body.
+
+
+func _on_Button_pressed():
+	emit_signal("card_selected",self)

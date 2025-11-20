@@ -79,7 +79,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/Perks/Perk.gd"
 }, {
-"base": "PanelContainer",
+"base": "Button",
 "class": "PerkCard",
 "language": "GDScript",
 "path": "res://Scenes/UI/PerkSelection/PerkCard.gd"
