@@ -40,7 +40,7 @@ func grab_focus()->void:
 	toggle_button.grab_focus()
 
 func _unhandled_input(event):
-	if Input.is_action_just_pressed("ui_cancel"):		
+	if Input.is_action_just_pressed("ui_cancel"):
 		if slider.has_focus():
 			grab_focus()
 

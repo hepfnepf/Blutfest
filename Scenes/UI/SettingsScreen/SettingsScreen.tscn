@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://Sprites/UI/Flags/Flag_of_Spain_(civil).svg.png" type="Texture" id=26]
 [ext_resource path="res://Sprites/UI/Flags/Flag_of_France.svg.png" type="Texture" id=27]
 [ext_resource path="res://Scenes/UI/GUI/ControllerFocusManagementSettings.gd" type="Script" id=28]
+[ext_resource path="res://Scenes/UI/SettingsScreen/ExtendedTabs.gd" type="Script" id=29]
 
 [sub_resource type="DynamicFont" id=2]
 size = 90
@@ -216,6 +217,8 @@ margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
 script = ExtResource( 15 )
+first_focus_element = NodePath("MarginContainer/VBoxContainer/ResetHighscore")
+last_focus_element = NodePath("MarginContainer/VBoxContainer/HBoxContainer/EnemyCountSlider")
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game"]
 anchor_right = 1.0
@@ -291,6 +294,8 @@ unique_name_in_owner = true
 margin_left = 4.0
 margin_right = 230.0
 margin_bottom = 16.0
+focus_neighbour_bottom = NodePath("../../../../../../ExitButton")
+focus_next = NodePath(".")
 size_flags_horizontal = 3
 min_value = 50.0
 max_value = 500.0
@@ -315,6 +320,8 @@ margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
 script = ExtResource( 17 )
+first_focus_element = NodePath("MarginContainer/VBoxContainer/GridContainer/BloodOnScreenToggle")
+last_focus_element = NodePath("MarginContainer/VBoxContainer/CrosshairCone/CrosshairConeSize")
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI"]
 anchor_right = 1.0
@@ -519,6 +526,8 @@ margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
 script = ExtResource( 16 )
+first_focus_element = NodePath("MarginContainer/GridContainer/CheckBox")
+last_focus_element = NodePath("MarginContainer/GridContainer/RebindButton10")
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls"]
 anchor_right = 1.0
@@ -709,6 +718,8 @@ margin_top = 46.0
 margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
+script = ExtResource( 29 )
+first_focus_element = NodePath("MarginContainer/HBoxContainer/SFXSlider")
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Sound"]
 anchor_right = 1.0
@@ -755,6 +766,8 @@ margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
 script = ExtResource( 3 )
+first_focus_element = NodePath("MarginContainer/GridContainer/FullscreenToggle")
+last_focus_element = NodePath("MarginContainer/GridContainer/VsyncToggle")
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics"]
 anchor_right = 1.0
@@ -810,6 +823,8 @@ margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
 script = ExtResource( 22 )
+first_focus_element = NodePath("MarginContainer/GridContainer/CountryFlagGermany")
+last_focus_element = NodePath("MarginContainer/GridContainer/CountryFlag4Spanish")
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Language"]
 anchor_right = 1.0
@@ -880,12 +895,6 @@ text = "RETURN"
 [node name="ControllerFocusManagement" parent="." instance=ExtResource( 18 )]
 script = ExtResource( 28 )
 overwrite_focus_object = NodePath("../ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetHighscore")
-game_tab_default = NodePath("../ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetHighscore")
-ui_tab_default = NodePath("../ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/GridContainer/BloodOnScreenToggle")
-controls_tab_default = NodePath("../ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer/CheckBox")
-sound_tab_default = NodePath("../ColorRect/MarginContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer/SFXSlider")
-graphics_tab_default = NodePath("../ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer/FullscreenToggle")
-language_tab_default = NodePath("../ColorRect/MarginContainer/VBoxContainer/TabContainer/Language/MarginContainer/GridContainer/CountryFlagGermany")
 
 [connection signal="tab_selected" from="ColorRect/MarginContainer/VBoxContainer/TabContainer" to="ControllerFocusManagement" method="_on_TabContainer_tab_selected"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game/MarginContainer/VBoxContainer/ResetHighscore" to="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game" method="_on_ResetHighscore_pressed"]

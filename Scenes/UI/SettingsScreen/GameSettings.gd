@@ -1,4 +1,4 @@
-extends Tabs
+extends "res://Scenes/UI/SettingsScreen/ExtendedTabs.gd"
 
 signal changed_sound
 

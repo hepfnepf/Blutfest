@@ -76,7 +76,10 @@ func clear_focus_manager()->void:
 func get_focus_stack_string()->String:
 	var stack:String = "" 
 	for element in controller_focus_stack:
-		stack += str(element)+":"+ element.get_path() + ",\n"
+		if is_instance_valid(element):
+			stack += str(element)+":"+ element.get_path() + ",\n"
+		else:
+			stack += "invalidInstance,\n"
 	return stack
 
 func print_focus_stack()->void:

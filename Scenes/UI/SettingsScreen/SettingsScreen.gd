@@ -36,6 +36,7 @@ func _unhandled_input(event):
 		elif Input.is_action_just_pressed("ui_switch_tab_previous"):
 			tab_container.current_tab= clamp(tab_container.current_tab-1,0,tab_container.get_tab_count()-1)
 		if Input.is_action_just_pressed("ui_cancel") and Globals.get_current_focus_manager()==main_focus_manager:
+			accept_event()
 			_on_ExitButton_pressed()
 
 func load_settings()->void:

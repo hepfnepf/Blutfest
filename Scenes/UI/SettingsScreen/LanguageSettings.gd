@@ -1,4 +1,4 @@
-extends Tabs
+extends "res://Scenes/UI/SettingsScreen/ExtendedTabs.gd"
 
 onready var language_grid = $MarginContainer/GridContainer
 

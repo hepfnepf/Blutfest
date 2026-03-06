@@ -14,7 +14,8 @@ func hide_background_color()->void:
 
 func _unhandled_input(event)->void:
 	if Input.is_action_just_pressed("Escape") or Input.is_action_just_pressed("ui_cancel"):
-		if visible:
+		if visible and Globals.get_current_focus_manager()==focus_control:
+			accept_event()
 			_on_ExitButton_pressed()
 	
 
