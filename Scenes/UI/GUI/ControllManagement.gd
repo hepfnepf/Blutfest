@@ -8,8 +8,9 @@ onready var focus_object = get_node_or_null(overwrite_focus_object)
 func _ready():
 	if focus_object==null:
 		focus_object=get_parent()
+
 func receive_focus():
-	Globals.add_focus_element(self)
+	Globals.add_focus_manager(self)
 	if is_instance_valid(focus_object):
 		if focus_object.has_method("receive_focus"):
 			focus_object.receive_focus()

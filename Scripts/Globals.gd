@@ -10,6 +10,7 @@ enum InputMode{CONTROLLER,KEYBOARD_MOUSE, TOUCH}
 var first_start:bool=false
 var android:bool=false
 var last_input_mode:int= InputMode.KEYBOARD_MOUSE
+var is_paused_by_menu:bool = false
 
 
 var cursor_manager = null
@@ -37,9 +38,12 @@ func _input(event)->void:
 func set_last_input_mode(mode:int)->void:
 	if last_input_mode != mode:
 		last_input_mode = mode
-		print_debug("New input mode: ", last_input_mode)
+		#print_debug("New input mode: ", last_input_mode)
 
-#Handling controller focus
+
+## Returns the first valid controller below the current one.
+## Removes the current controller and invalid ones while doing so.
+## Returns null if the stack is empty.
 func get_super_focus()->Node:
 	controller_focus_stack.pop_back() # this is the calling element, it should be removed and its superior focus object returned
 	var super = null
@@ -47,7 +51,33 @@ func get_super_focus()->Node:
 		super = controller_focus_stack.pop_back()
 		if super==null:
 			break
+	print_focus_stack()
+	print_debug("Returned super:", super)
 	return super
 
-func add_focus_element(element)->void:
-	controller_focus_stack.push_back(element)
+func get_current_focus_manager():
+	return controller_focus_stack.back()
+
+func add_focus_manager(manager)->void:
+	controller_focus_stack.push_back(manager)
+	print_debug("Element added:", manager.get_path())
+	print_focus_stack()
+
+## Special case for CardHolder, see comment in ControllerFocusManagementCardHolder.gd
+func add_focus_manager_front(manager)->void:
+	controller_focus_stack.push_front(manager)
+	print_debug("Element added to FRONT:", manager.get_path())
+	print_focus_stack()
+
+func clear_focus_manager()->void:
+	controller_focus_stack=[]
+	print_debug("Focus manager stack cleared.")
+
+func get_focus_stack_string()->String:
+	var stack:String = "" 
+	for element in controller_focus_stack:
+		stack += str(element)+":"+ element.get_path() + ",\n"
+	return stack
+
+func print_focus_stack()->void:
+	print_debug("Current stack: ", get_focus_stack_string())

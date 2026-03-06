@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/UI/PerkSelection/CardHolder.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/SFX/UI/swing.wav" type="AudioStream" id=2]
 [ext_resource path="res://Scenes/UI/GUI/ControllerFocusManagement.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/UI/GUI/ControllerFocusManagementCardHolder.gd" type="Script" id=4]
 
 [node name="CardHolder" type="CenterContainer"]
 pause_mode = 2
@@ -30,3 +31,4 @@ alignment = 1
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="ControllerFocusManagement" parent="." instance=ExtResource( 3 )]
+script = ExtResource( 4 )
