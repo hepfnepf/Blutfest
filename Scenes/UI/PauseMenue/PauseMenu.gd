@@ -17,7 +17,7 @@ var blocked := false
 func _unhandled_input(_event)->void:
 	if Input.is_action_just_pressed("Escape") and !blocked and !enabled:
 		switch_state(true)
-	elif Input.is_action_just_pressed("ui_cancel") and enabled and Globals.get_current_focus_manager()==focus_manager:
+	elif Input.is_action_just_pressed("ui_cancel") and enabled: # and Globals.get_current_focus_manager()==focus_manager:
 		switch_state(false)
 	elif Input.is_action_just_pressed("show_debug_info") and visible:
 		if is_instance_valid(debug_info):

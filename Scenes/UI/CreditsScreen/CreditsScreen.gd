@@ -1,9 +1,16 @@
-extends MarginContainer
+extends Popup
 
 
 onready var focus_control:ControllerFocusManagement = $ControllerFocusManagement
 
+
+func _ready():
+	# show directly if only rendiring this scene for testing
+	if get_path()=="/root/CreditsScreen":
+		call_deferred("show")
+
 func show()->void:
+	popup()
 	visible = true
 	set_process_unhandled_input(true)
 	hide_background_color()

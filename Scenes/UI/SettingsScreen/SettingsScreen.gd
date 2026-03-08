@@ -1,4 +1,4 @@
-extends MarginContainer
+extends Popup
 
 
 onready var game_tab = $"%Game"
@@ -12,6 +12,10 @@ onready var tab_container:TabContainer=$"%TabContainer"
 func _ready() -> void:
 	load_settings()
 	EventBus.connect("settings_reset",self,"load_settings")
+	
+	# show directly if only rendiring this scene for testing
+	if get_path()=="/root/SettingsScreen":
+		call_deferred("show")
 
 
 func _on_ExitButton_pressed()->void:
@@ -26,6 +30,7 @@ func hide_background_color():
 	$ColorRect.color = Color(0,0,0,0)
 
 func show()->void:
+	popup()
 	visible=true
 	main_focus_manager.receive_focus()
 

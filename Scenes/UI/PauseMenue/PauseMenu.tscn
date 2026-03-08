@@ -223,7 +223,6 @@ audio_channel = "Music"
 button_texture_disabled = ExtResource( 8 )
 
 [node name="CreditsScreen" parent="." instance=ExtResource( 4 )]
-visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1536.0
