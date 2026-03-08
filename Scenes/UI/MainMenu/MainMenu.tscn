@@ -1,6 +1,5 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Scenes/UI/GUI/ControllerFocusManagement.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fonts/titleFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Sprites/Maps/None_Albedo_1001.png" type="Texture" id=3]
 [ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=4]
@@ -50,6 +49,7 @@ shader = SubResource( 3 )
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource( 6 )
+initial_focus_object = NodePath("MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/PlayButton")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -148,9 +148,6 @@ focus_previous = NodePath(".")
 theme = ExtResource( 10 )
 custom_fonts/font = SubResource( 10 )
 text = "EXIT"
-
-[node name="ControllerFocusManagement" parent="." instance=ExtResource( 1 )]
-overwrite_focus_object = NodePath("../MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/PlayButton")
 
 [node name="Map" type="Node2D" parent="."]
 material = SubResource( 4 )
@@ -267,11 +264,9 @@ z_index = -8
 texture = ExtResource( 3 )
 
 [node name="CreditsScreen" parent="." instance=ExtResource( 7 )]
-visible = false
 theme = ExtResource( 10 )
 
 [node name="SettingsScreen" parent="." instance=ExtResource( 8 )]
-visible = false
 
 [node name="BackgroundMusic" parent="." instance=ExtResource( 9 )]
 volume_db = 0.0

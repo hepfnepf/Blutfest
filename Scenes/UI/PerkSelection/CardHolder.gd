@@ -6,8 +6,6 @@ export(AudioStream)var sound_effect = null
 export(float) var animation_duration = .5
 export(float) var card_scale = 1.0
 
-onready var focus_manager:ControllerFocusManagement = $ControllerFocusManagement
-
 var player:Player=null
 
 func _ready() -> void:
@@ -51,7 +49,6 @@ func clear_cards(selected_card:PerkCard)->void:
 
 	yield(get_tree(), "idle_frame")#makes sure the cards are removed, so there are no conflicts if you level up mutltiple levels at once
 	emit_signal("cards_cleared")
-	focus_manager.return_focus()
 
 func draw_cards()->void:
 	yield(get_tree(), "idle_frame")
@@ -92,9 +89,10 @@ func draw_cards()->void:
 
 	for card in $HBoxContainer.get_children():
 		card.disabled = false
-	focus_manager.receive_focus()
+		if !Globals.is_paused_by_menu:
+			grab_focus()
 
-func receive_focus():
+func grab_focus()->void:
 	if $HBoxContainer.get_child_count() > 0:
 		$HBoxContainer.get_child(0).grab_focus()
 

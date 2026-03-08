@@ -1,11 +1,13 @@
 extends Control
 class_name PauseMenu
 
+
+export(NodePath) var initial_focus_object
+
 onready var credits = $CreditsScreen
 onready var options = $SettingsScreen
 onready var sfx_slider = $PauseMenu/VBoxContainer/HBoxContainer/SFXSlider
 onready var music_slider = $PauseMenu/VBoxContainer/HBoxContainer/MusicSlider
-onready var focus_manager:ControllerFocusManagement = $ControllerFocusManagement
 
 var debug_info = null
 
@@ -13,11 +15,10 @@ var enabled := false
 var stored_cursor_state:int = 0
 var blocked := false
 
-
 func _unhandled_input(_event)->void:
 	if Input.is_action_just_pressed("Escape") and !blocked and !enabled:
 		switch_state(true)
-	elif Input.is_action_just_pressed("ui_cancel") and enabled: # and Globals.get_current_focus_manager()==focus_manager:
+	elif Input.is_action_just_pressed("ui_cancel") and enabled:
 		switch_state(false)
 	elif Input.is_action_just_pressed("show_debug_info") and visible:
 		if is_instance_valid(debug_info):
@@ -43,16 +44,18 @@ func switch_state(state:bool):
 		stored_cursor_state = Globals.cursor_manager.cursor
 		if Globals.last_input_mode == Globals.InputMode.KEYBOARD_MOUSE:
 			Globals.cursor_manager.set_cursor(Cursor.CURSOR_TYPE.DEFAULT)
-		focus_manager.receive_focus()
 		Globals.is_paused_by_menu=true
 		EventBus.emit_signal("pause_menu_state_changed",true)
+		
+		get_node(initial_focus_object).grab_focus()
 		
 
 	else:
 		Globals.cursor_manager.set_cursor(stored_cursor_state)
 		Globals.is_paused_by_menu=false
 		EventBus.emit_signal("pause_menu_state_changed",false)
-		focus_manager.return_focus()
+		if get_parent().card_holder.visible:
+			get_parent().card_holder.grab_focus()
 
 	#Save new volume setting in linear between 0 and 1
 	if sfx_slider.has_chagend or music_slider.has_chagend:
@@ -68,13 +71,6 @@ func save_volume() -> void:
 
 func _on_ReturnButton_pressed():
 	switch_state(false)
-
-
-## It can happent, that the sub window focus, e.g. in the options, can be navigateed to the pause menu below.
-## This is a problem, because the controlls are stuck then. Therefore, we make the pause menu button unfocusable
-## while any other window is rendered on top
-#func disable_controller_focus()->void:
-#	$PauseMenu.focus_mode=Control.FOCUS_NONE
 
 func _on_OptionsButton_pressed():
 	if is_instance_valid(options):

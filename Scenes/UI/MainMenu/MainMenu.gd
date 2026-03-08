@@ -1,12 +1,13 @@
 extends CanvasLayer
 
 
+export(NodePath) var initial_focus_object
+
 onready var creditsScreen = $CreditsScreen
 onready var settingsScreen = $SettingsScreen
-onready var focus_control = $ControllerFocusManagement
 
 func _ready():
-	focus_control.receive_focus()
+	get_node(initial_focus_object).grab_focus()
 
 func _on_PlayButton_pressed() -> void:
 	get_tree().change_scene("res://Scenes/Game.tscn")

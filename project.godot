@@ -20,11 +20,6 @@ _global_script_classes=[ {
 "path": "res://Scenes/Weapons/Bullets/BulletBasis.gd"
 }, {
 "base": "Node",
-"class": "ControllerFocusManagement",
-"language": "GDScript",
-"path": "res://Scenes/UI/GUI/ControllManagement.gd"
-}, {
-"base": "Node",
 "class": "Cursor",
 "language": "GDScript",
 "path": "res://Scripts/Cursor.gd"
@@ -117,7 +112,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "BackgroundMusic": "",
 "Bullet": "",
-"ControllerFocusManagement": "",
 "Cursor": "",
 "EffectBasis": "",
 "EffectItemBasis": "",

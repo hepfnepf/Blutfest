@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/UI/CreditsScreen/CreditsScreen.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Fonts/smallUIFont.tres" type="DynamicFont" id=4]
-[ext_resource path="res://Scenes/UI/GUI/ControllerFocusManagement.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/UI/CreditsScreen/CreditsLabel.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=2]
@@ -78,9 +77,6 @@ focus_neighbour_top = NodePath("../MarginContainer/CreditsTextField")
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 1 )
 text = "Exit"
-
-[node name="ControllerFocusManagement" parent="." instance=ExtResource( 5 )]
-overwrite_focus_object = NodePath("../ColorRect/MarginContainer/VBoxContainer/ExitButton")
 
 [connection signal="meta_clicked" from="ColorRect/MarginContainer/VBoxContainer/MarginContainer/CreditsTextField" to="." method="_on_RichTextLabel_meta_clicked"]
 [connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
