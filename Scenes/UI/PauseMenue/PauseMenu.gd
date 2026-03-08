@@ -3,8 +3,8 @@ class_name PauseMenu
 
 onready var credits = $CreditsScreen
 onready var options = $SettingsScreen
-onready var sfx_slider = $CenterContainer/VBoxContainer/HBoxContainer/SFXSlider
-onready var music_slider = $CenterContainer/VBoxContainer/HBoxContainer/MusicSlider
+onready var sfx_slider = $PauseMenu/VBoxContainer/HBoxContainer/SFXSlider
+onready var music_slider = $PauseMenu/VBoxContainer/HBoxContainer/MusicSlider
 onready var focus_manager:ControllerFocusManagement = $ControllerFocusManagement
 
 var debug_info = null
@@ -69,6 +69,12 @@ func save_volume() -> void:
 func _on_ReturnButton_pressed():
 	switch_state(false)
 
+
+## It can happent, that the sub window focus, e.g. in the options, can be navigateed to the pause menu below.
+## This is a problem, because the controlls are stuck then. Therefore, we make the pause menu button unfocusable
+## while any other window is rendered on top
+#func disable_controller_focus()->void:
+#	$PauseMenu.focus_mode=Control.FOCUS_NONE
 
 func _on_OptionsButton_pressed():
 	if is_instance_valid(options):

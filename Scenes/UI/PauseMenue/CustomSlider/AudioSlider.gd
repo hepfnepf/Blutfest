@@ -12,6 +12,7 @@ export (Texture) var button_texture_disabled = null
 onready var bus_index:int = AudioServer.get_bus_index(audio_channel)
 onready var toggle_button:Button=$Button
 onready var audio_slider:VSlider=$VSlider
+onready var controller_manager:ControllerFocusManagement = $ControllerFocusManagement
 
 
 var has_chagend:bool = false
@@ -39,10 +40,14 @@ func value_change_code(value:float)->void:#wrapper  in case the vslider value ge
 func grab_focus()->void:
 	toggle_button.grab_focus()
 
+#func receive_focus()->void:
+#	controller_manager.receive_focus()
+	
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("ui_cancel"):
 		if slider.has_focus():
-			grab_focus()
+			toggle_button.grab_focus()
+			accept_event()
 
 func _on_VSlider_value_changed(value:float):#gets linear value
 	var db_value = linear2db(value)

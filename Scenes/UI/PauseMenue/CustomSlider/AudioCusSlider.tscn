@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://Scenes/UI/GUI/ControllerFocusManagement.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/UI/PauseMenue/CustomSlider/CusSlider.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/UI/PauseMenue/CustomSlider/AudioSlider.gd" type="Script" id=3]
 
@@ -14,7 +15,11 @@ step = 0.01
 value = 1.0
 
 [node name="Button" parent="." index="1"]
+focus_neighbour_top = NodePath("../VSlider")
 toggle_mode = true
 icon = null
+
+[node name="ControllerFocusManagement" parent="." index="2" instance=ExtResource( 1 )]
+overwrite_focus_object = NodePath("../Button")
 
 [connection signal="toggled" from="Button" to="." method="_on_Button_toggled"]

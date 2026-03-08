@@ -56,6 +56,8 @@ func get_super_focus()->Node:
 	return super
 
 func get_current_focus_manager():
+	if controller_focus_stack.empty():
+		return null
 	return controller_focus_stack.back()
 
 func add_focus_manager(manager)->void:

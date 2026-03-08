@@ -28,7 +28,7 @@
 [ext_resource path="res://Sprites/UI/Flags/Flag_of_Spain_(civil).svg.png" type="Texture" id=26]
 [ext_resource path="res://Sprites/UI/Flags/Flag_of_France.svg.png" type="Texture" id=27]
 [ext_resource path="res://Scenes/UI/GUI/ControllerFocusManagementSettings.gd" type="Script" id=28]
-[ext_resource path="res://Scenes/UI/SettingsScreen/ExtendedTabs.gd" type="Script" id=29]
+[ext_resource path="res://Scenes/UI/SettingsScreen/Sound.gd" type="Script" id=29]
 
 [sub_resource type="DynamicFont" id=2]
 size = 90
@@ -720,6 +720,7 @@ margin_bottom = -7.0
 tab_align = 0
 script = ExtResource( 29 )
 first_focus_element = NodePath("MarginContainer/HBoxContainer/SFXSlider")
+last_focus_element = NodePath("MarginContainer/HBoxContainer/SFXSlider")
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Sound"]
 anchor_right = 1.0

@@ -1,6 +1,7 @@
 extends Node
 class_name ControllerFocusManagement
 
+signal focuse_recieved
 export(NodePath) var overwrite_focus_object
 
 onready var focus_object = get_node_or_null(overwrite_focus_object)

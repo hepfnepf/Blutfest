@@ -18,3 +18,9 @@ func _new_language_selected(flag)->void:
 
 func toggle_on_current_language()->void:
 	pass
+
+
+func set_last_element()->void:
+	var node = get_node(first_focus_element)
+	exit_button.focus_neighbour_top = realtive_to_absolute_path(node.get_child(0).get_path()) # it has to be the button, not the parent scenen
+	exit_button.focus_previous = realtive_to_absolute_path(node.get_child(0).get_path())
