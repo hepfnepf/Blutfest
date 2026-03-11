@@ -9,7 +9,7 @@ var shots_fired:int = 0 setget set_shots_fired
 var damage_boost:int = 0
 
 func check_for_input():#the pistol shuld only not fire as long as butten is pressed but only on just pressed
-	if !Globals.android:	
+	if !Globals.android:
 		if Input.is_action_just_pressed("fire"):
 			if !cooldown  && !is_reloading:
 				if ammo > 0:
