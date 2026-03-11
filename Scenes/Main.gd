@@ -15,6 +15,7 @@ var enemys_alive:int = 0
 var enemy_hpbars_enabled:bool=false #gets set by debug menu
 
 func _ready()-> void:
+	Globals.is_paused_by_menu=false
 	randomize()
 	
 	gui = gui_holder.gui

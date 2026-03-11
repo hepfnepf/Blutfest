@@ -85,7 +85,8 @@ func set_options_save(options_save:Dictionary)->void:
 """
 
 func init_game()->void:
-	load_key_binding(current_save_options["key_bindings"])
+	load_key_binding(standard_keybindings)
+	#load_key_binding(current_save_options["key_bindings"])
 	if current_save_options["language"] != "":
 		TranslationServer.set_locale(current_save_options["language"])
 	else:
@@ -114,6 +115,8 @@ func init_game()->void:
 	if OS.get_name()=="Android":
 		Globals.android=true
 		current_save_options["crosshair_type"] = Globals.CrosshairType.CONE
+	
+	
 
 
 func reset_key_bindings()->void:
@@ -131,41 +134,86 @@ func get_current_key_binding_dict()->Dictionary:
 
 
 func load_key_binding(bindings:Dictionary)->void:
+	#print_debug(bindings)
 	for action in bindings:
-		if not bindings[action].empty():#since currently only keyboard keys are getting stored, some things like the click for fire do net get saved and are storead as an empty dict
+		if not bindings[action].empty():
 			InputMap.action_erase_events(action)
-			for event_dict in bindings[action]:#currently, can only be one event per action, so loop not really neccessary yet
-				var event = deserialize_key_event(bindings[action])
-				if event.scancode != 0:
+			for event_dict in bindings[action]:
+				var event = deserialize_event(bindings[action][event_dict])
+				if  not event is InputEventKey or event.scancode != 0:
 					InputMap.action_add_event(action,event)
+					#print_debug(action,event)
 
-
+# gets an dict like {button_index:0, device:0, type:InputEventJoypadButton}
+func deserialize_event(event_dict:Dictionary)->InputEvent:
+	if event_dict["type"]=="InputEventKey":
+		return deserialize_key_event(event_dict)
+	if event_dict["type"]=="InputEventJoypadButton":
+		return deserialize_controller_button_event(event_dict)
+	if event_dict["type"]=="InputEventJoypadMotion":
+		return deserialize_controller_joystick_event(event_dict)
+	if event_dict["type"]=="InputEventMouseButton":
+		return deserialize_mouse_button(event_dict)
+	return null
 
 func deserialize_key_event(event_dict:Dictionary)->InputEventKey:
-	if event_dict["type"] == "InputEventKey":
-			var event = InputEventKey.new()
-			event.device = event_dict["device"]
-			event.alt = event_dict["alt"]
-			event.command = event_dict["command"]
-			event.control = event_dict["control"]
-			event.meta = event_dict["meta"]
-			event.shift = event_dict["shift"]
-			event.echo = event_dict["echo"]
-			event.pressed = event_dict["pressed"]
-			event.scancode = event_dict["scancode"]
-			event.unicode = event_dict["unicode"]
-			return event
-	return InputEventKey.new()
+	assert(event_dict["type"] == "InputEventKey")
+	var event:InputEventKey = InputEventKey.new()
+	event.device = event_dict["device"]
+	event.alt = event_dict["alt"]
+	event.command = event_dict["command"]
+	event.control = event_dict["control"]
+	event.meta = event_dict["meta"]
+	event.shift = event_dict["shift"]
+	event.echo = event_dict["echo"]
+	event.pressed = event_dict["pressed"]
+	event.scancode = event_dict["scancode"]
+	event.unicode = event_dict["unicode"]
+	return event
 
-#Currently, only keyboard events are possibile to serialize and an action can also only have one
+func deserialize_controller_button_event(event_dict:Dictionary)->InputEventJoypadButton:
+	assert (event_dict["type"]== "InputEventJoypadButton")
+	var event:InputEventJoypadButton = InputEventJoypadButton.new()
+	event.device = event_dict["device"]
+	event.button_index = event_dict["button_index"]	
+	return event
+
+func deserialize_controller_joystick_event(event_dict:Dictionary)->InputEventJoypadMotion:
+	assert(event_dict["type"]== "InputEventJoypadMotion")
+	var event:InputEventJoypadMotion = InputEventJoypadMotion.new()
+	event.axis=event_dict["axis"]
+	event.device=event_dict["device"]
+	event.axis_value=event_dict["direction"]
+	return event
+
+func deserialize_mouse_button(event_dict:Dictionary)->InputEventMouseButton:
+	assert(event_dict["type"]=="InputEventMouseButton")
+	var event:InputEventMouseButton = InputEventMouseButton.new()
+	event.device=event_dict["device"]
+	event.button_index=event_dict["index"]
+	return event
+
+#Only max. one binding of each type per action
 #If no event was found, an empty dict gets returned
 func serialize_action(action:String)->Dictionary:
-	var event_dict = {}
+	var event_dict:Dictionary = {}
 	for event in InputMap.get_action_list(action):
 		if event is InputEventKey:
-			return serialize_key_event(event)
-
+			event_dict["InputEventKey"] = serialize_key_event(event)
+		if event is InputEventJoypadButton:
+			event_dict["InputEventJoypadButton"]=serialize_controller_button_event(event)
+		if event is InputEventJoypadMotion:
+			event_dict["InputEventJoypadMotion"]= serialize_controller_joystick_event(event)
+		if event is InputEventMouseButton:
+			event_dict["InputEventMouseButton"]=serialize_mouse_button(event)
 	return event_dict
+
+func get_serialized_inputmap()->Dictionary:
+	var bindings = {}
+	var actions = InputMap.get_actions()
+	for action in actions:
+		bindings[action] = SaveManager.serialize_action(action)
+	return bindings
 
 func serialize_key_event(event:InputEventKey)->Dictionary:
 	var toStore ={
@@ -183,7 +231,33 @@ func serialize_key_event(event:InputEventKey)->Dictionary:
 	}
 	return toStore
 
+func serialize_controller_button_event(event:InputEventJoypadButton)->Dictionary:
+	var toStore = {
+		"type":"InputEventJoypadButton",
+		"device":event.device,
+		"button_index":event.button_index
+	}
+	
+	return toStore
 
+func serialize_controller_joystick_event(event:InputEventJoypadMotion)->Dictionary:
+	var toStore = {
+		"type":"InputEventJoypadMotion",
+		"device":event.device,
+		"axis":event.axis,
+		"direction":event.axis_value
+	}
+	
+	return toStore
+
+func serialize_mouse_button(event:InputEventMouseButton)->Dictionary:
+	var toStore= {
+		"type":"InputEventMouseButton",
+		"device":event.device,
+		"index":event.button_index,
+	}
+	print_debug(toStore)
+	return toStore
 
 """
 Create new save files with base values.

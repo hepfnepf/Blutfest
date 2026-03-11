@@ -1,4 +1,4 @@
-extends Tabs
+extends "res://Scenes/UI/SettingsScreen/ExtendedTabs.gd"
 
 onready var language_grid = $MarginContainer/GridContainer
 
@@ -18,3 +18,4 @@ func _new_language_selected(flag)->void:
 
 func toggle_on_current_language()->void:
 	pass
+

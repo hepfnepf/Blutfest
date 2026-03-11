@@ -1,4 +1,4 @@
-extends MarginContainer
+extends Popup
 
 
 onready var game_tab = $"%Game"
@@ -7,10 +7,16 @@ onready var controls_tab = $"%Controls"
 onready var sound_tab = $"%Sound"
 onready var language_tab = $"%Language"
 
+onready var tab_container:TabContainer=$"%TabContainer"
 
 func _ready() -> void:
 	load_settings()
 	EventBus.connect("settings_reset",self,"load_settings")
+	
+	# show directly if only rendiring this scene for testing
+	if get_path()=="/root/SettingsScreen":
+		call_deferred("show")
+
 
 func _on_ExitButton_pressed()->void:
 	visible = false
@@ -19,6 +25,19 @@ func _on_ExitButton_pressed()->void:
 func hide_background_color():
 	$ColorRect.color = Color(0,0,0,0)
 
+func show()->void:
+	popup()
+	visible=true
+
+func _unhandled_input(event):
+	if visible:
+		if Input.is_action_just_pressed("ui_switch_tab_next"):
+			tab_container.current_tab= clamp(tab_container.current_tab+1,0,tab_container.get_tab_count()-1)
+		elif Input.is_action_just_pressed("ui_switch_tab_previous"):
+			tab_container.current_tab= clamp(tab_container.current_tab-1,0,tab_container.get_tab_count()-1)
+		if Input.is_action_just_pressed("ui_cancel"):# and Globals.get_current_focus_manager()==main_focus_manager:
+			accept_event()
+			_on_ExitButton_pressed()
 
 func load_settings()->void:
 	var sg = SaveManager.get_options_save()
@@ -60,7 +79,7 @@ func store_settings()->void:
 		sg["fullscreen_enabled"] = OS.window_fullscreen
 		sg["vsync_enabled"]= OS.vsync_enabled
 		sg["zooming_inverted"]=controls_tab.zoom_inverted_toggle_button.pressed
-		sg["key_bindings"] = controls_tab.get_key_binding_dict()
+		sg["key_bindings"] = SaveManager.get_serialized_inputmap()#controls_tab.get_key_binding_dict()
 
 
 	SaveManager.set_options_save(sg)

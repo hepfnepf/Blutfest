@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/IMFellEnglishSC-Regular.ttf" type="DynamicFontData" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Scenes/UI/SettingsScreen/GameSettings.gd" type="Script" id=15]
 [ext_resource path="res://Scenes/UI/SettingsScreen/ControlSettings.gd" type="Script" id=16]
 [ext_resource path="res://Scenes/UI/SettingsScreen/UISettings.gd" type="Script" id=17]
+[ext_resource path="res://Scenes/UI/SettingsScreen/ExtendedTabs.gd" type="Script" id=18]
 [ext_resource path="res://Scenes/UI/SettingsScreen/CountryFlag.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Sprites/UI/Flags/Flag_of_the_United_Kingdom.svg.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/UI/Flags/Deutschland_Flagge.jpg" type="Texture" id=21]
@@ -37,13 +38,13 @@ extra_spacing_bottom = -10
 extra_spacing_char = 1
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxFlat" id=23]
+[sub_resource type="StyleBoxFlat" id=13]
 bg_color = Color( 0, 0, 0, 1 )
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color( 0.494118, 0.0901961, 0.0901961, 1 )
+border_color = Color( 1, 1, 1, 1 )
 border_blend = true
 corner_radius_top_left = 5
 corner_radius_top_right = 5
@@ -68,6 +69,21 @@ corner_detail = 9
 shadow_size = 14
 
 [sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.494118, 0.0901961, 0.0901961, 1 )
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 9
+shadow_size = 14
+
+[sub_resource type="StyleBoxFlat" id=23]
 bg_color = Color( 0, 0, 0, 1 )
 border_width_left = 5
 border_width_top = 5
@@ -115,7 +131,7 @@ corner_detail = 20
 [sub_resource type="Theme" id=17]
 Button/colors/font_color = Color( 0.494118, 0.0901961, 0.0901961, 1 )
 Button/colors/font_color_focus = Color( 0.494118, 0.0901961, 0.0901961, 1 )
-Button/styles/focus = SubResource( 23 )
+Button/styles/focus = SubResource( 13 )
 Button/styles/hover = SubResource( 20 )
 Button/styles/normal = SubResource( 22 )
 Button/styles/pressed = SubResource( 23 )
@@ -150,10 +166,12 @@ size = 42
 extra_spacing_char = 1
 font_data = ExtResource( 1 )
 
-[node name="SettingsScreen" type="MarginContainer"]
+[node name="SettingsScreen" type="Popup"]
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 10 )
+popup_exclusive = true
 script = ExtResource( 4 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -182,6 +200,7 @@ text = "OPTIONS"
 align = 1
 
 [node name="TabContainer" type="TabContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 margin_top = 99.0
 margin_right = 1496.0
 margin_bottom = 792.0
@@ -190,7 +209,6 @@ tab_align = 0
 
 [node name="Game" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
 unique_name_in_owner = true
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 7.0
@@ -199,6 +217,8 @@ margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
 script = ExtResource( 15 )
+first_focus_element = NodePath("MarginContainer/VBoxContainer/ResetHighscore")
+overwrite_last_focus_element = null
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game"]
 anchor_right = 1.0
@@ -274,6 +294,8 @@ unique_name_in_owner = true
 margin_left = 4.0
 margin_right = 230.0
 margin_bottom = 16.0
+focus_neighbour_bottom = NodePath("../../../../../../ExitButton")
+focus_next = NodePath(".")
 size_flags_horizontal = 3
 min_value = 50.0
 max_value = 500.0
@@ -289,6 +311,7 @@ margin_bottom = 29.0
 
 [node name="UI" type="Tabs" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer"]
 unique_name_in_owner = true
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 7.0
@@ -297,6 +320,7 @@ margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
 script = ExtResource( 17 )
+first_focus_element = NodePath("MarginContainer/VBoxContainer/GridContainer/BloodOnScreenToggle")
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI"]
 anchor_right = 1.0
@@ -330,6 +354,8 @@ unique_name_in_owner = true
 margin_left = 1442.0
 margin_right = 1472.0
 margin_bottom = 43.0
+focus_neighbour_bottom = NodePath("../../HBoxContainer/CrosshairSwitchButtonLeft")
+focus_next = NodePath("../../HBoxContainer/CrosshairSwitchButtonLeft")
 
 [node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer"]
 margin_top = 47.0
@@ -339,9 +365,9 @@ text = "CROSSHAIR"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer"]
-margin_left = 652.0
+margin_left = 646.0
 margin_top = 80.0
-margin_right = 819.0
+margin_right = 825.0
 margin_bottom = 119.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -352,6 +378,11 @@ unique_name_in_owner = true
 margin_right = 20.0
 margin_bottom = 39.0
 rect_min_size = Vector2( 20, 20 )
+focus_neighbour_top = NodePath("../../GridContainer/BloodOnScreenToggle")
+focus_neighbour_right = NodePath("../CrosshairSwitchButtonRight")
+focus_neighbour_bottom = NodePath("../../CrosshairGrid/CrosshairDynamicToggle")
+focus_next = NodePath("../CrosshairSwitchButtonRight")
+focus_previous = NodePath("../../GridContainer/BloodOnScreenToggle")
 size_flags_horizontal = 5
 icon = ExtResource( 24 )
 align = 2
@@ -360,18 +391,21 @@ expand_icon = true
 
 [node name="CrosshairTypeLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 24.0
-margin_top = 6.0
-margin_right = 143.0
-margin_bottom = 33.0
+margin_top = 5.0
+margin_right = 155.0
+margin_bottom = 34.0
 text = "CROSSHAIR"
 align = 1
 
 [node name="CrosshairSwitchButtonRight" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-margin_left = 147.0
-margin_right = 167.0
+margin_left = 159.0
+margin_right = 179.0
 margin_bottom = 39.0
 rect_min_size = Vector2( 20, 20 )
+focus_neighbour_left = NodePath("../CrosshairSwitchButtonLeft")
+focus_neighbour_top = NodePath("../../GridContainer/BloodOnScreenToggle")
+focus_previous = NodePath("../CrosshairSwitchButtonLeft")
 size_flags_horizontal = 5
 icon = ExtResource( 23 )
 align = 2
@@ -394,6 +428,7 @@ unique_name_in_owner = true
 margin_left = 1442.0
 margin_right = 1472.0
 margin_bottom = 43.0
+focus_neighbour_top = NodePath("../../HBoxContainer/CrosshairSwitchButtonLeft")
 size_flags_horizontal = 8
 
 [node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairGrid"]
@@ -462,7 +497,8 @@ margin_right = 1472.0
 margin_bottom = 90.0
 size_flags_horizontal = 3
 
-[node name="Label2" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairCone"]
+[node name="ConeSizeLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairCone"]
+unique_name_in_owner = true
 margin_top = 94.0
 margin_right = 734.0
 margin_bottom = 123.0
@@ -485,11 +521,12 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 7.0
-margin_top = 41.0
+margin_top = 46.0
 margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
 script = ExtResource( 16 )
+first_focus_element = NodePath("MarginContainer/GridContainer/CheckBox")
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls"]
 anchor_right = 1.0
@@ -504,169 +541,169 @@ __meta__ = {
 
 [node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer"]
 margin_right = 1472.0
-margin_bottom = 635.0
+margin_bottom = 630.0
 columns = 2
 
 [node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
 margin_top = 7.0
-margin_right = 1328.0
-margin_bottom = 31.0
+margin_right = 1302.0
+margin_bottom = 36.0
 text = "INVERT_ZOOMING"
 
 [node name="CheckBox" type="CheckBox" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
 unique_name_in_owner = true
 margin_left = 1442.0
 margin_right = 1472.0
-margin_bottom = 38.0
+margin_bottom = 43.0
 size_flags_horizontal = 8
 script = ExtResource( 14 )
 
 [node name="RebindLabelUp" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
-margin_top = 49.0
-margin_right = 1328.0
-margin_bottom = 73.0
+margin_top = 54.0
+margin_right = 1302.0
+margin_bottom = 83.0
 size_flags_horizontal = 3
 text = "MOVE_UP"
 
 [node name="RebindButton" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
-margin_left = 1332.0
-margin_top = 42.0
+margin_left = 1306.0
+margin_top = 47.0
 margin_right = 1472.0
-margin_bottom = 80.0
+margin_bottom = 90.0
 size_flags_horizontal = 9
 
 [node name="RebindLabelDown" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
-margin_top = 91.0
-margin_right = 1328.0
-margin_bottom = 115.0
+margin_top = 101.0
+margin_right = 1302.0
+margin_bottom = 130.0
 size_flags_horizontal = 3
 text = "MOVE_DOWN"
 
 [node name="RebindButton2" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
-margin_left = 1332.0
-margin_top = 84.0
+margin_left = 1306.0
+margin_top = 94.0
 margin_right = 1472.0
-margin_bottom = 122.0
+margin_bottom = 137.0
 size_flags_horizontal = 9
 rebind_action = "move_down"
 
 [node name="RebindLabelLeft" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
-margin_top = 133.0
-margin_right = 1328.0
-margin_bottom = 157.0
+margin_top = 148.0
+margin_right = 1302.0
+margin_bottom = 177.0
 size_flags_horizontal = 3
 text = "MOVE_LEFT"
 
 [node name="RebindButton3" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
-margin_left = 1332.0
-margin_top = 126.0
+margin_left = 1306.0
+margin_top = 141.0
 margin_right = 1472.0
-margin_bottom = 164.0
+margin_bottom = 184.0
 size_flags_horizontal = 9
 rebind_action = "move_left"
 
 [node name="RebindLabelRight" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
-margin_top = 175.0
-margin_right = 1328.0
-margin_bottom = 199.0
+margin_top = 195.0
+margin_right = 1302.0
+margin_bottom = 224.0
 size_flags_horizontal = 3
 text = "MOVE_RIGHT"
 
 [node name="RebindButton4" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
-margin_left = 1332.0
-margin_top = 168.0
+margin_left = 1306.0
+margin_top = 188.0
 margin_right = 1472.0
-margin_bottom = 206.0
+margin_bottom = 231.0
 size_flags_horizontal = 9
 rebind_action = "move_right"
 
 [node name="RebindLabelReload" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
-margin_top = 217.0
-margin_right = 1328.0
-margin_bottom = 241.0
+margin_top = 242.0
+margin_right = 1302.0
+margin_bottom = 271.0
 size_flags_horizontal = 3
 text = "RELOAD_BTN"
 
 [node name="RebindButton8" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
-margin_left = 1332.0
-margin_top = 210.0
+margin_left = 1306.0
+margin_top = 235.0
 margin_right = 1472.0
-margin_bottom = 248.0
+margin_bottom = 278.0
 size_flags_horizontal = 9
 rebind_action = "reload"
 
 [node name="RebindLabelLocking" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
-margin_top = 259.0
-margin_right = 1328.0
-margin_bottom = 283.0
+margin_top = 289.0
+margin_right = 1302.0
+margin_bottom = 318.0
 size_flags_horizontal = 3
 text = "LOCK_WEAPON"
 
 [node name="RebindButton5" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
-margin_left = 1332.0
-margin_top = 252.0
+margin_left = 1306.0
+margin_top = 282.0
 margin_right = 1472.0
-margin_bottom = 290.0
+margin_bottom = 325.0
 size_flags_horizontal = 9
 rebind_action = "lock_weapon"
 
 [node name="RebindLabelHelp" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
-margin_top = 301.0
-margin_right = 1328.0
-margin_bottom = 325.0
+margin_top = 336.0
+margin_right = 1302.0
+margin_bottom = 365.0
 size_flags_horizontal = 3
 text = "HELP_BTN"
 
 [node name="RebindButton6" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
-margin_left = 1332.0
-margin_top = 294.0
+margin_left = 1306.0
+margin_top = 329.0
 margin_right = 1472.0
-margin_bottom = 332.0
+margin_bottom = 372.0
 size_flags_horizontal = 9
 rebind_action = "help"
 
 [node name="RebindLabelDebug" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
-margin_top = 343.0
-margin_right = 1328.0
-margin_bottom = 367.0
+margin_top = 383.0
+margin_right = 1302.0
+margin_bottom = 412.0
 size_flags_horizontal = 3
 text = "DEBUG_INFO_BTN"
 
 [node name="RebindButton7" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
-margin_left = 1332.0
-margin_top = 336.0
+margin_left = 1306.0
+margin_top = 376.0
 margin_right = 1472.0
-margin_bottom = 374.0
+margin_bottom = 419.0
 size_flags_horizontal = 9
 rebind_action = "show_debug_info"
 
 [node name="RebindLabelInvincibility" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
-margin_top = 385.0
-margin_right = 1328.0
-margin_bottom = 409.0
+margin_top = 430.0
+margin_right = 1302.0
+margin_bottom = 459.0
 size_flags_horizontal = 3
 text = "INVINCIBILITY_BTN"
 
 [node name="RebindButton9" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
-margin_left = 1332.0
-margin_top = 378.0
+margin_left = 1306.0
+margin_top = 423.0
 margin_right = 1472.0
-margin_bottom = 416.0
+margin_bottom = 466.0
 size_flags_horizontal = 9
 rebind_action = "toggle_debug_invincibility"
 
 [node name="RebindWeaponInfo" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer"]
-margin_top = 427.0
-margin_right = 1328.0
-margin_bottom = 451.0
+margin_top = 477.0
+margin_right = 1302.0
+margin_bottom = 506.0
 size_flags_horizontal = 3
 text = "WEAPON_INFO_BTN"
 
 [node name="RebindButton10" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls/MarginContainer/GridContainer" instance=ExtResource( 13 )]
-margin_left = 1332.0
-margin_top = 420.0
+margin_left = 1306.0
+margin_top = 470.0
 margin_right = 1472.0
-margin_bottom = 458.0
+margin_bottom = 513.0
 size_flags_horizontal = 9
 rebind_action = "toggle_weapon_info"
 
@@ -676,10 +713,12 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 7.0
-margin_top = 41.0
+margin_top = 46.0
 margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
+script = ExtResource( 18 )
+first_focus_element = NodePath("MarginContainer/HBoxContainer/SFXSlider")
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Sound"]
 anchor_right = 1.0
@@ -694,14 +733,14 @@ __meta__ = {
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Sound/MarginContainer"]
 margin_right = 1472.0
-margin_bottom = 635.0
+margin_bottom = 630.0
 alignment = 1
 
 [node name="SFXSlider" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Sound/MarginContainer/HBoxContainer" instance=ExtResource( 7 )]
 unique_name_in_owner = true
 margin_left = 694.0
 margin_right = 734.0
-margin_bottom = 635.0
+margin_bottom = 630.0
 button_texture = ExtResource( 9 )
 audio_channel = "SFX"
 button_texture_disabled = ExtResource( 8 )
@@ -710,7 +749,7 @@ button_texture_disabled = ExtResource( 8 )
 unique_name_in_owner = true
 margin_left = 738.0
 margin_right = 778.0
-margin_bottom = 635.0
+margin_bottom = 630.0
 theme = SubResource( 11 )
 button_texture = ExtResource( 6 )
 audio_channel = "Music"
@@ -721,11 +760,12 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 7.0
-margin_top = 41.0
+margin_top = 46.0
 margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
 script = ExtResource( 3 )
+first_focus_element = NodePath("MarginContainer/GridContainer/FullscreenToggle")
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics"]
 anchor_right = 1.0
@@ -740,13 +780,13 @@ __meta__ = {
 
 [node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer"]
 margin_right = 1472.0
-margin_bottom = 635.0
+margin_bottom = 630.0
 columns = 2
 
 [node name="WindowModeLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
-margin_top = 11.0
+margin_top = 8.0
 margin_right = 1390.0
-margin_bottom = 35.0
+margin_bottom = 37.0
 size_flags_horizontal = 3
 text = "WINDOW_FULLSCREEN"
 
@@ -757,9 +797,9 @@ margin_bottom = 46.0
 script = ExtResource( 11 )
 
 [node name="VsyncModeLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics/MarginContainer/GridContainer"]
-margin_top = 61.0
+margin_top = 58.0
 margin_right = 1390.0
-margin_bottom = 85.0
+margin_bottom = 87.0
 size_flags_horizontal = 3
 text = "WINDOW_VSYNC"
 
@@ -776,11 +816,12 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 7.0
-margin_top = 41.0
+margin_top = 46.0
 margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
 script = ExtResource( 22 )
+first_focus_element = NodePath("MarginContainer/GridContainer/CountryFlagGermany")
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Language"]
 anchor_right = 1.0
@@ -795,13 +836,13 @@ __meta__ = {
 
 [node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Language/MarginContainer"]
 margin_right = 1472.0
-margin_bottom = 635.0
+margin_bottom = 630.0
 columns = 4
 
 [node name="CountryFlagGermany" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Language/MarginContainer/GridContainer" instance=ExtResource( 19 )]
 margin_left = 0.0
 margin_right = 365.0
-margin_bottom = 635.0
+margin_bottom = 630.0
 size_flags_vertical = 3
 theme = SubResource( 19 )
 flag = ExtResource( 21 )
@@ -812,7 +853,7 @@ language_id = "de"
 [node name="CountryFlag2English" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Language/MarginContainer/GridContainer" instance=ExtResource( 19 )]
 margin_left = 369.0
 margin_right = 734.0
-margin_bottom = 635.0
+margin_bottom = 630.0
 size_flags_vertical = 3
 flag = ExtResource( 20 )
 language_name = "English"
@@ -822,7 +863,7 @@ language_id = "en"
 [node name="CountryFlag3French" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Language/MarginContainer/GridContainer" instance=ExtResource( 19 )]
 margin_left = 738.0
 margin_right = 1103.0
-margin_bottom = 635.0
+margin_bottom = 630.0
 size_flags_vertical = 3
 flag = ExtResource( 27 )
 language_name = "Français (IA)"
@@ -832,7 +873,7 @@ language_id = "fr"
 [node name="CountryFlag4Spanish" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Language/MarginContainer/GridContainer" instance=ExtResource( 19 )]
 margin_left = 1107.0
 margin_right = 1472.0
-margin_bottom = 635.0
+margin_bottom = 630.0
 size_flags_vertical = 3
 flag = ExtResource( 26 )
 language_name = "Español (AI)"

@@ -1,10 +1,13 @@
 extends Control
 class_name PauseMenu
 
+
+export(NodePath) var initial_focus_object
+
 onready var credits = $CreditsScreen
 onready var options = $SettingsScreen
-onready var sfx_slider = $CenterContainer/VBoxContainer/HBoxContainer/SFXSlider
-onready var music_slider = $CenterContainer/VBoxContainer/HBoxContainer/MusicSlider
+onready var sfx_slider = $PauseMenu/VBoxContainer/HBoxContainer/SFXSlider
+onready var music_slider = $PauseMenu/VBoxContainer/HBoxContainer/MusicSlider
 
 var debug_info = null
 
@@ -12,36 +15,47 @@ var enabled := false
 var stored_cursor_state:int = 0
 var blocked := false
 
-
-func _unhandled_input(_event):
-	if Input.is_action_just_pressed("Escape") and !blocked:
-		switch_state(!enabled)
-	if Input.is_action_just_pressed("show_debug_info") and visible:
+func _unhandled_input(_event)->void:
+	if Input.is_action_just_pressed("Escape") and !blocked and !enabled:
+		switch_state(true)
+	elif Input.is_action_just_pressed("ui_cancel") and enabled:
+		switch_state(false)
+	elif Input.is_action_just_pressed("show_debug_info") and visible:
 		if is_instance_valid(debug_info):
 			debug_info.set_alive(!debug_info.alive)
 
 func set_debug_info(_debug_info)->void:
 	debug_info = _debug_info
+	
 
 func switch_state(state:bool):
-	enabled=state
-
-
+	enabled = state
+	
 	if !get_parent().card_holder.visible:
-		get_tree().paused = enabled
+		get_tree().paused = state
 
-	visible = enabled
+	visible = state
 	if credits.visible:
 		credits.visible = false
 
 	EventBus.emit_signal("reset_touch_pads")
 	#Change Cursor
-	if enabled:
+	if state:
 		stored_cursor_state = Globals.cursor_manager.cursor
-		Globals.cursor_manager.set_cursor(Cursor.CURSOR_TYPE.DEFAULT)
+		if Globals.last_input_mode == Globals.InputMode.KEYBOARD_MOUSE:
+			Globals.cursor_manager.set_cursor(Cursor.CURSOR_TYPE.DEFAULT)
+		Globals.is_paused_by_menu=true
+		EventBus.emit_signal("pause_menu_state_changed",true)
+		
+		get_node(initial_focus_object).grab_focus()
+		
 
 	else:
 		Globals.cursor_manager.set_cursor(stored_cursor_state)
+		Globals.is_paused_by_menu=false
+		EventBus.emit_signal("pause_menu_state_changed",false)
+		if get_parent().card_holder.visible:
+			get_parent().card_holder.grab_focus()
 
 	#Save new volume setting in linear between 0 and 1
 	if sfx_slider.has_chagend or music_slider.has_chagend:
@@ -58,7 +72,6 @@ func save_volume() -> void:
 func _on_ReturnButton_pressed():
 	switch_state(false)
 
-
 func _on_OptionsButton_pressed():
 	if is_instance_valid(options):
 		options.show()
@@ -66,7 +79,7 @@ func _on_OptionsButton_pressed():
 
 func _on_CreditsButton_pressed():
 	if is_instance_valid(credits):
-		credits.visible = true
+		credits.show()
 
 
 func _on_ExitButton_pressed():

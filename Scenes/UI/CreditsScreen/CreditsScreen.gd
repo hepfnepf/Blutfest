@@ -1,31 +1,31 @@
-extends MarginContainer
-
-onready var credits = $ColorRect/MarginContainer/VBoxContainer/MarginContainer/RichTextLabel
-
-onready var file = 'res://Credits.txt'
+extends Popup
 
 func _ready():
-	credits.bbcode_text=load_file(file)
+	# show directly if only rendiring this scene for testing
+	if get_path()=="/root/CreditsScreen":
+		call_deferred("show")
 
-func load_file(file) -> String:
-	var f = File.new()
-	f.open(file, File.READ)
-	var txt = ""
-	#var index = 1
-	while not f.eof_reached(): # iterate through all lines until the end of file is reached
-		var line = f.get_line()
-		line += " "
-		txt += line + '\n'
-	f.close()
-	return txt
+func show()->void:
+	popup()
+	visible = true
+	set_process_unhandled_input(true)
+	hide_background_color()
 
-func hide_background_color():
+func hide_background_color()->void:
 	$ColorRect.color = Color(0,0,0,0)
 
-func _on_ExitButton_pressed():
-	visible = false
+func _unhandled_input(event)->void:
+	if Input.is_action_just_pressed("Escape") or Input.is_action_just_pressed("ui_cancel"):
+		if visible:
+			accept_event()
+			_on_ExitButton_pressed()
+	
 
-#when clicking on al link
+func _on_ExitButton_pressed()->void:
+	visible = false
+	set_process_unhandled_input(false)
+
+#when clicking on a link
 func _on_RichTextLabel_meta_clicked(meta) -> void:
 	print_debug(meta)
 	OS.shell_open(str(meta))

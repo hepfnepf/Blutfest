@@ -49,6 +49,7 @@ shader = SubResource( 3 )
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource( 6 )
+initial_focus_object = NodePath("MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/PlayButton")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -104,6 +105,10 @@ margin_bottom = 396.0
 [node name="PlayButton" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_right = 315.0
 margin_bottom = 96.0
+focus_neighbour_top = NodePath("../ExitButton")
+focus_neighbour_bottom = NodePath("../OptionsButton")
+focus_next = NodePath("../OptionsButton")
+focus_previous = NodePath("../ExitButton")
 theme = ExtResource( 10 )
 custom_fonts/font = SubResource( 10 )
 text = "PLAY"
@@ -112,6 +117,10 @@ text = "PLAY"
 margin_top = 100.0
 margin_right = 315.0
 margin_bottom = 196.0
+focus_neighbour_top = NodePath("../PlayButton")
+focus_neighbour_bottom = NodePath("../CreditsButton")
+focus_next = NodePath("../CreditsButton")
+focus_previous = NodePath("../PlayButton")
 theme = ExtResource( 10 )
 custom_fonts/font = SubResource( 10 )
 text = "OPTIONS"
@@ -120,6 +129,10 @@ text = "OPTIONS"
 margin_top = 200.0
 margin_right = 315.0
 margin_bottom = 296.0
+focus_neighbour_top = NodePath("../OptionsButton")
+focus_neighbour_bottom = NodePath("../ExitButton")
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../OptionsButton")
 theme = ExtResource( 10 )
 custom_fonts/font = SubResource( 10 )
 text = "CREDITS"
@@ -128,6 +141,10 @@ text = "CREDITS"
 margin_top = 300.0
 margin_right = 315.0
 margin_bottom = 396.0
+focus_neighbour_top = NodePath("../CreditsButton")
+focus_neighbour_bottom = NodePath("../PlayButton")
+focus_next = NodePath("../PlayButton")
+focus_previous = NodePath(".")
 theme = ExtResource( 10 )
 custom_fonts/font = SubResource( 10 )
 text = "EXIT"
@@ -247,11 +264,9 @@ z_index = -8
 texture = ExtResource( 3 )
 
 [node name="CreditsScreen" parent="." instance=ExtResource( 7 )]
-visible = false
 theme = ExtResource( 10 )
 
 [node name="SettingsScreen" parent="." instance=ExtResource( 8 )]
-visible = false
 
 [node name="BackgroundMusic" parent="." instance=ExtResource( 9 )]
 volume_db = 0.0

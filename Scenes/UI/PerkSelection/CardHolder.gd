@@ -23,18 +23,10 @@ func add_card(card:PerkCard)->void:
 	card.disabled = true
 	card.modulate = Color(0,0,0,0)#turn card invisible, but not using the visible var beacause that messes with the placement of UI elements
 
-	if player.perkManager.perk_selection_amount < $HBoxContainer.get_child_count():
-		#For some reason, probably due to concurrency, to many cards get spawned.
-		#This code path only exists for the debugger breakpoint
-		print_debug("To many cards.")
-
 func clear_cards(selected_card:PerkCard)->void:
 	var tween:SceneTreeTween  = create_tween()
 	for card in $HBoxContainer.get_children():
 		card.disabled = true
-
-
-
 		if card != selected_card:
 			if sound_effect:
 				var audio_effect:AudioStreamPlayer = AudioStreamPlayer.new()
@@ -42,7 +34,6 @@ func clear_cards(selected_card:PerkCard)->void:
 				card.add_child(audio_effect)
 				audio_effect.stream = sound_effect
 				#audio_effect.play()
-
 				#TODO: this way, the sound gets timed, so it will always start at the time, that makes it complete with the animation
 				#anim_dur = .5s, sfx= .37 --> animation starts parallel with the delay --> animation plays, after 0.13s sounds start, they finish at the same time
 				#but if the sound is longer than the animation, it will play imidiatly and not be synced
@@ -81,7 +72,6 @@ func draw_cards()->void:
 			audio_effect.bus="SFX"
 			card.add_child(audio_effect)
 			audio_effect.stream = sound_effect
-			#audio_effect.play()
 
 			#TODO: this way, the sound gets timed, so it will always start at the time, that makes it complete with the animation
 			#anim_dur = .5s, sfx= .37 --> animation starts parallel with the delay --> animation plays, after 0.13s sounds start, they finish at the same time
@@ -99,10 +89,15 @@ func draw_cards()->void:
 
 	for card in $HBoxContainer.get_children():
 		card.disabled = false
+		if !Globals.is_paused_by_menu:
+			grab_focus()
+
+func grab_focus()->void:
+	if $HBoxContainer.get_child_count() > 0:
+		$HBoxContainer.get_child(0).grab_focus()
 
 #sometime the player triggers a perk selection shortly before death, resulting in the cards getting drawn after their death
 #in these cases the cards obstruct the death screen, so they need to be removed
-
 func cancel_perk_selection():
 	for card in $HBoxContainer.get_children():
 		card.queue_free()

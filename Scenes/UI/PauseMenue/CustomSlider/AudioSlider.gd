@@ -11,7 +11,7 @@ export (Texture) var button_texture_disabled = null
 
 onready var bus_index:int = AudioServer.get_bus_index(audio_channel)
 onready var toggle_button:Button=$Button
-
+onready var audio_slider:VSlider=$VSlider
 
 var has_chagend:bool = false
 var changed_by_code:bool= false
@@ -34,6 +34,15 @@ func set_to_current_mute()->void:
 func value_change_code(value:float)->void:#wrapper  in case the vslider value gets changed by code, to differentiate it from user input, gets linear value
 	changed_by_code = true
 	slider.value = value
+
+func grab_focus()->void:
+	toggle_button.grab_focus()
+
+func _unhandled_input(event):
+	if Input.is_action_just_pressed("ui_cancel"):
+		if slider.has_focus():
+			toggle_button.grab_focus()
+			accept_event()
 
 func _on_VSlider_value_changed(value:float):#gets linear value
 	var db_value = linear2db(value)

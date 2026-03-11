@@ -174,5 +174,6 @@ func set_cursor(cursor_type:int) -> void:
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("show_debug_info"):
 		debug_info.set_alive(!debug_info.alive)
+		print_debug(SaveManager.get_current_key_binding_dict())
 	if Input.is_action_just_pressed("toggle_weapon_info"):
 		weapon_info.visible = !weapon_info.visible
