@@ -57,7 +57,7 @@ func handle_score_display(former_score:int,new_score:int,former_time:int,new_tim
 func _process(delta):
 	if Input.is_action_pressed("Escape") and visible:
 		backToMenu()
-	if Input.is_action_pressed("Enter"):
+	if Input.is_action_pressed("Enter") and visible:
 		restart()
 
 func restart()->void:
