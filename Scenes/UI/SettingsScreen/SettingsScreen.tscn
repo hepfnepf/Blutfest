@@ -17,6 +17,7 @@
 [ext_resource path="res://Scenes/UI/SettingsScreen/GameSettings.gd" type="Script" id=15]
 [ext_resource path="res://Scenes/UI/SettingsScreen/ControlSettings.gd" type="Script" id=16]
 [ext_resource path="res://Scenes/UI/SettingsScreen/UISettings.gd" type="Script" id=17]
+[ext_resource path="res://Scenes/UI/SettingsScreen/ExtendedTabs.gd" type="Script" id=18]
 [ext_resource path="res://Scenes/UI/SettingsScreen/CountryFlag.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Sprites/UI/Flags/Flag_of_the_United_Kingdom.svg.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/UI/Flags/Deutschland_Flagge.jpg" type="Texture" id=21]
@@ -26,7 +27,6 @@
 [ext_resource path="res://Scenes/UI/MainMenu/ButtonStyleNormal1.tres" type="StyleBox" id=25]
 [ext_resource path="res://Sprites/UI/Flags/Flag_of_Spain_(civil).svg.png" type="Texture" id=26]
 [ext_resource path="res://Sprites/UI/Flags/Flag_of_France.svg.png" type="Texture" id=27]
-[ext_resource path="res://Scenes/UI/SettingsScreen/Sound.gd" type="Script" id=29]
 
 [sub_resource type="DynamicFont" id=2]
 size = 90
@@ -167,6 +167,7 @@ extra_spacing_char = 1
 font_data = ExtResource( 1 )
 
 [node name="SettingsScreen" type="Popup"]
+visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 10 )
@@ -217,6 +218,7 @@ margin_bottom = -7.0
 tab_align = 0
 script = ExtResource( 15 )
 first_focus_element = NodePath("MarginContainer/VBoxContainer/ResetHighscore")
+overwrite_last_focus_element = null
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Game"]
 anchor_right = 1.0
@@ -495,7 +497,8 @@ margin_right = 1472.0
 margin_bottom = 90.0
 size_flags_horizontal = 3
 
-[node name="Label2" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairCone"]
+[node name="ConeSizeLabel" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/UI/MarginContainer/VBoxContainer/CrosshairCone"]
+unique_name_in_owner = true
 margin_top = 94.0
 margin_right = 734.0
 margin_bottom = 123.0
@@ -524,7 +527,6 @@ margin_bottom = -7.0
 tab_align = 0
 script = ExtResource( 16 )
 first_focus_element = NodePath("MarginContainer/GridContainer/CheckBox")
-overwrite_last_focus_element = NodePath("MarginContainer/GridContainer/RebindButton10")
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Controls"]
 anchor_right = 1.0
@@ -715,9 +717,8 @@ margin_top = 46.0
 margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
-script = ExtResource( 29 )
+script = ExtResource( 18 )
 first_focus_element = NodePath("MarginContainer/HBoxContainer/SFXSlider")
-overwrite_last_focus_element = NodePath("MarginContainer/HBoxContainer/SFXSlider")
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Sound"]
 anchor_right = 1.0
@@ -765,7 +766,6 @@ margin_bottom = -7.0
 tab_align = 0
 script = ExtResource( 3 )
 first_focus_element = NodePath("MarginContainer/GridContainer/FullscreenToggle")
-overwrite_last_focus_element = NodePath("MarginContainer/GridContainer/VsyncToggle")
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/VBoxContainer/TabContainer/Graphics"]
 anchor_right = 1.0

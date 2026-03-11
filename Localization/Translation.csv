@@ -22,7 +22,7 @@ TOGGLE_BLOOD_ON_SCREEN_EFFECT,Blood effect on screen,Bildschirmbluteffekt,Effet 
 CONE,Kreissektor,Cone,Cones,Cono
 CROSSHAIR,Crosshair,Fadenkreuz,Réticule,Puntería
 BOTH,Beides,Both,Les deux,Ambos
-DYNAMIC,Dynamic,Dynamisch,Dynamique,Dinámico
+DYNAMIC,Dynamic size,Dynamische größe,Taille dynamique, Tamaño dinámico
 COLOR,Color,Farbe,Couleur,Color
 SIZE,Size,Größe,Taille,Tamaño
 MOVE_UP,Up,Oben,Haut,Arriba
