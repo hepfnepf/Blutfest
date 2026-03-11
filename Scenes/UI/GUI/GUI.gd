@@ -54,7 +54,7 @@ func set_variables()->void:
 	instructions = $HUD/InstructionsPopup
 	blood= $ScreenBlood
 	weapon_info = $HUD/VBoxContainer/VBoxContainer/HBoxContainer/CenterContainer2/VBoxContainer2/WeaponInfo
-	death_screen  = $DeathScreenAndroid
+	death_screen  = $DeathScreen
 
 func set_player(player:Player)->void:
 	self.player = player

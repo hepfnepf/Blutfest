@@ -11,7 +11,7 @@
 [ext_resource path="res://Sprites/Items/padlock.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/UI/PerkSelection/CardHolder.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/UI/GUI/Healthbar2.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/UI/DeathScreen/DeathScreenAndroid.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/UI/DeathScreen/DeathScreen.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/UI/GUI/BloodOverlay.png" type="Texture" id=13]
 [ext_resource path="res://Scenes/UI/GUI/WeaponInfo.tscn" type="PackedScene" id=14]
 [ext_resource path="res://addons/touchJoyPad/touchjoypads/GamePadMovement.tscn" type="PackedScene" id=15]
@@ -215,7 +215,7 @@ margin_right = 1536.0
 margin_bottom = 900.0
 mouse_filter = 1
 
-[node name="DeathScreenAndroid" parent="." instance=ExtResource( 12 )]
+[node name="DeathScreen" parent="." instance=ExtResource( 12 )]
 visible = false
 
 [node name="GamePadLooking" parent="." instance=ExtResource( 16 )]
