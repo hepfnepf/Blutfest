@@ -11,14 +11,19 @@ onready var before_cont = $MarginContainer/VBoxContainer/CenterContainer2/Margin
 
 onready var statsScreen = $StatsScreen
 
-# Gets added to tree in main.gd
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	pass # Replace with function body.
+	if get_path()=="/root/DeathScreenAndroid": #direktes laden im Editor
+		$"%RestartButton".grab_focus()
+
+func display(player,save_dict)->void:
+	handle_score_display(save_dict["highscore"],player.score,save_dict["best_time"],player.elapsed_time)
+	populate_stats(player)
 
 # Passes the player to the stat screen to fill in the values
 func populate_stats(player:Player)->void:
 	statsScreen.populate(player)
+	$"%RestartButton".grab_focus()
 
 func set_score(score:int) -> void:
 	scoreLabel.text = str(score)
@@ -26,7 +31,6 @@ func set_score(score:int) -> void:
 
 func set_time(time:int):
 	timeLabel.text = time_to_str(time)
-
 
 func time_to_str(time:int) -> String:
 	var minutes = time / 60
@@ -38,7 +42,6 @@ func akn_new_highscore(former_score:int) -> void:
 	akn_score.visible = true
 	before_cont.show_score(former_score)
 	before_cont.visible = true
-
 
 func akn_new_besttime(former_time:int) -> void:
 	akn_time.visible=true
@@ -55,10 +58,7 @@ func handle_score_display(former_score:int,new_score:int,former_time:int,new_tim
 
 # warning-ignore:unused_argument
 func _process(delta):
-	if Input.is_action_pressed("Escape") and visible:
-		backToMenu()
-	if Input.is_action_pressed("Enter") and visible:
-		restart()
+	return
 
 func restart()->void:
 	print_debug("restart")
