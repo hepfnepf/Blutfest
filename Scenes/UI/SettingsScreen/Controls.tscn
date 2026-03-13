@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/UI/MainMenu/ButtonStyleNormal1.tres" type="StyleBox" id=1]
 [ext_resource path="res://Scenes/UI/SettingsScreen/ControlSettings.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/UI/SettingsScreen/RebindRow.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/UI/SettingsScreen/InvertZooming.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/UI/SettingsScreen/RebindButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/UI/GUI/HModeSelector.tscn" type="PackedScene" id=6]
@@ -127,7 +128,7 @@ margin_right = -7.0
 margin_bottom = -7.0
 tab_align = 0
 script = ExtResource( 2 )
-first_focus_element = NodePath("MarginContainer/VBoxContainer/GridContainer/CheckBox")
+first_focus_element = NodePath("MarginContainer/VBoxContainer/GridContainer/InverZooming/CheckBox")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -145,26 +146,30 @@ margin_right = 1512.0
 margin_bottom = 837.0
 
 [node name="HModeSelector" parent="MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
-margin_left = 690.0
-margin_right = 822.0
+margin_left = 697.0
+margin_right = 814.0
 margin_bottom = 24.0
 theme = SubResource( 17 )
-initText = "CONTROLLER"
+initText = "KEYBOARD"
 modes = [ "KEYBOARD", "CONTROLLER" ]
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+[node name="GridContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 28.0
 margin_right = 1512.0
-margin_bottom = 292.0
-columns = 2
+margin_bottom = 334.0
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="InverZooming" type="HBoxContainer" parent="MarginContainer/VBoxContainer/GridContainer"]
+margin_right = 1512.0
+margin_bottom = 24.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GridContainer/InverZooming"]
 margin_top = 5.0
-margin_right = 1407.0
+margin_right = 1484.0
 margin_bottom = 19.0
+size_flags_horizontal = 3
 text = "INVERT_ZOOMING"
 
-[node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer"]
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/GridContainer/InverZooming"]
 unique_name_in_owner = true
 margin_left = 1488.0
 margin_right = 1512.0
@@ -172,153 +177,102 @@ margin_bottom = 24.0
 size_flags_horizontal = 8
 script = ExtResource( 4 )
 
-[node name="RebindLabelUp" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
-margin_top = 31.0
-margin_right = 1407.0
-margin_bottom = 45.0
-size_flags_horizontal = 3
-text = "MOVE_UP"
-
-[node name="RebindButton" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 5 )]
-margin_left = 1411.0
+[node name="RebindActionUp" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
 margin_top = 28.0
 margin_right = 1512.0
 margin_bottom = 48.0
-size_flags_horizontal = 9
+label_text = "MOVE_UP"
+rebind_action = "move_up"
+show_controller = false
 
-[node name="RebindLabelDown" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
-margin_top = 55.0
-margin_right = 1407.0
-margin_bottom = 69.0
-size_flags_horizontal = 3
-text = "MOVE_DOWN"
-
-[node name="RebindButton2" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 5 )]
-margin_left = 1411.0
+[node name="RebindActionDown" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
 margin_top = 52.0
 margin_right = 1512.0
 margin_bottom = 72.0
-size_flags_horizontal = 9
+label_text = "MOVE_DOWN"
 rebind_action = "move_down"
+show_controller = false
 
-[node name="RebindLabelLeft" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
-margin_top = 79.0
-margin_right = 1407.0
-margin_bottom = 93.0
-size_flags_horizontal = 3
-text = "MOVE_LEFT"
-
-[node name="RebindButton3" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 5 )]
-margin_left = 1411.0
+[node name="RebindActionLeft" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
 margin_top = 76.0
 margin_right = 1512.0
 margin_bottom = 96.0
-size_flags_horizontal = 9
+label_text = "MOVE_LEFT"
 rebind_action = "move_left"
+show_controller = false
 
-[node name="RebindLabelRight" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
-margin_top = 103.0
-margin_right = 1407.0
-margin_bottom = 117.0
-size_flags_horizontal = 3
-text = "MOVE_RIGHT"
-
-[node name="RebindButton4" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 5 )]
-margin_left = 1411.0
+[node name="RebindActionRight" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
 margin_top = 100.0
 margin_right = 1512.0
 margin_bottom = 120.0
-size_flags_horizontal = 9
+label_text = "MOVE_RIGHT"
 rebind_action = "move_right"
+show_controller = false
 
-[node name="RebindLabelReload" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
-margin_top = 127.0
-margin_right = 1407.0
-margin_bottom = 141.0
-size_flags_horizontal = 3
-text = "RELOAD_BTN"
-
-[node name="RebindButton8" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 5 )]
-margin_left = 1411.0
+[node name="RebindActionReload" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
 margin_top = 124.0
 margin_right = 1512.0
 margin_bottom = 144.0
-size_flags_horizontal = 9
+label_text = "RELOAD_BTN"
 rebind_action = "reload"
 
-[node name="RebindLabelLocking" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
-margin_top = 151.0
-margin_right = 1407.0
-margin_bottom = 165.0
-size_flags_horizontal = 3
-text = "LOCK_WEAPON"
-
-[node name="RebindButton5" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 5 )]
-margin_left = 1411.0
+[node name="RebindActionLocking" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
 margin_top = 148.0
 margin_right = 1512.0
 margin_bottom = 168.0
-size_flags_horizontal = 9
+label_text = "LOCK_WEAPON"
 rebind_action = "lock_weapon"
 
-[node name="RebindLabelHelp" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
-margin_top = 175.0
-margin_right = 1407.0
-margin_bottom = 189.0
-size_flags_horizontal = 3
-text = "HELP_BTN"
-
-[node name="RebindButton6" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 5 )]
-margin_left = 1411.0
+[node name="RebindActionHelp" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
 margin_top = 172.0
 margin_right = 1512.0
 margin_bottom = 192.0
-size_flags_horizontal = 9
+label_text = "HELP_BTN"
 rebind_action = "help"
 
-[node name="RebindLabelDebug" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
-margin_top = 199.0
-margin_right = 1407.0
-margin_bottom = 213.0
-size_flags_horizontal = 3
-text = "DEBUG_INFO_BTN"
-
-[node name="RebindButton7" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 5 )]
-margin_left = 1411.0
+[node name="RebindActionDebug" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
 margin_top = 196.0
 margin_right = 1512.0
 margin_bottom = 216.0
-size_flags_horizontal = 9
+label_text = "DEBUG_INFO_BTN"
 rebind_action = "show_debug_info"
 
-[node name="RebindLabelInvincibility" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
-margin_top = 223.0
-margin_right = 1407.0
-margin_bottom = 237.0
-size_flags_horizontal = 3
-text = "INVINCIBILITY_BTN"
-
-[node name="RebindButton9" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 5 )]
-margin_left = 1411.0
+[node name="RebindActionInvincibility" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
 margin_top = 220.0
 margin_right = 1512.0
 margin_bottom = 240.0
-size_flags_horizontal = 9
+label_text = "INVINCIBILITY_BTN"
 rebind_action = "toggle_debug_invincibility"
 
+[node name="RebindActionWeaponInfo" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+margin_top = 244.0
+margin_right = 1512.0
+margin_bottom = 264.0
+label_text = "WEAPON_INFO_BTN"
+rebind_action = "toggle_weapon_info"
+
 [node name="RebindWeaponInfo" type="Label" parent="MarginContainer/VBoxContainer/GridContainer"]
-margin_top = 247.0
-margin_right = 1407.0
-margin_bottom = 261.0
+margin_top = 268.0
+margin_right = 1512.0
+margin_bottom = 282.0
 size_flags_horizontal = 3
 text = "WEAPON_INFO_BTN"
 
 [node name="RebindButton10" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 5 )]
-margin_left = 1411.0
-margin_top = 244.0
+margin_top = 286.0
 margin_right = 1512.0
-margin_bottom = 264.0
+margin_bottom = 306.0
 size_flags_horizontal = 9
 rebind_action = "toggle_weapon_info"
 
-[connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/CheckBox" to="MarginContainer/VBoxContainer/GridContainer/CheckBox" method="_on_CheckBox_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/GridContainer/InverZooming/CheckBox" to="MarginContainer/VBoxContainer/GridContainer/InverZooming/CheckBox" method="_on_CheckBox_toggled"]
