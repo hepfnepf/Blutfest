@@ -85,8 +85,7 @@ func set_options_save(options_save:Dictionary)->void:
 """
 
 func init_game()->void:
-	load_key_binding(standard_keybindings)
-	#load_key_binding(current_save_options["key_bindings"])
+	load_key_binding(current_save_options["key_bindings"])
 	if current_save_options["language"] != "":
 		TranslationServer.set_locale(current_save_options["language"])
 	else:

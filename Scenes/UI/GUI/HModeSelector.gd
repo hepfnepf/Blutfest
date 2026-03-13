@@ -16,7 +16,6 @@ func get_mode()->String:
 
 func set_mode(mode:String)->void:
 	var index = modes.find(mode)
-	print_debug(index)
 	if index != -1:
 		set_index(index)
 	else:
