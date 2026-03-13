@@ -85,8 +85,7 @@ func set_options_save(options_save:Dictionary)->void:
 """
 
 func init_game()->void:
-	load_key_binding(standard_keybindings)
-	#load_key_binding(current_save_options["key_bindings"])
+	load_key_binding(current_save_options["key_bindings"])
 	if current_save_options["language"] != "":
 		TranslationServer.set_locale(current_save_options["language"])
 	else:
@@ -140,6 +139,10 @@ func load_key_binding(bindings:Dictionary)->void:
 			InputMap.action_erase_events(action)
 			for event_dict in bindings[action]:
 				var event = deserialize_event(bindings[action][event_dict])
+#				if event is InputEventJoypadButton:
+#					print_debug(action, ": ", event.as_text())
+#					print_debug("Device: ", Input.get_joy_name(event.device))
+#					print_debug("Button: ", Input.get_joy_button_string(event.button_index))
 				if  not event is InputEventKey or event.scancode != 0:
 					InputMap.action_add_event(action,event)
 					#print_debug(action,event)
