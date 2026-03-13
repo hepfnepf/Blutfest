@@ -25,6 +25,8 @@ BOTH,Beides,Both,Les deux,Ambos
 DYNAMIC,Dynamic size,Dynamische größe,Taille dynamique, Tamaño dinámico
 COLOR,Color,Farbe,Couleur,Color
 SIZE,Size,Größe,Taille,Tamaño
+KEYBOARD,Keyboard,Tastatur,Clavier,Teclado 
+CONTROLLER,Controller,Kontroller,Contrôleur,Controladores
 MOVE_UP,Up,Oben,Haut,Arriba
 MOVE_DOWN,Down,Unten,Bas,Abajo
 MOVE_LEFT,Left,Links,Gauche,Izquierda

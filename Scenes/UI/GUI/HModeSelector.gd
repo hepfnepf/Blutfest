@@ -6,7 +6,7 @@ signal modeSwitched(mode)
 export(String) var initText = "" setget set_init_text
 export(Array)  var modes = []
 
-var ind: = 0 setget set_index
+var ind: = -1 setget set_index
 
 func _ready()->void:
 	set_mode(initText)
@@ -18,8 +18,6 @@ func set_mode(mode:String)->void:
 	var index = modes.find(mode)
 	if index != -1:
 		set_index(index)
-	else:
-		print_debug("Trying to set an invalid mode. ")
 
 func set_index(index:int)->void:
 	var prev_ind = ind 
@@ -31,6 +29,10 @@ func set_index(index:int)->void:
 func set_init_text(text:String)->void:
 	set_mode(text)
 	initText = text
+
+func set_neighbour_below(path:NodePath)->void:
+	for child in get_children():
+		child.focus_neighbour_bottom=path
 
 func _on_ModeSwitchButtonLeft_pressed():
 	set_index(ind-1)

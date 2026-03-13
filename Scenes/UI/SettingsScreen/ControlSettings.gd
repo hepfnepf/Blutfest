@@ -9,6 +9,7 @@ func _ready():
 		queue_free()
 	mode_selector.connect("modeSwitched",self,"_on_HModeSelector_modeSwitched")
 	set_mode(mode_selector.get_mode())
+	mode_selector.set_neighbour_below(get_node(first_focus_element).get_path())
 
 func set_mode(mode:String)->void:
 	for child in button_container.get_children():

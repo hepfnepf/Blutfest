@@ -145,8 +145,8 @@ margin_right = 1512.0
 margin_bottom = 837.0
 
 [node name="HModeSelector" parent="MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
-margin_left = 712.0
-margin_right = 800.0
+margin_left = 697.0
+margin_right = 814.0
 margin_bottom = 24.0
 theme = SubResource( 17 )
 initText = "KEYBOARD"
