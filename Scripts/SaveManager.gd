@@ -39,7 +39,9 @@ const new_save_options_dict = {
 	"cone_crosshair_size":1.0,
 	"max_enemy_count":250,
 	"language":"",
-	"key_bindings":{}
+	"key_bindings":{},
+	"deadzone_walking":0.3,
+	"deadzone_looking":0.2
 	}
 
 var standard_keybindings={}

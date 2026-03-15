@@ -72,7 +72,9 @@ func store_settings()->void:
 	sg["cone_crosshair_size"] = ui_tab.crosshair_cone_size.value
 
 	sg["max_enemy_count"] = game_tab.max_enemy_count_slider.value
-	sg["language"] = TranslationServer.get_locale()	
+	sg["language"] = TranslationServer.get_locale()
+	
+	sg["deadzone_walking"] = controls_tab.deadzone_movement.value
 	
 	#The according tabs are removed in android because none of the included settings make sense
 	if !Globals.android:

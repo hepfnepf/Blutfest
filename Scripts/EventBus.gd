@@ -22,3 +22,4 @@ signal difficulty_changed(health, damage, speed, view_range,enemy_spawn_rate)#em
 signal touch_debug_output(text)
 signal reset_touch_pads()#emmiter: GUI scenes like pause and card selection; consumer: touchpads;
 signal pause_menu_state_changed(new_state)
+signal deadzone_walking_changed(new_value)

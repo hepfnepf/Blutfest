@@ -109,6 +109,8 @@ var velocity:Vector2 = Vector2.ZERO #needed for movement inaccuracy of player
 export (float) var friction = 0.01
 export (float) var acceleration = 0.1
 var is_standing:bool = true #used for perks and statistics
+var deadzone_movement:float = 0.1
+var deadzone_looking:float=0.1
 
 # Called when the node enters the scene tree for the first time.
 func _ready()->void:
@@ -117,6 +119,8 @@ func _ready()->void:
 		weapon.set_weapon(start_weapon)
 	regenerationTimer.wait_time = seconds_to_start_regeneration
 	calculate_move_speed()
+	load_deadzones()
+	EventBus.connect("deadzone_walking_changed",self,"update_deadzone_movement")
 
 func _physics_process(delta)->void:
 	if !alive:
@@ -142,12 +146,8 @@ func _physics_process(delta)->void:
 	if Input.is_action_pressed("move_right"):
 		move_vec.x +=Input.get_action_strength("move_right")
 
-	move_vec = move_vec.normalized()
-
-	#animateWalk(move_vec)
-	#velocity = move_vec.length() * move_speed
-	if move_vec.length() > 0:
-		velocity = lerp(velocity, move_vec * move_speed,acceleration)
+	if move_vec.length() > deadzone_movement or (move_vec.length() >0 and !Globals.last_input_mode==Globals.InputMode.CONTROLLER):
+		velocity = lerp(velocity, move_vec.normalized() * move_speed,acceleration)
 	else:
 		velocity = lerp(velocity, Vector2.ZERO,friction)
 
@@ -185,6 +185,14 @@ func _physics_process(delta)->void:
 		
 	
 	calculate_damage_multiplier()
+
+func load_deadzones()->void:
+	var settings:Dictionary = SaveManager.get_options_save()
+	deadzone_movement = settings["deadzone_walking"]
+	deadzone_looking = settings["deadzone_looking"]
+
+func update_deadzone_movement(new_value:float)->void:
+	deadzone_movement=new_value
 
 #Health related, maybe should be outsourced to its own node
 func set_health(new_health:int)->void:
