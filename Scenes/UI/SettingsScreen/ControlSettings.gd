@@ -3,7 +3,8 @@ extends "res://Scenes/UI/SettingsScreen/ExtendedTabs.gd"
 onready var zoom_inverted_toggle_button:CheckBox = $"%CheckBox"
 onready var button_container:VBoxContainer = $MarginContainer/VBoxContainer/GridContainer
 onready var mode_selector = $MarginContainer/VBoxContainer/HModeSelector
-onready var deadzone_movement:Slider = $"%DeadzoneMovementSlider"
+onready var deadzone_movement = $"%DeadzoneMovement"
+onready var deadzone_looking= $"%DeadzoneLooking"
 
 func _ready():
 	if Globals.android:
@@ -20,10 +21,16 @@ func set_mode(mode:String)->void:
 
 func load_deadzones()->void:
 	var saveGame = SaveManager.get_options_save()
-	deadzone_movement.value = saveGame["deadzone_walking"]
+	deadzone_movement.slider.value = saveGame["deadzone_walking"]
+	deadzone_looking.slider.value = saveGame["deadzone_looking"]
 
 func _on_HModeSelector_modeSwitched(mode:String):
 	set_mode(mode)
 
-func _on_DeadzoneMovementSlider_value_changed(value):
+
+func _on_DeadzoneMovement_value_changed(value):
 	EventBus.emit_signal("deadzone_walking_changed", value)
+
+
+func _on_DeadzoneLooking_value_changed(value):
+	EventBus.emit_signal("deadzone_looking_changed", value)

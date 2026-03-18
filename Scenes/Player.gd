@@ -121,6 +121,7 @@ func _ready()->void:
 	calculate_move_speed()
 	load_deadzones()
 	EventBus.connect("deadzone_walking_changed",self,"update_deadzone_movement")
+	EventBus.connect("deadzone_looking_changed",self,"update_lookinge_movement")
 
 func _physics_process(delta)->void:
 	if !alive:
@@ -180,7 +181,7 @@ func _physics_process(delta)->void:
 	
 	if !Globals.android and !Globals.last_input_mode==Globals.InputMode.CONTROLLER:
 		look_at(get_global_mouse_position())
-	else:
+	elif looking_direction.length() > deadzone_looking or !Globals.last_input_mode==Globals.InputMode.CONTROLLER:
 		look_at(global_position + looking_direction)
 		
 	
@@ -193,6 +194,9 @@ func load_deadzones()->void:
 
 func update_deadzone_movement(new_value:float)->void:
 	deadzone_movement=new_value
+
+func update_lookinge_movement(new_value:float)->void:
+	deadzone_looking=new_value
 
 #Health related, maybe should be outsourced to its own node
 func set_health(new_health:int)->void:
