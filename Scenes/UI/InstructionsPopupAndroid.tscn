@@ -26,7 +26,6 @@ PanelContainer/styles/panel = SubResource( 4 )
 
 [node name="InstructionsPopup" type="Popup"]
 pause_mode = 2
-visible = true
 margin_left = 758.0
 margin_top = 440.0
 margin_right = 758.0
@@ -42,10 +41,10 @@ theme = SubResource( 3 )
 use_top_left = true
 
 [node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
-margin_left = -108.0
-margin_top = -44.0
-margin_right = 108.0
-margin_bottom = 44.0
+margin_left = -7.0
+margin_top = -7.0
+margin_right = 7.0
+margin_bottom = 7.0
 theme = SubResource( 5 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]

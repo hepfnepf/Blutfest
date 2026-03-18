@@ -134,7 +134,9 @@ HELP_DESCRIPTION,"Survive as long as possible, while evil monsters try to kill y
 HELP_WEB_WARNING,"Note: Playing the web browser version of the game, results in a subpar experience, due to performance constraints. For the best experience run the desktop application version of this game!","Achtung! Die Webbrowser-Variante dieses Spiels stellt nicht die optimale Konfiguration dar. Um das beste Spielerlebnis zu erhalten, nutze die Desktopanwendung!","Note : jouer à la version navigateur du jeu donne une expérience moins bonne en raison de contraintes de performance. Pour la meilleure expérience, utilisez la version application de bureau du jeu !","Nota: Jugar la versión en navegador del juego resulta en una experiencia de menor calidad debido a limitaciones de rendimiento. ¡Para la mejor experiencia, usa la versión de la aplicación de escritorio del juego!"
 HELP_TITLE2,Movement,Steuerung,Mouvement,Movimiento
 HELP_MOVEMENT,"move around","Bewegung","se déplacer","moverse"
-HELP_SHOOTING,"Mouse & Left click - aim & shoot","Maus und Linksclick - Zielen & Schießen","Souris et clic gauche - viser et tirer","Ratón y clic izquierdo - apuntar y disparar"
+HELP_SHOOTING_KEYBOARD,"Mouse & Left click - aim & shoot","Maus und Linksclick - Zielen & Schießen","Souris et clic gauche - viser et tirer","Ratón y clic izquierdo - apuntar y disparar"
+HELP_SHOOTING_CONTROLLER,Shoot,Schießen,Tirer,Disparar
+HELP_CONTROLLER_MOVE_SHOOT,Move and aim using the analog sticks,Laufe und Ziele mit den Joysticks,Corre y apunta con los joysticks,Courir et viser avec les joysticks
 HELP_RELOAD,"Reload","Nachladen","Recharger","Recargar"
 HELP_LOCKING,"lock your current weapon","Fixiere deine aktuelle Waffe","verrouiller votre arme actuelle","bloquear tu arma actual"
 HELP_WEAPON_INFO,"show weapon info","Waffeninformationen ansehen","afficher les informations sur l'arme","mostrar información sobre el arma"

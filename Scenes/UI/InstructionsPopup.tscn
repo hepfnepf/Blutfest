@@ -101,7 +101,25 @@ unique_name_in_owner = true
 margin_top = 120.0
 margin_right = 202.0
 margin_bottom = 134.0
-text = "HELP_SHOOTING"
+text = "HELP_SHOOTING_KEYBOARD"
+align = 1
+
+[node name="ControllerMoveShoot" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+margin_top = 138.0
+margin_right = 202.0
+margin_bottom = 152.0
+text = "HELP_CONTROLLER_MOVE_SHOOT"
+align = 1
+
+[node name="ShootingController" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+margin_top = 138.0
+margin_right = 202.0
+margin_bottom = 152.0
+text = "HELP_SHOOTING_CONTROLLER"
 align = 1
 
 [node name="Reloading" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
