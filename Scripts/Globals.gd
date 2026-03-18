@@ -25,11 +25,14 @@ func set_music_player(_music_player:AudioStreamPlayer)->void:
 	emit_signal("music_player_set")
 
 func _input(event)->void:
+	switch_input_mode_by_event(event)
+
+func switch_input_mode_by_event(event:InputEvent)->void:
 	if event.get_class() in ["InputEventJoypadButton","InputEventJoypadMotion"]:
 		set_last_input_mode(InputMode.CONTROLLER)
 	elif event.get_class() in ["InputEventScreenTouch", "InputEventScreenDrag"]:
 		set_last_input_mode(InputMode.TOUCH)
-	else:
+	elif event.get_class() in ["InputEventMouseButton","InputEventKey"]:
 		set_last_input_mode(InputMode.KEYBOARD_MOUSE)
 
 func set_last_input_mode(mode:int)->void:

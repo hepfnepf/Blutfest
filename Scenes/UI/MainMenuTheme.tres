@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=14 format=2]
+[gd_resource type="Theme" load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/UI/MainMenu/ButtonStyleNormal1.tres" type="StyleBox" id=1]
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=2]
@@ -52,6 +52,12 @@ corner_radius_bottom_left = 5
 corner_detail = 9
 shadow_size = 14
 
+[sub_resource type="StyleBoxFlat" id=18]
+corner_radius_top_left = 31
+corner_radius_top_right = 50
+corner_radius_bottom_right = 10
+corner_detail = 11
+
 [sub_resource type="StyleBoxFlat" id=15]
 bg_color = Color( 0.6, 0.6, 1, 0 )
 shadow_color = Color( 0, 0, 0, 1 )
@@ -99,6 +105,7 @@ CheckBox/styles/pressed = ExtResource( 1 )
 CheckButton/styles/pressed = ExtResource( 1 )
 HSlider/icons/grabber = ExtResource( 5 )
 HSlider/icons/grabber_highlight = ExtResource( 4 )
+HSlider/styles/grabber_area = SubResource( 18 )
 HSlider/styles/slider = ExtResource( 1 )
 Label/colors/font_color = Color( 0.494118, 0.0901961, 0.0901961, 1 )
 Label/styles/normal = SubResource( 15 )
