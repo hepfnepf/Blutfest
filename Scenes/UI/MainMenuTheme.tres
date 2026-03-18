@@ -1,7 +1,9 @@
-[gd_resource type="Theme" load_steps=10 format=2]
+[gd_resource type="Theme" load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/UI/MainMenu/ButtonStyleNormal1.tres" type="StyleBox" id=1]
 [ext_resource path="res://Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/UI/SettingsScreen/vslider_grabber_hl_2.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/UI/SettingsScreen/hslider_grabber_hl_3.png" type="Texture" id=4]
 
 [sub_resource type="StyleBoxFlat" id=13]
 bg_color = Color( 0, 0, 0, 1 )
@@ -93,6 +95,7 @@ Button/styles/pressed = SubResource( 12 )
 CheckBox/styles/normal = ExtResource( 1 )
 CheckBox/styles/pressed = ExtResource( 1 )
 CheckButton/styles/pressed = ExtResource( 1 )
+HSlider/icons/grabber_highlight = ExtResource( 4 )
 HSlider/styles/slider = ExtResource( 1 )
 Label/colors/font_color = Color( 0.494118, 0.0901961, 0.0901961, 1 )
 Label/styles/normal = SubResource( 15 )
@@ -106,3 +109,5 @@ Tabs/styles/button_pressed = ExtResource( 1 )
 Tabs/styles/tab_bg = ExtResource( 1 )
 Tabs/styles/tab_disabled = ExtResource( 1 )
 Tabs/styles/tab_fg = ExtResource( 1 )
+VSlider/icons/grabber_highlight = ExtResource( 3 )
+VSlider/styles/slider = ExtResource( 1 )
