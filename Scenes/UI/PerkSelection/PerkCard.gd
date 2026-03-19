@@ -110,6 +110,7 @@ func apply_rarity() -> void:
 func _apply_rarity_color(color:Color) -> void:
 	var stylebox:StyleBoxFlat =  theme.get_stylebox("normal","Button").duplicate()
 	add_stylebox_override("disabled",stylebox)
+	add_stylebox_override("hover",stylebox)
 	add_stylebox_override("normal",stylebox)
 	add_stylebox_override("focus",stylebox)
 	stylebox.border_color=color
@@ -122,18 +123,18 @@ func _apply_rarity_color(color:Color) -> void:
 
 func _on_Button_mouse_entered() -> void:
 	is_hovered=true
+	grab_focus()
 
 func _on_Button_mouse_exited() -> void:
 	is_hovered=false
 
 
 func _on_Button_focus_entered():
-	pass # Replace with function body.
+	is_hovered=true
 
 
 func _on_Button_focus_exited():
-	pass # Replace with function body.
-
+	is_hovered=false
 
 func _on_Button_pressed():
 	emit_signal("card_selected",self)
