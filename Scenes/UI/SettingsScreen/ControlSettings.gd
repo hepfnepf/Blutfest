@@ -27,6 +27,12 @@ func load_deadzones()->void:
 func _on_HModeSelector_modeSwitched(mode:String):
 	set_mode(mode)
 
+func _on_TabContainer_tab_selected(tab_index):
+	._on_TabContainer_tab_selected(tab_index)
+	if Globals.last_input_mode==Globals.InputMode.KEYBOARD_MOUSE:
+		mode_selector.set_mode("KEYBOARD")
+	else:
+		mode_selector.set_mode("CONTROLLER")
 
 func _on_DeadzoneMovement_value_changed(value):
 	EventBus.emit_signal("deadzone_walking_changed", value)
