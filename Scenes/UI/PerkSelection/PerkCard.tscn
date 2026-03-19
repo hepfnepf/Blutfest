@@ -29,7 +29,6 @@ margin_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-mouse_default_cursor_shape = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_right = 1516.0
@@ -105,4 +104,8 @@ text = "test blockiert Ramson, brunde, target zwae"
 valign = 2
 autowrap = true
 
+[connection signal="focus_entered" from="." to="." method="_on_Button_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_Button_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Button_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_Button_pressed"]
