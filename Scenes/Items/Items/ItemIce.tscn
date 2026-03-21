@@ -33,7 +33,7 @@ shader_param/starded_blinking = 0.0
 
 [sub_resource type="CircleShape2D" id=5]
 resource_local_to_scene = true
-radius = 4000.0
+radius = 6000.0
 
 [node name="IceItem" instance=ExtResource( 1 )]
 script = ExtResource( 3 )

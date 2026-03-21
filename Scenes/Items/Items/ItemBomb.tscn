@@ -35,6 +35,7 @@ radius = 0.0
 
 [node name="Bomb" instance=ExtResource( 2 )]
 item_name = "ITEM_BOMB"
+exp_size = 6.5
 explosion = ExtResource( 3 )
 
 [node name="CollisionShape2D" parent="." index="0"]
