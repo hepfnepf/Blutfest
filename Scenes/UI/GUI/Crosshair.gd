@@ -35,7 +35,7 @@ func init_values()->void:
 	if !dynamic:
 		set_static()
 
-	_on_crosshair_type_change(SaveManager.current_save_options["crosshair_type"])
+	#_on_crosshair_type_change(SaveManager.current_save_options["crosshair_type"])
 
 
 func set_spread(new_spread) -> void:

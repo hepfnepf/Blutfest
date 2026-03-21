@@ -34,6 +34,8 @@ func _ready() -> void:
 	pause_menu.set_debug_info(debug_info)
 	EventBus.connect("blood_overlay_enabled",self,"_on_blood_overlay_toggle")
 	blood.visible = SaveManager.current_save_options["blood_overlay_enabled"]
+	EventBus.connect("input_type_changed",self,"_on_input_type_changed")
+	call_deferred("_on_input_type_changed",Globals.last_input_mode)
 
 	if Globals.first_start:
 		instructions.call_deferred("popup")
@@ -168,7 +170,6 @@ func _on_player_death()->void:
 	death_screen.visible=true
 
 func set_cursor(cursor_type:int) -> void:
-#	Globals.cursor_manager.set_crosshair(crosshair)
 	Globals.cursor_manager.set_cursor(cursor_type)
 
 func _unhandled_input(_event):
@@ -177,3 +178,10 @@ func _unhandled_input(_event):
 		print_debug(SaveManager.get_current_key_binding_dict())
 	if Input.is_action_just_pressed("toggle_weapon_info"):
 		weapon_info.visible = !weapon_info.visible
+
+func _on_input_type_changed(new_mode:int)->void:
+	var sg = SaveManager.current_save_options
+	if new_mode==Globals.InputMode.KEYBOARD_MOUSE and sg["switch_crosshair_keyboard_enabled"]:
+		EventBus.emit_signal("crosshair_type_changed",sg["switch_crosshair_keyboard_type"])
+	elif new_mode==Globals.InputMode.CONTROLLER and sg["switch_crosshair_controller_enabled"]:
+		EventBus.emit_signal("crosshair_type_changed",sg["switch_crosshair_controller_type"])
