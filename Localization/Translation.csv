@@ -19,9 +19,11 @@ MAX_ENEMY_COUNT,Max. Enemys: %d,Max. Gegneranzahl: %d,Nombre max. d'ennemis : %d
 WINDOW_FULLSCREEN,Fullscreen,Vollbild,Mode plein écran,Pantalla completa
 WINDOW_VSYNC,V-Sync,V-Sync,V-Sync,V-Sync
 TOGGLE_BLOOD_ON_SCREEN_EFFECT,Blood effect on screen,Bildschirmbluteffekt,Effet de sang à l'écran,Efecto de sangre en pantalla
-CONE,Kreissektor,Cone,Cones,Cono
+AUTO_SWITCH_KEYBOARD,Automatically switch Crosshair - Keyboard,Fadenkreuz automatisch setzen - Tastatur,Définir le réticule automatiquement - Clavier,Fijar la mira automáticamente - Teclado
+AUTO_SWITCH_CONTROLLER,Automatically switch Crosshair - Controller,Fadenkreuz automatisch setzen - Controller,Définir le réticule automatiquement - Manette,Fijar la mira automáticamente - Controlador
+CONE,Cone,Kegel,Cones,Cono
 CROSSHAIR,Crosshair,Fadenkreuz,Réticule,Puntería
-BOTH,Beides,Both,Les deux,Ambos
+BOTH,Both,Beides,Les deux,Ambos
 DYNAMIC,Dynamic size,Dynamische größe,Taille dynamique,Tamaño dinámico
 COLOR,Color,Farbe,Couleur,Color
 SIZE,Size,Größe,Taille,Tamaño

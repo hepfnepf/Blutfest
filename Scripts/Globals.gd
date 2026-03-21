@@ -38,4 +38,4 @@ func switch_input_mode_by_event(event:InputEvent)->void:
 func set_last_input_mode(mode:int)->void:
 	if last_input_mode != mode:
 		last_input_mode = mode
-		#print_debug("New input mode: ", last_input_mode)
+		EventBus.emit_signal("input_type_changed",mode)

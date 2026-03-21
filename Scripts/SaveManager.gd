@@ -41,7 +41,11 @@ const new_save_options_dict = {
 	"language":"",
 	"key_bindings":{},
 	"deadzone_walking":0.3,
-	"deadzone_looking":0.2
+	"deadzone_looking":0.2,
+	"switch_crosshair_keyboard_enabled":false,
+	"switch_crosshair_keyboard_type":Globals.CrosshairType.CROSSHAIR,
+	"switch_crosshair_controller_enabled":true,
+	"switch_crosshair_controller_type":Globals.CrosshairType.CONE
 	}
 
 var standard_keybindings={}
@@ -261,7 +265,6 @@ func serialize_mouse_button(event:InputEventMouseButton)->Dictionary:
 		"device":event.device,
 		"index":event.button_index,
 	}
-	print_debug(toStore)
 	return toStore
 
 """

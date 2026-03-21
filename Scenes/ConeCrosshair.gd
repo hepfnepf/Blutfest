@@ -26,7 +26,6 @@ func init_values()->void:
 
 	_on_crosshair_color_change(color)
 	_on_crosshair_is_dynamic_change(dynamic)
-	_on_crosshair_type_change(SaveManager.current_save_options["crosshair_type"])
 
 #send and connected from the weapon
 func _on_spread_change(spread:float)->void:

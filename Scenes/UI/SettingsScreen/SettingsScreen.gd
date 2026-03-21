@@ -46,10 +46,15 @@ func load_settings()->void:
 	ui_tab.crosshair_dynamic_toggle.pressed=sg["crosshair_is_dynamic"]
 	ui_tab.crosshair_color_picker.color= Color(sg["crosshair_color"])
 	ui_tab.crosshair_size.value= sg["crosshair_size"]
-	ui_tab.current_crosshair=sg["crosshair_type"]
+	print_debug("load setting")
+	ui_tab.current_crosshair=sg["crosshair_type"]#the associated setter also creates the according signal
 	ui_tab.crosshair_cone_dynamic_toggle.pressed=sg["cone_crosshair_is_dynamic"]
 	ui_tab.crosshair_cone_color_picker.color=sg["crosshair_color"]
 	ui_tab.crosshair_cone_size.value=sg["cone_crosshair_size"]
+	ui_tab.auto_switch_keyboard.set_enabled(sg["switch_crosshair_keyboard_enabled"])
+	ui_tab.auto_switch_controller.set_enabled(sg["switch_crosshair_controller_enabled"])
+	ui_tab.auto_switch_keyboard.set_value(sg["switch_crosshair_keyboard_type"])
+	ui_tab.auto_switch_controller.set_value(sg["switch_crosshair_controller_type"])
 
 
 	game_tab.max_enemy_count_slider.value = sg["max_enemy_count"]
@@ -76,6 +81,11 @@ func store_settings()->void:
 	
 	sg["deadzone_walking"] = controls_tab.deadzone_movement.slider.value
 	sg["deadzone_looking"] = controls_tab.deadzone_looking.slider.value
+	
+	sg["switch_crosshair_keyboard_enabled"] =  ui_tab.auto_switch_keyboard.get_is_enabled()
+	sg["switch_crosshair_controller_enabled"] =  ui_tab.auto_switch_controller.get_is_enabled()
+	sg["switch_crosshair_keyboard_type"] = ui_tab.auto_switch_keyboard.get_value()
+	sg["switch_crosshair_controller_type"] = ui_tab.auto_switch_controller.get_value()
 	
 	#The according tabs are removed in android because none of the included settings make sense
 	if !Globals.android:
