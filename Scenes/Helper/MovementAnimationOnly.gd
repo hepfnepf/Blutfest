@@ -50,7 +50,7 @@ func reached_destination():
 func is_moving():
 	return (movement_vector != Vector2.ZERO)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if !alive:
 		return
 

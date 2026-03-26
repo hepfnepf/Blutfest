@@ -11,7 +11,7 @@ var damage:int = 0
 
 var patrol_destination:Vector2 = Vector2()
 
-
+#warning-ignore:unused_argument
 func initialize(movementNode,team):
 	self.movementNode = movementNode
 	movementNode.connect("reached_destination",self,"_on_reached_destination")
@@ -19,7 +19,7 @@ func initialize(movementNode,team):
 	movementNode.set_destination(patrol_destination)
 
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 

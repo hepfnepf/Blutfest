@@ -47,9 +47,8 @@ func _ready() -> void:
 	last_spawn = Time.get_ticks_msec()
 	switch_to_stage(STAGES.RENDER_TEST)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	gui.debug_info._on_enemy_count_changed()
-	var fps = Performance.get_monitor(Performance.TIME_FPS)
 
 	if current_stage == STAGES.RENDER_TEST:
 		perform_stage_render()

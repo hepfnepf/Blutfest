@@ -7,5 +7,5 @@ func _ready() -> void:
 func _on_Duration_timeout():
 	return
 
-func pick_up(player:Player):
+func pick_up(_player:Player):
 	return
