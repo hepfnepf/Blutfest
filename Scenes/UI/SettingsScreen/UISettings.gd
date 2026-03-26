@@ -18,6 +18,7 @@ var current_crosshair:int = Globals.CrosshairType.CROSSHAIR setget set_crosshair
 func _ready() -> void:
 	EventBus.connect("crosshair_color_change",self,"_on_crosshair_color_change")
 	EventBus.connect("cone_crosshair_is_dynamic",self,"_on_cone_crosshair_dynamic_change")
+	EventBus.connect("crosshair_type_changed",self,"_on_crosshair_type_changed")
 	if Globals.android:
 		removeNonAndroidFeatures()
 
@@ -34,12 +35,14 @@ func _on_CrosshairSize_value_changed(value: float) -> void:
 	EventBus.emit_signal("crosshair_size_change",value)
 
 func set_crosshair(crosshair:int)->void:
-	current_crosshair=crosshair
 	EventBus.emit_signal("crosshair_type_changed",crosshair)
+
+# We have this callback, because the crosshair type can also be changend in globals.gd based on input
+func _on_crosshair_type_changed(crosshair:int)->void:
 	switch_crosshair_type(crosshair)
 
-
 func switch_crosshair_type(c:int)->void:
+	current_crosshair=c
 	if c == Globals.CrosshairType.CROSSHAIR:
 		crosshair_type.text=tr("CROSSHAIR")
 		crosshair_grid.visible=true
