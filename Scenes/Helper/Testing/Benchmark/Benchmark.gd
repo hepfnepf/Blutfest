@@ -48,7 +48,7 @@ func _ready() -> void:
 	switch_to_stage(STAGES.RENDER_TEST)
 
 func _process(delta: float) -> void:
-	debug_gui._on_enemy_count_changed()
+	gui.debug_info._on_enemy_count_changed()
 	var fps = Performance.get_monitor(Performance.TIME_FPS)
 
 	if current_stage == STAGES.RENDER_TEST:
@@ -201,3 +201,9 @@ func clear_enemies()->void:
 #Remove main class function
 func initial_spawning()->void:
 	pass
+
+func initial_spawning_enemies():
+	return
+
+func initial_spawning_items():
+	return
