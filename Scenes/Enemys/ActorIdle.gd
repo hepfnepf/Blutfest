@@ -39,7 +39,7 @@ func _ready():
 	movement.initialize(self, animation_player)
 	ai.initialize(movement)
 
-
+# warning-ignore:unused_argument
 func handle_hit(damage:int, type:int = 1):
 	if alive:
 		health_Node.health -= damage

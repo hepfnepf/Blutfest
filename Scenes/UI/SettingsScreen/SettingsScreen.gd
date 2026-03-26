@@ -29,12 +29,12 @@ func show()->void:
 	popup()
 	visible=true
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	if visible:
 		if Input.is_action_just_pressed("ui_switch_tab_next"):
-			tab_container.current_tab= clamp(tab_container.current_tab+1,0,tab_container.get_tab_count()-1)
+			tab_container.current_tab= clamp(tab_container.current_tab+1,0,tab_container.get_tab_count()-1) as int
 		elif Input.is_action_just_pressed("ui_switch_tab_previous"):
-			tab_container.current_tab= clamp(tab_container.current_tab-1,0,tab_container.get_tab_count()-1)
+			tab_container.current_tab= clamp(tab_container.current_tab-1,0,tab_container.get_tab_count()-1) as int
 		if Input.is_action_just_pressed("ui_cancel"):# and Globals.get_current_focus_manager()==main_focus_manager:
 			accept_event()
 			_on_ExitButton_pressed()

@@ -14,7 +14,7 @@ func show()->void:
 func hide_background_color()->void:
 	$ColorRect.color = Color(0,0,0,0)
 
-func _unhandled_input(event)->void:
+func _unhandled_input(_event)->void:
 	if Input.is_action_just_pressed("Escape") or Input.is_action_just_pressed("ui_cancel"):
 		if visible:
 			accept_event()

@@ -32,7 +32,7 @@ func set_translated_language(new_langauge)->void:
 func grab_focus()->void:
 	$"%TextureButton".grab_focus()
 
-func _on_TextureButton_toggled(button_pressed: bool) -> void:
+func _on_TextureButton_toggled(_button_pressed: bool) -> void:
 	TranslationServer.set_locale(language_id)
 	emit_signal("new_language_selected",self)
 

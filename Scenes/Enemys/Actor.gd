@@ -48,6 +48,7 @@ func _ready():
 
 	connect("enemy_dead",game,"_on_enemy_killed")
 
+#warning-ignore:unused_argument
 func handle_hit(damage:int, type:int = 1) -> int:
 	if alive:
 		var damage_taken = clamp(damage*player.damage_multi,0,health_Node.health)

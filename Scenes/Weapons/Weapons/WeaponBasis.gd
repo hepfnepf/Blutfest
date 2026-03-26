@@ -2,8 +2,10 @@ extends Node2D
 class_name Weapon
 
 signal ammo_changed
+#warning-ignore:unused_signal
 signal max_ammo_changed
 signal reload_percent_change
+#warning-ignore:unused_signal
 signal updated_weapon_stats(weapon)
 
 signal spread_changed(new_spread)

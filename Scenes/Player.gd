@@ -215,7 +215,7 @@ func set_health(new_health:int)->void:
 		else:
 			health=max_health
 	else:
-		health_lost += clamp(health-new_health,0,health)
+		health_lost += clamp(health-new_health,0,health) as int
 		health = new_health
 
 	if health>_health_before:
@@ -387,7 +387,7 @@ func next_exp_limit():
 	if experience_limit < 6_400:
 		experience_limit = experience_limit*2
 	else:
-		experience_limit = experience_limit*1.5
+		experience_limit = experience_limit*1.5 as int
 	emit_signal("exp_limit_changed",experience_limit)
 
 func change_invincibility(change:int):#function to be used from effect to turn the player invincible, it handles stacking of the effect

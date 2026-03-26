@@ -17,7 +17,7 @@ func load_file(file) -> String:
 	f.close()
 	return txt
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_pressed("ui_down"):
 		get_v_scroll().value += 1
 	elif Input.is_action_pressed("ui_up"):

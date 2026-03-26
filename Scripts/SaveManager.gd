@@ -465,13 +465,13 @@ func performe_upgrade_steps_save_options(save_options):
 		perform_save_options_upgrade_step(save_options)
 	#return new_save_option
 
-func perform_save_game_upgrade_step(save_game):
+func perform_save_game_upgrade_step(_save_game):
 	#Savegame update steps. E.g
 	#if save_game["version"]==1:
 	#	save_game[example] = 2*save_game[example]
 	pass
 
-func perform_save_options_upgrade_step(save_options):
+func perform_save_options_upgrade_step(_save_options):
 	#options save update steps. E.g if save_game["version"]==1:	...
 	pass
 

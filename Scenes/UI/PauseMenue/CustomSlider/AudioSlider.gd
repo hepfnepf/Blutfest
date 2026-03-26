@@ -38,7 +38,7 @@ func value_change_code(value:float)->void:#wrapper  in case the vslider value ge
 func grab_focus()->void:
 	toggle_button.grab_focus()
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	if Input.is_action_just_pressed("ui_cancel"):
 		if slider.has_focus():
 			toggle_button.grab_focus()
