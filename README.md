@@ -5,10 +5,10 @@ A WIP Crimsonland clone inspired by the unfished and no longer maintained FOSS-G
 - 30+ Perks
 - 10 Items
 
-## Just finished: 0.4.2
-- 2 new perks
-- Completly redesigned settings
-- Additional languages: French and Spanish
+## Just finished: 0.4.3
+- Android support
+- Controller support
+- Balancing improvements
 
 ## Screenshots:
 ![screenshot-1713461070](https://github.com/hepfnepf/Blutfest/assets/69308038/a376801c-0a7e-4264-baaf-ee5ff64aec2e)
