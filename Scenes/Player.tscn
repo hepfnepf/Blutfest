@@ -1292,6 +1292,7 @@ bus = "SFX"
 [node name="RegenerationTimer" type="Timer" parent="."]
 
 [node name="ConeCrosshair" parent="." instance=ExtResource( 50 )]
+visible = false
 
 [connection signal="area_entered" from="ItemInteractionZone" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="ElapsedTime" to="." method="_on_ElapsedTime_timeout"]

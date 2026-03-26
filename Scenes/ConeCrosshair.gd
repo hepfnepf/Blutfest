@@ -16,7 +16,16 @@ func _ready() -> void:
 	EventBus.connect("cone_crosshair_is_dynamic",self,"_on_crosshair_is_dynamic_change")
 	EventBus.connect("cone_crosshair_size_change",self,"_on_crosshair_size_change")
 	EventBus.connect("settings_reset",self,"init_values")
+	
+	
+	_on_crosshair_type_change(SaveManager.current_save_options["crosshair_type"])
 	EventBus.connect("crosshair_type_changed",self,"_on_crosshair_type_change")
+	# Problem: Because of the order, in which the nodes are initiallized, this node does not get
+	# the first call of crosshair_type_changed. Therefore, we run the function manually, which is
+	# admittedly very ugly. Changes also need to
+	Globals._on_input_type_changed(Globals.last_input_mode)
+	
+	
 
 
 func init_values()->void:

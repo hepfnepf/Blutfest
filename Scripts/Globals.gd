@@ -32,10 +32,18 @@ func switch_input_mode_by_event(event:InputEvent)->void:
 		set_last_input_mode(InputMode.CONTROLLER)
 	elif event.get_class() in ["InputEventScreenTouch", "InputEventScreenDrag"]:
 		set_last_input_mode(InputMode.TOUCH)
-	elif event.get_class() in ["InputEventMouseButton","InputEventKey"]:
+	elif event.get_class() in ["InputEventMouseButton","InputEventKey", "InputEventMouseMotion"]:
 		set_last_input_mode(InputMode.KEYBOARD_MOUSE)
 
 func set_last_input_mode(mode:int)->void:
 	if last_input_mode != mode:
 		last_input_mode = mode
 		EventBus.emit_signal("input_type_changed",mode)
+		_on_input_type_changed(mode)
+
+func _on_input_type_changed(new_mode:int)->void:
+	var sg = SaveManager.current_save_options
+	if new_mode==Globals.InputMode.KEYBOARD_MOUSE and sg["switch_crosshair_keyboard_enabled"]:
+		EventBus.emit_signal("crosshair_type_changed",sg["switch_crosshair_keyboard_type"])
+	elif new_mode==Globals.InputMode.CONTROLLER and sg["switch_crosshair_controller_enabled"]:
+		EventBus.emit_signal("crosshair_type_changed",sg["switch_crosshair_controller_type"])
