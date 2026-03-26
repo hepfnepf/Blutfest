@@ -120,6 +120,7 @@ func init_game()->void:
 	if OS.get_name()=="Android":
 		Globals.android=true
 		current_save_options["crosshair_type"] = Globals.CrosshairType.CONE
+		InputMap.action_erase_events("fire") # Otherwise, using the joypads would be shooting, since every touch == klick
 	
 	
 
