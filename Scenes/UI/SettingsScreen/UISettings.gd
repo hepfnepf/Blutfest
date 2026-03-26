@@ -10,6 +10,7 @@ onready var crosshair_cone_size:Slider=$"%CrosshairConeSize"
 onready var crosshair_type =$MarginContainer/VBoxContainer/HBoxContainer/CrosshairTypeLabel
 onready var crosshair_grid=$MarginContainer/VBoxContainer/CrosshairGrid
 onready var cone_grid = $MarginContainer/VBoxContainer/CrosshairCone
+onready var crosshair_type_label:Label= $"%CrosshairTypeLabel"
 onready var auto_switch_keyboard = $"%AutoSwitchKeyboard"
 onready var auto_switch_controller = $"%AutoSwitchController"
 
@@ -73,6 +74,9 @@ func enable_disable_cone_size_slider(enabled:bool)->void:
 func removeNonAndroidFeatures() -> void:
 	$"%CrosshairSwitchButtonLeft".visible=false
 	$"%CrosshairSwitchButtonRight".visible=false
+	crosshair_type_label.visible=false
+	auto_switch_keyboard.visible=false
+	auto_switch_controller.visible=false
 	switch_crosshair_type(Globals.CrosshairType.CONE)
 
 func _on_CrosshairSwitchButtonLeft_pressed() -> void:

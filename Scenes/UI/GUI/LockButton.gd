@@ -12,21 +12,6 @@ extends  "res://Scenes/UI/GUI/TouchableButton.gd"
 
 export(Color) var locked_color = Color(1,1,1,0)
 
-
-func _on_Button_pressed()->void:
-	var lockEvent:InputEventAction = InputEventAction.new()
-	lockEvent.action = "lock_weapon"
-	lockEvent.pressed = true
-	Input.parse_input_event(lockEvent)
-	call_deferred("resetLockKey")
-
-func resetLockKey() -> void:
-	var lockEvent:InputEventAction = InputEventAction.new()
-	lockEvent.action = "lock_weapon"
-	lockEvent.pressed = false
-	Input.parse_input_event(lockEvent)
-
-
 func switch_to_lockstate(new_state:bool)->void:
 	if new_state:
 		modulate = locked_color;

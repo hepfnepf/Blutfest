@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/UI/MainMenuTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Sprites/UI/reload_ammo-box.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/UI/GUI/ReloadButton.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/UI/GUI/TouchableButton.gd" type="Script" id=3]
 
 [node name="ReloadButton" type="Button"]
 margin_left = 159.0
@@ -17,5 +17,6 @@ icon = ExtResource( 2 )
 icon_align = 1
 expand_icon = true
 script = ExtResource( 3 )
+action = "reload"
 
 [connection signal="pressed" from="." to="." method="_on_Button_pressed"]

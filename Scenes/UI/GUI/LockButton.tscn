@@ -17,6 +17,7 @@ icon = ExtResource( 2 )
 icon_align = 1
 expand_icon = true
 script = ExtResource( 3 )
+action = "lock_weapon"
 locked_color = Color( 1, 0.839216, 0.215686, 1 )
 
 [connection signal="pressed" from="." to="." method="_on_Button_pressed"]
