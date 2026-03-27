@@ -135,8 +135,8 @@ func _on_new_perk_selection(perks, raritys):
 	card_holder.visible=true
 	card_holder.draw_cards()
 
-
-	set_cursor(Globals.cursor_manager.CURSOR_TYPE.DEFAULT)
+	if Globals.last_input_mode == Globals.InputMode.KEYBOARD_MOUSE:
+		set_cursor(Globals.cursor_manager.CURSOR_TYPE.DEFAULT)
 
 func _on_card_selected(card:PerkCard)->void:
 	player.add_child(card.perk.instance())
